@@ -1,0 +1,11 @@
+# Dependencies
+*/node_modules/
+jinja/.venv/
+rails/.gems/
+rails/.bundle/
+marko/suite_*.compiled.mjs
+svelte/suite_*.compiled.mjs
+
+# Deno
+deno/node_modules/
+deno/deno.lock

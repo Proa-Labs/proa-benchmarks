@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="turbo-refresh-method" content="morph"/>
+<meta name="turbo-refresh-scroll" content="preserve"/>
+<script type="importmap">{"imports":{"react":"https://esm.sh/react@19","react/jsx-runtime":"https://esm.sh/react@19/jsx-runtime","react-dom":"https://esm.sh/react-dom@19","react-dom/client":"https://esm.sh/react-dom@19/client"}}</script>
+<title><%= self.title %> | Coast Stays</title><style><%- self.css %></style>
+<script type="module">import * as Turbo from "https://esm.sh/@hotwired/turbo@8.0.12";</script>
+<script src="https://cdn.tailwindcss.com"></script>
+</head><body class="bg-white text-[#222] air-demo-page">
+<header class="air-topbar">
+    <div class="air-shell">
+        <div class="air-topbar-inner grid grid-cols-[auto_1fr_auto] items-center gap-5">
+            <a href="/showcase/airbnb" class="flex items-center gap-2.5 text-[#FF385C] font-semibold text-[28px] leading-none tracking-[-0.02em]">
+                <svg viewBox="0 0 32 32" width="32" height="32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="3" width="26" height="26" rx="8" fill="#FF385C"/><path d="M10 22V10h7.5a5 5 0 0 1 0 10H14v2h-4zm4-6h3.5a1 1 0 0 0 0-2H14v2z" fill="white"/></svg>
+                <span class="text-[30px] leading-none">Coast Stays</span>
+            </a>
+            <div class="flex justify-center">
+                <a href="/showcase/airbnb/search" class="air-search-pill hidden md:flex items-center h-12 rounded-full border border-[var(--air-line)] bg-white px-2">
+                    <span class="px-4 text-sm font-semibold">Anywhere</span>
+                    <span class="h-6 w-px bg-[var(--air-line)]"></span>
+                    <span class="px-4 text-sm font-semibold">Any week</span>
+                    <span class="h-6 w-px bg-[var(--air-line)]"></span>
+                    <span class="px-4 text-sm text-[var(--air-muted)]">Add guests</span>
+                    <span class="ml-1 flex h-8 w-8 items-center justify-center rounded-full bg-[#FF385C] text-white">
+                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display:block;fill:none;height:12px;width:12px;stroke:currentColor;stroke-width:5.333;overflow:visible" aria-hidden="true" role="presentation" focusable="false"><path d="m13 24c6.0751 0 11-4.9249 11-11 0-6.0751-4.9249-11-11-11-6.0751 0-11 4.9249-11 11 0 6.0751 4.9249 11 11 11zm8-3 10 10"/></svg>
+                    </span>
+                </a>
+                <a href="/showcase/airbnb/search" class="air-search-pill flex md:hidden items-center gap-3 rounded-full border border-[var(--air-line)] bg-white px-4 py-3">
+                    <span class="flex h-8 w-8 items-center justify-center rounded-full bg-[#FF385C] text-white">
+                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display:block;fill:none;height:12px;width:12px;stroke:currentColor;stroke-width:5.333;overflow:visible" aria-hidden="true" role="presentation" focusable="false"><path d="m13 24c6.0751 0 11-4.9249 11-11 0-6.0751-4.9249-11-11-11-6.0751 0-11 4.9249-11 11 0 6.0751 4.9249 11 11 11zm8-3 10 10"/></svg>
+                    </span>
+                    <span class="text-sm font-semibold">Start your search</span>
+                </a>
+            </div>
+            <div class="flex items-center justify-end gap-2">
+                <a href="/showcase/airbnb" class="hidden md:block rounded-full px-4 py-3 text-sm font-semibold hover:bg-[var(--air-soft)]">List your home</a>
+                <button class="hidden md:flex h-10 w-10 items-center justify-center rounded-full hover:bg-[var(--air-soft)]" aria-label="Language">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true" role="presentation" focusable="false" style="display:block;height:16px;width:16px;fill:currentcolor;"><path d="M8 .25a7.77 7.77 0 0 1 7.75 7.78 7.75 7.75 0 0 1-7.52 7.72h-.25A7.75 7.75 0 0 1 .25 8.24v-.25A7.75 7.75 0 0 1 8 .25zm1.95 8.5h-3.9c.15 2.9 1.17 5.34 1.88 5.5H8c.68 0 1.72-2.37 1.93-5.23zm4.26 0h-2.76c-.09 1.96-.53 3.78-1.18 5.08A6.26 6.26 0 0 0 14.17 9zm-9.67 0H1.8a6.26 6.26 0 0 0 3.94 5.08 12.59 12.59 0 0 1-1.16-4.7l-.03-.38zm1.2-6.58-.12.05a6.26 6.26 0 0 0-3.83 5.03h2.75c.09-1.83.48-3.54 1.06-4.81zm2.25-.42c-.7 0-1.78 2.51-1.94 5.5h3.9c-.15-2.9-1.18-5.34-1.89-5.5h-.07zm2.28.43.03.05a12.95 12.95 0 0 1 1.15 5.02h2.75a6.28 6.28 0 0 0-3.93-5.07z"></path></svg>
+                </button>
+                <button class="air-search-pill flex items-center gap-3 rounded-full border border-[var(--air-line)] bg-white pl-3 pr-2.5 py-1.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+                    <div class="flex h-8 w-8 items-center justify-center rounded-full bg-[#6A6A6A] text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12c2.209 0 4-1.791 4-4S14.209 4 12 4s-4 1.791-4 4 1.791 4 4 4zm0 2c-2.673 0-8 1.327-8 3.963V20h16v-2.037C20 15.327 14.673 14 12 14z"/></svg>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="air-shell pt-8 pb-5">
+    <p class="mb-2 text-sm font-medium text-[var(--air-muted)]"><%= self.subtitle %></p>
+    <h1 class="mb-1 text-[32px] font-semibold tracking-[-0.04em] text-[#222]"><%= self.title %></h1>
+    <p class="mb-5 text-sm text-[var(--air-muted)]"><%= self.listings.len() %> stays · <%= self.stay_info %></p>
+    <div class="flex flex-wrap gap-2">
+        <% for filter in &self.filters { %>
+        <button class="filter-pill rounded-full border border-[var(--air-line-strong)] bg-white px-4 py-2.5 text-sm text-[#222] transition-colors hover:border-[#222]"><%= filter %></button>
+        <% } %>
+    </div>
+</div>
+<div class="air-shell pb-8">
+    <div class="grid grid-cols-1 gap-8 xl:grid-cols-[minmax(0,58%)_minmax(360px,42%)]">
+        <div class="divide-y divide-[var(--air-line)]">
+            <% for (i, listing) in self.listings.iter().enumerate() { %>
+            <% let badge_class = if i % 2 == 0 { "absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-[#222] shadow-sm" } else { "hidden" }; %>
+            <% let badge_text = if i % 2 == 0 { "Guest favorite" } else { "" }; %>
+            <a href="/showcase/airbnb/listing" class="search-result-card group grid grid-cols-1 gap-5 rounded-[20px] py-6 transition-colors md:grid-cols-[315px_minmax(0,1fr)]" data-map-index="<%= i %>">
+                <div class="air-card-image relative md:h-[212px]">
+                    <img src="<%= listing.image %>" alt="<%= listing.title %>" class="h-full w-full object-cover" loading="lazy" decoding="async" fetchpriority="low"/>
+                    <span class="<%= badge_class %>"><%= badge_text %></span>
+                    <button class="heart-btn absolute right-3 top-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,.4))"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </button>
+                </div>
+                <div class="flex min-w-0 flex-col justify-between">
+                    <div>
+                        <p class="text-sm text-[var(--air-muted)]"><%= listing.property_type %> · <%= listing.beds %> bed<%= if listing.beds != 1 { "s" } else { "" } %> · <%= listing.baths %> bath<%= if listing.baths != 1 { "s" } else { "" } %></p>
+                        <h3 class="mt-2 text-[22px] font-medium leading-7 tracking-[-0.02em] text-[#222]"><%= listing.title %></h3>
+                        <div class="my-4 h-px w-10 bg-[var(--air-line)]"></div>
+                        <p class="text-[15px] leading-5 text-[var(--air-muted)]"><%= listing.location %></p>
+                        <p class="mt-1 text-[15px] leading-5 text-[var(--air-muted)]">Free cancellation for 48 hours · Ocean-facing deck</p>
+                    </div>
+                    <div class="mt-6 flex items-end justify-between gap-4">
+                        <div class="flex items-center gap-1 text-sm text-[#222]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#FF385C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <span><%= listing.rating %></span>
+                            <span class="text-[var(--air-muted)]">(<%= listing.reviews_count %> reviews)</span>
+                        </div>
+                        <p class="text-right text-[15px] leading-5 text-[#222]">
+                            <span class="font-semibold">$<%= listing.price_per_night %></span> night
+                            <span class="block text-[var(--air-muted)]">7 nights total available</span>
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <% } %>
+        </div>
+        <div class="hidden xl:block">
+            <div class="air-map sticky top-24 h-[calc(100vh-8rem)] overflow-hidden rounded-[24px] border border-[var(--air-line)]">
+                <div class="absolute left-[18%] top-[18%] h-36 w-52 rounded-full bg-white/45 blur-3xl"></div>
+                <div class="absolute inset-0 opacity-40">
+                    <svg viewBox="0 0 600 900" class="h-full w-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M32 160C170 70 300 112 372 184c84 84 172 108 196 186 30 98-34 184-110 232-122 76-230 34-316 92-80 54-118 138-118 138" fill="none" stroke="#d7d2c7" stroke-width="20" stroke-linecap="round"/>
+                        <path d="M110 94c56 46 116 66 166 62 74-6 98 18 158 74" fill="none" stroke="#cfd7cb" stroke-width="16" stroke-linecap="round"/>
+                        <path d="M420 530c18 48 18 106-4 162" fill="none" stroke="#d7d2c7" stroke-width="14" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <% if !self.listings.is_empty() { %><button class="air-price-pin left-[20%] top-[24%]" data-map-pin="0" type="button">$<%= self.listings[0].price_per_night %></button><% } %>
+                <% if self.listings.len() > 5 { %><button class="air-price-pin left-[58%] top-[19%]" data-map-pin="5" type="button">$<%= self.listings[5].price_per_night %></button><% } %>
+                <% if self.listings.len() > 1 { %><button class="air-price-pin left-[50%] top-[41%]" data-map-pin="1" type="button">$<%= self.listings[1].price_per_night %></button><% } %>
+                <% if self.listings.len() > 2 { %><button class="air-price-pin left-[26%] top-[56%]" data-map-pin="2" type="button">$<%= self.listings[2].price_per_night %></button><% } %>
+                <% if self.listings.len() > 4 { %><button class="air-price-pin left-[64%] top-[63%]" data-map-pin="4" type="button">$<%= self.listings[4].price_per_night %></button><% } %>
+                <div class="absolute bottom-5 left-5 rounded-full bg-[#222] px-5 py-3 text-sm font-semibold text-white shadow-lg">Show map</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="border-t border-b border-[#e2c56b] bg-[#fef9eb]">
+    <div class="air-shell">
+        <p class="py-3 text-xs text-[#7a6520] leading-relaxed text-center">
+            <strong>Synthetic benchmark:</strong> Coast Stays uses Proa-authored data, markup, and illustrations so this repository can be redistributed independently.
+        </p>
+    </div>
+</div>
+<footer class="border-t border-[var(--air-line)] bg-[var(--air-soft)]">
+    <div class="air-shell">
+        <div class="grid grid-cols-1 gap-8 py-12 text-sm md:grid-cols-3">
+            <div>
+                <h4 class="mb-3 font-semibold">Support</h4>
+                <ul class="space-y-2 text-[var(--air-muted)]">
+                    <li><a href="#support" class="hover:underline">Help Center</a></li>
+                    <li><a href="#support" class="hover:underline">Booking protection</a></li>
+                    <li><a href="#support" class="hover:underline">Cancellation options</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="mb-3 font-semibold">Hosting</h4>
+                <ul class="space-y-2 text-[var(--air-muted)]">
+                    <li><a href="#hosting" class="hover:underline">List your home</a></li>
+                    <li><a href="#hosting" class="hover:underline">Hosting resources</a></li>
+                    <li><a href="#hosting" class="hover:underline">Community forum</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="mb-3 font-semibold">Coast Stays</h4>
+                <ul class="space-y-2 text-[var(--air-muted)]">
+                    <li><a href="#about" class="hover:underline">Newsroom</a></li>
+                    <li><a href="#about" class="hover:underline">Careers</a></li>
+                    <li><a href="#about" class="hover:underline">Investors</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="flex flex-col gap-4 border-t border-[var(--air-line)] py-6 text-sm text-[var(--air-muted)] md:flex-row md:items-center md:justify-between">
+            <p>© Proa · Fictional benchmark content</p>
+            <p>Built with <a href="/" class="underline">Proa UI</a> (showcase demo)</p>
+        </div>
+    </div>
+</footer>
+</body></html>

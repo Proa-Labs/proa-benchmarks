@@ -1,0 +1,50 @@
+name: Configure Rust compiler cache
+description: Enable PR-safe GitHub Actions caching or trusted GCS caching
+
+inputs:
+  cache-backend:
+    description: Compiler cache backend, either gha or gcs
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Validate cache backend
+      shell: bash
+      env:
+        CACHE_BACKEND: ${{ inputs.cache-backend }}
+      run: |
+        set -euo pipefail
+        case "$CACHE_BACKEND" in
+          gha|gcs) ;;
+          *)
+            echo "unsupported sccache backend: $CACHE_BACKEND" >&2
+            exit 1
+            ;;
+        esac
+
+    - name: Install pinned sccache
+      uses: mozilla-actions/sccache-action@fc920bf0ec8de6ee65d409111f7ec508035751ba # v0.0.11
+      with:
+        version: v0.17.0
+
+    - name: Enable GitHub Actions sccache
+      if: inputs.cache-backend == 'gha'
+      shell: bash
+      run: |
+        set -euo pipefail
+        {
+          echo "RUSTC_WRAPPER=sccache"
+          echo "SCCACHE_GHA_ENABLED=on"
+        } >> "$GITHUB_ENV"
+
+    - name: Enable trusted GCS sccache
+      if: inputs.cache-backend == 'gcs'
+      shell: bash
+      run: |
+        set -euo pipefail
+        {
+          echo "RUSTC_WRAPPER=sccache"
+          echo "SCCACHE_GCS_BUCKET=proa-ci-sccache"
+          echo "SCCACHE_GCS_RW_MODE=READ_WRITE"
+        } >> "$GITHUB_ENV"

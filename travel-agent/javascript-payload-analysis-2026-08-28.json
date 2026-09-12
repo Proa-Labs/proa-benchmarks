@@ -1,0 +1,2317 @@
+{
+  "sourceCapturedAt": "2026-08-28T23:47:34.829427+00:00",
+  "runIndex": 0,
+  "config": {
+    "runs": 1,
+    "mode": "current",
+    "latencyMs": 40,
+    "downloadMbps": 100,
+    "surfaces": [
+      "flights",
+      "airbnb",
+      "hotels",
+      "grand_wailea",
+      "enterprise"
+    ],
+    "llmCalls": 0,
+    "detailedTimings": true,
+    "javascriptCoverage": true
+  },
+  "method": {
+    "transferUnits": "Playwright responseBodySize bytes for completed positive-size script responses",
+    "coverageUnits": "UTF-16 source characters reported by V8",
+    "coverageScope": "main renderer, URL-bearing parsed scripts; workers excluded",
+    "coverageCaveat": "Coverage records source ranges entered during this exact workflow. It is not a byte-for-byte attribution of compressed transfer, and repeated document contexts can execute the same cached source more than once."
+  },
+  "carryoverReattribution": [
+    {
+      "recordedSurface": "enterprise",
+      "effectiveSurface": "grand_wailea",
+      "transferBytes": 209547
+    },
+    {
+      "recordedSurface": "hotels",
+      "effectiveSurface": "airbnb",
+      "transferBytes": 79759
+    }
+  ],
+  "surfaces": {
+    "flights": {
+      "label": "Google Flights",
+      "transferBytes": 870947,
+      "requests": 23,
+      "hosts": 1,
+      "coverageScripts": 49,
+      "coverageSourceCharacters": 3028481,
+      "coverageUsedCharacters": 1440292,
+      "coverageUsedPercent": 47.55823133775645,
+      "categories": [
+        {
+          "category": "product",
+          "label": "Product and site UI",
+          "transferBytes": 870947,
+          "transferPercent": 100.0,
+          "requests": 23,
+          "coverageSourceCharacters": 3028481,
+          "coverageUsedCharacters": 1440292,
+          "coverageUsedPercent": 47.55823133775645
+        }
+      ],
+      "topHosts": [
+        {
+          "host": "www.gstatic.com",
+          "transferBytes": 870947,
+          "requests": 23
+        }
+      ],
+      "topTransfers": [
+        {
+          "name": "www.gstatic.com/Google module batch (105 modules)",
+          "category": "product",
+          "transferBytes": 228837
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (9 modules)",
+          "category": "product",
+          "transferBytes": 176179
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (2 modules)",
+          "category": "product",
+          "transferBytes": 121089
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "transferBytes": 81068
+        },
+        {
+          "name": "www.gstatic.com/rs=AA2YrTvdvpGucaAMR4eK0e9r7UJAmiUgKQ",
+          "category": "product",
+          "transferBytes": 73750
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (58 modules)",
+          "category": "product",
+          "transferBytes": 70348
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (6 modules)",
+          "category": "product",
+          "transferBytes": 39267
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (3 modules)",
+          "category": "product",
+          "transferBytes": 25949
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (3 modules)",
+          "category": "product",
+          "transferBytes": 17465
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (3 modules)",
+          "category": "product",
+          "transferBytes": 8804
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "transferBytes": 5553
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "transferBytes": 5123
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "transferBytes": 3574
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (3 modules)",
+          "category": "product",
+          "transferBytes": 2715
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (3 modules)",
+          "category": "product",
+          "transferBytes": 2211
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (9 modules)",
+          "category": "product",
+          "transferBytes": 1707
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (4 modules)",
+          "category": "product",
+          "transferBytes": 1639
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "transferBytes": 1378
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (4 modules)",
+          "category": "product",
+          "transferBytes": 1377
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "transferBytes": 1055
+        }
+      ],
+      "topUnused": [
+        {
+          "name": "www.gstatic.com/Google module batch (105 modules)",
+          "category": "product",
+          "sourceCharacters": 688456,
+          "usedCharacters": 323576,
+          "unusedCharacters": 364880,
+          "usedPercent": 47.00024402430947
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (9 modules)",
+          "category": "product",
+          "sourceCharacters": 591289,
+          "usedCharacters": 233129,
+          "unusedCharacters": 358160,
+          "usedPercent": 39.42725131027298
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "sourceCharacters": 273172,
+          "usedCharacters": 18517,
+          "unusedCharacters": 254655,
+          "usedPercent": 6.778513171188847
+        },
+        {
+          "name": "www.gstatic.com/rs=AA2YrTvdvpGucaAMR4eK0e9r7UJAmiUgKQ",
+          "category": "product",
+          "sourceCharacters": 200407,
+          "usedCharacters": 47849,
+          "unusedCharacters": 152558,
+          "usedPercent": 23.875912518025817
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (58 modules)",
+          "category": "product",
+          "sourceCharacters": 227194,
+          "usedCharacters": 84578,
+          "unusedCharacters": 142616,
+          "usedPercent": 37.22721550745178
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (2 modules)",
+          "category": "product",
+          "sourceCharacters": 341524,
+          "usedCharacters": 230651,
+          "unusedCharacters": 110873,
+          "usedPercent": 67.53581007484101
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (6 modules)",
+          "category": "product",
+          "sourceCharacters": 161094,
+          "usedCharacters": 93201,
+          "unusedCharacters": 67893,
+          "usedPercent": 57.8550411560952
+        },
+        {
+          "name": "www.google.com/flights",
+          "category": "product",
+          "sourceCharacters": 52429,
+          "usedCharacters": 19771,
+          "unusedCharacters": 32658,
+          "usedPercent": 37.7100459669267
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (3 modules)",
+          "category": "product",
+          "sourceCharacters": 70077,
+          "usedCharacters": 44304,
+          "unusedCharacters": 25773,
+          "usedPercent": 63.22188449848024
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (3 modules)",
+          "category": "product",
+          "sourceCharacters": 48165,
+          "usedCharacters": 23156,
+          "unusedCharacters": 25009,
+          "usedPercent": 48.07640402782103
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "sourceCharacters": 15883,
+          "usedCharacters": 575,
+          "unusedCharacters": 15308,
+          "usedPercent": 3.6202228798086002
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "sourceCharacters": 12976,
+          "usedCharacters": 3942,
+          "unusedCharacters": 9034,
+          "usedPercent": 30.379161528976574
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (3 modules)",
+          "category": "product",
+          "sourceCharacters": 23889,
+          "usedCharacters": 15779,
+          "unusedCharacters": 8110,
+          "usedPercent": 66.05132069153167
+        },
+        {
+          "name": "www.google.com/flights",
+          "category": "product",
+          "sourceCharacters": 22221,
+          "usedCharacters": 16718,
+          "unusedCharacters": 5503,
+          "usedPercent": 75.2351379325863
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "sourceCharacters": 9535,
+          "usedCharacters": 6596,
+          "unusedCharacters": 2939,
+          "usedPercent": 69.1767173571054
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (3 modules)",
+          "category": "product",
+          "sourceCharacters": 5816,
+          "usedCharacters": 3773,
+          "unusedCharacters": 2043,
+          "usedPercent": 64.87276478679505
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (4 modules)",
+          "category": "product",
+          "sourceCharacters": 3345,
+          "usedCharacters": 1435,
+          "unusedCharacters": 1910,
+          "usedPercent": 42.89985052316891
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "sourceCharacters": 1886,
+          "usedCharacters": 437,
+          "unusedCharacters": 1449,
+          "usedPercent": 23.170731707317074
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (3 modules)",
+          "category": "product",
+          "sourceCharacters": 4820,
+          "usedCharacters": 3446,
+          "unusedCharacters": 1374,
+          "usedPercent": 71.49377593360995
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (4 modules)",
+          "category": "product",
+          "sourceCharacters": 3209,
+          "usedCharacters": 2031,
+          "unusedCharacters": 1178,
+          "usedPercent": 63.29074478030539
+        }
+      ],
+      "repeatedPaths": []
+    },
+    "airbnb": {
+      "label": "Airbnb",
+      "transferBytes": 6672318,
+      "requests": 239,
+      "hosts": 7,
+      "coverageScripts": 192,
+      "coverageSourceCharacters": 16956784,
+      "coverageUsedCharacters": 8448573,
+      "coverageUsedPercent": 49.82414707883287,
+      "categories": [
+        {
+          "category": "product",
+          "label": "Product and site UI",
+          "transferBytes": 5271718,
+          "transferPercent": 79.00879424511841,
+          "requests": 224,
+          "coverageSourceCharacters": 13837440,
+          "coverageUsedCharacters": 6998249,
+          "coverageUsedPercent": 50.574737812774615
+        },
+        {
+          "category": "maps",
+          "label": "Maps",
+          "transferBytes": 494904,
+          "transferPercent": 7.417272378204996,
+          "requests": 10,
+          "coverageSourceCharacters": 1769153,
+          "coverageUsedCharacters": 691224,
+          "coverageUsedPercent": 39.07090002956217
+        },
+        {
+          "category": "measurement_ads",
+          "label": "Measurement and advertising",
+          "transferBytes": 899244,
+          "transferPercent": 13.477235347595842,
+          "requests": 4,
+          "coverageSourceCharacters": 1336296,
+          "coverageUsedCharacters": 748096,
+          "coverageUsedPercent": 55.98280620461335
+        },
+        {
+          "category": "other",
+          "label": "Other / unclassified",
+          "transferBytes": 6452,
+          "transferPercent": 0.09669802908074825,
+          "requests": 1,
+          "coverageSourceCharacters": 13895,
+          "coverageUsedCharacters": 11004,
+          "coverageUsedPercent": 79.19395465994963
+        }
+      ],
+      "topHosts": [
+        {
+          "host": "a0.muscache.com",
+          "transferBytes": 5230407,
+          "requests": 223
+        },
+        {
+          "host": "www.airbnb.com",
+          "transferBytes": 884248,
+          "requests": 2
+        },
+        {
+          "host": "maps.googleapis.com",
+          "transferBytes": 494904,
+          "requests": 10
+        },
+        {
+          "host": "d0a7e.airbnb.com",
+          "transferBytes": 41311,
+          "requests": 1
+        },
+        {
+          "host": "js.adsrvr.org",
+          "transferBytes": 14611,
+          "requests": 1
+        },
+        {
+          "host": "d34r8q7sht0t9k.cloudfront.net",
+          "transferBytes": 6452,
+          "requests": 1
+        },
+        {
+          "host": "www.googletagmanager.com",
+          "transferBytes": 385,
+          "requests": 1
+        }
+      ],
+      "topTransfers": [
+        {
+          "name": "www.airbnb.com/gtm.js",
+          "category": "measurement_ads",
+          "transferBytes": 714524
+        },
+        {
+          "name": "a0.muscache.com/66cd.cf1f983327.js",
+          "category": "product",
+          "transferBytes": 342197
+        },
+        {
+          "name": "maps.googleapis.com/webgl.js",
+          "category": "maps",
+          "transferBytes": 184504
+        },
+        {
+          "name": "www.airbnb.com/k1-RPHeiJcOxrWHta7FxZUE6n9H5Lj7crr3d8V-0BxXTQ8ZkMS0",
+          "category": "measurement_ads",
+          "transferBytes": 169724
+        },
+        {
+          "name": "a0.muscache.com/asyncRequire.036993d501.js",
+          "category": "product",
+          "transferBytes": 145309
+        },
+        {
+          "name": "a0.muscache.com/ReviewsSection.a9df6f31d2.js",
+          "category": "product",
+          "transferBytes": 132308
+        },
+        {
+          "name": "a0.muscache.com/client.15e649effb.js",
+          "category": "product",
+          "transferBytes": 121462
+        },
+        {
+          "name": "a0.muscache.com/5950.a37198e86e.js",
+          "category": "product",
+          "transferBytes": 110044
+        },
+        {
+          "name": "maps.googleapis.com/js",
+          "category": "maps",
+          "transferBytes": 105093
+        },
+        {
+          "name": "a0.muscache.com/511c.8cec8382d8.js",
+          "category": "product",
+          "transferBytes": 102631
+        },
+        {
+          "name": "a0.muscache.com/TermsAndConditionsSbuiWrapper.a48be23a94.js",
+          "category": "product",
+          "transferBytes": 91197
+        },
+        {
+          "name": "a0.muscache.com/modalRenderer.ec0463af3b.js",
+          "category": "product",
+          "transferBytes": 89531
+        },
+        {
+          "name": "a0.muscache.com/lottie_worker.74c5ab1762.js",
+          "category": "product",
+          "transferBytes": 80807
+        },
+        {
+          "name": "a0.muscache.com/a3fe.862511ea66.js",
+          "category": "product",
+          "transferBytes": 76862
+        },
+        {
+          "name": "a0.muscache.com/7587.b73fea4aff.js",
+          "category": "product",
+          "transferBytes": 76580
+        },
+        {
+          "name": "maps.googleapis.com/util.js",
+          "category": "maps",
+          "transferBytes": 72405
+        },
+        {
+          "name": "a0.muscache.com/032f.5eed230714.js",
+          "category": "product",
+          "transferBytes": 70980
+        },
+        {
+          "name": "a0.muscache.com/ConfirmAndPayFCSection.8d176247b2.js",
+          "category": "product",
+          "transferBytes": 69155
+        },
+        {
+          "name": "a0.muscache.com/UserFlagModalContainer.1d78f55dab.js",
+          "category": "product",
+          "transferBytes": 68471
+        },
+        {
+          "name": "a0.muscache.com/7945.9a6ec508da.js",
+          "category": "product",
+          "transferBytes": 67347
+        }
+      ],
+      "topUnused": [
+        {
+          "name": "a0.muscache.com/66cd.cf1f983327.js",
+          "category": "product",
+          "sourceCharacters": 1195513,
+          "usedCharacters": 453749,
+          "unusedCharacters": 741764,
+          "usedPercent": 37.95433424814284
+        },
+        {
+          "name": "maps.googleapis.com/webgl.js",
+          "category": "maps",
+          "sourceCharacters": 646518,
+          "usedCharacters": 82419,
+          "unusedCharacters": 564099,
+          "usedPercent": 12.748136942822939
+        },
+        {
+          "name": "a0.muscache.com/lottie_worker.74c5ab1762.js",
+          "category": "product",
+          "sourceCharacters": 320327,
+          "usedCharacters": 2443,
+          "unusedCharacters": 317884,
+          "usedPercent": 0.7626581586940845
+        },
+        {
+          "name": "www.airbnb.com/k1-RPHeiJcOxrWHta7FxZUE6n9H5Lj7crr3d8V-0BxXTQ8ZkMS0",
+          "category": "measurement_ads",
+          "sourceCharacters": 575490,
+          "usedCharacters": 295468,
+          "unusedCharacters": 280022,
+          "usedPercent": 51.34198682861562
+        },
+        {
+          "name": "www.airbnb.com/gtm.js",
+          "category": "measurement_ads",
+          "sourceCharacters": 714452,
+          "usedCharacters": 442887,
+          "unusedCharacters": 271565,
+          "usedPercent": 61.9897487864825
+        },
+        {
+          "name": "a0.muscache.com/modalRenderer.ec0463af3b.js",
+          "category": "product",
+          "sourceCharacters": 302539,
+          "usedCharacters": 42221,
+          "unusedCharacters": 260318,
+          "usedPercent": 13.95555614317493
+        },
+        {
+          "name": "a0.muscache.com/ReviewsSection.a9df6f31d2.js",
+          "category": "product",
+          "sourceCharacters": 382741,
+          "usedCharacters": 125280,
+          "unusedCharacters": 257461,
+          "usedPercent": 32.73231767696693
+        },
+        {
+          "name": "a0.muscache.com/a3fe.862511ea66.js",
+          "category": "product",
+          "sourceCharacters": 306058,
+          "usedCharacters": 95463,
+          "unusedCharacters": 210595,
+          "usedPercent": 31.191146776101263
+        },
+        {
+          "name": "maps.googleapis.com/js",
+          "category": "maps",
+          "sourceCharacters": 363562,
+          "usedCharacters": 211475,
+          "unusedCharacters": 152087,
+          "usedPercent": 58.16752025789273
+        },
+        {
+          "name": "a0.muscache.com/032f.5eed230714.js",
+          "category": "product",
+          "sourceCharacters": 240963,
+          "usedCharacters": 105815,
+          "unusedCharacters": 135148,
+          "usedPercent": 43.91338089250217
+        },
+        {
+          "name": "a0.muscache.com/client.15e649effb.js",
+          "category": "product",
+          "sourceCharacters": 461785,
+          "usedCharacters": 339688,
+          "unusedCharacters": 122097,
+          "usedPercent": 73.559773487662
+        },
+        {
+          "name": "a0.muscache.com/7587.b73fea4aff.js",
+          "category": "product",
+          "sourceCharacters": 217765,
+          "usedCharacters": 98013,
+          "unusedCharacters": 119752,
+          "usedPercent": 45.0086101990678
+        },
+        {
+          "name": "a0.muscache.com/ca6b.604879fc19.js",
+          "category": "product",
+          "sourceCharacters": 170291,
+          "usedCharacters": 64165,
+          "unusedCharacters": 106126,
+          "usedPercent": 37.67961900511477
+        },
+        {
+          "name": "maps.googleapis.com/util.js",
+          "category": "maps",
+          "sourceCharacters": 318606,
+          "usedCharacters": 213089,
+          "unusedCharacters": 105517,
+          "usedPercent": 66.88166575645155
+        },
+        {
+          "name": "a0.muscache.com/CheckoutProductDetailSection.34dddc0c8b.js",
+          "category": "product",
+          "sourceCharacters": 153362,
+          "usedCharacters": 52264,
+          "unusedCharacters": 101098,
+          "usedPercent": 34.07884612876723
+        },
+        {
+          "name": "a0.muscache.com/7945.9a6ec508da.js",
+          "category": "product",
+          "sourceCharacters": 220094,
+          "usedCharacters": 125439,
+          "unusedCharacters": 94655,
+          "usedPercent": 56.993375557716256
+        },
+        {
+          "name": "a0.muscache.com/511c.8cec8382d8.js",
+          "category": "product",
+          "sourceCharacters": 339406,
+          "usedCharacters": 248106,
+          "unusedCharacters": 91300,
+          "usedPercent": 73.10006305133085
+        },
+        {
+          "name": "a0.muscache.com/f572.5fffe7cff7.js",
+          "category": "product",
+          "sourceCharacters": 224302,
+          "usedCharacters": 133463,
+          "unusedCharacters": 90839,
+          "usedPercent": 59.50147568902641
+        },
+        {
+          "name": "a0.muscache.com/0b40.51c64f2f1c.js",
+          "category": "product",
+          "sourceCharacters": 136466,
+          "usedCharacters": 59300,
+          "unusedCharacters": 77166,
+          "usedPercent": 43.45404716193044
+        },
+        {
+          "name": "a0.muscache.com/9ae2.e7e400e775.js",
+          "category": "product",
+          "sourceCharacters": 121464,
+          "usedCharacters": 45038,
+          "unusedCharacters": 76426,
+          "usedPercent": 37.07929921622868
+        }
+      ],
+      "repeatedPaths": []
+    },
+    "hotels": {
+      "label": "Google Hotels",
+      "transferBytes": 1666034,
+      "requests": 88,
+      "hosts": 3,
+      "coverageScripts": 111,
+      "coverageSourceCharacters": 6206435,
+      "coverageUsedCharacters": 3123018,
+      "coverageUsedPercent": 50.31903177911313,
+      "categories": [
+        {
+          "category": "product",
+          "label": "Product and site UI",
+          "transferBytes": 1035066,
+          "transferPercent": 62.12754361555646,
+          "requests": 80,
+          "coverageSourceCharacters": 4024753,
+          "coverageUsedCharacters": 1992920,
+          "coverageUsedPercent": 49.51657902981872
+        },
+        {
+          "category": "maps",
+          "label": "Maps",
+          "transferBytes": 457174,
+          "transferPercent": 27.440856549146055,
+          "requests": 7,
+          "coverageSourceCharacters": 1665249,
+          "coverageUsedCharacters": 883676,
+          "coverageUsedPercent": 53.06569768244869
+        },
+        {
+          "category": "measurement_ads",
+          "label": "Measurement and advertising",
+          "transferBytes": 173794,
+          "transferPercent": 10.43159983529748,
+          "requests": 1,
+          "coverageSourceCharacters": 516433,
+          "coverageUsedCharacters": 246422,
+          "coverageUsedPercent": 47.71616066362916
+        }
+      ],
+      "topHosts": [
+        {
+          "host": "www.gstatic.com",
+          "transferBytes": 1035066,
+          "requests": 80
+        },
+        {
+          "host": "maps.googleapis.com",
+          "transferBytes": 457174,
+          "requests": 7
+        },
+        {
+          "host": "www.googletagmanager.com",
+          "transferBytes": 173794,
+          "requests": 1
+        }
+      ],
+      "topTransfers": [
+        {
+          "name": "maps.googleapis.com/js",
+          "category": "maps",
+          "transferBytes": 392680
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (109 modules)",
+          "category": "product",
+          "transferBytes": 267959
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (23 modules)",
+          "category": "product",
+          "transferBytes": 173825
+        },
+        {
+          "name": "www.googletagmanager.com/js (G-KV2RHHN0WJ)",
+          "category": "measurement_ads",
+          "transferBytes": 173794
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (2 modules)",
+          "category": "product",
+          "transferBytes": 151397
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (45 modules)",
+          "category": "product",
+          "transferBytes": 58551
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (8 modules)",
+          "category": "product",
+          "transferBytes": 52439
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (14 modules)",
+          "category": "product",
+          "transferBytes": 48427
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "transferBytes": 34959
+        },
+        {
+          "name": "maps.googleapis.com/map.js",
+          "category": "maps",
+          "transferBytes": 25808
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "transferBytes": 21746
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "transferBytes": 21615
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (13 modules)",
+          "category": "product",
+          "transferBytes": 20429
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "transferBytes": 18555
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (3 modules)",
+          "category": "product",
+          "transferBytes": 17219
+        },
+        {
+          "name": "maps.googleapis.com/poly.js",
+          "category": "maps",
+          "transferBytes": 16291
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "transferBytes": 15955
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "transferBytes": 12130
+        },
+        {
+          "name": "maps.googleapis.com/log.js",
+          "category": "maps",
+          "transferBytes": 10375
+        },
+        {
+          "name": "maps.googleapis.com/onion.js",
+          "category": "maps",
+          "transferBytes": 9416
+        }
+      ],
+      "topUnused": [
+        {
+          "name": "maps.googleapis.com/js",
+          "category": "maps",
+          "sourceCharacters": 1465666,
+          "usedCharacters": 800883,
+          "unusedCharacters": 664783,
+          "usedPercent": 54.642940478935856
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (109 modules)",
+          "category": "product",
+          "sourceCharacters": 904054,
+          "usedCharacters": 436003,
+          "unusedCharacters": 468051,
+          "usedPercent": 48.227539505383525
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (23 modules)",
+          "category": "product",
+          "sourceCharacters": 553293,
+          "usedCharacters": 174294,
+          "unusedCharacters": 378999,
+          "usedPercent": 31.501211835320525
+        },
+        {
+          "name": "www.googletagmanager.com/js (G-KV2RHHN0WJ)",
+          "category": "measurement_ads",
+          "sourceCharacters": 516433,
+          "usedCharacters": 246422,
+          "unusedCharacters": 270011,
+          "usedPercent": 47.71616066362917
+        },
+        {
+          "name": "www.gstatic.com/rs=AA2YrTvdvpGucaAMR4eK0e9r7UJAmiUgKQ",
+          "category": "product",
+          "sourceCharacters": 200407,
+          "usedCharacters": 48025,
+          "unusedCharacters": 152382,
+          "usedPercent": 23.963733801713513
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (2 modules)",
+          "category": "product",
+          "sourceCharacters": 444213,
+          "usedCharacters": 298253,
+          "unusedCharacters": 145960,
+          "usedPercent": 67.14188913876902
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (14 modules)",
+          "category": "product",
+          "sourceCharacters": 146576,
+          "usedCharacters": 12428,
+          "unusedCharacters": 134148,
+          "usedPercent": 8.478877851762908
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (45 modules)",
+          "category": "product",
+          "sourceCharacters": 175696,
+          "usedCharacters": 65929,
+          "unusedCharacters": 109767,
+          "usedPercent": 37.52447409161279
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "sourceCharacters": 111421,
+          "usedCharacters": 19197,
+          "unusedCharacters": 92224,
+          "usedPercent": 17.22924762836449
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (8 modules)",
+          "category": "product",
+          "sourceCharacters": 323045,
+          "usedCharacters": 239183,
+          "unusedCharacters": 83862,
+          "usedPercent": 74.04014920521908
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "sourceCharacters": 65685,
+          "usedCharacters": 16169,
+          "unusedCharacters": 49516,
+          "usedPercent": 24.615970160615056
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "sourceCharacters": 62898,
+          "usedCharacters": 16680,
+          "unusedCharacters": 46218,
+          "usedPercent": 26.519126204330824
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "sourceCharacters": 47066,
+          "usedCharacters": 2668,
+          "unusedCharacters": 44398,
+          "usedPercent": 5.668635533081205
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "sourceCharacters": 65489,
+          "usedCharacters": 25176,
+          "unusedCharacters": 40313,
+          "usedPercent": 38.44309731405274
+        },
+        {
+          "name": "maps.googleapis.com/map.js",
+          "category": "maps",
+          "sourceCharacters": 81283,
+          "usedCharacters": 41403,
+          "unusedCharacters": 39880,
+          "usedPercent": 50.93685026389282
+        },
+        {
+          "name": "maps.googleapis.com/poly.js",
+          "category": "maps",
+          "sourceCharacters": 54363,
+          "usedCharacters": 15056,
+          "unusedCharacters": 39307,
+          "usedPercent": 27.695307470154333
+        },
+        {
+          "name": "www.google.com/search",
+          "category": "product",
+          "sourceCharacters": 52429,
+          "usedCharacters": 19771,
+          "unusedCharacters": 32658,
+          "usedPercent": 37.7100459669267
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (13 modules)",
+          "category": "product",
+          "sourceCharacters": 61060,
+          "usedCharacters": 33720,
+          "unusedCharacters": 27340,
+          "usedPercent": 55.22436947264985
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (1 modules)",
+          "category": "product",
+          "sourceCharacters": 34453,
+          "usedCharacters": 7916,
+          "unusedCharacters": 26537,
+          "usedPercent": 22.976228485182713
+        },
+        {
+          "name": "www.gstatic.com/Google module batch (3 modules)",
+          "category": "product",
+          "sourceCharacters": 47102,
+          "usedCharacters": 23788,
+          "unusedCharacters": 23314,
+          "usedPercent": 50.50316334762856
+        }
+      ],
+      "repeatedPaths": []
+    },
+    "grand_wailea": {
+      "label": "Grand Wailea",
+      "transferBytes": 5896610,
+      "requests": 252,
+      "hosts": 48,
+      "coverageScripts": 150,
+      "coverageSourceCharacters": 25302556,
+      "coverageUsedCharacters": 7303236,
+      "coverageUsedPercent": 28.863629429374644,
+      "categories": [
+        {
+          "category": "product",
+          "label": "Product and site UI",
+          "transferBytes": 239239,
+          "transferPercent": 4.057229492878111,
+          "requests": 55,
+          "coverageSourceCharacters": 756061,
+          "coverageUsedCharacters": 248641,
+          "coverageUsedPercent": 32.88636763435755
+        },
+        {
+          "category": "measurement_ads",
+          "label": "Measurement and advertising",
+          "transferBytes": 4641892,
+          "transferPercent": 78.72136702274697,
+          "requests": 167,
+          "coverageSourceCharacters": 22740431,
+          "coverageUsedCharacters": 6759625,
+          "coverageUsedPercent": 29.725140213921186
+        },
+        {
+          "category": "consent_observability",
+          "label": "Consent, feedback, and observability",
+          "transferBytes": 288526,
+          "transferPercent": 4.893082635616057,
+          "requests": 17,
+          "coverageSourceCharacters": 961717,
+          "coverageUsedCharacters": 178468,
+          "coverageUsedPercent": 18.55722629422169
+        },
+        {
+          "category": "security",
+          "label": "Security and anti-bot",
+          "transferBytes": 9691,
+          "transferPercent": 0.16434866813304594,
+          "requests": 1,
+          "coverageSourceCharacters": 0,
+          "coverageUsedCharacters": 0,
+          "coverageUsedPercent": null
+        },
+        {
+          "category": "embedded_services",
+          "label": "Chat, booking, and embedded services",
+          "transferBytes": 717262,
+          "transferPercent": 12.163972180625818,
+          "requests": 12,
+          "coverageSourceCharacters": 840974,
+          "coverageUsedCharacters": 114240,
+          "coverageUsedPercent": 13.5842487401513
+        },
+        {
+          "category": "other",
+          "label": "Other / unclassified",
+          "transferBytes": 0,
+          "transferPercent": 0.0,
+          "requests": 0,
+          "coverageSourceCharacters": 3373,
+          "coverageUsedCharacters": 2262,
+          "coverageUsedPercent": 67.0619626445301
+        }
+      ],
+      "topHosts": [
+        {
+          "host": "www.googletagmanager.com",
+          "transferBytes": 3420579,
+          "requests": 23
+        },
+        {
+          "host": "messenger.myma.ai",
+          "transferBytes": 502398,
+          "requests": 5
+        },
+        {
+          "host": "assets.adobedtm.com",
+          "transferBytes": 211440,
+          "requests": 30
+        },
+        {
+          "host": "connect.facebook.net",
+          "transferBytes": 200451,
+          "requests": 3
+        },
+        {
+          "host": "fareharbor.com",
+          "transferBytes": 196631,
+          "requests": 5
+        },
+        {
+          "host": "analytics.tiktok.com",
+          "transferBytes": 169151,
+          "requests": 5
+        },
+        {
+          "host": "www.grandwailea.com",
+          "transferBytes": 157809,
+          "requests": 49
+        },
+        {
+          "host": "edge.marker.io",
+          "transferBytes": 149632,
+          "requests": 3
+        },
+        {
+          "host": "googleads.g.doubleclick.net",
+          "transferBytes": 108964,
+          "requests": 47
+        },
+        {
+          "host": "cdn.jsdelivr.net",
+          "transferBytes": 86191,
+          "requests": 6
+        },
+        {
+          "host": "cdn.pagesense.io",
+          "transferBytes": 74237,
+          "requests": 3
+        },
+        {
+          "host": "sc-static.net",
+          "transferBytes": 50835,
+          "requests": 2
+        },
+        {
+          "host": "prvsz4pe.micpn.com",
+          "transferBytes": 45513,
+          "requests": 3
+        },
+        {
+          "host": "solutions.invocacdn.com",
+          "transferBytes": 43480,
+          "requests": 2
+        },
+        {
+          "host": "snap.licdn.com",
+          "transferBytes": 40010,
+          "requests": 2
+        },
+        {
+          "host": "s.pinimg.com",
+          "transferBytes": 37141,
+          "requests": 2
+        },
+        {
+          "host": "c.tvpixel.com",
+          "transferBytes": 32358,
+          "requests": 1
+        },
+        {
+          "host": "cdn.clarip.com",
+          "transferBytes": 27907,
+          "requests": 3
+        },
+        {
+          "host": "cdn.taboola.com",
+          "transferBytes": 27710,
+          "requests": 1
+        },
+        {
+          "host": "secure.quantserve.com",
+          "transferBytes": 25897,
+          "requests": 2
+        },
+        {
+          "host": "scripts.clarity.ms",
+          "transferBytes": 25789,
+          "requests": 1
+        },
+        {
+          "host": "cdn.branch.io",
+          "transferBytes": 24038,
+          "requests": 1
+        },
+        {
+          "host": "dx.mountain.com",
+          "transferBytes": 21513,
+          "requests": 3
+        },
+        {
+          "host": "www.google-analytics.com",
+          "transferBytes": 21409,
+          "requests": 1
+        },
+        {
+          "host": "files.ascent360.com",
+          "transferBytes": 20290,
+          "requests": 2
+        },
+        {
+          "host": "cdn.treasuredata.com",
+          "transferBytes": 19842,
+          "requests": 1
+        },
+        {
+          "host": "bat.bing.com",
+          "transferBytes": 17685,
+          "requests": 2
+        },
+        {
+          "host": "p.teads.tv",
+          "transferBytes": 15752,
+          "requests": 1
+        },
+        {
+          "host": "elfsightcdn.com",
+          "transferBytes": 15531,
+          "requests": 1
+        },
+        {
+          "host": "js.adsrvr.org",
+          "transferBytes": 15084,
+          "requests": 2
+        },
+        {
+          "host": "s.yimg.jp",
+          "transferBytes": 12044,
+          "requests": 1
+        },
+        {
+          "host": "c.amazon-adsystem.com",
+          "transferBytes": 10503,
+          "requests": 1
+        },
+        {
+          "host": "tag.flvcdn.net",
+          "transferBytes": 9815,
+          "requests": 1
+        },
+        {
+          "host": "ads-engagement.presage.io",
+          "transferBytes": 9291,
+          "requests": 3
+        },
+        {
+          "host": "acdn.adnxs.com",
+          "transferBytes": 8780,
+          "requests": 1
+        },
+        {
+          "host": "trc.taboola.com",
+          "transferBytes": 6668,
+          "requests": 3
+        },
+        {
+          "host": "client.prod.mplat-ppcprotect.com",
+          "transferBytes": 6463,
+          "requests": 1
+        },
+        {
+          "host": "rules.quantcount.com",
+          "transferBytes": 6211,
+          "requests": 3
+        },
+        {
+          "host": "unpkg.com",
+          "transferBytes": 4930,
+          "requests": 1
+        },
+        {
+          "host": "www.clarity.ms",
+          "transferBytes": 4498,
+          "requests": 6
+        },
+        {
+          "host": "px.mountain.com",
+          "transferBytes": 2920,
+          "requests": 4
+        },
+        {
+          "host": "dipr2nuwo661l.cloudfront.net",
+          "transferBytes": 2702,
+          "requests": 1
+        },
+        {
+          "host": "ct.pinterest.com",
+          "transferBytes": 2149,
+          "requests": 1
+        },
+        {
+          "host": "app.link",
+          "transferBytes": 1895,
+          "requests": 3
+        },
+        {
+          "host": "tag.simpli.fi",
+          "transferBytes": 940,
+          "requests": 3
+        },
+        {
+          "host": "tr.snapchat.com",
+          "transferBytes": 888,
+          "requests": 3
+        },
+        {
+          "host": "gs.mountain.com",
+          "transferBytes": 345,
+          "requests": 1
+        },
+        {
+          "host": "beacon.sojern.com",
+          "transferBytes": 301,
+          "requests": 3
+        }
+      ],
+      "topTransfers": [
+        {
+          "name": "messenger.myma.ai/main.e77280a2.js",
+          "category": "embedded_services",
+          "transferBytes": 206596
+        },
+        {
+          "name": "www.googletagmanager.com/gtm.js (GTM-PWDV33TS)",
+          "category": "measurement_ads",
+          "transferBytes": 194227
+        },
+        {
+          "name": "www.googletagmanager.com/js (G-Z22D1YK0ZG)",
+          "category": "measurement_ads",
+          "transferBytes": 188423
+        },
+        {
+          "name": "assets.adobedtm.com/launch-EN02272261e0b845508227acf3ca0c37de.min.js",
+          "category": "measurement_ads",
+          "transferBytes": 182080
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-971189347)",
+          "category": "measurement_ads",
+          "transferBytes": 165616
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-747444397)",
+          "category": "measurement_ads",
+          "transferBytes": 162362
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-1005930085)",
+          "category": "measurement_ads",
+          "transferBytes": 162210
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-16749997262)",
+          "category": "measurement_ads",
+          "transferBytes": 162033
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-740042986)",
+          "category": "measurement_ads",
+          "transferBytes": 160139
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-10820650235)",
+          "category": "measurement_ads",
+          "transferBytes": 156927
+        },
+        {
+          "name": "www.googletagmanager.com/js (G-6WXE90X597)",
+          "category": "measurement_ads",
+          "transferBytes": 156195
+        },
+        {
+          "name": "www.googletagmanager.com/js (G-FE79Y90F38)",
+          "category": "measurement_ads",
+          "transferBytes": 154571
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-753945958)",
+          "category": "measurement_ads",
+          "transferBytes": 150298
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-753945958)",
+          "category": "measurement_ads",
+          "transferBytes": 150279
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-993646837)",
+          "category": "measurement_ads",
+          "transferBytes": 150246
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-993646837)",
+          "category": "measurement_ads",
+          "transferBytes": 150228
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-860832387)",
+          "category": "measurement_ads",
+          "transferBytes": 150052
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-458799166)",
+          "category": "measurement_ads",
+          "transferBytes": 149421
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-11096594266)",
+          "category": "measurement_ads",
+          "transferBytes": 148201
+        },
+        {
+          "name": "www.googletagmanager.com/js (DC-2013561)",
+          "category": "measurement_ads",
+          "transferBytes": 144631
+        }
+      ],
+      "topUnused": [
+        {
+          "name": "www.googletagmanager.com/gtm.js (GTM-PWDV33TS)",
+          "category": "measurement_ads",
+          "sourceCharacters": 631518,
+          "usedCharacters": 34510,
+          "unusedCharacters": 597008,
+          "usedPercent": 5.464610668262821
+        },
+        {
+          "name": "messenger.myma.ai/main.e77280a2.js",
+          "category": "embedded_services",
+          "sourceCharacters": 658370,
+          "usedCharacters": 99072,
+          "unusedCharacters": 559298,
+          "usedPercent": 15.048073271868404
+        },
+        {
+          "name": "www.googletagmanager.com/js (G-Z22D1YK0ZG)",
+          "category": "measurement_ads",
+          "sourceCharacters": 588097,
+          "usedCharacters": 97981,
+          "unusedCharacters": 490116,
+          "usedPercent": 16.660686927496656
+        },
+        {
+          "name": "analytics.tiktok.com/main.MWFiZGNkNWVmMQ.js",
+          "category": "measurement_ads",
+          "sourceCharacters": 497278,
+          "usedCharacters": 7226,
+          "unusedCharacters": 490052,
+          "usedPercent": 1.4531107348404715
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-971189347)",
+          "category": "measurement_ads",
+          "sourceCharacters": 518315,
+          "usedCharacters": 29169,
+          "unusedCharacters": 489146,
+          "usedPercent": 5.62765885610102
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-10820650235)",
+          "category": "measurement_ads",
+          "sourceCharacters": 474933,
+          "usedCharacters": 28077,
+          "unusedCharacters": 446856,
+          "usedPercent": 5.911781240722376
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-747444397)",
+          "category": "measurement_ads",
+          "sourceCharacters": 475700,
+          "usedCharacters": 29169,
+          "unusedCharacters": 446531,
+          "usedPercent": 6.131805759932731
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-1005930085)",
+          "category": "measurement_ads",
+          "sourceCharacters": 474990,
+          "usedCharacters": 30662,
+          "unusedCharacters": 444328,
+          "usedPercent": 6.455293795658856
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-740042986)",
+          "category": "measurement_ads",
+          "sourceCharacters": 465281,
+          "usedCharacters": 24928,
+          "unusedCharacters": 440353,
+          "usedPercent": 5.357622597956933
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-16749997262)",
+          "category": "measurement_ads",
+          "sourceCharacters": 473753,
+          "usedCharacters": 39936,
+          "unusedCharacters": 433817,
+          "usedPercent": 8.429709152237558
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-753945958)",
+          "category": "measurement_ads",
+          "sourceCharacters": 431416,
+          "usedCharacters": 399,
+          "unusedCharacters": 431017,
+          "usedPercent": 0.09248613866894134
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-993646837)",
+          "category": "measurement_ads",
+          "sourceCharacters": 431002,
+          "usedCharacters": 399,
+          "unusedCharacters": 430603,
+          "usedPercent": 0.09257497645022529
+        },
+        {
+          "name": "www.googletagmanager.com/js (G-FE79Y90F38)",
+          "category": "measurement_ads",
+          "sourceCharacters": 442700,
+          "usedCharacters": 32432,
+          "unusedCharacters": 410268,
+          "usedPercent": 7.325954370905806
+        },
+        {
+          "name": "connect.facebook.net/fbevents.js",
+          "category": "measurement_ads",
+          "sourceCharacters": 409758,
+          "usedCharacters": 713,
+          "unusedCharacters": 409045,
+          "usedPercent": 0.17400514449992435
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-860832387)",
+          "category": "measurement_ads",
+          "sourceCharacters": 427957,
+          "usedCharacters": 22803,
+          "unusedCharacters": 405154,
+          "usedPercent": 5.328339062102034
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-458799166)",
+          "category": "measurement_ads",
+          "sourceCharacters": 427136,
+          "usedCharacters": 22783,
+          "unusedCharacters": 404353,
+          "usedPercent": 5.333898336829487
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-753945958)",
+          "category": "measurement_ads",
+          "sourceCharacters": 431405,
+          "usedCharacters": 28201,
+          "unusedCharacters": 403204,
+          "usedPercent": 6.537012783811036
+        },
+        {
+          "name": "www.googletagmanager.com/js (DC-2391905)",
+          "category": "measurement_ads",
+          "sourceCharacters": 403297,
+          "usedCharacters": 399,
+          "unusedCharacters": 402898,
+          "usedPercent": 0.09893453211900907
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-993646837)",
+          "category": "measurement_ads",
+          "sourceCharacters": 430991,
+          "usedCharacters": 28260,
+          "unusedCharacters": 402731,
+          "usedPercent": 6.5569814682905205
+        },
+        {
+          "name": "www.googletagmanager.com/js (AW-11096594266)",
+          "category": "measurement_ads",
+          "sourceCharacters": 422297,
+          "usedCharacters": 22659,
+          "unusedCharacters": 399638,
+          "usedPercent": 5.365654977421104
+        }
+      ],
+      "repeatedPaths": [
+        {
+          "host": "www.googletagmanager.com",
+          "path": "/gtag/js",
+          "requests": 22,
+          "transferBytes": 3226352,
+          "extraLikeBytes": 3037929
+        },
+        {
+          "host": "messenger.myma.ai",
+          "path": "/msgplugin.js",
+          "requests": 3,
+          "transferBytes": 284473,
+          "extraLikeBytes": 189643
+        },
+        {
+          "host": "fareharbor.com",
+          "path": "/embeds/api/integration-kit-with-ssr/v1/",
+          "requests": 5,
+          "transferBytes": 196631,
+          "extraLikeBytes": 157293
+        },
+        {
+          "host": "prvsz4pe.micpn.com",
+          "path": "/p/js/1.js",
+          "requests": 3,
+          "transferBytes": 45513,
+          "extraLikeBytes": 30340
+        },
+        {
+          "host": "sc-static.net",
+          "path": "/scevent.min.js",
+          "requests": 2,
+          "transferBytes": 50835,
+          "extraLikeBytes": 25379
+        },
+        {
+          "host": "googleads.g.doubleclick.net",
+          "path": "/pagead/viewthroughconversion/747444397/",
+          "requests": 7,
+          "transferBytes": 18987,
+          "extraLikeBytes": 16256
+        },
+        {
+          "host": "dx.mountain.com",
+          "path": "/spx",
+          "requests": 3,
+          "transferBytes": 21513,
+          "extraLikeBytes": 14220
+        },
+        {
+          "host": "secure.quantserve.com",
+          "path": "/quant.js",
+          "requests": 2,
+          "transferBytes": 25897,
+          "extraLikeBytes": 12944
+        },
+        {
+          "host": "googleads.g.doubleclick.net",
+          "path": "/pagead/viewthroughconversion/1005930085/",
+          "requests": 4,
+          "transferBytes": 10884,
+          "extraLikeBytes": 8157
+        },
+        {
+          "host": "googleads.g.doubleclick.net",
+          "path": "/pagead/viewthroughconversion/971189347/",
+          "requests": 4,
+          "transferBytes": 10853,
+          "extraLikeBytes": 8122
+        },
+        {
+          "host": "googleads.g.doubleclick.net",
+          "path": "/pagead/viewthroughconversion/740042986/",
+          "requests": 4,
+          "transferBytes": 10837,
+          "extraLikeBytes": 8119
+        },
+        {
+          "host": "analytics.tiktok.com",
+          "path": "/i18n/pixel/events.js",
+          "requests": 3,
+          "transferBytes": 10199,
+          "extraLikeBytes": 6768
+        },
+        {
+          "host": "ads-engagement.presage.io",
+          "path": "/script",
+          "requests": 3,
+          "transferBytes": 9291,
+          "extraLikeBytes": 6194
+        },
+        {
+          "host": "googleads.g.doubleclick.net",
+          "path": "/pagead/viewthroughconversion/10820650235/",
+          "requests": 3,
+          "transferBytes": 8166,
+          "extraLikeBytes": 5435
+        },
+        {
+          "host": "googleads.g.doubleclick.net",
+          "path": "/pagead/viewthroughconversion/316185015/",
+          "requests": 3,
+          "transferBytes": 8158,
+          "extraLikeBytes": 5428
+        },
+        {
+          "host": "googleads.g.doubleclick.net",
+          "path": "/pagead/viewthroughconversion/753945958/",
+          "requests": 3,
+          "transferBytes": 8161,
+          "extraLikeBytes": 5422
+        },
+        {
+          "host": "googleads.g.doubleclick.net",
+          "path": "/pagead/viewthroughconversion/993646837/",
+          "requests": 3,
+          "transferBytes": 8139,
+          "extraLikeBytes": 5420
+        },
+        {
+          "host": "googleads.g.doubleclick.net",
+          "path": "/pagead/viewthroughconversion/458799166/",
+          "requests": 3,
+          "transferBytes": 8144,
+          "extraLikeBytes": 5417
+        },
+        {
+          "host": "googleads.g.doubleclick.net",
+          "path": "/pagead/viewthroughconversion/860832387/",
+          "requests": 3,
+          "transferBytes": 8105,
+          "extraLikeBytes": 5391
+        },
+        {
+          "host": "googleads.g.doubleclick.net",
+          "path": "/pagead/viewthroughconversion/11096594266/",
+          "requests": 3,
+          "transferBytes": 8110,
+          "extraLikeBytes": 5389
+        },
+        {
+          "host": "trc.taboola.com",
+          "path": "/1551876/trc/3/json",
+          "requests": 3,
+          "transferBytes": 6668,
+          "extraLikeBytes": 4331
+        },
+        {
+          "host": "rules.quantcount.com",
+          "path": "/rules-p-8cjWJobhyTBFw.js",
+          "requests": 2,
+          "transferBytes": 5013,
+          "extraLikeBytes": 2506
+        },
+        {
+          "host": "www.clarity.ms",
+          "path": "/tag/uet/343180584",
+          "requests": 3,
+          "transferBytes": 2651,
+          "extraLikeBytes": 1676
+        },
+        {
+          "host": "px.mountain.com",
+          "path": "/st",
+          "requests": 4,
+          "transferBytes": 2920,
+          "extraLikeBytes": 1599
+        },
+        {
+          "host": "app.link",
+          "path": "/_r",
+          "requests": 3,
+          "transferBytes": 1895,
+          "extraLikeBytes": 1222
+        },
+        {
+          "host": "www.clarity.ms",
+          "path": "/tag/lg33eyrvc3",
+          "requests": 3,
+          "transferBytes": 1847,
+          "extraLikeBytes": 1140
+        },
+        {
+          "host": "cdn.pagesense.io",
+          "path": "/js/verbinteractive/4aabaf29a8e54c5895b63f67e50d862b.js",
+          "requests": 3,
+          "transferBytes": 74237,
+          "extraLikeBytes": 745
+        },
+        {
+          "host": "tag.simpli.fi",
+          "path": "/sifitag/750f27c8-c39b-44cf-aa2a-dfc594f28a7d",
+          "requests": 3,
+          "transferBytes": 940,
+          "extraLikeBytes": 491
+        },
+        {
+          "host": "tr.snapchat.com",
+          "path": "/config/com/f1499c25-7f8f-41c7-ad1b-ddd64e61da1e.js",
+          "requests": 3,
+          "transferBytes": 888,
+          "extraLikeBytes": 436
+        },
+        {
+          "host": "googleads.g.doubleclick.net",
+          "path": "/pagead/viewthroughconversion/16749997262/",
+          "requests": 7,
+          "transferBytes": 420,
+          "extraLikeBytes": 360
+        },
+        {
+          "host": "beacon.sojern.com",
+          "path": "/pixel/cp/109",
+          "requests": 3,
+          "transferBytes": 301,
+          "extraLikeBytes": 63
+        }
+      ]
+    },
+    "enterprise": {
+      "label": "Enterprise",
+      "transferBytes": 4593382,
+      "requests": 170,
+      "hosts": 21,
+      "coverageScripts": 172,
+      "coverageSourceCharacters": 24868330,
+      "coverageUsedCharacters": 11545093,
+      "coverageUsedPercent": 46.424882571527725,
+      "categories": [
+        {
+          "category": "product",
+          "label": "Product and site UI",
+          "transferBytes": 1385509,
+          "transferPercent": 30.163156471636803,
+          "requests": 92,
+          "coverageSourceCharacters": 7939821,
+          "coverageUsedCharacters": 5832256,
+          "coverageUsedPercent": 73.45576178606545
+        },
+        {
+          "category": "maps",
+          "label": "Maps",
+          "transferBytes": 222538,
+          "transferPercent": 4.844752733389036,
+          "requests": 6,
+          "coverageSourceCharacters": 834070,
+          "coverageUsedCharacters": 352205,
+          "coverageUsedPercent": 42.22727109235436
+        },
+        {
+          "category": "measurement_ads",
+          "label": "Measurement and advertising",
+          "transferBytes": 1983992,
+          "transferPercent": 43.192401589939614,
+          "requests": 56,
+          "coverageSourceCharacters": 12999693,
+          "coverageUsedCharacters": 4473820,
+          "coverageUsedPercent": 34.41481271903883
+        },
+        {
+          "category": "consent_observability",
+          "label": "Consent, feedback, and observability",
+          "transferBytes": 295294,
+          "transferPercent": 6.42868370189982,
+          "requests": 13,
+          "coverageSourceCharacters": 1364987,
+          "coverageUsedCharacters": 316866,
+          "coverageUsedPercent": 23.213847457887876
+        },
+        {
+          "category": "security",
+          "label": "Security and anti-bot",
+          "transferBytes": 706049,
+          "transferPercent": 15.371005503134727,
+          "requests": 3,
+          "coverageSourceCharacters": 1725753,
+          "coverageUsedCharacters": 567051,
+          "coverageUsedPercent": 32.85817842993754
+        },
+        {
+          "category": "other",
+          "label": "Other / unclassified",
+          "transferBytes": 0,
+          "transferPercent": 0.0,
+          "requests": 0,
+          "coverageSourceCharacters": 4006,
+          "coverageUsedCharacters": 2895,
+          "coverageUsedPercent": 72.26660009985022
+        }
+      ],
+      "topHosts": [
+        {
+          "host": "www.enterprise.com",
+          "transferBytes": 1689525,
+          "requests": 105
+        },
+        {
+          "host": "www.googletagmanager.com",
+          "transferBytes": 1027299,
+          "requests": 6
+        },
+        {
+          "host": "www.gstatic.com",
+          "transferBytes": 704969,
+          "requests": 2
+        },
+        {
+          "host": "connect.facebook.net",
+          "transferBytes": 257182,
+          "requests": 3
+        },
+        {
+          "host": "maps.googleapis.com",
+          "transferBytes": 222538,
+          "requests": 6
+        },
+        {
+          "host": "analytics.tiktok.com",
+          "transferBytes": 158343,
+          "requests": 4
+        },
+        {
+          "host": "cdn.cookielaw.org",
+          "transferBytes": 139441,
+          "requests": 2
+        },
+        {
+          "host": "siteintercept.qualtrics.com",
+          "transferBytes": 89667,
+          "requests": 7
+        },
+        {
+          "host": "s.go-mpulse.net",
+          "transferBytes": 60764,
+          "requests": 1
+        },
+        {
+          "host": "www.googleadservices.com",
+          "transferBytes": 44429,
+          "requests": 8
+        },
+        {
+          "host": "snap.licdn.com",
+          "transferBytes": 40010,
+          "requests": 2
+        },
+        {
+          "host": "s.pinimg.com",
+          "transferBytes": 36776,
+          "requests": 2
+        },
+        {
+          "host": "bat.bing.com",
+          "transferBytes": 34939,
+          "requests": 6
+        },
+        {
+          "host": "www.google-analytics.com",
+          "transferBytes": 22563,
+          "requests": 2
+        },
+        {
+          "host": "tag.demandbase.com",
+          "transferBytes": 20583,
+          "requests": 1
+        },
+        {
+          "host": "js.adsrvr.org",
+          "transferBytes": 15084,
+          "requests": 2
+        },
+        {
+          "host": "googleads.g.doubleclick.net",
+          "transferBytes": 13552,
+          "requests": 5
+        },
+        {
+          "host": "use.typekit.net",
+          "transferBytes": 7067,
+          "requests": 1
+        },
+        {
+          "host": "znaw9zsytgvyddb6l-ehi.siteintercept.qualtrics.com",
+          "transferBytes": 5422,
+          "requests": 3
+        },
+        {
+          "host": "ct.pinterest.com",
+          "transferBytes": 2149,
+          "requests": 1
+        },
+        {
+          "host": "www.google.com",
+          "transferBytes": 1080,
+          "requests": 1
+        }
+      ],
+      "topTransfers": [
+        {
+          "name": "www.enterprise.com/vendors-node_modules_ehi_global-marketing-interface_lib_utils_index_js.c0015cc0.js",
+          "category": "product",
+          "transferBytes": 355915
+        },
+        {
+          "name": "www.gstatic.com/recaptcha__en.js",
+          "category": "security",
+          "transferBytes": 352822
+        },
+        {
+          "name": "www.gstatic.com/recaptcha__en.js",
+          "category": "security",
+          "transferBytes": 352147
+        },
+        {
+          "name": "www.enterprise.com/launch-15f40e295df1.min.js",
+          "category": "measurement_ads",
+          "transferBytes": 281454
+        },
+        {
+          "name": "www.googletagmanager.com/gtm.js (GTM-N9JQM5L)",
+          "category": "measurement_ads",
+          "transferBytes": 225580
+        },
+        {
+          "name": "www.googletagmanager.com/js (G-BEMPZFZ04Z)",
+          "category": "measurement_ads",
+          "transferBytes": 191923
+        },
+        {
+          "name": "www.googletagmanager.com/js (G-DZ2565JF8B)",
+          "category": "measurement_ads",
+          "transferBytes": 173623
+        },
+        {
+          "name": "www.googletagmanager.com/destination (AW-1003647064)",
+          "category": "measurement_ads",
+          "transferBytes": 148917
+        },
+        {
+          "name": "www.googletagmanager.com/destination (AW-864957667)",
+          "category": "measurement_ads",
+          "transferBytes": 147715
+        },
+        {
+          "name": "www.googletagmanager.com/js (DC-8163242)",
+          "category": "measurement_ads",
+          "transferBytes": 139541
+        },
+        {
+          "name": "cdn.cookielaw.org/otBannerSdk.js",
+          "category": "consent_observability",
+          "transferBytes": 130078
+        },
+        {
+          "name": "connect.facebook.net/1707870039515690",
+          "category": "measurement_ads",
+          "transferBytes": 123429
+        },
+        {
+          "name": "analytics.tiktok.com/main.MWFiZGNkNWVmMA.js",
+          "category": "measurement_ads",
+          "transferBytes": 112108
+        },
+        {
+          "name": "connect.facebook.net/fbevents.js",
+          "category": "measurement_ads",
+          "transferBytes": 107640
+        },
+        {
+          "name": "www.enterprise.com/en.i18nmap.js",
+          "category": "product",
+          "transferBytes": 92440
+        },
+        {
+          "name": "maps.googleapis.com/main.js",
+          "category": "maps",
+          "transferBytes": 85127
+        },
+        {
+          "name": "maps.googleapis.com/util.js",
+          "category": "maps",
+          "transferBytes": 71845
+        },
+        {
+          "name": "s.go-mpulse.net/RNZHL-7D9KZ-P5XZT-ZFA6A-QAEPA",
+          "category": "consent_observability",
+          "transferBytes": 60764
+        },
+        {
+          "name": "www.enterprise.com/vendors-node_modules_react-dom_client_js.508e98a6.js",
+          "category": "product",
+          "transferBytes": 55086
+        },
+        {
+          "name": "www.enterprise.com/src_js_apps_ReservationApp_CarSelect_redux_selectors_js-src_js_apps_redux_actions_session_js....",
+          "category": "product",
+          "transferBytes": 41268
+        }
+      ],
+      "topUnused": [
+        {
+          "name": "www.enterprise.com/launch-15f40e295df1.min.js",
+          "category": "measurement_ads",
+          "sourceCharacters": 1525199,
+          "usedCharacters": 1279,
+          "unusedCharacters": 1523920,
+          "usedPercent": 0.08385790968916187
+        },
+        {
+          "name": "www.googletagmanager.com/gtm.js (GTM-N9JQM5L)",
+          "category": "measurement_ads",
+          "sourceCharacters": 904608,
+          "usedCharacters": 1137,
+          "unusedCharacters": 903471,
+          "usedPercent": 0.1256898015494004
+        },
+        {
+          "name": "www.gstatic.com/recaptcha__en.js",
+          "category": "security",
+          "sourceCharacters": 843819,
+          "usedCharacters": 259648,
+          "unusedCharacters": 584171,
+          "usedPercent": 30.770579946647324
+        },
+        {
+          "name": "www.gstatic.com/recaptcha__en.js",
+          "category": "security",
+          "sourceCharacters": 843819,
+          "usedCharacters": 269433,
+          "unusedCharacters": 574386,
+          "usedPercent": 31.930188820114264
+        },
+        {
+          "name": "www.enterprise.com/launch-15f40e295df1.min.js",
+          "category": "measurement_ads",
+          "sourceCharacters": 1525199,
+          "usedCharacters": 978565,
+          "unusedCharacters": 546634,
+          "usedPercent": 64.15982439012876
+        },
+        {
+          "name": "www.googletagmanager.com/js (G-BEMPZFZ04Z)",
+          "category": "measurement_ads",
+          "sourceCharacters": 589518,
+          "usedCharacters": 81651,
+          "unusedCharacters": 507867,
+          "usedPercent": 13.850467670198366
+        },
+        {
+          "name": "analytics.tiktok.com/main.MWFiZGNkNWVmMA.js",
+          "category": "measurement_ads",
+          "sourceCharacters": 486207,
+          "usedCharacters": 1297,
+          "unusedCharacters": 484910,
+          "usedPercent": 0.2667588084910336
+        },
+        {
+          "name": "www.googletagmanager.com/js (G-DZ2565JF8B)",
+          "category": "measurement_ads",
+          "sourceCharacters": 518042,
+          "usedCharacters": 81343,
+          "unusedCharacters": 436699,
+          "usedPercent": 15.7020087174399
+        },
+        {
+          "name": "www.googletagmanager.com/destination (AW-1003647064)",
+          "category": "measurement_ads",
+          "sourceCharacters": 425536,
+          "usedCharacters": 4639,
+          "unusedCharacters": 420897,
+          "usedPercent": 1.0901545345164687
+        },
+        {
+          "name": "www.googletagmanager.com/destination (AW-864957667)",
+          "category": "measurement_ads",
+          "sourceCharacters": 420986,
+          "usedCharacters": 520,
+          "unusedCharacters": 420466,
+          "usedPercent": 0.12351954696830773
+        },
+        {
+          "name": "connect.facebook.net/fbevents.js",
+          "category": "measurement_ads",
+          "sourceCharacters": 409762,
+          "usedCharacters": 713,
+          "unusedCharacters": 409049,
+          "usedPercent": 0.17400344590274355
+        },
+        {
+          "name": "www.googletagmanager.com/js (DC-8163242)",
+          "category": "measurement_ads",
+          "sourceCharacters": 394347,
+          "usedCharacters": 915,
+          "unusedCharacters": 393432,
+          "usedPercent": 0.2320291519905058
+        },
+        {
+          "name": "cdn.cookielaw.org/otBannerSdk.js",
+          "category": "consent_observability",
+          "sourceCharacters": 535565,
+          "usedCharacters": 180169,
+          "unusedCharacters": 355396,
+          "usedPercent": 33.640921270060595
+        },
+        {
+          "name": "analytics.tiktok.com/main.MWFiZGNkNWVmMA.js",
+          "category": "measurement_ads",
+          "sourceCharacters": 486207,
+          "usedCharacters": 170348,
+          "unusedCharacters": 315859,
+          "usedPercent": 35.03610602068667
+        },
+        {
+          "name": "www.googletagmanager.com/gtm.js (GTM-N9JQM5L)",
+          "category": "measurement_ads",
+          "sourceCharacters": 904608,
+          "usedCharacters": 645728,
+          "unusedCharacters": 258880,
+          "usedPercent": 71.38207930949096
+        },
+        {
+          "name": "www.googletagmanager.com/js (G-BEMPZFZ04Z)",
+          "category": "measurement_ads",
+          "sourceCharacters": 589518,
+          "usedCharacters": 341119,
+          "unusedCharacters": 248399,
+          "usedPercent": 57.86405164897425
+        },
+        {
+          "name": "www.googletagmanager.com/js (G-DZ2565JF8B)",
+          "category": "measurement_ads",
+          "sourceCharacters": 518042,
+          "usedCharacters": 310452,
+          "unusedCharacters": 207590,
+          "usedPercent": 59.927959509074554
+        },
+        {
+          "name": "s.go-mpulse.net/RNZHL-7D9KZ-P5XZT-ZFA6A-QAEPA",
+          "category": "consent_observability",
+          "sourceCharacters": 218963,
+          "usedCharacters": 14072,
+          "unusedCharacters": 204891,
+          "usedPercent": 6.426656558413979
+        },
+        {
+          "name": "maps.googleapis.com/main.js",
+          "category": "maps",
+          "sourceCharacters": 300111,
+          "usedCharacters": 102826,
+          "unusedCharacters": 197285,
+          "usedPercent": 34.262656150557625
+        },
+        {
+          "name": "www.googletagmanager.com/destination (AW-864957667)",
+          "category": "measurement_ads",
+          "sourceCharacters": 420986,
+          "usedCharacters": 233303,
+          "unusedCharacters": 187683,
+          "usedPercent": 55.41823243528289
+        }
+      ],
+      "repeatedPaths": [
+        {
+          "host": "www.gstatic.com",
+          "path": "/recaptcha/releases/ox8dsmiqR62P1bqhciWOn7Fg/recaptcha__en.js",
+          "requests": 2,
+          "transferBytes": 704969,
+          "extraLikeBytes": 352147
+        },
+        {
+          "host": "www.googletagmanager.com",
+          "path": "/gtag/js",
+          "requests": 3,
+          "transferBytes": 505087,
+          "extraLikeBytes": 313164
+        },
+        {
+          "host": "www.googletagmanager.com",
+          "path": "/gtag/destination",
+          "requests": 2,
+          "transferBytes": 296632,
+          "extraLikeBytes": 147715
+        },
+        {
+          "host": "www.googleadservices.com",
+          "path": "/pagead/conversion/10783401032/",
+          "requests": 4,
+          "transferBytes": 11809,
+          "extraLikeBytes": 8798
+        },
+        {
+          "host": "googleads.g.doubleclick.net",
+          "path": "/pagead/viewthroughconversion/864957667/",
+          "requests": 4,
+          "transferBytes": 10789,
+          "extraLikeBytes": 8081
+        },
+        {
+          "host": "www.googleadservices.com",
+          "path": "/pagead/conversion/16474711280/",
+          "requests": 3,
+          "transferBytes": 8826,
+          "extraLikeBytes": 5868
+        },
+        {
+          "host": "analytics.tiktok.com",
+          "path": "/i18n/pixel/events.js",
+          "requests": 2,
+          "transferBytes": 5744,
+          "extraLikeBytes": 2872
+        },
+        {
+          "host": "bat.bing.com",
+          "path": "/p/conversions/t/5947341",
+          "requests": 3,
+          "transferBytes": 3148,
+          "extraLikeBytes": 2035
+        },
+        {
+          "host": "znaw9zsytgvyddb6l-ehi.siteintercept.qualtrics.com",
+          "path": "/SIE/",
+          "requests": 3,
+          "transferBytes": 5422,
+          "extraLikeBytes": 144
+        }
+      ]
+    }
+  }
+}

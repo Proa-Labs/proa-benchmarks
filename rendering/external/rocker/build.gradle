@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'nu.studer.rocker' version '3.3.1'
+}
+
+application {
+    mainClass = 'proa.bench.rocker.Bench'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+rocker {
+    version = '2.4.0'
+    configurations {
+        main {
+            templateDir = file('src/main/rocker')
+            outputDir = file("${buildDir}/generated/sources/rocker/main")
+            optimize = true
+            combineAdjacentPlain = true
+            discardLogicWhitespace = true
+        }
+    }
+}

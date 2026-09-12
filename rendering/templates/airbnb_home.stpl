@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="turbo-refresh-method" content="morph"/>
+<meta name="turbo-refresh-scroll" content="preserve"/>
+<script type="importmap">{"imports":{"react":"https://esm.sh/react@19","react/jsx-runtime":"https://esm.sh/react@19/jsx-runtime","react-dom":"https://esm.sh/react-dom@19","react-dom/client":"https://esm.sh/react-dom@19/client"}}</script>
+<link rel="stylesheet" href="/proa.css"><script src="/proa.js" defer></script><script type="module" src="/assets/airbnb-showcase.js"></script>
+<script type="module">import * as Turbo from "https://esm.sh/@hotwired/turbo@8.0.12";</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<title>Coast Stays - Synthetic travel benchmark</title><style><%-self.css%></style></head><body class="bg-white text-[#222] air-demo-page">
+<header class="air-topbar">
+    <div class="air-shell pt-5 pb-6 md:pt-6 md:pb-7">
+        <div class="grid grid-cols-[auto_1fr_auto] items-center gap-4 md:gap-8">
+            <a href="/showcase/airbnb" class="flex items-center gap-2.5 text-[#FF385C]">
+                <svg viewBox="0 0 32 32" width="32" height="32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="3" width="26" height="26" rx="8" fill="#FF385C"/><path d="M10 22V10h7.5a5 5 0 0 1 0 10H14v2h-4zm4-6h3.5a1 1 0 0 0 0-2H14v2z" fill="white"/></svg>
+                <span class="text-[30px] font-semibold leading-none tracking-[-0.02em]">Coast Stays</span>
+            </a>
+
+            <nav class="hidden md:flex items-center justify-center gap-8 lg:gap-10" role="tablist" aria-label="Search modes">
+                <button class="home-mode-tab active" data-home-mode="homes" role="tab" aria-selected="true" type="button">
+                    <span class="home-mode-icon">
+                        <img data-air-image="" src="/images/synthetic/category-home.svg" alt="" class="home-mode-media" loading="eager" decoding="async" fetchpriority="low"/>
+                    </span>
+                    <span>Homes</span>
+                </button>
+                <button class="home-mode-tab" data-home-mode="experiences" role="tab" aria-selected="false" type="button">
+                    <span class="home-mode-icon relative">
+                        <img data-air-image="" src="/images/synthetic/category-experience.svg" alt="" class="home-mode-media" loading="eager" decoding="async" fetchpriority="low"/>
+                        <span class="home-mode-badge">NEW</span>
+                    </span>
+                    <span>Experiences</span>
+                </button>
+                <button class="home-mode-tab" data-home-mode="services" role="tab" aria-selected="false" type="button">
+                    <span class="home-mode-icon relative">
+                        <img data-air-image="" src="/images/synthetic/category-service.svg" alt="" class="home-mode-media" loading="eager" decoding="async" fetchpriority="low"/>
+                        <span class="home-mode-badge">NEW</span>
+                    </span>
+                    <span>Services</span>
+                </button>
+            </nav>
+
+            <div class="flex items-center justify-end gap-2 md:gap-3">
+                <a href="/showcase/airbnb" class="hidden rounded-full px-4 py-3 text-sm font-semibold hover:bg-[var(--air-soft)] lg:block">List your home</a>
+                <button class="hidden md:flex h-10 w-10 items-center justify-center rounded-full hover:bg-[var(--air-soft)]" aria-label="Language">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true" role="presentation" focusable="false" style="display:block;height:16px;width:16px;fill:currentcolor;"><path d="M8 .25a7.77 7.77 0 0 1 7.75 7.78 7.75 7.75 0 0 1-7.52 7.72h-.25A7.75 7.75 0 0 1 .25 8.24v-.25A7.75 7.75 0 0 1 8 .25zm1.95 8.5h-3.9c.15 2.9 1.17 5.34 1.88 5.5H8c.68 0 1.72-2.37 1.93-5.23zm4.26 0h-2.76c-.09 1.96-.53 3.78-1.18 5.08A6.26 6.26 0 0 0 14.17 9zm-9.67 0H1.8a6.26 6.26 0 0 0 3.94 5.08 12.59 12.59 0 0 1-1.16-4.7l-.03-.38zm1.2-6.58-.12.05a6.26 6.26 0 0 0-3.83 5.03h2.75c.09-1.83.48-3.54 1.06-4.81zm2.25-.42c-.7 0-1.78 2.51-1.94 5.5h3.9c-.15-2.9-1.18-5.34-1.89-5.5h-.07zm2.28.43.03.05a12.95 12.95 0 0 1 1.15 5.02h2.75a6.28 6.28 0 0 0-3.93-5.07z"></path></svg>
+                </button>
+                <button class="air-search-pill flex items-center gap-3 rounded-full border border-[var(--air-line)] bg-white pl-3 pr-2.5 py-1.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+                    <div class="flex h-8 w-8 items-center justify-center rounded-full bg-[#6A6A6A] text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.209 0 4-1.791 4-4S14.209 4 12 4s-4 1.791-4 4 1.791 4 4 4zm0 2c-2.673 0-8 1.327-8 3.963V20h16v-2.037C20 15.327 14.673 14 12 14z"/></svg>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div class="mt-5 md:hidden">
+            <div class="flex items-center gap-4 overflow-x-auto pb-1">
+                <button class="home-mode-tab active" data-home-mode="homes" type="button">
+                    <span class="home-mode-icon">
+                        <img data-air-image="" src="/images/synthetic/category-home.svg" alt="" class="home-mode-media" loading="eager" decoding="async" fetchpriority="low"/>
+                    </span>
+                    <span>Homes</span>
+                </button>
+                <button class="home-mode-tab" data-home-mode="experiences" type="button">
+                    <span class="home-mode-icon relative">
+                        <img data-air-image="" src="/images/synthetic/category-experience.svg" alt="" class="home-mode-media" loading="eager" decoding="async" fetchpriority="low"/>
+                        <span class="home-mode-badge">NEW</span>
+                    </span>
+                    <span>Experiences</span>
+                </button>
+                <button class="home-mode-tab" data-home-mode="services" type="button">
+                    <span class="home-mode-icon relative">
+                        <img data-air-image="" src="/images/synthetic/category-service.svg" alt="" class="home-mode-media" loading="eager" decoding="async" fetchpriority="low"/>
+                        <span class="home-mode-badge">NEW</span>
+                    </span>
+                    <span>Services</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="mt-6 flex justify-center">
+            <div class="home-search-shell w-full max-w-[850px]">
+                <div class="home-search-bar">
+                    <button class="home-search-segment active" data-search-field="where" data-default="Search destinations" type="button">
+                        <span class="home-search-label">Where</span>
+                        <span class="home-search-value">Search destinations</span>
+                    </button>
+                    <span class="home-search-divider"></span>
+                    <button class="home-search-segment" data-search-field="when" data-default="Add dates" type="button">
+                        <span class="home-search-label">When</span>
+                        <span class="home-search-value">Add dates</span>
+                    </button>
+                    <span class="home-search-divider"></span>
+                    <button class="home-search-segment" data-search-field="who" data-default="Add guests" type="button">
+                        <span class="home-search-label">Who</span>
+                        <span class="home-search-value">Add guests</span>
+                    </button>
+                    <button class="home-search-submit" data-home-search-submit type="button" aria-label="Search">
+                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display:block;fill:none;height:16px;width:16px;stroke:currentColor;stroke-width:4;overflow:visible" aria-hidden="true" role="presentation" focusable="false"><path d="m13 24c6.0751 0 11-4.9249 11-11 0-6.0751-4.9249-11-11-11-6.0751 0-11 4.9249-11 11 0 6.0751 4.9249 11 11 11zm8-3 10 10"/></svg>
+                    </button>
+                </div>
+                <div class="home-search-popover" id="home-search-popover">
+                    <div class="mb-3 flex items-center justify-between gap-3">
+                        <div>
+                            <p class="text-sm font-semibold text-[#222]" data-popover-title>Where do you want to go?</p>
+                            <p class="text-sm text-[var(--air-muted)]" data-popover-subtitle>Choose a preset to update the search bar.</p>
+                        </div>
+                        <button class="rounded-full px-3 py-1.5 text-sm font-medium hover:bg-[var(--air-soft)]" data-home-search-close type="button">Done</button>
+                    </div>
+                    <div class="flex flex-wrap gap-2" data-popover-options></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="bg-white">
+    <%# ── Homes panel ── %>
+    <div class="home-mode-panel active" data-home-panel="homes">
+        <div class="air-shell py-10 md:py-12">
+            <% for (section_index, section) in self.homes_sections.iter().enumerate() { %>
+            <% let rail_id = format!("homes-rail-{}", section_index); %>
+            <section class="home-rail-section">
+                <div class="mb-4 flex items-center justify-between gap-4">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h2 class="text-[28px] font-semibold tracking-[-0.03em] text-[#222]"><%= section.title %></h2>
+                            <span class="hidden md:inline-flex h-7 w-7 items-center justify-center rounded-full bg-[var(--air-soft)] text-[#222]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="19" y2="12"/><line x1="12" y1="19" x2="19" y2="12"/></svg>
+                            </span>
+                        </div>
+                        <% if !section.subtitle.is_empty() { %>
+                        <p class="mt-1 text-[15px] text-[var(--air-muted)]"><%= section.subtitle %></p>
+                        <% } %>
+                    </div>
+                    <div class="hidden items-center gap-2 md:flex">
+                        <button class="home-rail-arrow" data-rail-prev="<%= rail_id %>" type="button" aria-label="Scroll left">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                        </button>
+                        <button class="home-rail-arrow" data-rail-next="<%= rail_id %>" type="button" aria-label="Scroll right">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="home-rail" id="<%= rail_id %>">
+                    <% for listing_index in section.listing_indexes.iter() { %>
+                    <% let listing = &self.listings[*listing_index % self.listings.len()]; %>
+                    <% let (_label, pricing) = crate::sailfish_airbnb_home::AirbnbHomePage::rail_card_copy("homes", listing); %>
+                    <a href="/showcase/airbnb/listing" class="home-rail-card group">
+                        <div class="air-card-image relative aspect-[1.03/1] bg-[var(--air-soft)]">
+                            <img data-air-image="" src="<%= listing.image %>" alt="<%= listing.title %>" class="h-full w-full object-cover" loading="lazy" decoding="async" fetchpriority="low"/>
+                            <span class="absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-[#222] shadow-sm">Guest favorite</span>
+                            <button class="heart-btn absolute right-3 top-3"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,.4))"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+                        </div>
+                        <div class="mt-3">
+                            <p class="truncate text-[17px] font-medium leading-5 text-[#222]"><%= listing.title %></p>
+                            <p class="mt-1 text-[15px] leading-5 text-[var(--air-muted)]"><%= listing.property_type %></p>
+                            <p class="flex items-center gap-1 text-[15px] leading-5 text-[var(--air-muted)]">
+                                <span><%= pricing %></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#FF385C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <span><%= listing.rating %></span>
+                            </p>
+                        </div>
+                    </a>
+                    <% } %>
+                </div>
+            </section>
+            <% } %>
+        </div>
+    </div>
+
+    <%# ── Experiences panel ── %>
+    <div class="home-mode-panel" data-home-panel="experiences">
+        <div class="air-shell py-10 md:py-12">
+            <% for (section_index, section) in self.experiences_sections.iter().enumerate() { %>
+            <% let rail_id = format!("experiences-rail-{}", section_index); %>
+            <section class="home-rail-section">
+                <div class="mb-4 flex items-center justify-between gap-4">
+                    <div>
+                        <h2 class="text-[28px] font-semibold tracking-[-0.03em] text-[#222]"><%= section.title %></h2>
+                        <p class="mt-1 text-[15px] text-[var(--air-muted)]"><%= section.subtitle %></p>
+                    </div>
+                    <div class="hidden items-center gap-2 md:flex">
+                        <button class="home-rail-arrow" data-rail-prev="<%= rail_id %>" type="button" aria-label="Scroll left"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+                        <button class="home-rail-arrow" data-rail-next="<%= rail_id %>" type="button" aria-label="Scroll right"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+                    </div>
+                </div>
+                <div class="home-rail" id="<%= rail_id %>">
+                    <% for listing_index in section.listing_indexes.iter() { %>
+                    <% let listing = &self.listings[*listing_index % self.listings.len()]; %>
+                    <% let (_, pricing) = crate::sailfish_airbnb_home::AirbnbHomePage::rail_card_copy("experiences", listing); %>
+                    <a href="/showcase/airbnb/search" class="home-rail-card group">
+                        <div class="air-card-image relative aspect-[1.03/1] bg-[var(--air-soft)]">
+                            <img data-air-image="" src="<%= listing.image %>" alt="<%= listing.title %>" class="h-full w-full object-cover" loading="lazy" decoding="async" fetchpriority="low"/>
+                            <span class="absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-[#222] shadow-sm">Most loved</span>
+                            <button class="heart-btn absolute right-3 top-3"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,.4))"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+                        </div>
+                        <div class="mt-3">
+                            <p class="truncate text-[17px] font-medium leading-5 text-[#222]">Design walk inspired by <%= listing.location %></p>
+                            <p class="mt-1 text-[15px] leading-5 text-[var(--air-muted)]">Hosted experience</p>
+                            <p class="flex items-center gap-1 text-[15px] leading-5 text-[var(--air-muted)]">
+                                <span><%= pricing %></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#FF385C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <span>4.95</span>
+                            </p>
+                        </div>
+                    </a>
+                    <% } %>
+                </div>
+            </section>
+            <% } %>
+        </div>
+    </div>
+
+    <%# ── Services panel ── %>
+    <div class="home-mode-panel" data-home-panel="services">
+        <div class="air-shell py-10 md:py-12">
+            <% for (section_index, section) in self.services_sections.iter().enumerate() { %>
+            <% let rail_id = format!("services-rail-{}", section_index); %>
+            <section class="home-rail-section">
+                <div class="mb-4 flex items-center justify-between gap-4">
+                    <div>
+                        <h2 class="text-[28px] font-semibold tracking-[-0.03em] text-[#222]"><%= section.title %></h2>
+                        <p class="mt-1 text-[15px] text-[var(--air-muted)]"><%= section.subtitle %></p>
+                    </div>
+                    <div class="hidden items-center gap-2 md:flex">
+                        <button class="home-rail-arrow" data-rail-prev="<%= rail_id %>" type="button" aria-label="Scroll left"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+                        <button class="home-rail-arrow" data-rail-next="<%= rail_id %>" type="button" aria-label="Scroll right"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+                    </div>
+                </div>
+                <div class="home-rail" id="<%= rail_id %>">
+                    <% for listing_index in section.listing_indexes.iter() { %>
+                    <% let listing = &self.listings[*listing_index % self.listings.len()]; %>
+                    <% let (_, pricing) = crate::sailfish_airbnb_home::AirbnbHomePage::rail_card_copy("services", listing); %>
+                    <a href="/showcase/airbnb/search" class="home-rail-card group">
+                        <div class="air-card-image relative aspect-[1.03/1] bg-[var(--air-soft)]">
+                            <img data-air-image="" src="<%= listing.image %>" alt="<%= listing.title %>" class="h-full w-full object-cover" loading="lazy" decoding="async" fetchpriority="low"/>
+                            <span class="absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-[#222] shadow-sm">Top rated</span>
+                            <button class="heart-btn absolute right-3 top-3"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,.4))"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+                        </div>
+                        <div class="mt-3">
+                            <p class="truncate text-[17px] font-medium leading-5 text-[#222]">Private service for <%= listing.title %></p>
+                            <p class="mt-1 text-[15px] leading-5 text-[var(--air-muted)]">Professional service</p>
+                            <p class="flex items-center gap-1 text-[15px] leading-5 text-[var(--air-muted)]">
+                                <span><%= pricing %></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#FF385C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <span>5.0</span>
+                            </p>
+                        </div>
+                    </a>
+                    <% } %>
+                </div>
+            </section>
+            <% } %>
+        </div>
+    </div>
+</main>
+
+<%# ── Footer ── %>
+<div class="border-t border-b border-[#e2c56b] bg-[#fef9eb]">
+    <div class="air-shell">
+        <p class="py-3 text-xs text-[#7a6520] leading-relaxed text-center">
+            <strong>Synthetic benchmark:</strong> Coast Stays uses Proa-authored data, markup, and illustrations so this repository can be redistributed independently.
+        </p>
+    </div>
+</div>
+<footer class="border-t border-[var(--air-line)] bg-[var(--air-soft)]">
+    <div class="air-shell">
+        <div class="grid grid-cols-1 gap-8 py-12 text-sm md:grid-cols-3">
+            <div>
+                <h4 class="mb-3 font-semibold">Support</h4>
+                <ul class="space-y-2 text-[var(--air-muted)]">
+                    <li><a href="#support" class="hover:underline">Help Center</a></li>
+                    <li><a href="#support" class="hover:underline">Booking protection</a></li>
+                    <li><a href="#support" class="hover:underline">Cancellation options</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="mb-3 font-semibold">Hosting</h4>
+                <ul class="space-y-2 text-[var(--air-muted)]">
+                    <li><a href="#hosting" class="hover:underline">List your home</a></li>
+                    <li><a href="#hosting" class="hover:underline">Hosting resources</a></li>
+                    <li><a href="#hosting" class="hover:underline">Community forum</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="mb-3 font-semibold">Coast Stays</h4>
+                <ul class="space-y-2 text-[var(--air-muted)]">
+                    <li><a href="#about" class="hover:underline">Newsroom</a></li>
+                    <li><a href="#about" class="hover:underline">Careers</a></li>
+                    <li><a href="#about" class="hover:underline">Investors</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="flex flex-col gap-4 border-t border-[var(--air-line)] py-6 text-sm text-[var(--air-muted)] md:flex-row md:items-center md:justify-between">
+            <p>&copy; Proa &middot; Fictional benchmark content</p>
+            <p>Built with <a href="/" class="underline">Proa UI</a> (showcase demo)</p>
+        </div>
+    </div>
+</footer>
+</body></html>

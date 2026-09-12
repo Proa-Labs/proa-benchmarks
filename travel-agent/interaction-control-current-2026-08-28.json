@@ -1,0 +1,256 @@
+{
+  "capturedAt": "2026-08-28T19:35:44.897672+00:00",
+  "config": {
+    "runs": 3,
+    "mode": "current",
+    "latencyMs": 40,
+    "downloadMbps": 100,
+    "surfaces": [
+      "flights",
+      "airbnb",
+      "hotels",
+      "grand_wailea",
+      "enterprise"
+    ],
+    "llmCalls": 0,
+    "detailedTimings": false
+  },
+  "runs": [
+    {
+      "run": 1,
+      "mode": "current",
+      "elapsedMs": 61324.21271223575,
+      "completedSurfaces": 5,
+      "actions": 24,
+      "surfaces": [
+        {
+          "surface": "flights",
+          "status": "completed",
+          "elapsedMs": 2518.0014185607433,
+          "actions": 4,
+          "facts": {
+            "route": "SFO-OGG",
+            "lowestDisplayedPrice": "$369",
+            "priceSamples": [
+              "$369",
+              "$399",
+              "$455"
+            ],
+            "nonstop": true
+          }
+        },
+        {
+          "surface": "airbnb",
+          "status": "completed",
+          "elapsedMs": 5967.2875218093395,
+          "actions": 2,
+          "facts": {
+            "title": "Very Comfortable Kamaole Sands Condo Sleeps 4",
+            "rating": "4.99",
+            "filteredCard": "Photo 1 of 6\nTop guest favorite\nGuest favorite\nCondo in Kihei\nVery Comfortable Kamaole Sands Condo Sleeps 4\n1 bedroom\n1 bedroom\n,\n\u00a0\u00b7\u00a0\n2 beds\n2 beds\n,\n\u00a0\u00b7\u00a0\n2 baths\n2 baths\n$1,615 \n$1,497\nShow price breakdown\n\u00a0\nfor 7 nights\nWeekly discount\nPay $0 today\nFree cancellation\n4.99 out of 5 average rating, 149 reviews\n4.99 (149)",
+            "url": "https://www.airbnb.com/rooms/36351502?check_in=2026-10-12&check_out=2026-10-19&search_mode=regular_search&photo_id=802342800&source_impression_id=p3_6da65c71-6116-40ac-bdc8-70a4186e8ba0_1f4bc8e9-2e0c-4e6c-9801-7b72b3f654c8_0_36351502_0&previous_page_section_name=1000&federated_search_id=6da65c71-6116-40ac-bdc8-70a4186e8ba0"
+          }
+        },
+        {
+          "surface": "hotels",
+          "status": "completed",
+          "elapsedMs": 10520.03120072186,
+          "actions": 4,
+          "facts": {
+            "property": "Wailea Beach Resort - Marriott, Maui",
+            "price": "$777",
+            "poolFilter": true,
+            "resultCount": "Wailea\u00a0\u00b7\u00a064 results"
+          }
+        },
+        {
+          "surface": "grand_wailea",
+          "status": "completed",
+          "elapsedMs": 16641.306510195136,
+          "actions": 4,
+          "facts": {
+            "name": "Deluxe Ocean View King",
+            "squareFeet": "640",
+            "sleeps": "4",
+            "url": "https://www.grandwailea.com/stay/deluxe-ocean-view-king"
+          }
+        },
+        {
+          "surface": "enterprise",
+          "status": "completed",
+          "elapsedMs": 25677.400511689484,
+          "actions": 10,
+          "facts": {
+            "vehicle": "Compact SUV",
+            "example": "Hyundai Kona or similar",
+            "priceSample": "419.00",
+            "datesPresent": true,
+            "url": "https://www.enterprise.com/en/reserve.html#car_select"
+          }
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "mode": "current",
+      "elapsedMs": 63211.06672566384,
+      "completedSurfaces": 5,
+      "actions": 24,
+      "surfaces": [
+        {
+          "surface": "flights",
+          "status": "completed",
+          "elapsedMs": 2581.9960637018085,
+          "actions": 4,
+          "facts": {
+            "route": "SFO-OGG",
+            "lowestDisplayedPrice": "$369",
+            "priceSamples": [
+              "$369",
+              "$399",
+              "$455"
+            ],
+            "nonstop": true
+          }
+        },
+        {
+          "surface": "airbnb",
+          "status": "completed",
+          "elapsedMs": 5889.842584729195,
+          "actions": 2,
+          "facts": {
+            "title": "South Maui cozy studio, split AC, steps to beach!",
+            "rating": "4.97",
+            "filteredCard": "Photo 1 of 6\nTop guest favorite\nGuest favorite\nCondo in Kihei\nAcross from Kamaole Beach with lanai\n1 bedroom\n1 bedroom\n,\n\u00a0\u00b7\u00a0\n1 king bed\n1 king bed\n,\n\u00a0\u00b7\u00a0\n1 bath\n1 bath\n$1,584 \n$1,310\nShow price breakdown\n\u00a0\nfor 7 nights\n4.97 out of 5 average rating, 108 reviews\n4.97 (108)",
+            "url": "https://www.airbnb.com/rooms/47514058?check_in=2026-10-12&check_out=2026-10-19&search_mode=regular_search&photo_id=1473134493&source_impression_id=p3_f808d1ba-2da5-4a79-9a24-b0bb52bf4c42_002462b6-4970-42ef-987f-70fa6d15ccf2_0_47514058_0&previous_page_section_name=1000&federated_search_id=f808d1ba-2da5-4a79-9a24-b0bb52bf4c42"
+          }
+        },
+        {
+          "surface": "hotels",
+          "status": "completed",
+          "elapsedMs": 10259.044218808413,
+          "actions": 4,
+          "facts": {
+            "property": "Kihei Kai Nani - Unit 341",
+            "price": "$130",
+            "poolFilter": true,
+            "resultCount": "Wailea\u00a0\u00b7\u00a02,706 results"
+          }
+        },
+        {
+          "surface": "grand_wailea",
+          "status": "completed",
+          "elapsedMs": 16955.93516062945,
+          "actions": 4,
+          "facts": {
+            "name": "Deluxe Ocean View King",
+            "squareFeet": "640",
+            "sleeps": "4",
+            "url": "https://www.grandwailea.com/stay/deluxe-ocean-view-king"
+          }
+        },
+        {
+          "surface": "enterprise",
+          "status": "completed",
+          "elapsedMs": 27524.066422134638,
+          "actions": 10,
+          "facts": {
+            "vehicle": "Compact SUV",
+            "example": "Hyundai Kona or similar",
+            "priceSample": "419.00",
+            "datesPresent": true,
+            "url": "https://www.enterprise.com/en/reserve.html#car_select"
+          }
+        }
+      ]
+    },
+    {
+      "run": 3,
+      "mode": "current",
+      "elapsedMs": 57509.69390850514,
+      "completedSurfaces": 5,
+      "actions": 24,
+      "surfaces": [
+        {
+          "surface": "flights",
+          "status": "completed",
+          "elapsedMs": 2681.557448580861,
+          "actions": 4,
+          "facts": {
+            "route": "SFO-OGG",
+            "lowestDisplayedPrice": "$369",
+            "priceSamples": [
+              "$369",
+              "$399",
+              "$455"
+            ],
+            "nonstop": true
+          }
+        },
+        {
+          "surface": "airbnb",
+          "status": "completed",
+          "elapsedMs": 5983.02576970309,
+          "actions": 2,
+          "facts": {
+            "title": "Wailea Luxury Retreat | Walk to Beach & Shops",
+            "rating": "4.67",
+            "filteredCard": "Photo 1 of 6\nCondo in Wailea\nWailea lanai with poolside views\n1 bedroom\n1 bedroom\n,\n\u00a0\u00b7\u00a0\n2 beds\n2 beds\n,\n\u00a0\u00b7\u00a0\n1 bath\n1 bath\n$2,843 \n$2,594\nShow price breakdown\n\u00a0\nfor 7 nights\nPay $0 today\nFree cancellation\n4.67 out of 5 average rating, 6 reviews\n4.67 (6)",
+            "url": "https://www.airbnb.com/rooms/1559894787192615671?check_in=2026-10-12&check_out=2026-10-19&search_mode=regular_search&photo_id=2415540471&source_impression_id=p3_2e923263-cec4-4409-a0fd-56fb4022a714_3d704b2d-0199-4225-a1ce-ea4af99aab02_0_1559894787192615671_0&previous_page_section_name=1000&federated_search_id=2e923263-cec4-4409-a0fd-56fb4022a714"
+          }
+        },
+        {
+          "surface": "hotels",
+          "status": "completed",
+          "elapsedMs": 10323.306608013809,
+          "actions": 4,
+          "facts": {
+            "property": "Wailea Beach Resort - Marriott, Maui",
+            "price": "$777",
+            "poolFilter": true,
+            "resultCount": "Wailea\u00a0\u00b7\u00a064 results"
+          }
+        },
+        {
+          "surface": "grand_wailea",
+          "status": "completed",
+          "elapsedMs": 14584.705268964171,
+          "actions": 4,
+          "facts": {
+            "name": "Ocean View King",
+            "squareFeet": "640",
+            "sleeps": "4",
+            "url": "https://www.grandwailea.com/stay/ocean-view-king"
+          }
+        },
+        {
+          "surface": "enterprise",
+          "status": "completed",
+          "elapsedMs": 23936.872984282672,
+          "actions": 10,
+          "facts": {
+            "vehicle": "Compact SUV",
+            "example": "Hyundai Kona or similar",
+            "priceSample": "419.00",
+            "datesPresent": true,
+            "url": "https://www.enterprise.com/en/reserve.html#car_select"
+          }
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "mode": "current",
+    "runs": 3,
+    "successfulRuns": 3,
+    "workflowP50Ms": 61324.21271223575,
+    "actionsP50": 24.0,
+    "surfaceP50Ms": {
+      "flights": 2581.9960637018085,
+      "airbnb": 5967.2875218093395,
+      "hotels": 10323.306608013809,
+      "grand_wailea": 16641.306510195136,
+      "enterprise": 25677.400511689484
+    }
+  }
+}

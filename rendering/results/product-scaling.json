@@ -1,0 +1,1285 @@
+{
+  "schema_version": 1,
+  "benchmark_version": "product-scaling-v1",
+  "capture_id": "product-scaling-v1-2026-09-07-3e9dba799481",
+  "capture_kind": "engineering",
+  "status": "pass",
+  "captured_at": "2026-09-07T07:01:05.588Z",
+  "completed_at": "2026-09-07T07:02:13.410Z",
+  "host": {
+    "cpu_model": "Apple M4 Max",
+    "logical_cpus": 16,
+    "memory_bytes": 137438953472,
+    "architecture": "arm64",
+    "os_name": "macOS (Darwin)",
+    "os_release": "25.5.0"
+  },
+  "counts": [
+    12,
+    96,
+    768
+  ],
+  "renderers": [
+    {
+      "id": "proa",
+      "label": "Proa",
+      "language": "Rust"
+    },
+    {
+      "id": "marko",
+      "label": "Marko",
+      "language": "JavaScript"
+    },
+    {
+      "id": "react",
+      "label": "React",
+      "language": "JavaScript"
+    },
+    {
+      "id": "vue",
+      "label": "Vue",
+      "language": "JavaScript"
+    },
+    {
+      "id": "svelte",
+      "label": "Svelte",
+      "language": "JavaScript"
+    },
+    {
+      "id": "rails",
+      "label": "Rails",
+      "language": "Ruby"
+    },
+    {
+      "id": "jte",
+      "label": "jte",
+      "language": "Java"
+    },
+    {
+      "id": "rocker",
+      "label": "Rocker",
+      "language": "Java"
+    },
+    {
+      "id": "handlebars",
+      "label": "Handlebars",
+      "language": "JavaScript"
+    },
+    {
+      "id": "go-html-template",
+      "label": "Go html/template",
+      "language": "Go"
+    },
+    {
+      "id": "jinja2",
+      "label": "Jinja2",
+      "language": "Python"
+    },
+    {
+      "id": "php",
+      "label": "PHP",
+      "language": "PHP"
+    },
+    {
+      "id": "askama",
+      "label": "Askama",
+      "language": "Rust"
+    },
+    {
+      "id": "sailfish",
+      "label": "Sailfish",
+      "language": "Rust"
+    },
+    {
+      "id": "leptos",
+      "label": "Leptos",
+      "language": "Rust"
+    },
+    {
+      "id": "dioxus",
+      "label": "Dioxus",
+      "language": "Rust"
+    },
+    {
+      "id": "topcoat",
+      "label": "Topcoat",
+      "language": "Rust"
+    }
+  ],
+  "parity": {
+    "proa": {
+      "12": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "cedfa2bdfa342851075aad871140281e8e7bb9a12063db87be58c2150c06a9b8",
+        "output_bytes": 35762,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      },
+      "96": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 284908,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      },
+      "768": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "c017778d3d9d5022c3794d0b82b45ff76397ec774f7b84088c2d9ce6c43adaf9",
+        "output_bytes": 2278716,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      }
+    },
+    "marko": {
+      "12": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "cedfa2bdfa342851075aad871140281e8e7bb9a12063db87be58c2150c06a9b8",
+        "output_bytes": 35474,
+        "payload_delta_bytes": -288,
+        "byte_equal_to_proa": false
+      },
+      "96": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 282604,
+        "payload_delta_bytes": -2304,
+        "byte_equal_to_proa": false
+      },
+      "768": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "c017778d3d9d5022c3794d0b82b45ff76397ec774f7b84088c2d9ce6c43adaf9",
+        "output_bytes": 2260284,
+        "payload_delta_bytes": -18432,
+        "byte_equal_to_proa": false
+      }
+    },
+    "react": {
+      "12": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "cedfa2bdfa342851075aad871140281e8e7bb9a12063db87be58c2150c06a9b8",
+        "output_bytes": 35882,
+        "payload_delta_bytes": 120,
+        "byte_equal_to_proa": false
+      },
+      "96": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285868,
+        "payload_delta_bytes": 960,
+        "byte_equal_to_proa": false
+      },
+      "768": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "c017778d3d9d5022c3794d0b82b45ff76397ec774f7b84088c2d9ce6c43adaf9",
+        "output_bytes": 2286396,
+        "payload_delta_bytes": 7680,
+        "byte_equal_to_proa": false
+      }
+    },
+    "vue": {
+      "12": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "cedfa2bdfa342851075aad871140281e8e7bb9a12063db87be58c2150c06a9b8",
+        "output_bytes": 36090,
+        "payload_delta_bytes": 328,
+        "byte_equal_to_proa": false
+      },
+      "96": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 287420,
+        "payload_delta_bytes": 2512,
+        "byte_equal_to_proa": false
+      },
+      "768": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "c017778d3d9d5022c3794d0b82b45ff76397ec774f7b84088c2d9ce6c43adaf9",
+        "output_bytes": 2298700,
+        "payload_delta_bytes": 19984,
+        "byte_equal_to_proa": false
+      }
+    },
+    "svelte": {
+      "12": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "cedfa2bdfa342851075aad871140281e8e7bb9a12063db87be58c2150c06a9b8",
+        "output_bytes": 35986,
+        "payload_delta_bytes": 224,
+        "byte_equal_to_proa": false
+      },
+      "96": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 286476,
+        "payload_delta_bytes": 1568,
+        "byte_equal_to_proa": false
+      },
+      "768": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "c017778d3d9d5022c3794d0b82b45ff76397ec774f7b84088c2d9ce6c43adaf9",
+        "output_bytes": 2291036,
+        "payload_delta_bytes": 12320,
+        "byte_equal_to_proa": false
+      }
+    },
+    "rails": {
+      "12": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "cedfa2bdfa342851075aad871140281e8e7bb9a12063db87be58c2150c06a9b8",
+        "output_bytes": 37261,
+        "payload_delta_bytes": 1499,
+        "byte_equal_to_proa": false
+      },
+      "96": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 296823,
+        "payload_delta_bytes": 11915,
+        "byte_equal_to_proa": false
+      },
+      "768": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "c017778d3d9d5022c3794d0b82b45ff76397ec774f7b84088c2d9ce6c43adaf9",
+        "output_bytes": 2373959,
+        "payload_delta_bytes": 95243,
+        "byte_equal_to_proa": false
+      }
+    },
+    "jte": {
+      "12": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "cedfa2bdfa342851075aad871140281e8e7bb9a12063db87be58c2150c06a9b8",
+        "output_bytes": 35763,
+        "payload_delta_bytes": 1,
+        "byte_equal_to_proa": false
+      },
+      "96": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 284909,
+        "payload_delta_bytes": 1,
+        "byte_equal_to_proa": false
+      },
+      "768": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "c017778d3d9d5022c3794d0b82b45ff76397ec774f7b84088c2d9ce6c43adaf9",
+        "output_bytes": 2278717,
+        "payload_delta_bytes": 1,
+        "byte_equal_to_proa": false
+      }
+    },
+    "rocker": {
+      "12": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "cedfa2bdfa342851075aad871140281e8e7bb9a12063db87be58c2150c06a9b8",
+        "output_bytes": 35883,
+        "payload_delta_bytes": 121,
+        "byte_equal_to_proa": false
+      },
+      "96": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285869,
+        "payload_delta_bytes": 961,
+        "byte_equal_to_proa": false
+      },
+      "768": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "c017778d3d9d5022c3794d0b82b45ff76397ec774f7b84088c2d9ce6c43adaf9",
+        "output_bytes": 2286397,
+        "payload_delta_bytes": 7681,
+        "byte_equal_to_proa": false
+      }
+    },
+    "handlebars": {
+      "12": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "cedfa2bdfa342851075aad871140281e8e7bb9a12063db87be58c2150c06a9b8",
+        "output_bytes": 35882,
+        "payload_delta_bytes": 120,
+        "byte_equal_to_proa": false
+      },
+      "96": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285868,
+        "payload_delta_bytes": 960,
+        "byte_equal_to_proa": false
+      },
+      "768": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "c017778d3d9d5022c3794d0b82b45ff76397ec774f7b84088c2d9ce6c43adaf9",
+        "output_bytes": 2286396,
+        "payload_delta_bytes": 7680,
+        "byte_equal_to_proa": false
+      }
+    },
+    "go-html-template": {
+      "12": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "cedfa2bdfa342851075aad871140281e8e7bb9a12063db87be58c2150c06a9b8",
+        "output_bytes": 35858,
+        "payload_delta_bytes": 96,
+        "byte_equal_to_proa": false
+      },
+      "96": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285676,
+        "payload_delta_bytes": 768,
+        "byte_equal_to_proa": false
+      },
+      "768": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "c017778d3d9d5022c3794d0b82b45ff76397ec774f7b84088c2d9ce6c43adaf9",
+        "output_bytes": 2284860,
+        "payload_delta_bytes": 6144,
+        "byte_equal_to_proa": false
+      }
+    },
+    "jinja2": {
+      "12": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "cedfa2bdfa342851075aad871140281e8e7bb9a12063db87be58c2150c06a9b8",
+        "output_bytes": 35858,
+        "payload_delta_bytes": 96,
+        "byte_equal_to_proa": false
+      },
+      "96": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285676,
+        "payload_delta_bytes": 768,
+        "byte_equal_to_proa": false
+      },
+      "768": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "c017778d3d9d5022c3794d0b82b45ff76397ec774f7b84088c2d9ce6c43adaf9",
+        "output_bytes": 2284860,
+        "payload_delta_bytes": 6144,
+        "byte_equal_to_proa": false
+      }
+    },
+    "php": {
+      "12": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "cedfa2bdfa342851075aad871140281e8e7bb9a12063db87be58c2150c06a9b8",
+        "output_bytes": 35882,
+        "payload_delta_bytes": 120,
+        "byte_equal_to_proa": false
+      },
+      "96": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285868,
+        "payload_delta_bytes": 960,
+        "byte_equal_to_proa": false
+      },
+      "768": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "c017778d3d9d5022c3794d0b82b45ff76397ec774f7b84088c2d9ce6c43adaf9",
+        "output_bytes": 2286396,
+        "payload_delta_bytes": 7680,
+        "byte_equal_to_proa": false
+      }
+    },
+    "askama": {
+      "12": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "cedfa2bdfa342851075aad871140281e8e7bb9a12063db87be58c2150c06a9b8",
+        "output_bytes": 35858,
+        "payload_delta_bytes": 96,
+        "byte_equal_to_proa": false
+      },
+      "96": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285676,
+        "payload_delta_bytes": 768,
+        "byte_equal_to_proa": false
+      },
+      "768": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "c017778d3d9d5022c3794d0b82b45ff76397ec774f7b84088c2d9ce6c43adaf9",
+        "output_bytes": 2284860,
+        "payload_delta_bytes": 6144,
+        "byte_equal_to_proa": false
+      }
+    },
+    "sailfish": {
+      "12": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "cedfa2bdfa342851075aad871140281e8e7bb9a12063db87be58c2150c06a9b8",
+        "output_bytes": 35882,
+        "payload_delta_bytes": 120,
+        "byte_equal_to_proa": false
+      },
+      "96": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285868,
+        "payload_delta_bytes": 960,
+        "byte_equal_to_proa": false
+      },
+      "768": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "c017778d3d9d5022c3794d0b82b45ff76397ec774f7b84088c2d9ce6c43adaf9",
+        "output_bytes": 2286396,
+        "payload_delta_bytes": 7680,
+        "byte_equal_to_proa": false
+      }
+    },
+    "leptos": {
+      "12": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "cedfa2bdfa342851075aad871140281e8e7bb9a12063db87be58c2150c06a9b8",
+        "output_bytes": 35909,
+        "payload_delta_bytes": 147,
+        "byte_equal_to_proa": false
+      },
+      "96": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 286063,
+        "payload_delta_bytes": 1155,
+        "byte_equal_to_proa": false
+      },
+      "768": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "c017778d3d9d5022c3794d0b82b45ff76397ec774f7b84088c2d9ce6c43adaf9",
+        "output_bytes": 2287935,
+        "payload_delta_bytes": 9219,
+        "byte_equal_to_proa": false
+      }
+    },
+    "dioxus": {
+      "12": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "cedfa2bdfa342851075aad871140281e8e7bb9a12063db87be58c2150c06a9b8",
+        "output_bytes": 35882,
+        "payload_delta_bytes": 120,
+        "byte_equal_to_proa": false
+      },
+      "96": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285868,
+        "payload_delta_bytes": 960,
+        "byte_equal_to_proa": false
+      },
+      "768": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "c017778d3d9d5022c3794d0b82b45ff76397ec774f7b84088c2d9ce6c43adaf9",
+        "output_bytes": 2286396,
+        "payload_delta_bytes": 7680,
+        "byte_equal_to_proa": false
+      }
+    },
+    "topcoat": {
+      "12": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "cedfa2bdfa342851075aad871140281e8e7bb9a12063db87be58c2150c06a9b8",
+        "output_bytes": 35762,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      },
+      "96": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 284908,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      },
+      "768": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "c017778d3d9d5022c3794d0b82b45ff76397ec774f7b84088c2d9ce6c43adaf9",
+        "output_bytes": 2278716,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      }
+    }
+  },
+  "measurements": {
+    "proa": {
+      "12": {
+        "p50_us": 2.834,
+        "p95_us": 3.25,
+        "p99_us": 4,
+        "mean_us": 2.9437335000000044,
+        "process_p50_min_us": 2.791,
+        "process_p50_max_us": 3.042,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 35762,
+        "allocation_policy": "standard render_to_string; fresh owned String"
+      },
+      "96": {
+        "p50_us": 23.333,
+        "p95_us": 26.25,
+        "p99_us": 31.208419999999997,
+        "mean_us": 24.05306800000002,
+        "process_p50_min_us": 23.0625,
+        "process_p50_max_us": 24.6665,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 284908,
+        "allocation_policy": "standard render_to_string; fresh owned String"
+      },
+      "768": {
+        "p50_us": 196.27100000000002,
+        "p95_us": 213.38715,
+        "p99_us": 224.08441,
+        "mean_us": 195.94831000000002,
+        "process_p50_min_us": 189.20850000000002,
+        "process_p50_max_us": 205.375,
+        "independent_processes": 5,
+        "samples_per_process": 100,
+        "warmups_per_process": 10,
+        "output_bytes": 2278716,
+        "allocation_policy": "standard render_to_string; fresh owned String"
+      }
+    },
+    "marko": {
+      "12": {
+        "p50_us": 10.666,
+        "p95_us": 20.381249999999994,
+        "p99_us": 41.709410000000005,
+        "mean_us": 17.300940500000003,
+        "process_p50_min_us": 10.167,
+        "process_p50_max_us": 10.833,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 35474,
+        "allocation_policy": "compiled Marko HTML render; fresh owned string"
+      },
+      "96": {
+        "p50_us": 78.063,
+        "p95_us": 153.84554999999997,
+        "p99_us": 197.63042,
+        "mean_us": 134.48191799999998,
+        "process_p50_min_us": 76.8955,
+        "process_p50_max_us": 79.25,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 282604,
+        "allocation_policy": "compiled Marko HTML render; fresh owned string"
+      },
+      "768": {
+        "p50_us": 568.75,
+        "p95_us": 4418.12674999998,
+        "p99_us": 24794.574080000006,
+        "mean_us": 1594.8695900000002,
+        "process_p50_min_us": 560.7495,
+        "process_p50_max_us": 577.5625,
+        "independent_processes": 5,
+        "samples_per_process": 100,
+        "warmups_per_process": 10,
+        "output_bytes": 2260284,
+        "allocation_policy": "compiled Marko HTML render; fresh owned string"
+      }
+    },
+    "react": {
+      "12": {
+        "p50_us": 46.334,
+        "p95_us": 62.633949999999956,
+        "p99_us": 115.75083,
+        "mean_us": 48.637052499999925,
+        "process_p50_min_us": 43.0205,
+        "process_p50_max_us": 46.708,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 35882,
+        "allocation_policy": "React renderToString; fresh owned string"
+      },
+      "96": {
+        "p50_us": 380.312,
+        "p95_us": 734.0833499999998,
+        "p99_us": 825.3024999999998,
+        "mean_us": 410.37358599999993,
+        "process_p50_min_us": 377.9375,
+        "process_p50_max_us": 387.5,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285868,
+        "allocation_policy": "React renderToString; fresh owned string"
+      },
+      "768": {
+        "p50_us": 3112.188,
+        "p95_us": 5198.65145,
+        "p99_us": 5506.011990000002,
+        "mean_us": 3527.9424800000006,
+        "process_p50_min_us": 3091.2915000000003,
+        "process_p50_max_us": 3127.8959999999997,
+        "independent_processes": 5,
+        "samples_per_process": 100,
+        "warmups_per_process": 10,
+        "output_bytes": 2286396,
+        "allocation_policy": "React renderToString; fresh owned string"
+      }
+    },
+    "vue": {
+      "12": {
+        "p50_us": 10.875,
+        "p95_us": 16.877049999999997,
+        "p99_us": 28.75083,
+        "mean_us": 13.738198999999998,
+        "process_p50_min_us": 10.667,
+        "process_p50_max_us": 12.208,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 36090,
+        "allocation_policy": "SSR-compiled Vue template rendered with renderToString on a fresh app; fresh owned string"
+      },
+      "96": {
+        "p50_us": 75.708,
+        "p95_us": 104.16874999999996,
+        "p99_us": 245.40374999999997,
+        "mean_us": 84.96958000000002,
+        "process_p50_min_us": 75.25,
+        "process_p50_max_us": 76.291,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 287420,
+        "allocation_policy": "SSR-compiled Vue template rendered with renderToString on a fresh app; fresh owned string"
+      },
+      "768": {
+        "p50_us": 613.9375,
+        "p95_us": 1294.2976,
+        "p99_us": 1501.8050000000023,
+        "mean_us": 705.7216800000001,
+        "process_p50_min_us": 601.2915,
+        "process_p50_max_us": 676.5005,
+        "independent_processes": 5,
+        "samples_per_process": 100,
+        "warmups_per_process": 10,
+        "output_bytes": 2298700,
+        "allocation_policy": "SSR-compiled Vue template rendered with renderToString on a fresh app; fresh owned string"
+      }
+    },
+    "svelte": {
+      "12": {
+        "p50_us": 10.583,
+        "p95_us": 14.5,
+        "p99_us": 20.337169999999993,
+        "mean_us": 15.735255500000003,
+        "process_p50_min_us": 10.542,
+        "process_p50_max_us": 10.7295,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 35986,
+        "allocation_policy": "server-compiled Svelte 5 component rendered with svelte/server render() inside a static document shell; fresh owned string"
+      },
+      "96": {
+        "p50_us": 79.208,
+        "p95_us": 136.12259999999995,
+        "p99_us": 1323.6957399999797,
+        "mean_us": 139.41049399999994,
+        "process_p50_min_us": 78.1455,
+        "process_p50_max_us": 80.625,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 286476,
+        "allocation_policy": "server-compiled Svelte 5 component rendered with svelte/server render() inside a static document shell; fresh owned string"
+      },
+      "768": {
+        "p50_us": 535.021,
+        "p95_us": 9485.131599999993,
+        "p99_us": 23062.733010000007,
+        "mean_us": 1654.4711799999998,
+        "process_p50_min_us": 527.896,
+        "process_p50_max_us": 541.6665,
+        "independent_processes": 5,
+        "samples_per_process": 100,
+        "warmups_per_process": 10,
+        "output_bytes": 2291036,
+        "allocation_policy": "server-compiled Svelte 5 component rendered with svelte/server render() inside a static document shell; fresh owned string"
+      }
+    },
+    "rails": {
+      "12": {
+        "p50_us": 60,
+        "p95_us": 71,
+        "p99_us": 291.03999999999996,
+        "mean_us": 67.6405,
+        "process_p50_min_us": 60,
+        "process_p50_max_us": 62,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 37261,
+        "allocation_policy": "cached Rails template; fresh ActionView context and output buffer"
+      },
+      "96": {
+        "p50_us": 387,
+        "p95_us": 668.4499999999996,
+        "p99_us": 1327.4199999999996,
+        "mean_us": 428.046,
+        "process_p50_min_us": 384,
+        "process_p50_max_us": 391,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 296823,
+        "allocation_policy": "cached Rails template; fresh ActionView context and output buffer"
+      },
+      "768": {
+        "p50_us": 3014.5,
+        "p95_us": 3881.2999999999997,
+        "p99_us": 6934.760000000002,
+        "mean_us": 3235.79,
+        "process_p50_min_us": 3005.5,
+        "process_p50_max_us": 3030,
+        "independent_processes": 5,
+        "samples_per_process": 100,
+        "warmups_per_process": 10,
+        "output_bytes": 2373959,
+        "allocation_policy": "cached Rails template; fresh ActionView context and output buffer"
+      }
+    },
+    "jte": {
+      "12": {
+        "p50_us": 29,
+        "p95_us": 38.7521,
+        "p99_us": 53.91783,
+        "mean_us": 30.721915,
+        "process_p50_min_us": 28.25,
+        "process_p50_max_us": 29.75,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 35763,
+        "allocation_policy": "precompiled jte template; fresh Utf8ByteOutput response"
+      },
+      "96": {
+        "p50_us": 208.5625,
+        "p95_us": 364.13335,
+        "p99_us": 417.47009,
+        "mean_us": 230.861652,
+        "process_p50_min_us": 207.416,
+        "process_p50_max_us": 209.146,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 284909,
+        "allocation_policy": "precompiled jte template; fresh Utf8ByteOutput response"
+      },
+      "768": {
+        "p50_us": 1757.5625,
+        "p95_us": 2141.26425,
+        "p99_us": 2877.00167,
+        "mean_us": 1772.83459,
+        "process_p50_min_us": 1733.896,
+        "process_p50_max_us": 1780.229,
+        "independent_processes": 5,
+        "samples_per_process": 100,
+        "warmups_per_process": 10,
+        "output_bytes": 2278717,
+        "allocation_policy": "precompiled jte template; fresh Utf8ByteOutput response"
+      }
+    },
+    "rocker": {
+      "12": {
+        "p50_us": 39.916,
+        "p95_us": 52.875,
+        "p99_us": 67.21008,
+        "mean_us": 42.706217,
+        "process_p50_min_us": 39.791,
+        "process_p50_max_us": 48.292,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 35883,
+        "allocation_policy": "optimized Rocker template flattened to a fresh owned string"
+      },
+      "96": {
+        "p50_us": 323.3335,
+        "p95_us": 489.31185,
+        "p99_us": 528.04634,
+        "mean_us": 340.0355,
+        "process_p50_min_us": 322.146,
+        "process_p50_max_us": 324.875,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285869,
+        "allocation_policy": "optimized Rocker template flattened to a fresh owned string"
+      },
+      "768": {
+        "p50_us": 2736.5415,
+        "p95_us": 3028.8402,
+        "p99_us": 3939.47617,
+        "mean_us": 2774.88297,
+        "process_p50_min_us": 2680.125,
+        "process_p50_max_us": 2938.792,
+        "independent_processes": 5,
+        "samples_per_process": 100,
+        "warmups_per_process": 10,
+        "output_bytes": 2286397,
+        "allocation_policy": "optimized Rocker template flattened to a fresh owned string"
+      }
+    },
+    "handlebars": {
+      "12": {
+        "p50_us": 25.166,
+        "p95_us": 33.08605,
+        "p99_us": 66.6275,
+        "mean_us": 26.79525850000008,
+        "process_p50_min_us": 25,
+        "process_p50_max_us": 26.333,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 35882,
+        "allocation_policy": "compiled Handlebars template; fresh owned string"
+      },
+      "96": {
+        "p50_us": 196.187,
+        "p95_us": 274.79585,
+        "p99_us": 305.52757999999994,
+        "mean_us": 205.89451,
+        "process_p50_min_us": 193.08350000000002,
+        "process_p50_max_us": 201.39600000000002,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285868,
+        "allocation_policy": "compiled Handlebars template; fresh owned string"
+      },
+      "768": {
+        "p50_us": 1567.458,
+        "p95_us": 2108.6792,
+        "p99_us": 2410.267830000002,
+        "mean_us": 1700.4437800000012,
+        "process_p50_min_us": 1549.5,
+        "process_p50_max_us": 1657.729,
+        "independent_processes": 5,
+        "samples_per_process": 100,
+        "warmups_per_process": 10,
+        "output_bytes": 2286396,
+        "allocation_policy": "compiled Handlebars template; fresh owned string"
+      }
+    },
+    "go-html-template": {
+      "12": {
+        "p50_us": 70.792,
+        "p95_us": 147.06489999999997,
+        "p99_us": 217.91741,
+        "mean_us": 79.80266700000001,
+        "process_p50_min_us": 70.542,
+        "process_p50_max_us": 71.292,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 35858,
+        "allocation_policy": "fresh bytes.Buffer and owned string"
+      },
+      "96": {
+        "p50_us": 606.8335,
+        "p95_us": 760.94935,
+        "p99_us": 809.39176,
+        "mean_us": 641.848522,
+        "process_p50_min_us": 593.9585,
+        "process_p50_max_us": 619.458,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285676,
+        "allocation_policy": "fresh bytes.Buffer and owned string"
+      },
+      "768": {
+        "p50_us": 5007.916499999999,
+        "p95_us": 5191.51665,
+        "p99_us": 5248.2375,
+        "mean_us": 5026.03087,
+        "process_p50_min_us": 4996.771000000001,
+        "process_p50_max_us": 5012,
+        "independent_processes": 5,
+        "samples_per_process": 100,
+        "warmups_per_process": 10,
+        "output_bytes": 2284860,
+        "allocation_policy": "fresh bytes.Buffer and owned string"
+      }
+    },
+    "jinja2": {
+      "12": {
+        "p50_us": 150.29149999999998,
+        "p95_us": 165.25834999999998,
+        "p99_us": 175.66783,
+        "mean_us": 152.633468,
+        "process_p50_min_us": 148.958,
+        "process_p50_max_us": 156.97899999999998,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 35858,
+        "allocation_policy": "compiled Jinja2 template; fresh owned string"
+      },
+      "96": {
+        "p50_us": 1187.8125,
+        "p95_us": 1219.208,
+        "p99_us": 1244.7196700000002,
+        "mean_us": 1184.0736040000002,
+        "process_p50_min_us": 1172.7085,
+        "process_p50_max_us": 1196.0210000000002,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285676,
+        "allocation_policy": "compiled Jinja2 template; fresh owned string"
+      },
+      "768": {
+        "p50_us": 9841.8745,
+        "p95_us": 10437.066949999999,
+        "p99_us": 10611.239080000001,
+        "mean_us": 9875.09829,
+        "process_p50_min_us": 9780.8755,
+        "process_p50_max_us": 9897.708,
+        "independent_processes": 5,
+        "samples_per_process": 100,
+        "warmups_per_process": 10,
+        "output_bytes": 2284860,
+        "allocation_policy": "compiled Jinja2 template; fresh owned string"
+      }
+    },
+    "php": {
+      "12": {
+        "p50_us": 10.417,
+        "p95_us": 11.541,
+        "p99_us": 14.08342,
+        "mean_us": 10.67777200000004,
+        "process_p50_min_us": 10.209,
+        "process_p50_max_us": 10.792,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 35882,
+        "allocation_policy": "fresh owned PHP string"
+      },
+      "96": {
+        "p50_us": 81.0205,
+        "p95_us": 87.458,
+        "p99_us": 94.71191,
+        "mean_us": 79.95236799999998,
+        "process_p50_min_us": 78.354,
+        "process_p50_max_us": 83.291,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285868,
+        "allocation_policy": "fresh owned PHP string"
+      },
+      "768": {
+        "p50_us": 871.875,
+        "p95_us": 899.2538499999999,
+        "p99_us": 917.4415800000003,
+        "mean_us": 871.0583200000001,
+        "process_p50_min_us": 848.2919999999999,
+        "process_p50_max_us": 879.3330000000001,
+        "independent_processes": 5,
+        "samples_per_process": 100,
+        "warmups_per_process": 10,
+        "output_bytes": 2286396,
+        "allocation_policy": "fresh owned PHP string"
+      }
+    },
+    "askama": {
+      "12": {
+        "p50_us": 3.125,
+        "p95_us": 3.458,
+        "p99_us": 4.042409999999999,
+        "mean_us": 3.122963000000014,
+        "process_p50_min_us": 3.0410000000000004,
+        "process_p50_max_us": 3.209,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 35858,
+        "allocation_policy": "compiled Askama template; fresh owned String"
+      },
+      "96": {
+        "p50_us": 21.25,
+        "p95_us": 23.883349999999993,
+        "p99_us": 28.12583,
+        "mean_us": 21.722093999999988,
+        "process_p50_min_us": 20.375,
+        "process_p50_max_us": 22.041,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285676,
+        "allocation_policy": "compiled Askama template; fresh owned String"
+      },
+      "768": {
+        "p50_us": 285.875,
+        "p95_us": 308.81489999999997,
+        "p99_us": 314.32625000000013,
+        "mean_us": 284.93749000000014,
+        "process_p50_min_us": 276.0005,
+        "process_p50_max_us": 287.354,
+        "independent_processes": 5,
+        "samples_per_process": 100,
+        "warmups_per_process": 10,
+        "output_bytes": 2284860,
+        "allocation_policy": "compiled Askama template; fresh owned String"
+      }
+    },
+    "sailfish": {
+      "12": {
+        "p50_us": 2.7089999999999996,
+        "p95_us": 3.042,
+        "p99_us": 3.7079999999999997,
+        "mean_us": 2.796735999999983,
+        "process_p50_min_us": 2.625,
+        "process_p50_max_us": 2.7920000000000003,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 35882,
+        "allocation_policy": "compiled Sailfish template; fresh owned String"
+      },
+      "96": {
+        "p50_us": 23.541999999999998,
+        "p95_us": 25.5,
+        "p99_us": 29.129589999999997,
+        "mean_us": 23.24466800000003,
+        "process_p50_min_us": 22,
+        "process_p50_max_us": 23.625,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285868,
+        "allocation_policy": "compiled Sailfish template; fresh owned String"
+      },
+      "768": {
+        "p50_us": 188.77050000000003,
+        "p95_us": 199.44165,
+        "p99_us": 205.66000000000003,
+        "mean_us": 187.40126000000006,
+        "process_p50_min_us": 185.75,
+        "process_p50_max_us": 191.85399999999998,
+        "independent_processes": 5,
+        "samples_per_process": 100,
+        "warmups_per_process": 10,
+        "output_bytes": 2286396,
+        "allocation_policy": "compiled Sailfish template; fresh owned String"
+      }
+    },
+    "leptos": {
+      "12": {
+        "p50_us": 25.417,
+        "p95_us": 28.879149999999996,
+        "p99_us": 36.21357999999999,
+        "mean_us": 26.690750500000032,
+        "process_p50_min_us": 23.875,
+        "process_p50_max_us": 27.291,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 35909,
+        "allocation_policy": "fresh owned String"
+      },
+      "96": {
+        "p50_us": 204.5,
+        "p95_us": 220.7952,
+        "p99_us": 230.76,
+        "mean_us": 204.68231999999998,
+        "process_p50_min_us": 182.83350000000002,
+        "process_p50_max_us": 209.6875,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 286063,
+        "allocation_policy": "fresh owned String"
+      },
+      "768": {
+        "p50_us": 1660.979,
+        "p95_us": 1789.9357499999999,
+        "p99_us": 1796.63851,
+        "mean_us": 1669.9391499999995,
+        "process_p50_min_us": 1557.2710000000002,
+        "process_p50_max_us": 1746.125,
+        "independent_processes": 5,
+        "samples_per_process": 100,
+        "warmups_per_process": 10,
+        "output_bytes": 2287935,
+        "allocation_policy": "fresh owned String"
+      }
+    },
+    "dioxus": {
+      "12": {
+        "p50_us": 39.875,
+        "p95_us": 45.087149999999994,
+        "p99_us": 54.37875,
+        "mean_us": 41.34020450000004,
+        "process_p50_min_us": 38.584,
+        "process_p50_max_us": 41.083,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 35882,
+        "allocation_policy": "standard empty String with no caller capacity hint; fresh owned String"
+      },
+      "96": {
+        "p50_us": 290.625,
+        "p95_us": 308.03544999999997,
+        "p99_us": 322.8775,
+        "mean_us": 289.9841679999999,
+        "process_p50_min_us": 283.9375,
+        "process_p50_max_us": 304.77049999999997,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285868,
+        "allocation_policy": "standard empty String with no caller capacity hint; fresh owned String"
+      },
+      "768": {
+        "p50_us": 2257.25,
+        "p95_us": 2312.5268,
+        "p99_us": 2495.5826800000004,
+        "mean_us": 2256.8358000000003,
+        "process_p50_min_us": 2238.7285,
+        "process_p50_max_us": 2435.4584999999997,
+        "independent_processes": 5,
+        "samples_per_process": 100,
+        "warmups_per_process": 10,
+        "output_bytes": 2286396,
+        "allocation_policy": "standard empty String with no caller capacity hint; fresh owned String"
+      }
+    },
+    "topcoat": {
+      "12": {
+        "p50_us": 17.291999999999998,
+        "p95_us": 19.292,
+        "p99_us": 23.79283,
+        "mean_us": 17.76868199999999,
+        "process_p50_min_us": 17.083,
+        "process_p50_max_us": 17.334,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 35762,
+        "allocation_policy": "fresh View construction and serialization into a fresh owned String"
+      },
+      "96": {
+        "p50_us": 143.75,
+        "p95_us": 154.84854999999996,
+        "p99_us": 162.59591999999998,
+        "mean_us": 144.13482199999999,
+        "process_p50_min_us": 138.6875,
+        "process_p50_max_us": 148.33350000000002,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 284908,
+        "allocation_policy": "fresh View construction and serialization into a fresh owned String"
+      },
+      "768": {
+        "p50_us": 1180.375,
+        "p95_us": 1216.9018,
+        "p99_us": 1227.07666,
+        "mean_us": 1178.33082,
+        "process_p50_min_us": 1169.6875,
+        "process_p50_max_us": 1203.0415,
+        "independent_processes": 5,
+        "samples_per_process": 100,
+        "warmups_per_process": 10,
+        "output_bytes": 2278716,
+        "allocation_policy": "fresh View construction and serialization into a fresh owned String"
+      }
+    }
+  },
+  "versions": {
+    "Proa": "0.3.0 @ 7ffb8a19ecfa601fb496d825e0677dce29ea3af4 / rustc 1.95.0 (59807616e 2026-04-14)",
+    "Marko": "6.0.150 / Node v24.20.0",
+    "React": "19.2.4 / Node v24.20.0",
+    "Vue": "3.5.42 / Node v24.20.0",
+    "Svelte": "5.57.0 / Node v24.20.0",
+    "Rails": "Rails 8.1.3.1 / ruby 4.0.6 (2026-07-14 revision 03b6d3f889) +PRISM [arm64-darwin25]",
+    "jte": "3.2.4 / openjdk 25.0.1 2025-10-21",
+    "Rocker": "2.4.0 / openjdk 25.0.1 2025-10-21",
+    "Handlebars": "4.7.8 / Node v24.20.0",
+    "Go html/template": "go version go1.25.5 darwin/arm64",
+    "Jinja2": "3.1.6 / Python 3.14.2",
+    "PHP": "PHP 8.5.9 (cli) (built: Jul 28 2026 13:06:52) (NTS)",
+    "Askama": "0.15.6 / rustc 1.95.0 (59807616e 2026-04-14)",
+    "Sailfish": "0.10.2 / rustc 1.95.0 (59807616e 2026-04-14)",
+    "Leptos": "0.7.8 / rustc 1.95.0 (59807616e 2026-04-14)",
+    "Dioxus": "0.6.3 + dioxus-ssr 0.6.2 / rustc 1.95.0 (59807616e 2026-04-14)",
+    "Topcoat": "0.3.1 / rustc 1.95.0 (59807616e 2026-04-14)",
+    "Playwright": "1.61.1",
+    "Chromium": "149.0.7827.55"
+  },
+  "provenance": {
+    "harness_commit": "edb88b7665af2aeab8bfd8866a89724a4b0512bf",
+    "dirty": true,
+    "source_sha256": "3e9dba7994812badfb1df28fa70624c954594adc926c8c494475a0b613eff4f5"
+  },
+  "command": "./rendering/run-all --product-scaling",
+  "limitations": [
+    "Renderer-only latency excludes routing, middleware, databases, HTTP transfer, hydration, and network latency.",
+    "Every row builds a fresh independently owned response; fixture data construction is outside the timed region.",
+    "This engineering capture describes one machine and one scaling workload; it is not a universal application ranking."
+  ],
+  "raw_artifact": "raw/product-scaling-v1-2026-09-07-3e9dba799481/process-summaries.json"
+}

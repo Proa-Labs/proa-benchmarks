@@ -1,0 +1,97 @@
+[package]
+name = "proa_bench"
+version = "0.1.0"
+edition.workspace = true
+publish = false
+rust-version.workspace = true
+license.workspace = true
+
+[features]
+# Topcoat's public API is intentionally early-stage and changes quickly, so the
+# exact-pinned comparison stays opt-in.
+topcoat = ["dep:topcoat"]
+http-load = [
+    "dep:axum",
+    "dep:libc",
+    "dep:proa_framework_axum",
+    "dep:proa_stream",
+    "dep:tokio",
+]
+
+[dependencies]
+proa_core.workspace = true
+proa_framework_axum = { workspace = true, optional = true }
+proa_macros.workspace = true
+proa_showcase.workspace = true
+proa_stream = { workspace = true, optional = true }
+
+axum = { version = "0.7", optional = true }
+libc = { version = "0.2", optional = true }
+tokio = { version = "1", features = ["macros", "net", "rt-multi-thread", "time"], optional = true }
+
+# Leptos SSR
+leptos = { version = "0.7", features = ["ssr"] }
+
+# Dioxus SSR
+dioxus = { version = "0.6" }
+dioxus-ssr = { version = "0.6" }
+
+# Yew SSR
+yew = { version = "0.21", features = ["ssr"] }
+
+# Sailfish (compile-time template engine - reportedly fastest)
+sailfish = "0.10"
+
+# Askama (type-safe compiled Jinja-like templates)
+askama = "0.15"
+
+# Topcoat (Tokio team's experimental full-stack SSR framework). Exact-pinned
+# because its public API is intentionally early-stage and changes quickly.
+topcoat = { version = "=0.3.1", default-features = false, features = ["view"], optional = true }
+
+futures = "0.3"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[dev-dependencies]
+criterion = { version = "0.5", default-features = false, features = ["rayon"] }
+
+[[bench]]
+name = "ssr_comparison"
+harness = false
+
+[[bench]]
+name = "targeted_comparison"
+harness = false
+
+[[bench]]
+name = "airbnb_search_comparison"
+harness = false
+
+[[bench]]
+name = "showcase_pages"
+harness = false
+
+[[bench]]
+name = "integer_serialization"
+harness = false
+
+[[bench]]
+name = "topcoat_comparison"
+harness = false
+required-features = ["topcoat"]
+
+[[bin]]
+name = "representative_suite_bench"
+path = "src/bin/representative_suite_bench.rs"
+required-features = ["topcoat"]
+
+[[bin]]
+name = "proa_suspense_server"
+path = "src/bin/proa_suspense_server.rs"
+required-features = ["http-load", "topcoat"]
+
+[[bin]]
+name = "proa_page_server"
+path = "src/bin/proa_page_server.rs"
+required-features = ["http-load", "topcoat"]

@@ -1,0 +1,192 @@
+{
+  "capturedAt": "2026-08-28T08:23:38.496361+00:00",
+  "methodology": {
+    "driver": "Browser Use 0.13.8 with Playwright 1.58 over CDP",
+    "downloadMbps": 100,
+    "latencyMs": 40,
+    "freshBrowserPerTrial": true,
+    "llmCalls": 0
+  },
+  "workflow": {
+    "surfaces": [
+      "Google Flights",
+      "Airbnb",
+      "Google Hotels",
+      "Grand Wailea",
+      "Enterprise"
+    ],
+    "documentNavigations": 9,
+    "taskInteractions": 24,
+    "transactionsSubmitted": 0
+  },
+  "sharedProaJsAllowance": {
+    "source": "Airbnb parity linked Proa graph charged once per surface",
+    "gzipBytesPerSurface": 77225,
+    "scriptCpuP50MsPerSurface": 3.8355,
+    "networkAndCpuMsPerSurface": 90.014,
+    "workflowMs": 450.07
+  },
+  "environments": {
+    "hetznerVps": {
+      "primary": true,
+      "hardware": "8-vCPU AMD EPYC-Milan, 30 GiB RAM",
+      "browser": "Google Chrome for Testing 149.0.7827.55",
+      "chromiumSandbox": false,
+      "current": {
+        "kind": "measured-live-sites",
+        "successfulTrials": 3,
+        "totalTrials": 3,
+        "trialMs": [
+          52714.75066803396,
+          54039.6865606308,
+          56382.40583613515
+        ],
+        "p50Ms": 54039.6865606308,
+        "surfaceP50Ms": {
+          "flights": 2515.6779689714313,
+          "airbnb": 5743.077524937689,
+          "hotels": 10288.6378550902,
+          "grandWailea": 13880.22763747722,
+          "enterprise": 21835.10312717408
+        }
+      },
+      "proaProxy": {
+        "kind": "measured-counterfactual-proxy",
+        "successfulTrials": 3,
+        "totalTrials": 3,
+        "trialMs": [
+          9349.85314682126,
+          11709.435458295047,
+          8370.47877907753
+        ],
+        "p50Ms": 9349.85314682126,
+        "surfaceP50Ms": {
+          "flights": 1425.9962821379304,
+          "airbnb": 2298.0902548879385,
+          "hotels": 2718.321609310806,
+          "grandWailea": 1538.9909641817212,
+          "enterprise": 1327.8099140152335
+        }
+      },
+      "adjustedCounterfactual": {
+        "p50Ms": 9799.92314682126,
+        "savedMs": 44239.76341380954,
+        "reductionPercent": 81.8653220058446,
+        "speedup": 5.514296974681818
+      }
+    },
+    "localM4Max": {
+      "primary": false,
+      "hardware": "16-core Apple M4 Max, 128 GiB RAM",
+      "browser": "Google Chrome 152.0.7977.65",
+      "chromiumSandbox": true,
+      "current": {
+        "kind": "measured-live-sites",
+        "successfulTrials": 5,
+        "totalTrials": 5,
+        "trialMs": [
+          28020.819750148803,
+          29939.576833043247,
+          28683.522957842797,
+          28270.326083060354,
+          28231.343791354448
+        ],
+        "p50Ms": 28270.326083060354,
+        "surfaceP50Ms": {
+          "flights": 1696.690541692078,
+          "airbnb": 3462.244415655732,
+          "hotels": 6888.604125007987,
+          "grandWailea": 6004.944458603859,
+          "enterprise": 10514.907625038177
+        }
+      },
+      "proaProxy": {
+        "kind": "measured-counterfactual-proxy",
+        "successfulTrials": 5,
+        "totalTrials": 5,
+        "trialMs": [
+          8558.808709029108,
+          8199.686791747808,
+          9689.517125021666,
+          7577.601208817214,
+          8019.069042056799
+        ],
+        "p50Ms": 8199.686791747808,
+        "surfaceP50Ms": {
+          "flights": 1189.8677498102188,
+          "airbnb": 2078.6304171197116,
+          "hotels": 2391.892459243536,
+          "grandWailea": 975.2434999682009,
+          "enterprise": 1474.5243331417441
+        }
+      },
+      "adjustedCounterfactual": {
+        "p50Ms": 8649.756791747808,
+        "savedMs": 19620.569291312546,
+        "reductionPercent": 69.4034063620838,
+        "speedup": 3.2683376843648717
+      }
+    }
+  },
+  "interactionLayer": {
+    "rawBytes": 7308,
+    "gzipBytes": 2221
+  },
+  "vpsSensitivity": {
+    "backendLatency": [
+      {
+        "additionalMs": 0,
+        "estimatedWorkflowMs": 9799.92314682126,
+        "speedup": 5.514296974681818
+      },
+      {
+        "additionalMs": 2500,
+        "estimatedWorkflowMs": 12299.92314682126,
+        "speedup": 4.393497903651259
+      },
+      {
+        "additionalMs": 5000,
+        "estimatedWorkflowMs": 14799.92314682126,
+        "speedup": 3.6513491336769195
+      },
+      {
+        "additionalMs": 10000,
+        "estimatedWorkflowMs": 19799.92314682126,
+        "speedup": 2.7292876926800846
+      }
+    ],
+    "agentLatency": [
+      {
+        "additionalMs": 0,
+        "currentWorkflowMs": 54039.6865606308,
+        "estimatedProaWorkflowMs": 9799.92314682126,
+        "speedup": 5.514296974681818
+      },
+      {
+        "additionalMs": 6000,
+        "currentWorkflowMs": 60039.6865606308,
+        "estimatedProaWorkflowMs": 15799.92314682126,
+        "speedup": 3.7999986457345525
+      },
+      {
+        "additionalMs": 12000,
+        "currentWorkflowMs": 66039.6865606308,
+        "estimatedProaWorkflowMs": 21799.92314682126,
+        "speedup": 3.029354099822151
+      },
+      {
+        "additionalMs": 24000,
+        "currentWorkflowMs": 78039.6865606308,
+        "estimatedProaWorkflowMs": 33799.92314682126,
+        "speedup": 2.3088717161172037
+      }
+    ]
+  },
+  "limitations": [
+    "The current path is measured against live sites; the Proa path is a counterfactual proxy, not five production Proa ports.",
+    "The proxy downloads each real origin document but embeds task facts and omits live client API round trips.",
+    "The proxy preserves the task contract, not full DOM or visual parity.",
+    "The adjusted estimate adds measured Proa client cost but cannot supply the missing production backend cost.",
+    "Neither environment used Browserbase."
+  ]
+}

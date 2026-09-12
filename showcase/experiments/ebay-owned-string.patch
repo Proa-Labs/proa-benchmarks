@@ -1,0 +1,149 @@
+--- a/proa_showcase/src/ebay/srp.rs
++++ b/proa_showcase/src/ebay/srp.rs
+@@ -365,7 +365,7 @@
+     fn render(self, cx: &mut WebContext<L, B>) -> Result<(), CoreWriteError> {
+         let mut buf = [0u8; 20];
+         let s = format_u64(&mut buf, self.0);
+-        cx.out.extend(s.as_bytes())
++        cx.out.extend(s)
+     }
+ }
+ 
+@@ -389,7 +389,7 @@
+         let tenth = (v % 10) as u8;
+         let mut buf = [0u8; 20];
+         let s = format_u64(&mut buf, whole);
+-        cx.out.extend(s.as_bytes())?;
++        cx.out.extend(s)?;
+         cx.out.extend(b".")?;
+         cx.out.extend(&[b'0' + tenth])?;
+         cx.out.extend(b"%")
+@@ -406,13 +406,13 @@
+         let mut buf = [0u8; 20];
+         if n < 1_000 {
+             let s = format_u64(&mut buf, n as u64);
+-            return cx.out.extend(s.as_bytes());
++            return cx.out.extend(s);
+         }
+         if n < 1_000_000 {
+             let whole = n / 1_000;
+             let tenth = (n % 1_000) / 100;
+             let s = format_u64(&mut buf, whole as u64);
+-            cx.out.extend(s.as_bytes())?;
++            cx.out.extend(s)?;
+             if tenth > 0 {
+                 cx.out.extend(b".")?;
+                 cx.out.extend(&[b'0' + tenth as u8])?;
+@@ -422,7 +422,7 @@
+         let whole = n / 1_000_000;
+         let tenth = (n % 1_000_000) / 100_000;
+         let s = format_u64(&mut buf, whole as u64);
+-        cx.out.extend(s.as_bytes())?;
++        cx.out.extend(s)?;
+         if tenth > 0 {
+             cx.out.extend(b".")?;
+             cx.out.extend(&[b'0' + tenth as u8])?;
+@@ -432,10 +432,10 @@
+ }
+ 
+ #[inline]
+-fn format_u64(buf: &mut [u8; 20], mut v: u64) -> &str {
++fn format_u64(buf: &mut [u8; 20], mut v: u64) -> &[u8] {
+     if v == 0 {
+         buf[0] = b'0';
+-        return std::str::from_utf8(&buf[..1]).unwrap();
++        return &buf[..1];
+     }
+     let mut i = buf.len();
+     while v > 0 {
+@@ -443,7 +443,7 @@
+         buf[i] = b'0' + (v % 10) as u8;
+         v /= 10;
+     }
+-    std::str::from_utf8(&buf[i..]).unwrap()
++    &buf[i..]
+ }
+ 
+ #[inline]
+@@ -464,8 +464,7 @@
+         return cx.out.extend(b"0");
+     }
+     let mut digits = [0u8; 20];
+-    let s = format_u64(&mut digits, v);
+-    let bytes = s.as_bytes();
++    let bytes = format_u64(&mut digits, v);
+     let len = bytes.len();
+     let first = ((len - 1) % 3) + 1;
+     cx.out.extend(&bytes[..first])?;
+@@ -499,7 +498,7 @@
+         cx.out.extend(b"item")?;
+         let mut buf = [0u8; 20];
+         let s = format_u64(&mut buf, self.0);
+-        cx.out.extend(s.as_bytes())
++        cx.out.extend(s)
+     }
+ }
+ 
+@@ -519,7 +518,7 @@
+         cx.out.extend(b"https://www.ebay.com/itm/")?;
+         let mut buf = [0u8; 20];
+         let s = format_u64(&mut buf, self.0);
+-        cx.out.extend(s.as_bytes())
++        cx.out.extend(s)
+     }
+ }
+ 
+@@ -1009,7 +1008,10 @@
+ }
+ 
+ pub fn render_listings_to_string(listings: &[Listing]) -> String {
+-    proa_core::render_to_string(ListingsList { listings })
++    let mut output = RenderBuffer::new();
++    render_listings_into_chained(listings, &mut output);
++    // Typed HTML and ASCII formatters already guarantee valid UTF-8.
++    output.into_string()
+ }
+ 
+ /// Render directly into a caller-provided RenderBuffer. The buffer is
+@@ -1038,6 +1040,41 @@
+ #[cfg(test)]
+ mod tests {
+     use super::*;
++
++    #[test]
++    fn integer_bytes_match_standard_decimal() {
++        let mut values = vec![0, 1, u64::MAX];
++        for exponent in 1..=19 {
++            let power = 10_u64.pow(exponent);
++            values.extend([power - 1, power, power + 1]);
++        }
++        let mut state = 20260905_u64;
++        for _ in 0..10_000 {
++            state = state.wrapping_mul(6364136223846793005).wrapping_add(1);
++            values.push(state);
++        }
++        for value in values {
++            let mut buffer = [0_u8; 20];
++            assert_eq!(format_u64(&mut buffer, value), value.to_string().as_bytes());
++        }
++    }
++
++    #[test]
++    fn owned_response_matches_checked_writer() {
++        for count in [0, 1, 60] {
++            let mut listings = build_listings(count);
++            for listing in &mut listings {
++                listing.title = Cow::Borrowed("<>&\"' café 中文 💙\0\u{a0}");
++                listing.seller_name = Cow::Borrowed("seller <>&\"' 💙");
++                listing.item_id = u64::MAX;
++                listing.review_count = u32::MAX;
++            }
++            let mut bytes = Vec::new();
++            render_listings_into(&listings, &mut bytes);
++            let checked = String::from_utf8(bytes).unwrap();
++            assert_eq!(render_listings_to_string(&listings), checked);
++        }
++    }
+ 
+     #[test]
+     fn renders_real_card_markup() {

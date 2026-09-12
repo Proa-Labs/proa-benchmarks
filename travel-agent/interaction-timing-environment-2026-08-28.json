@@ -1,0 +1,32 @@
+{
+  "measuredAt": "2026-08-28",
+  "host": {
+    "provider": "Hetzner",
+    "hostname": "ubuntu-32gb-hil-1",
+    "architecture": "x86_64",
+    "logicalCpus": 8,
+    "cpuModel": "AMD EPYC-Milan Processor",
+    "memoryGiB": 30
+  },
+  "software": {
+    "chrome": "Google Chrome for Testing 149.0.7827.55",
+    "python": "3.14.4",
+    "browserUse": "0.13.8",
+    "playwright": "1.58.0"
+  },
+  "networkEmulation": {
+    "downloadMbps": 100,
+    "uploadMbps": 100,
+    "requestLatencyMs": 40,
+    "connectionType": "wifi"
+  },
+  "workflow": {
+    "freshBrowserPerTrial": true,
+    "cacheWithinTrial": true,
+    "surfaces": 5,
+    "stateChangingInteractions": 24,
+    "llmCalls": 0,
+    "tracedTrialsPerMode": 3,
+    "controlTrialsPerMode": 3
+  }
+}

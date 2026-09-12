@@ -1,0 +1,126 @@
+import {
+  CAPTION_LABELS,
+  CAPTION_CLASSES,
+  fmtCurrency,
+  fmtCount,
+  fmtFeedbackPct,
+  fmtAbbrev,
+  itemUrl,
+  emptyStarCount,
+  repeatArray,
+} from "./helpers_srp_real.mjs";
+
+<for|l| of=input.listings>
+  <li id=("item" + l.itemId) data-listingid=l.itemId class="s-card s-card--horizontal">
+    <div class="su-card-container su-card-container--horizontal">
+      <div class="su-card-container__media">
+        <div class="su-media-container s-card__media-wrapper">
+          <div class="su-media-multi-image">
+            <div class="su-media-multi-image__primary">
+              <div class="su-media-container">
+                <div class="su-image">
+                  <a class="s-card__link image-treatment" href=itemUrl(l.itemId) target="_blank" style="--aspect-ratio: 1;">
+                    <img class="s-card__image" fetchpriority="high" loading="eager" src=("/images/synthetic/field-recorder.svg#" + l.imageHash) alt=l.title style="width:auto">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="su-media__action su-media__action--top-right">
+            <span class="s-card__watchheart on-image s-card__watchheart--watch">
+              <a aria-label=("watch " + l.title) class="s-card__watchheart-click" href="#">
+                <span class="s-card__watchheart-icon">
+                  <svg class="icon icon--16" focusable="false" aria-hidden="true"><use href="#icon-heart-16"/></svg>
+                  <svg class="icon icon--16" focusable="false" aria-hidden="true"><use href="#icon-heart-filled-16"/></svg>
+                </span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="su-card-container__content">
+        <div class="su-card-container__header">
+          <div class="s-card__caption">
+            <if=l.caption>
+              <span class=CAPTION_CLASSES[l.caption] aria-label=CAPTION_LABELS[l.caption]>
+                ${CAPTION_LABELS[l.caption]}
+              </span>
+            </if>
+          </div>
+          <a class="s-card__link" target="_blank" tabindex="-1" href=itemUrl(l.itemId)>
+            <div role="heading" aria-level="3" class="s-card__title">
+              <span class="su-styled-text primary default">${l.title}</span>
+            </div>
+          </a>
+          <div class="s-card__subtitle-row">
+            <div class="s-card__subtitle">
+              <for|part, idx| of=l.subtitleParts>
+                <span class="su-styled-text secondary default">
+                  ${part}
+                  <if=(idx < l.subtitleParts.length - 1)> · </if>
+                </span>
+              </for>
+            </div>
+          </div>
+          <div class="s-card__product-reviews">
+            <div class="s-card__reviews">
+              <a href="#UserReviews">
+                <div class="x-star-rating">
+                  <for|_, i| of=repeatArray(l.starsFull)>
+                    <svg class="icon icon--16" focusable="false" aria-hidden="true"><use href="#icon-star-filled-16"/></svg>
+                  </for>
+                  <if=l.hasHalfStar>
+                    <svg class="icon icon--16-colored" focusable="false" aria-hidden="true"><use href="#icon-star-half-16-colored"/></svg>
+                  </if>
+                  <for|_, i| of=repeatArray(emptyStarCount(l.starsFull, l.hasHalfStar))>
+                    <svg class="icon icon--16" focusable="false" aria-hidden="true"><use href="#icon-star-empty-16"/></svg>
+                  </for>
+                </div>
+                <span class="s-card__reviews-count">
+                  <span aria-hidden="false">${fmtCount(l.reviewCount)} product ratings</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="su-card-container__attributes su-card-container__attributes--has-secondary">
+          <div class="su-card-container__attributes__primary">
+            <div class="s-card__attribute-row">
+              <span class="su-styled-text primary bold large-1 s-card__price">${fmtCurrency(l.priceCents)}</span>
+              <if=(l.originalPriceCents != null)>
+                <span class="su-spacer --spacing-100"></span>
+                <span class="su-styled-text secondary strikethrough large">${fmtCurrency(l.originalPriceCents)}</span>
+              </if>
+            </div>
+            <div class="s-card__attribute-row">
+              <span class="su-styled-text secondary large">${l.format}</span>
+            </div>
+            <div class="s-card__attribute-row">
+              <span class="su-styled-text secondary large">
+                <if=(l.deliveryCents === 0)>Free delivery</if>
+                <else>+${fmtCurrency(l.deliveryCents)} delivery</else>
+              </span>
+            </div>
+            <div class="s-card__attribute-row">
+              <span class="su-styled-text secondary large">Located in ${l.location}</span>
+            </div>
+            <div class="s-card__attribute-row">
+              <span class="su-styled-text primary bold large">${fmtCount(l.watcherCount)} watchers</span>
+            </div>
+            <if=(l.couponPct != null)>
+              <div class="s-card__attribute-row">
+                <span class="su-styled-text negative bold large">Extra ${l.couponPct}% off with coupon</span>
+              </div>
+            </if>
+          </div>
+          <div class="su-card-container__attributes__secondary">
+            <div class="s-card__attribute-row">
+              <span class="su-styled-text primary large">${l.sellerName} </span>
+              <span class="su-styled-text primary large">${fmtFeedbackPct(l.sellerFeedbackPctX10)} positive (${fmtAbbrev(l.sellerFeedbackCount)})</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</for>

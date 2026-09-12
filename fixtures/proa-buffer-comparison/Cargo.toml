@@ -1,0 +1,23 @@
+[package]
+name = "proa_buffer_comparison"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+proa_core = { git = "https://github.com/Proa-Labs/proa", branch = "main" }
+proa_showcase = { git = "https://github.com/Proa-Labs/proa", branch = "main", default-features = false, features = ["rsjs-pages"] }
+proa_macros = { git = "https://github.com/Proa-Labs/proa", branch = "main" }
+topcoat = { version = "=0.3.1", default-features = false, features = ["view"] }
+futures = "0.3"
+rsjs = { git = "https://github.com/Proa-Labs/proa", branch = "main" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+
+[workspace]

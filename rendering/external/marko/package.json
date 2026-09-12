@@ -1,0 +1,13 @@
+{
+  "name": "proa-bench-marko",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "bench": "node --experimental-vm-modules bench.mjs"
+  },
+  "dependencies": {
+    "@marko/compiler": "^5.39.63",
+    "marko": "^6.0.150"
+  }
+}

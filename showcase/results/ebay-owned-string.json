@@ -1,0 +1,583 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "captured_at": "2026-09-05T18:55:35.856440+00:00",
+  "configuration": {
+    "repeats": 5,
+    "seed": 20260905,
+    "allocation_included": true
+  },
+  "provenance": {
+    "proa_revision": "9f8a8fa9bde157ce66f20b9dc31cb7c35930a459",
+    "upstream_file_sha256": "7b5c5bfc28f1bf5ee15f1eddd366351f540bbb7cdc36055886892d6371ade9bc",
+    "rustc": "rustc 1.95.0 (59807616e 2026-04-14)",
+    "rustc_flags": [
+      "--edition=2024",
+      "-A",
+      "dead_code",
+      "-C",
+      "opt-level=3",
+      "-C",
+      "lto=thin",
+      "-C",
+      "codegen-units=1",
+      "-L",
+      "dependency=/Users/andrewhariri/Desktop/proa-benchmarks/fixtures/proa-buffer-comparison/target/proa-rsjs/final-target/rsjs-final/wrapper-v6/1c7b3da50ff521d66ff0aa8fbbe280bcd8f6948d2547a16db8322ee8e8311da8/release/deps",
+      "--cfg",
+      "experiment_srp",
+      "--extern",
+      "proa_showcase=/Users/andrewhariri/Desktop/proa-benchmarks/fixtures/proa-buffer-comparison/target/proa-rsjs/final-target/rsjs-final/wrapper-v6/1c7b3da50ff521d66ff0aa8fbbe280bcd8f6948d2547a16db8322ee8e8311da8/release/deps/libproa_showcase-b924e24cfdb17ae6.rlib",
+      "--extern",
+      "proa_core=/Users/andrewhariri/Desktop/proa-benchmarks/fixtures/proa-buffer-comparison/target/proa-rsjs/final-target/rsjs-final/wrapper-v6/1c7b3da50ff521d66ff0aa8fbbe280bcd8f6948d2547a16db8322ee8e8311da8/release/deps/libproa_core-c77556375f46063e.rlib",
+      "--extern",
+      "proa_macros=/Users/andrewhariri/Desktop/proa-benchmarks/fixtures/proa-buffer-comparison/target/proa-rsjs/final-target/rsjs-final/wrapper-v6/1c7b3da50ff521d66ff0aa8fbbe280bcd8f6948d2547a16db8322ee8e8311da8/release/deps/libproa_macros-0a4215414a873e85.dylib",
+      "--extern",
+      "serde_json=/Users/andrewhariri/Desktop/proa-benchmarks/fixtures/proa-buffer-comparison/target/proa-rsjs/final-target/rsjs-final/wrapper-v6/1c7b3da50ff521d66ff0aa8fbbe280bcd8f6948d2547a16db8322ee8e8311da8/release/deps/libserde_json-15128b265d556ad6.rlib",
+      "--extern",
+      "sha2=/Users/andrewhariri/Desktop/proa-benchmarks/fixtures/proa-buffer-comparison/target/proa-rsjs/final-target/rsjs-final/wrapper-v6/1c7b3da50ff521d66ff0aa8fbbe280bcd8f6948d2547a16db8322ee8e8311da8/release/deps/libsha2-d226fa97e5d9afbb.rlib"
+    ],
+    "host": {
+      "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+      "machine": "arm64"
+    },
+    "libraries": [
+      {
+        "path": "fixtures/proa-buffer-comparison/target/proa-rsjs/final-target/rsjs-final/wrapper-v6/1c7b3da50ff521d66ff0aa8fbbe280bcd8f6948d2547a16db8322ee8e8311da8/release/deps/libproa_showcase-b924e24cfdb17ae6.rlib",
+        "sha256": "46584118f35f049a8a170b4aad0bd259c1510d71d111656b3535047bc4d2f7f0"
+      },
+      {
+        "path": "fixtures/proa-buffer-comparison/target/proa-rsjs/final-target/rsjs-final/wrapper-v6/1c7b3da50ff521d66ff0aa8fbbe280bcd8f6948d2547a16db8322ee8e8311da8/release/deps/libproa_core-c77556375f46063e.rlib",
+        "sha256": "13a55d733032e72d7f2b4f0a558a4096ccd0148c7c07dc57f0bbde8dfdbe10c7"
+      },
+      {
+        "path": "fixtures/proa-buffer-comparison/target/proa-rsjs/final-target/rsjs-final/wrapper-v6/1c7b3da50ff521d66ff0aa8fbbe280bcd8f6948d2547a16db8322ee8e8311da8/release/deps/libproa_macros-0a4215414a873e85.dylib",
+        "sha256": "5973adefca71ff972df354a5ec6053aae1deb57960b1189498b27476f4886e10"
+      },
+      {
+        "path": "fixtures/proa-buffer-comparison/target/proa-rsjs/final-target/rsjs-final/wrapper-v6/1c7b3da50ff521d66ff0aa8fbbe280bcd8f6948d2547a16db8322ee8e8311da8/release/deps/libserde_json-15128b265d556ad6.rlib",
+        "sha256": "9a63244f613b51df225f7675ab158019240a41bb57b33ce342bef3b90eba42b8"
+      },
+      {
+        "path": "fixtures/proa-buffer-comparison/target/proa-rsjs/final-target/rsjs-final/wrapper-v6/1c7b3da50ff521d66ff0aa8fbbe280bcd8f6948d2547a16db8322ee8e8311da8/release/deps/libsha2-d226fa97e5d9afbb.rlib",
+        "sha256": "bc38909085c516791f61eec82b98abdf966ff3426d1e1534aca80ceb7d03705f"
+      }
+    ],
+    "binaries": [
+      {
+        "variant": "original",
+        "path": "target/render-optimizations/ebay/original/bench",
+        "sha256": "41474d7357e4eedcbcabfc6a80585321b79c609e9a1994f8d851b48848c225c8"
+      },
+      {
+        "variant": "candidate",
+        "path": "target/render-optimizations/ebay/candidate/bench",
+        "sha256": "427a4a777c62622e980ee810a982c0b0fd18a5f78ae62bde6f2dfde6d4de7947"
+      }
+    ],
+    "inputs": [
+      {
+        "path": "showcase/experiments/ebay_owned_string.py",
+        "sha256": "32abd96697a70a8a816a6512aa0d8609c8dea9e12f94533ac19d854cc1565286"
+      },
+      {
+        "path": "showcase/experiments/ebay_owned_string.rs",
+        "sha256": "311eb84dc72e15bcbe0c49f381c07977c34edd92e7bf0e12aee252e138909978"
+      },
+      {
+        "path": "showcase/experiments/ebay-owned-string.patch",
+        "sha256": "7332119de98b57dac78adf792f7cd5faf35693f9c93ca8ca82df7e0a2a70f993"
+      },
+      {
+        "path": "fixtures/proa-buffer-comparison/Cargo.lock",
+        "sha256": "4c3160b530b390fa83d492b13a9411c120642ca406146480be20e65ea6c1498c"
+      },
+      {
+        "path": "fixtures/airbnb-parity-dump/src/memcpy.rs",
+        "sha256": "10d916fc254a25fd08d45275c3915fc9f01029b716b8ee60676c9321ef87a9a3"
+      },
+      {
+        "path": "showcase/results/buffer-comparison.json",
+        "sha256": "08d66987260b79d22a8588982a9b2e146a954132cf5da6b59bc683d3926ae4ae"
+      }
+    ]
+  },
+  "records": [
+    {
+      "exact_capacity_pass": true,
+      "iterations": 10000,
+      "mode": "full-default",
+      "operations_per_sample": 1,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 32.25,
+      "parity_pass": true,
+      "warmup": 1000,
+      "variant": "original",
+      "repeat": 1,
+      "sequence": 1
+    },
+    {
+      "exact_capacity_pass": null,
+      "iterations": 10000,
+      "mode": "default",
+      "operations_per_sample": 1,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 35.667,
+      "parity_pass": true,
+      "warmup": 1000,
+      "variant": "original",
+      "repeat": 1,
+      "sequence": 2
+    },
+    {
+      "exact_capacity_pass": null,
+      "iterations": 2000,
+      "mode": "memcpy",
+      "operations_per_sample": 70,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 2.819042857142857,
+      "parity_pass": true,
+      "warmup": 200,
+      "variant": "original",
+      "repeat": 1,
+      "sequence": 3
+    },
+    {
+      "exact_capacity_pass": true,
+      "iterations": 10000,
+      "mode": "full-owned",
+      "operations_per_sample": 1,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 24.167,
+      "parity_pass": true,
+      "warmup": 1000,
+      "variant": "candidate",
+      "repeat": 1,
+      "sequence": 4
+    },
+    {
+      "exact_capacity_pass": null,
+      "iterations": 2000,
+      "mode": "memcpy",
+      "operations_per_sample": 70,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 2.819042857142857,
+      "parity_pass": true,
+      "warmup": 200,
+      "variant": "candidate",
+      "repeat": 1,
+      "sequence": 5
+    },
+    {
+      "exact_capacity_pass": null,
+      "iterations": 10000,
+      "mode": "default",
+      "operations_per_sample": 1,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 27.584,
+      "parity_pass": true,
+      "warmup": 1000,
+      "variant": "candidate",
+      "repeat": 1,
+      "sequence": 6
+    },
+    {
+      "exact_capacity_pass": null,
+      "iterations": 2000,
+      "mode": "memcpy",
+      "operations_per_sample": 70,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 2.819642857142857,
+      "parity_pass": true,
+      "warmup": 200,
+      "variant": "original",
+      "repeat": 2,
+      "sequence": 7
+    },
+    {
+      "exact_capacity_pass": null,
+      "iterations": 10000,
+      "mode": "default",
+      "operations_per_sample": 1,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 27.375,
+      "parity_pass": true,
+      "warmup": 1000,
+      "variant": "candidate",
+      "repeat": 2,
+      "sequence": 8
+    },
+    {
+      "exact_capacity_pass": null,
+      "iterations": 10000,
+      "mode": "default",
+      "operations_per_sample": 1,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 35.542,
+      "parity_pass": true,
+      "warmup": 1000,
+      "variant": "original",
+      "repeat": 2,
+      "sequence": 9
+    },
+    {
+      "exact_capacity_pass": true,
+      "iterations": 10000,
+      "mode": "full-owned",
+      "operations_per_sample": 1,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 23.833,
+      "parity_pass": true,
+      "warmup": 1000,
+      "variant": "candidate",
+      "repeat": 2,
+      "sequence": 10
+    },
+    {
+      "exact_capacity_pass": null,
+      "iterations": 2000,
+      "mode": "memcpy",
+      "operations_per_sample": 70,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 2.819642857142857,
+      "parity_pass": true,
+      "warmup": 200,
+      "variant": "candidate",
+      "repeat": 2,
+      "sequence": 11
+    },
+    {
+      "exact_capacity_pass": true,
+      "iterations": 10000,
+      "mode": "full-default",
+      "operations_per_sample": 1,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 31.958,
+      "parity_pass": true,
+      "warmup": 1000,
+      "variant": "original",
+      "repeat": 2,
+      "sequence": 12
+    },
+    {
+      "exact_capacity_pass": null,
+      "iterations": 2000,
+      "mode": "memcpy",
+      "operations_per_sample": 70,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 2.819057142857143,
+      "parity_pass": true,
+      "warmup": 200,
+      "variant": "original",
+      "repeat": 3,
+      "sequence": 13
+    },
+    {
+      "exact_capacity_pass": true,
+      "iterations": 10000,
+      "mode": "full-owned",
+      "operations_per_sample": 1,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 23.833,
+      "parity_pass": true,
+      "warmup": 1000,
+      "variant": "candidate",
+      "repeat": 3,
+      "sequence": 14
+    },
+    {
+      "exact_capacity_pass": null,
+      "iterations": 10000,
+      "mode": "default",
+      "operations_per_sample": 1,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 35.417,
+      "parity_pass": true,
+      "warmup": 1000,
+      "variant": "original",
+      "repeat": 3,
+      "sequence": 15
+    },
+    {
+      "exact_capacity_pass": null,
+      "iterations": 10000,
+      "mode": "default",
+      "operations_per_sample": 1,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 27.25,
+      "parity_pass": true,
+      "warmup": 1000,
+      "variant": "candidate",
+      "repeat": 3,
+      "sequence": 16
+    },
+    {
+      "exact_capacity_pass": null,
+      "iterations": 2000,
+      "mode": "memcpy",
+      "operations_per_sample": 70,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 2.819042857142857,
+      "parity_pass": true,
+      "warmup": 200,
+      "variant": "candidate",
+      "repeat": 3,
+      "sequence": 17
+    },
+    {
+      "exact_capacity_pass": true,
+      "iterations": 10000,
+      "mode": "full-default",
+      "operations_per_sample": 1,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 32.416,
+      "parity_pass": true,
+      "warmup": 1000,
+      "variant": "original",
+      "repeat": 3,
+      "sequence": 18
+    },
+    {
+      "exact_capacity_pass": true,
+      "iterations": 10000,
+      "mode": "full-owned",
+      "operations_per_sample": 1,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 23.791,
+      "parity_pass": true,
+      "warmup": 1000,
+      "variant": "candidate",
+      "repeat": 4,
+      "sequence": 19
+    },
+    {
+      "exact_capacity_pass": null,
+      "iterations": 2000,
+      "mode": "memcpy",
+      "operations_per_sample": 70,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 2.8339285714285714,
+      "parity_pass": true,
+      "warmup": 200,
+      "variant": "original",
+      "repeat": 4,
+      "sequence": 20
+    },
+    {
+      "exact_capacity_pass": null,
+      "iterations": 10000,
+      "mode": "default",
+      "operations_per_sample": 1,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 27.542,
+      "parity_pass": true,
+      "warmup": 1000,
+      "variant": "candidate",
+      "repeat": 4,
+      "sequence": 21
+    },
+    {
+      "exact_capacity_pass": true,
+      "iterations": 10000,
+      "mode": "full-default",
+      "operations_per_sample": 1,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 32.459,
+      "parity_pass": true,
+      "warmup": 1000,
+      "variant": "original",
+      "repeat": 4,
+      "sequence": 22
+    },
+    {
+      "exact_capacity_pass": null,
+      "iterations": 2000,
+      "mode": "memcpy",
+      "operations_per_sample": 70,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 2.819642857142857,
+      "parity_pass": true,
+      "warmup": 200,
+      "variant": "candidate",
+      "repeat": 4,
+      "sequence": 23
+    },
+    {
+      "exact_capacity_pass": null,
+      "iterations": 10000,
+      "mode": "default",
+      "operations_per_sample": 1,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 35.541,
+      "parity_pass": true,
+      "warmup": 1000,
+      "variant": "original",
+      "repeat": 4,
+      "sequence": 24
+    },
+    {
+      "exact_capacity_pass": null,
+      "iterations": 2000,
+      "mode": "memcpy",
+      "operations_per_sample": 70,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 2.8214285714285716,
+      "parity_pass": true,
+      "warmup": 200,
+      "variant": "original",
+      "repeat": 5,
+      "sequence": 25
+    },
+    {
+      "exact_capacity_pass": true,
+      "iterations": 10000,
+      "mode": "full-default",
+      "operations_per_sample": 1,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 32.334,
+      "parity_pass": true,
+      "warmup": 1000,
+      "variant": "original",
+      "repeat": 5,
+      "sequence": 26
+    },
+    {
+      "exact_capacity_pass": true,
+      "iterations": 10000,
+      "mode": "full-owned",
+      "operations_per_sample": 1,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 23.834,
+      "parity_pass": true,
+      "warmup": 1000,
+      "variant": "candidate",
+      "repeat": 5,
+      "sequence": 27
+    },
+    {
+      "exact_capacity_pass": null,
+      "iterations": 2000,
+      "mode": "memcpy",
+      "operations_per_sample": 70,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 2.8244,
+      "parity_pass": true,
+      "warmup": 200,
+      "variant": "candidate",
+      "repeat": 5,
+      "sequence": 28
+    },
+    {
+      "exact_capacity_pass": null,
+      "iterations": 10000,
+      "mode": "default",
+      "operations_per_sample": 1,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 27.375,
+      "parity_pass": true,
+      "warmup": 1000,
+      "variant": "candidate",
+      "repeat": 5,
+      "sequence": 29
+    },
+    {
+      "exact_capacity_pass": null,
+      "iterations": 10000,
+      "mode": "default",
+      "operations_per_sample": 1,
+      "output_bytes": 240785,
+      "output_sha256": "64935844931210e7919c4986304eb5adc63e558a5f749c7690898a78f7bd6162",
+      "p50_us": 35.666,
+      "parity_pass": true,
+      "warmup": 1000,
+      "variant": "original",
+      "repeat": 5,
+      "sequence": 30
+    }
+  ],
+  "summary": {
+    "copy_p50_us": 2.819642857142857,
+    "cells": [
+      {
+        "variant": "original",
+        "mode": "default",
+        "p50_us": 35.542,
+        "min_us": 35.417,
+        "max_us": 35.667,
+        "over_copy": 12.60514249525016
+      },
+      {
+        "variant": "original",
+        "mode": "full-default",
+        "p50_us": 32.334,
+        "min_us": 31.958,
+        "max_us": 32.459,
+        "over_copy": 11.467409753008234
+      },
+      {
+        "variant": "candidate",
+        "mode": "default",
+        "p50_us": 27.375,
+        "min_us": 27.25,
+        "max_us": 27.584,
+        "over_copy": 9.708676377454085
+      },
+      {
+        "variant": "candidate",
+        "mode": "full-owned",
+        "p50_us": 23.833,
+        "min_us": 23.791,
+        "max_us": 24.167,
+        "over_copy": 8.452488917036098
+      },
+      {
+        "variant": "original",
+        "mode": "memcpy",
+        "p50_us": 2.819642857142857,
+        "min_us": 2.819042857142857,
+        "max_us": 2.8339285714285714,
+        "over_copy": 1.0
+      },
+      {
+        "variant": "candidate",
+        "mode": "memcpy",
+        "p50_us": 2.819642857142857,
+        "min_us": 2.819042857142857,
+        "max_us": 2.8244,
+        "over_copy": 1.0
+      }
+    ]
+  },
+  "raw_artifact": {
+    "path": "showcase/results/ebay-owned-string-raw.json",
+    "sha256": "e9c700ba7a40ff9a108e2d4e18ed8b64648dfab23b2a9dc9b54ca7f91137f436"
+  }
+}

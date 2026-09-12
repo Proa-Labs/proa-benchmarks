@@ -1,0 +1,56 @@
+import {
+  STAR_PATH,
+  formatPrice,
+  formatRating,
+} from "../../shared/suite_data.mjs";
+
+<main class="marketplace-pdp" data-benchmark-shell="suspense-load">
+  <section class="hero-shell">
+    <p class="eyebrow">Suspense-heavy marketplace</p>
+    <h1>Canon FD 50mm f/1.4 S.S.C. Vintage Prime Lens</h1>
+    <p class="price">Bid US $129.50</p>
+    <p class="meta">Condition: Used · Watchers: 214 · 12 bids</p>
+  </section>
+  <div class="content-grid">
+    <for|panel| of=input.panels>
+      <try>
+        <await|resolved| value=panel.promise>
+          <section class="marketplace-panel ready" data-panel=resolved.key data-panel-ready=resolved.key>
+            <p class="panel-eyebrow">${resolved.eyebrow}</p>
+            <h2>${resolved.title}</h2>
+            <p>${resolved.body}</p>
+            <if=resolved.products.length>
+              <div class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+                <for|product| of=resolved.products>
+                  <a href=("/products/" + product.id) class="group flex flex-col rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:shadow-md">
+                    <div class="mb-4 flex h-32 items-center justify-center rounded-lg bg-slate-100 text-3xl font-bold text-slate-300">${product.category}</div>
+                    <p class="text-xs font-medium uppercase tracking-wide text-slate-400">${product.category}</p>
+                    <h3 class="mt-1 text-sm font-semibold text-slate-900 group-hover:text-indigo-600">${product.name}</h3>
+                    <div class="mt-2 flex items-center gap-1">
+                      <div class="flex">
+                        <for|index| of=input.starIndexes>
+                          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class=(index < Math.floor((product.ratingTenths + 5) / 10) ? "h-4 w-4 text-amber-400" : "h-4 w-4 text-slate-200")>
+                            <path d=STAR_PATH></path>
+                          </svg>
+                        </for>
+                      </div>
+                      <span class="text-xs text-slate-500">${formatRating(product.ratingTenths)} (${product.reviewCount})</span>
+                    </div>
+                    <p class="mt-3 text-lg font-bold">${formatPrice(product.priceCents)}</p>
+                  </a>
+                </for>
+              </div>
+            </if>
+          </section>
+        </await>
+        <@placeholder>
+          <section class="marketplace-panel fallback" data-panel=panel.key data-panel-fallback=panel.key aria-busy="true" aria-label=panel.fallbackLabel>
+            <p class="panel-eyebrow">Fallback</p>
+            <h2>${panel.fallbackLabel}</h2>
+            <p>Waiting on upstream service.</p>
+          </section>
+        </@placeholder>
+      </try>
+    </for>
+  </div>
+</main>

@@ -1,0 +1,13 @@
+<html lang="en">
+<head><title>Escape Benchmark</title></head>
+<body>
+{% for item in items %}
+<div class="review-card">
+    <h3>{{ item.title }}</h3>
+    <p class="body">{{ item.body }}</p>
+    <span class="author">{{ item.author }}</span>
+    <div class="meta">{{ item.meta }}</div>
+</div>
+{% endfor %}
+</body>
+</html>

@@ -1,0 +1,713 @@
+<% let nightly_total = self.nightly_rate * self.booking.nights; %>
+<% let total = nightly_total + self.cleaning_fee + self.service_fee; %>
+<% let review_details = self.review_details(); %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="turbo-refresh-method" content="morph"/>
+<meta name="turbo-refresh-scroll" content="preserve"/>
+<link rel="stylesheet" href="/proa.css"><script src="/proa.js" defer></script><script type="module" src="/assets/airbnb-showcase.js"></script>
+<title><%= self.title %> | Coast Stays</title><style><%-self.css%></style></head><body class="bg-white text-[#222] air-demo-page">
+<%# ── Header (shared header) ── %>
+<header class="air-topbar">
+    <div class="air-shell">
+        <div class="air-topbar-inner grid grid-cols-[auto_1fr_auto] items-center gap-5">
+            <a href="/showcase/airbnb" class="flex items-center gap-2.5 text-[#FF385C] font-semibold text-[28px] leading-none tracking-[-0.02em]">
+                <svg viewBox="0 0 32 32" width="32" height="32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="3" width="26" height="26" rx="8" fill="#FF385C"/><path d="M10 22V10h7.5a5 5 0 0 1 0 10H14v2h-4zm4-6h3.5a1 1 0 0 0 0-2H14v2z" fill="white"/></svg>
+                <span class="text-[30px] leading-none">Coast Stays</span>
+            </a>
+            <div class="flex justify-center">
+                <a href="/showcase/airbnb/search" class="air-search-pill hidden md:flex items-center h-12 rounded-full border border-[var(--air-line)] bg-white px-2">
+                    <span class="px-4 text-sm font-semibold">Anywhere</span>
+                    <span class="h-6 w-px bg-[var(--air-line)]"></span>
+                    <span class="px-4 text-sm font-semibold">Any week</span>
+                    <span class="h-6 w-px bg-[var(--air-line)]"></span>
+                    <span class="px-4 text-sm text-[var(--air-muted)]">Add guests</span>
+                    <span class="ml-1 flex h-8 w-8 items-center justify-center rounded-full bg-[#FF385C] text-white">
+                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display:block;fill:none;height:12px;width:12px;stroke:currentColor;stroke-width:5.333;overflow:visible" aria-hidden="true" role="presentation" focusable="false"><path d="m13 24c6.0751 0 11-4.9249 11-11 0-6.0751-4.9249-11-11-11-6.0751 0-11 4.9249-11 11 0 6.0751 4.9249 11 11 11zm8-3 10 10"/></svg>
+                    </span>
+                </a>
+                <a href="/showcase/airbnb/search" class="air-search-pill flex md:hidden items-center gap-3 rounded-full border border-[var(--air-line)] bg-white px-4 py-3">
+                    <span class="flex h-8 w-8 items-center justify-center rounded-full bg-[#FF385C] text-white">
+                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display:block;fill:none;height:12px;width:12px;stroke:currentColor;stroke-width:5.333;overflow:visible" aria-hidden="true" role="presentation" focusable="false"><path d="m13 24c6.0751 0 11-4.9249 11-11 0-6.0751-4.9249-11-11-11-6.0751 0-11 4.9249-11 11 0 6.0751 4.9249 11 11 11zm8-3 10 10"/></svg>
+                    </span>
+                    <span class="text-sm font-semibold">Start your search</span>
+                </a>
+            </div>
+            <div class="flex items-center justify-end gap-2">
+                <a href="/showcase/airbnb" class="hidden md:block rounded-full px-4 py-3 text-sm font-semibold hover:bg-[var(--air-soft)]">List your home</a>
+                <button class="hidden md:flex h-10 w-10 items-center justify-center rounded-full hover:bg-[var(--air-soft)]" aria-label="Language">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true" role="presentation" focusable="false" style="display:block;height:16px;width:16px;fill:currentcolor;"><path d="M8 .25a7.77 7.77 0 0 1 7.75 7.78 7.75 7.75 0 0 1-7.52 7.72h-.25A7.75 7.75 0 0 1 .25 8.24v-.25A7.75 7.75 0 0 1 8 .25zm1.95 8.5h-3.9c.15 2.9 1.17 5.34 1.88 5.5H8c.68 0 1.72-2.37 1.93-5.23zm4.26 0h-2.76c-.09 1.96-.53 3.78-1.18 5.08A6.26 6.26 0 0 0 14.17 9zm-9.67 0H1.8a6.26 6.26 0 0 0 3.94 5.08 12.59 12.59 0 0 1-1.16-4.7l-.03-.38zm1.2-6.58-.12.05a6.26 6.26 0 0 0-3.83 5.03h2.75c.09-1.83.48-3.54 1.06-4.81zm2.25-.42c-.7 0-1.78 2.51-1.94 5.5h3.9c-.15-2.9-1.18-5.34-1.89-5.5h-.07zm2.28.43.03.05a12.95 12.95 0 0 1 1.15 5.02h2.75a6.28 6.28 0 0 0-3.93-5.07z"></path></svg>
+                </button>
+                <button class="air-search-pill flex items-center gap-3 rounded-full border border-[var(--air-line)] bg-white pl-3 pr-2.5 py-1.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+                    <div class="flex h-8 w-8 items-center justify-center rounded-full bg-[#6A6A6A] text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12c2.209 0 4-1.791 4-4S14.209 4 12 4s-4 1.791-4 4 1.791 4 4 4zm0 2c-2.673 0-8 1.327-8 3.963V20h16v-2.037C20 15.327 14.673 14 12 14z"/></svg>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<%# ── Main content ── %>
+<main id="site-content" data-airbnb-listing-page="">
+    <div class="air-shell pt-8">
+        <%# ── Photo gallery section ── %>
+        <section id="photos" class="pb-8">
+            <div class="mb-4 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+                <div>
+                    <h1 class="text-[30px] font-semibold leading-[1.15] tracking-[-0.045em] text-[#222] md:text-[34px]"><%= self.title %></h1>
+                    <div class="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-[#222]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#FF385C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <span class="font-semibold"><%= self.rating %></span>
+                        <span>&middot;</span>
+                        <a href="#reviews" class="underline font-semibold"><%= self.review_count %> reviews</a>
+                        <span>&middot;</span>
+                        <span class="font-semibold">Guest favorite</span>
+                        <span>&middot;</span>
+                        <span class="underline"><%= self.location %></span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 self-start text-sm font-medium md:self-auto">
+                    <button data-action="share" class="flex items-center gap-2 rounded-lg px-3 py-2 underline-offset-2 hover:bg-[var(--air-soft)] hover:underline">
+                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display:block;fill:none;height:16px;width:16px;stroke:currentcolor;stroke-width:2;overflow:visible"><path d="m27 18v9c0 1.1046-.8954 2-2 2h-18c-1.10457 0-2-.8954-2-2v-9m11-15v21m-10-11 9.2929-9.29289c.3905-.39053 1.0237-.39053 1.4142 0l9.2929 9.29289" fill="none"/></svg>
+                        Share
+                    </button>
+                    <button class="heart-btn flex items-center gap-2 rounded-lg px-3 py-2 underline-offset-2 hover:bg-[var(--air-soft)] hover:underline">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        Save
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative grid h-[31rem] grid-cols-4 grid-rows-2 gap-2 overflow-hidden rounded-[22px]">
+                <% for (i, photo) in self.photos.iter().take(5).enumerate() { %>
+                <% let extra_class = if i == 0 { "col-span-2 row-span-2 cursor-pointer overflow-hidden transition-opacity hover:opacity-95" } else { "cursor-pointer overflow-hidden transition-opacity hover:opacity-95" }; %>
+                <button class="<%= extra_class %>" data-gallery-open data-gallery-index="<%= i %>" data-gallery-src="<%= photo.src %>" data-gallery-alt="<%= photo.alt %>" type="button">
+                    <img data-air-image="" src="<%= photo.src %>" alt="<%= photo.alt %>" class="h-full w-full object-cover" loading="<%= if i == 0 { "eager" } else { "lazy" } %>" decoding="async" fetchpriority="<%= if i == 0 { "high" } else { "low" } %>"/>
+                </button>
+                <% } %>
+                <button class="absolute bottom-4 right-4 rounded-xl border border-[#222] bg-white px-4 py-2 text-sm font-medium text-[#222] shadow-sm hover:bg-[var(--air-soft)]" data-gallery-open data-gallery-index="0" type="button">
+                    Show all photos
+                </button>
+            </div>
+
+            <% for (index, photo) in self.photos.iter().enumerate().skip(5) { %>
+            <span class="hidden" data-gallery-src="<%= photo.src %>" data-gallery-alt="<%= photo.alt %>" data-gallery-index="<%= index %>"></span>
+            <% } %>
+        </section>
+    </div>
+
+    <%# ── Sticky nav bar ── %>
+    <div class="sticky top-[80px] z-30 hidden border-y border-[var(--air-line)] bg-white/95 backdrop-blur lg:block">
+        <div class="air-shell flex items-center justify-between gap-8 py-4">
+            <nav class="flex items-center gap-6 text-sm font-semibold text-[#222]">
+                <a href="#photos" class="air-link">Photos</a>
+                <a href="#amenities" class="air-link">Amenities</a>
+                <a href="#reviews" class="air-link">Reviews</a>
+                <a href="#location" class="air-link">Location</a>
+            </nav>
+            <div class="flex items-center gap-5">
+                <div class="text-right">
+                    <div class="text-sm font-semibold text-[#222]">
+                        <span>$<%= self.nightly_rate %></span>
+                        <span class="font-normal text-[var(--air-muted)]"> night</span>
+                    </div>
+                    <div class="flex items-center justify-end gap-1 text-xs text-[#222]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#FF385C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <span><%= self.rating %> &middot; <%= self.review_count %> reviews</span>
+                    </div>
+                </div>
+                <button class="rounded-xl bg-gradient-to-r from-[#E61E4D] via-[#E31C5F] to-[#D70466] px-5 py-3 text-sm font-semibold text-white">
+                    Reserve
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <%# ── Two-column layout ── %>
+    <div class="air-shell py-10">
+        <div class="grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-16">
+            <div class="lg:col-span-7">
+                <%# ── Property overview ── %>
+                <section class="pb-8">
+                    <div class="flex items-start justify-between gap-4">
+                        <div>
+                            <h2 class="text-[26px] font-semibold tracking-[-0.03em] text-[#222]"><%= self.property_line %></h2>
+                            <p class="mt-2 text-[16px] text-[#222]"><%= self.overview_summary %></p>
+                        </div>
+                        <img data-air-image="" src="<%= self.host.photo %>" alt="Host portrait" class="h-14 w-14 rounded-full object-cover" loading="lazy" decoding="async" fetchpriority="low"/>
+                    </div>
+                </section>
+
+                <hr class="air-divider" />
+
+                <%# ── Guest favorite strip ── %>
+                <section class="py-8">
+                    <div class="airbnb-favorite-strip">
+                        <div class="airbnb-favorite-badge">
+                            <div class="text-[#222]"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#FF385C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                            <div>
+                                <div class="text-base font-semibold text-[#222]">Guest favorite</div>
+                                <div class="text-sm text-[var(--air-muted)]">Highly rated for reliability</div>
+                            </div>
+                        </div>
+                        <div class="airbnb-favorite-copy">
+                            One of the most loved homes on Coast Stays, according to guests
+                        </div>
+                        <div class="airbnb-favorite-score">
+                            <div class="text-[30px] font-semibold tracking-[-0.04em] text-[#222]"><%= self.rating %></div>
+                            <div class="text-sm font-medium text-[#222]"><%= self.review_count %> reviews</div>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="air-divider" />
+
+                <%# ── Host info ── %>
+                <section class="py-8">
+                    <div class="flex items-start gap-5">
+                        <img data-air-image="" src="<%= self.host.photo %>" alt="Host portrait" class="h-16 w-16 rounded-full object-cover" loading="lazy" decoding="async" fetchpriority="low"/>
+                        <div>
+                            <h3 class="text-[22px] font-semibold tracking-[-0.03em] text-[#222]">Hosted by <%= self.host.name %></h3>
+                            <p class="mt-1 text-sm text-[var(--air-muted)]">Superhost &middot; <%= self.host.years_hosting %> years hosting</p>
+                            <div class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+                                <div>
+                                    <div class="text-lg font-semibold text-[#222]"><%= self.host.review_count %></div>
+                                    <div class="text-sm text-[var(--air-muted)]">Reviews</div>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-semibold text-[#222]"><%= self.rating %></div>
+                                    <div class="text-sm text-[var(--air-muted)]">Rating</div>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-semibold text-[#222]"><%= self.host.response_rate %></div>
+                                    <div class="text-sm text-[var(--air-muted)]">Response rate</div>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-semibold text-[#222]"><%= self.host.response_time %></div>
+                                    <div class="text-sm text-[var(--air-muted)]">Response time</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="air-divider" />
+
+                <%# ── Highlights ── %>
+                <section class="space-y-6 py-8">
+                    <% for highlight in &self.highlights { %>
+                    <div class="flex gap-4">
+                        <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--air-soft)] text-[#222]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                        </div>
+                        <div>
+                            <p class="font-medium text-[#222]"><%= highlight.title %></p>
+                            <p class="mt-1 text-[15px] leading-6 text-[var(--air-muted)]"><%= highlight.description %></p>
+                        </div>
+                    </div>
+                    <% } %>
+                </section>
+
+                <hr class="air-divider" />
+
+                <%# ── Description ── %>
+                <section class="py-8">
+                    <h2 class="mb-5 text-[24px] font-semibold tracking-[-0.03em] text-[#222]">About this place</h2>
+                    <div class="space-y-4 text-[16px] leading-7 text-[#222]">
+                        <% for paragraph in self.description.split("\n\n") { %>
+                        <p><%= paragraph %></p>
+                        <% } %>
+                    </div>
+                    <button class="mt-5 inline-flex items-center gap-2 rounded-lg px-1 py-1 text-sm font-semibold underline underline-offset-4">
+                        Show more
+                    </button>
+                </section>
+
+                <hr class="air-divider" />
+
+                <%# ── Amenities ── %>
+                <section id="amenities" class="py-8">
+                    <div class="mb-6 flex items-end justify-between gap-4">
+                        <h2 class="text-[24px] font-semibold tracking-[-0.03em] text-[#222]">What this place offers</h2>
+                        <span class="text-sm text-[var(--air-muted)]">Preview of <%= self.total_amenity_count %> amenities</span>
+                    </div>
+                    <div class="grid grid-cols-1 gap-x-10 gap-y-5 sm:grid-cols-2">
+                        <% for amenity in &self.amenities { %>
+                        <div class="flex items-center gap-4 border-b border-[var(--air-line)] pb-4 text-[#222]">
+                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--air-soft)]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M12 4v16"/></svg>
+                            </div>
+                            <span class="text-[15px]"><%= amenity %></span>
+                        </div>
+                        <% } %>
+                    </div>
+                    <button class="mt-8 rounded-xl border border-[#222] px-6 py-3 text-sm font-semibold text-[#222] hover:bg-[var(--air-soft)]">
+                        Show all <%= self.total_amenity_count %> amenities
+                    </button>
+                </section>
+
+                <hr class="air-divider" />
+
+                <%# ── Select dates (static fallback, no islands) ── %>
+                <section class="py-8">
+                    <div class="mb-6 flex items-end justify-between gap-4">
+                        <div>
+                            <h2 class="text-[24px] font-semibold tracking-[-0.03em] text-[#222]">Select dates</h2>
+                            <p class="mt-2 text-[15px] text-[var(--air-muted)]">Add your travel dates for exact pricing</p>
+                        </div>
+                        <button data-booking-clear-all type="button" class="text-sm font-semibold underline underline-offset-4">Clear dates</button>
+                    </div>
+                    <div class="grid gap-5 md:grid-cols-2">
+                        <div data-airbnb-synced-calendar class="rounded-[22px] border border-[var(--air-line)] p-5">
+                            <div class="text-center text-sm font-medium text-[#222]">Choose check-in</div>
+                        </div>
+                        <div data-airbnb-synced-calendar class="rounded-[22px] border border-[var(--air-line)] p-5">
+                            <div class="text-center text-sm font-medium text-[#222]">Choose checkout</div>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="air-divider" />
+
+                <%# ── Location ── %>
+                <section id="location" class="py-8">
+                    <h2 class="text-[24px] font-semibold tracking-[-0.03em] text-[#222]">Where you'll be</h2>
+                    <p class="mt-2 text-[15px] text-[var(--air-muted)]"><%= self.location %></p>
+                    <div class="air-map relative mt-6 h-[360px] overflow-hidden rounded-[26px] border border-[var(--air-line)]">
+                        <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.24),transparent_42%)]"></div>
+                        <div class="absolute left-[18%] top-[24%] h-28 w-28 rounded-full border border-white/60 bg-white/35 blur-[2px]"></div>
+                        <div class="absolute right-[14%] top-[18%] h-20 w-20 rounded-full border border-white/60 bg-white/30 blur-[2px]"></div>
+                        <div class="absolute bottom-[18%] left-[52%] h-24 w-24 rounded-full border border-white/60 bg-white/35 blur-[2px]"></div>
+                        <div class="air-price-pin left-[47%] top-[44%] bg-[#222] text-white shadow-lg">
+                            <%= self.location_short %>
+                        </div>
+                    </div>
+                    <p class="mt-5 max-w-2xl text-[15px] leading-6 text-[var(--air-muted)]">
+                        This fictional listing uses an approximate map point. Expect quick access to the illustrated coast with a quieter setting than the synthetic town center.
+                    </p>
+                </section>
+
+                <hr class="air-divider" />
+
+                <%# ── Meet your host ── %>
+                <section class="py-8">
+                    <div class="grid gap-8 lg:grid-cols-[320px_1fr]">
+                        <div class="rounded-[26px] bg-[var(--air-soft)] p-6">
+                            <div class="flex items-center gap-4">
+                                <img data-air-image="" src="<%= self.host.photo %>" alt="Host portrait" class="h-20 w-20 rounded-full object-cover" loading="lazy" decoding="async" fetchpriority="low"/>
+                                <div>
+                                    <h2 class="text-[24px] font-semibold tracking-[-0.03em] text-[#222]">Meet your host</h2>
+                                    <p class="mt-1 text-sm text-[var(--air-muted)]"><%= self.host.name %> &middot; Superhost</p>
+                                </div>
+                            </div>
+                            <div class="mt-6 grid grid-cols-3 gap-4 border-t border-[var(--air-line)] pt-5 text-center">
+                                <div>
+                                    <div class="text-xl font-semibold text-[#222]"><%= self.host.review_count %></div>
+                                    <div class="text-xs text-[var(--air-muted)]">Reviews</div>
+                                </div>
+                                <div>
+                                    <div class="text-xl font-semibold text-[#222]"><%= self.rating %></div>
+                                    <div class="text-xs text-[var(--air-muted)]">Rating</div>
+                                </div>
+                                <div>
+                                    <div class="text-xl font-semibold text-[#222]"><%= self.host.years_hosting %></div>
+                                    <div class="text-xs text-[var(--air-muted)]">Years hosting</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-[22px] font-semibold tracking-[-0.03em] text-[#222]"><%= self.host.name %> is a Superhost</h3>
+                            <p class="mt-3 max-w-2xl text-[15px] leading-6 text-[var(--air-muted)]">
+                                <%= self.host.bio %> <%= self.host.name %> lives in <%= self.location %><% if let Some(ref cohost) = self.cohost { %> and cohosts with <%= cohost.name %> for smoother arrivals and faster support.<% } else { %>.<% } %>
+                            </p>
+                            <div class="mt-6 flex flex-wrap items-center gap-6">
+                                <% if let Some(ref cohost) = self.cohost { %>
+                                <div class="flex items-center gap-3">
+                                    <img data-air-image="" src="<%= cohost.photo %>" alt="Cohost portrait" class="h-12 w-12 rounded-full object-cover" loading="lazy" decoding="async" fetchpriority="low"/>
+                                    <div>
+                                        <div class="text-sm font-semibold text-[#222]"><%= cohost.name %></div>
+                                        <div class="text-sm text-[var(--air-muted)]">Co-host</div>
+                                    </div>
+                                </div>
+                                <% } %>
+                                <div class="text-sm text-[var(--air-muted)]">Response rate: <%= self.host.response_rate %> &middot; Responds within <%= self.host.response_time %></div>
+                            </div>
+                            <div class="mt-6 rounded-[20px] border border-[var(--air-line)] p-5 text-[15px] leading-6 text-[var(--air-muted)]">
+                                To help protect your payment, always use the booking platform to send money and communicate with hosts.
+                            </div>
+                            <button class="mt-6 rounded-xl border border-[#222] px-6 py-3 text-sm font-semibold text-[#222] hover:bg-[var(--air-soft)]">
+                                Message host
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="air-divider" />
+
+                <%# ── Things to know ── %>
+                <section class="py-8">
+                    <h2 class="mb-6 text-[24px] font-semibold tracking-[-0.03em] text-[#222]">Things to know</h2>
+                    <div class="grid gap-6 md:grid-cols-3">
+                        <div class="rounded-[22px] border border-[var(--air-line)] p-6">
+                            <div class="mb-4 text-[#222]"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+                            <h3 class="text-lg font-semibold text-[#222]">House rules</h3>
+                            <div class="mt-4 space-y-3 text-sm text-[var(--air-muted)]">
+                                <% for item in &self.house_rules { %>
+                                <p><%= item %></p>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="rounded-[22px] border border-[var(--air-line)] p-6">
+                            <div class="mb-4 text-[#222]"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v5c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V7l7-4z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+                            <h3 class="text-lg font-semibold text-[#222]">Safety &amp; property</h3>
+                            <div class="mt-4 space-y-3 text-sm text-[var(--air-muted)]">
+                                <% for item in &self.safety_items { %>
+                                <p><%= item %></p>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="rounded-[22px] border border-[var(--air-line)] p-6">
+                            <div class="mb-4 text-[#222]"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M10 15l2 2 4-4"/></svg></div>
+                            <h3 class="text-lg font-semibold text-[#222]">Cancellation policy</h3>
+                            <div class="mt-4 space-y-3 text-sm text-[var(--air-muted)]">
+                                <% for item in &self.cancellation_items { %>
+                                <p><%= item %></p>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <%# ── Booking sidebar ── %>
+            <aside class="lg:col-span-4 lg:col-start-9">
+                <div
+                    class="sticky top-28"
+                    data-airbnb-booking-root
+                    data-initial-checkin="<%= self.booking.check_in %>"
+                    data-initial-checkout="<%= self.booking.checkout %>"
+                    data-nightly-rate="<%= self.nightly_rate %>"
+                    data-cleaning-fee="<%= self.cleaning_fee %>"
+                    data-service-fee="<%= self.service_fee %>"
+                >
+                    <div class="relative">
+                        <div class="mb-4 flex justify-end">
+                            <div class="airbnb-booking-pill">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#FF385C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <span>Prices include all fees</span>
+                            </div>
+                        </div>
+
+                        <div class="air-booking-card airbnb-booking-card p-6">
+                            <div class="mb-4">
+                                <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1 text-[#222]">
+                                    <span data-booking-header-total class="text-[32px] font-semibold tracking-[-0.04em] text-[#222]">$<%= total %></span>
+                                    <span data-booking-header-context class="text-[15px] text-[var(--air-muted)]">for <%= self.booking.nights %> nights</span>
+                                </div>
+                                <div class="mt-2 flex items-center gap-1 text-sm text-[#222]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#FF385C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <span class="font-medium"><%= self.rating %></span>
+                                    <span>&middot;</span>
+                                    <a href="#reviews" class="underline"><%= self.review_count %> reviews</a>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 overflow-hidden rounded-2xl border border-[#B0B0B0]">
+                                <div class="grid grid-cols-2">
+                                    <button data-booking-trigger="checkIn" type="button" class="airbnb-booking-trigger border-b border-r border-[#B0B0B0] px-3 py-2.5 text-left transition-colors hover:bg-[var(--air-soft)]">
+                                        <span class="block text-[10px] font-bold tracking-wide uppercase text-[#222]">CHECK-IN</span>
+                                        <span data-booking-display="checkIn" class="airbnb-booking-display mt-0.5 block text-sm text-[#222]"><%= self.booking.check_in_display %></span>
+                                    </button>
+                                    <button data-booking-trigger="checkOut" type="button" class="airbnb-booking-trigger border-b border-[#B0B0B0] px-3 py-2.5 text-left transition-colors hover:bg-[var(--air-soft)]">
+                                        <span class="block text-[10px] font-bold tracking-wide uppercase text-[#222]">CHECKOUT</span>
+                                        <span data-booking-display="checkOut" class="airbnb-booking-display mt-0.5 block text-sm text-[#222]"><%= self.booking.checkout_display %></span>
+                                    </button>
+                                </div>
+                                <div class="px-3 py-2.5">
+                                    <label class="block text-[10px] font-bold tracking-wide uppercase text-[#222]">GUESTS</label>
+                                    <p class="mt-0.5 text-sm text-[#222]"><%= self.booking.guests %></p>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 rounded-xl bg-[var(--air-soft)] px-4 py-2.5 text-center text-xs font-medium text-[#222]">
+                                Free cancellation before <%= self.booking.free_cancel_date %>
+                            </div>
+
+                            <button class="mb-4 w-full rounded-xl bg-gradient-to-r from-[#E61E4D] via-[#E31C5F] to-[#D70466] py-3.5 font-semibold text-white transition-transform hover:scale-[1.01]">
+                                Reserve
+                            </button>
+
+                            <p class="mb-5 text-center text-sm text-[var(--air-muted)]">You won't be charged yet</p>
+
+                            <div class="space-y-4 text-sm">
+                                <div class="flex justify-between">
+                                    <span data-booking-night-line-label class="text-[#222] underline">$<%= self.nightly_rate %> x <%= self.booking.nights %> nights</span>
+                                    <span data-booking-night-line-value class="text-[#222]">$<%= nightly_total %></span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-[#222] underline">Cleaning fee</span>
+                                    <span class="text-[#222]">$<%= self.cleaning_fee %></span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-[#222] underline">Platform service fee</span>
+                                    <span class="text-[#222]">$<%= self.service_fee %></span>
+                                </div>
+                                <hr class="air-divider" />
+                                <div class="flex justify-between font-semibold">
+                                    <span class="text-[#222]">Total before taxes</span>
+                                    <span data-booking-total-value class="text-[#222]">$<%= total %></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div data-booking-popover aria-hidden="true" class="airbnb-booking-popover hidden">
+                            <div class="airbnb-popover-shell">
+                                <div class="airbnb-popover-header">
+                                    <div class="airbnb-popover-summary">
+                                        <h3 data-booking-nights><%= self.booking.nights %> nights</h3>
+                                        <p data-booking-range-label><%= self.booking.range_label %></p>
+                                    </div>
+                                    <div class="airbnb-popover-fields">
+                                        <div class="airbnb-popover-field">
+                                            <button data-booking-trigger="checkIn" type="button" class="block w-full text-left">
+                                                <span class="airbnb-popover-field-label">Check-in</span>
+                                                <span data-booking-popover-display="checkIn" class="airbnb-popover-field-value airbnb-popover-value"><%= self.booking.check_in_display %></span>
+                                            </button>
+                                            <button data-booking-clear-field="checkIn" type="button" class="airbnb-popover-clear" aria-label="Clear dates">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="12" height="12" aria-hidden="true"><path d="m6 6 20 20M26 6 6 26" fill="none" stroke="currentColor" stroke-width="4"/></svg>
+                                            </button>
+                                        </div>
+                                        <div class="airbnb-popover-field">
+                                            <button data-booking-trigger="checkOut" type="button" class="block w-full text-left">
+                                                <span class="airbnb-popover-field-label">Checkout</span>
+                                                <span data-booking-popover-display="checkOut" class="airbnb-popover-field-value airbnb-popover-value"><%= self.booking.checkout_display %></span>
+                                            </button>
+                                            <button data-booking-clear-field="checkOut" type="button" class="airbnb-popover-clear" aria-label="Clear checkout date">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="12" height="12" aria-hidden="true"><path d="m6 6 20 20M26 6 6 26" fill="none" stroke="currentColor" stroke-width="4"/></svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="airbnb-popover-calendars">
+                                    <div data-airbnb-synced-calendar class="airbnb-popover-calendar">
+                                        <div class="text-center text-sm font-medium text-[#222]">Choose check-in</div>
+                                    </div>
+                                    <div data-airbnb-synced-calendar class="airbnb-popover-calendar">
+                                        <div class="text-center text-sm font-medium text-[#222]">Choose checkout</div>
+                                    </div>
+                                </div>
+
+                                <div class="airbnb-popover-footer">
+                                    <button data-booking-clear-all type="button" class="airbnb-link-button">Clear dates</button>
+                                    <button data-booking-close type="button" class="airbnb-close-button">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#222] underline underline-offset-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+                        Report this listing
+                    </button>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <hr class="air-divider mx-auto" style="max-width:var(--air-shell-max)" />
+
+    <%# ── Reviews section ── %>
+    <section id="reviews" class="air-shell py-10">
+        <div class="airbnb-guest-fav-badge">
+            <div class="airbnb-guest-fav-laurels">
+                <span class="airbnb-guest-fav-laurel" aria-hidden="true">◆</span>
+                <div class="airbnb-guest-fav-score">
+                    <span class="sr-only">Rated <%= self.rating %> out of 5 from <%= self.review_count %> reviews.</span>
+                    <div aria-hidden="true"><%= self.rating %></div>
+                </div>
+                <span class="airbnb-guest-fav-laurel" aria-hidden="true">◆</span>
+            </div>
+            <div class="airbnb-guest-fav-title">Guest favorite</div>
+            <div class="airbnb-guest-fav-desc">This home is a guest favorite based on ratings, reviews, and reliability</div>
+        </div>
+
+        <div class="mb-8 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#FF385C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <h2 class="text-[24px] font-semibold tracking-[-0.03em] text-[#222]"><%= self.rating %> &middot; <%= self.review_count %> reviews</h2>
+        </div>
+
+        <%# Rating cards row %>
+        <div class="airbnb-ratings-row">
+            <div class="airbnb-ratings-card airbnb-ratings-card-overall">
+                <h3 class="text-base font-semibold text-[#222]">Overall rating</h3>
+                <div class="mt-4 airbnb-rating-bars">
+                    <% for (label, value) in &self.review_distribution { %>
+                    <div class="airbnb-rating-bar">
+                        <div class="airbnb-rating-bar-label"><%= label %></div>
+                        <div class="airbnb-rating-bar-track">
+                            <div class="airbnb-rating-bar-fill" style="width:<%= value %>%;min-width:2px"></div>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+            <% for item in &review_details { %>
+            <div class="airbnb-ratings-card">
+                <span class="sr-only">Rated <%= item.1 %> out of 5 stars for <%= item.0 %></span>
+                <div class="airbnb-ratings-card-label"><%= item.0 %></div>
+                <div class="airbnb-ratings-card-score"><%= item.1 %></div>
+                <div class="airbnb-ratings-card-icon"><%- item.2 %></div>
+            </div>
+            <% } %>
+        </div>
+
+        <%# Review cards %>
+        <div class="mt-12 grid grid-cols-1 gap-x-10 gap-y-12 md:grid-cols-2">
+            <% for review in &self.reviews { %>
+            <div data-review-card data-expanded="false" class="airbnb-review-card">
+                <div class="mb-4 flex items-start justify-between gap-4">
+                    <div>
+                        <div class="flex items-center gap-3">
+                            <img data-air-image="" src="<%= review.avatar %>" alt="<%= review.name %>" class="airbnb-review-avatar" loading="lazy" decoding="async" fetchpriority="low"/>
+                            <div>
+                                <p class="font-medium text-sm text-[#222]"><%= review.name %></p>
+                                <p class="text-xs text-[var(--air-muted)]"><%= review.location %></p>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex flex-wrap items-center gap-2 text-xs text-[var(--air-muted)]">
+                            <div class="airbnb-review-stars">
+                                <% for _ in 0..5 { %>
+                                <span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#FF385C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                                <% } %>
+                            </div>
+                            <span><%= review.date %></span>
+                            <span>&middot;</span>
+                            <span><%= review.duration %></span>
+                        </div>
+                    </div>
+                </div>
+                <p data-review-body class="text-[15px] leading-6 text-[#222]"><%= review.body %></p>
+                <button data-review-toggle type="button" class="mt-3 text-sm font-semibold underline underline-offset-4 text-[#222]">
+                    Show more
+                </button>
+            </div>
+            <% } %>
+        </div>
+
+        <div class="mt-10 flex flex-wrap items-center gap-4">
+            <button class="rounded-xl border border-[#222] px-6 py-3 text-sm font-semibold text-[#222] hover:bg-[var(--air-soft)]">
+                Show all <%= self.review_count %> reviews
+            </button>
+            <button type="button" class="text-sm font-semibold underline underline-offset-4 text-[#222]">
+                How reviews work
+            </button>
+        </div>
+    </section>
+
+    <%# ── Explore nearby ── %>
+    <section class="mt-8 bg-[var(--air-soft)] py-12">
+        <div class="air-shell">
+            <h2 class="text-[24px] font-semibold tracking-[-0.03em] text-[#222]">Explore other options in and around <%= self.location_short %></h2>
+            <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                <% for link in &self.nearby_links { %>
+                <a href="#explore" class="rounded-[20px] border border-[var(--air-line)] bg-white px-5 py-4 text-sm font-medium text-[#222] transition-colors hover:bg-[#fcfcfc]">
+                    <%= link %>
+                </a>
+                <% } %>
+            </div>
+        </div>
+    </section>
+</main>
+
+<%# ── Gallery modal ── %>
+<div class="gallery-modal hidden" id="gallery-modal">
+    <div class="gallery-dialog" role="dialog" aria-modal="true" aria-label="Photo gallery">
+        <div class="gallery-header">
+            <div class="gallery-header-left">
+                <button class="gallery-header-btn" data-gallery-close type="button">
+                    <span class="gallery-header-btn-icon">
+                        <svg viewBox="0 0 12 12" aria-hidden="true" focusable="false" style="display:block;fill:currentcolor;height:12px;width:12px"><path d="m11.5 10.5c.3.3.3.8 0 1.1s-.8.3-1.1 0l-4.4-4.5-4.5 4.5c-.3.3-.8.3-1.1 0s-.3-.8 0-1.1l4.5-4.5-4.4-4.5c-.3-.3-.3-.8 0-1.1s.8-.3 1.1 0l4.4 4.5 4.5-4.5c.3-.3.8-.3 1.1 0s.3.8 0 1.1l-4.5 4.5z" fill-rule="evenodd"/></svg>
+                    </span>
+                    <span>Close</span>
+                </button>
+            </div>
+            <div class="gallery-counter">
+                <span class="sr-only" id="gallery-counter-sr" aria-live="polite" aria-atomic="true">Showing photo 1 of 8</span>
+                <span id="gallery-counter" aria-hidden="true">1 / 8</span>
+            </div>
+            <div class="gallery-header-right">
+                <button class="gallery-icon-btn" type="button" aria-label="Share">
+                    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="display:block;fill:none;height:16px;width:16px;stroke:currentcolor;stroke-width:2;overflow:visible"><path d="m27 18v9c0 1.1046-.8954 2-2 2h-18c-1.10457 0-2-.8954-2-2v-9m11-15v21m-10-11 9.2929-9.29289c.3905-.39053 1.0237-.39053 1.4142 0l9.2929 9.29289"/></svg>
+                </button>
+                <button class="gallery-icon-btn" type="button" aria-label="Save">
+                    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="display:block;fill:none;height:16px;width:16px;stroke:currentcolor;stroke-width:2;overflow:visible"><path d="m15.9998 28.6668c7.1667-4.8847 14.3334-10.8844 14.3334-18.1088 0-1.84951-.6993-3.69794-2.0988-5.10877-1.3996-1.4098-3.2332-2.11573-5.0679-2.11573-1.8336 0-3.6683.70593-5.0668 2.11573l-2.0999 2.11677-2.0988-2.11677c-1.3995-1.4098-3.2332-2.11573-5.06783-2.11573-1.83364 0-3.66831.70593-5.06683 2.11573-1.39955 1.41083-2.09984 3.25926-2.09984 5.10877 0 7.2244 7.16667 13.2241 14.3333 18.1088z"/></svg>
+                </button>
+            </div>
+        </div>
+        <div class="gallery-stage">
+            <div class="gallery-nav-slot">
+                <button class="gallery-nav-btn" data-gallery-prev type="button" aria-label="Previous" disabled>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" focusable="false" style="display:block;fill:none;height:12px;width:12px;stroke:currentcolor;stroke-width:4;overflow:visible"><path d="M20 28 8.7 16.7a1 1 0 0 1 0-1.4L20 4"/></svg>
+                </button>
+            </div>
+            <div class="gallery-image-wrap">
+                <img id="gallery-image" data-air-image="" src="<%= self.photos[0].src %>" alt="<%= self.photos[0].alt %>" class="gallery-image" loading="eager" decoding="async" fetchpriority="auto"/>
+            </div>
+            <div class="gallery-nav-slot">
+                <button class="gallery-nav-btn" data-gallery-next type="button" aria-label="Next">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" focusable="false" style="display:block;fill:none;height:12px;width:12px;stroke:currentcolor;stroke-width:4;overflow:visible"><path d="m12 4 11.3 11.3a1 1 0 0 1 0 1.4L12 28"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%# ── Footer ── %>
+<div class="border-t border-b border-[#e2c56b] bg-[#fef9eb]">
+    <div class="air-shell">
+        <p class="py-3 text-xs text-[#7a6520] leading-relaxed text-center">
+            <strong>Synthetic benchmark:</strong> Coast Stays uses Proa-authored data, markup, and illustrations so this repository can be redistributed independently.
+        </p>
+    </div>
+</div>
+<footer class="border-t border-[var(--air-line)] bg-[var(--air-soft)]">
+    <div class="air-shell">
+        <div class="grid grid-cols-1 gap-8 py-12 text-sm md:grid-cols-3">
+            <div>
+                <h4 class="mb-3 font-semibold">Support</h4>
+                <ul class="space-y-2 text-[var(--air-muted)]">
+                    <li><a href="#support" class="hover:underline">Help Center</a></li>
+                    <li><a href="#support" class="hover:underline">Booking protection</a></li>
+                    <li><a href="#support" class="hover:underline">Cancellation options</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="mb-3 font-semibold">Hosting</h4>
+                <ul class="space-y-2 text-[var(--air-muted)]">
+                    <li><a href="#hosting" class="hover:underline">List your home</a></li>
+                    <li><a href="#hosting" class="hover:underline">Hosting resources</a></li>
+                    <li><a href="#hosting" class="hover:underline">Community forum</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="mb-3 font-semibold">Coast Stays</h4>
+                <ul class="space-y-2 text-[var(--air-muted)]">
+                    <li><a href="#about" class="hover:underline">Newsroom</a></li>
+                    <li><a href="#about" class="hover:underline">Careers</a></li>
+                    <li><a href="#about" class="hover:underline">Investors</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="flex flex-col gap-4 border-t border-[var(--air-line)] py-6 text-sm text-[var(--air-muted)] md:flex-row md:items-center md:justify-between">
+            <p>&copy; Proa &middot; Fictional benchmark content</p>
+            <p>Built with <a href="/" class="underline">Proa UI</a> (showcase demo)</p>
+        </div>
+    </div>
+</footer>
+</body></html>

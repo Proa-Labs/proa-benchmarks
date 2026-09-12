@@ -1,0 +1,5 @@
+<script>
+  let { sections } = $props();
+</script>
+
+<header class="hero-section"><h1 class="title">SSR Framework Benchmark</h1><p class="subtitle">Comparing Proa, Leptos, Dioxus, and Yew</p></header><main class="main-content">{#each sections as section}<section class="card-section" data-section={section.dataSection}><h2 class="section-title">{section.title}</h2><div class="card-grid">{#each section.cards as card}<article class="card" data-card-id={card.dataCardId}><div class="card-header"><img src="/images/benchmark.png" alt="Benchmark chart" class="card-image"></div><div class="card-body"><h3 class="card-title">{card.title}</h3><p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><ul class="feature-list">{#each card.features as feature}<li class="feature-item">{feature}</li>{/each}</ul><button class="btn-primary" type="button">View Details</button></div></article>{/each}</div></section>{/each}</main><footer class="footer"><p>Rendered by the SSR benchmark fixture</p></footer>

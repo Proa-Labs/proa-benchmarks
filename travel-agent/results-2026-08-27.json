@@ -1,0 +1,49 @@
+{
+	"capturedAt": "2026-08-27",
+	"network": {
+		"downloadMbps": 100,
+		"latencyMs": 40
+	},
+	"browserUseLocal": {
+		"runs": 5,
+		"currentFiveSurfaceP50Ms": 8650.517,
+		"currentFourSurfaceP50Ms": 7065.761,
+		"completeHtmlFourSurfaceP50Ms": 4542.065,
+		"airbnbNoJsDocumentP50Ms": 1061.28,
+		"estimatedProaFiveSurfaceP50Ms": 6053.415
+	},
+	"currentLocalCapture": {
+		"runs": 3,
+		"scriptBytesP50Sum": 11474788,
+		"scriptRequestsP50Sum": 420,
+		"scriptCpuP50MsSum": 1842.77
+	},
+	"generatedProaJavascript": {
+		"runs": 10,
+		"rawBytes": 353063,
+		"gzipBytes": 77225,
+		"requests": 5,
+		"scriptCpuP50Ms": 3.836
+	},
+	"vpsDirectComparison": {
+		"runs": 3,
+		"currentFourSurfaceP50MsSum": 6869.47,
+		"completeHtmlFourSurfaceP50MsSum": 3064.218
+	},
+	"reachability": {
+		"united": {
+			"actionableRuns": 0,
+			"runs": 3,
+			"classification": "navigation-error"
+		},
+		"hilton": {
+			"actionableRuns": 0,
+			"runs": 3,
+			"classification": "empty-or-incomplete"
+		},
+		"airbnbVps": {
+			"actionableRuns": 1,
+			"runs": 3
+		}
+	}
+}

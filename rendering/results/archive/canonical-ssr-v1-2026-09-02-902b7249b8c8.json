@@ -1,0 +1,1238 @@
+{
+  "schema_version": 2,
+  "benchmark_version": "canonical-ssr-v1",
+  "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8",
+  "capture_kind": "canonical",
+  "status": "pass",
+  "captured_at": "2026-09-02T04:38:40.339Z",
+  "completed_at": "2026-09-02T04:40:26.366Z",
+  "host": {
+    "cpu_model": "Apple M4 Max",
+    "logical_cpus": 16,
+    "memory_bytes": 137438953472,
+    "architecture": "arm64",
+    "os_name": "macOS (Darwin)",
+    "os_release": "25.5.0"
+  },
+  "workloads": [
+    {
+      "id": "cards",
+      "label": "Component page",
+      "cardinality": 32,
+      "description": "4 sections, 32 cards, and 160 feature-list items",
+      "warmup": 200,
+      "iterations": 2000
+    },
+    {
+      "id": "table",
+      "label": "1,000-row table",
+      "cardinality": 1000,
+      "description": "1,000 rows and 12 columns with escaping, formatting, branches, and variable-length lists",
+      "warmup": 20,
+      "iterations": 200
+    },
+    {
+      "id": "products",
+      "label": "Product grid",
+      "cardinality": 96,
+      "description": "96 product cards and 480 SVG stars",
+      "warmup": 50,
+      "iterations": 500
+    }
+  ],
+  "renderers": [
+    {
+      "id": "proa",
+      "label": "Proa",
+      "language": "Rust",
+      "status": "included"
+    },
+    {
+      "id": "marko",
+      "label": "Marko",
+      "language": "JavaScript",
+      "status": "included"
+    },
+    {
+      "id": "react",
+      "label": "React",
+      "language": "JavaScript",
+      "status": "included"
+    },
+    {
+      "id": "rails",
+      "label": "Rails",
+      "language": "Ruby",
+      "status": "included"
+    },
+    {
+      "id": "jte",
+      "label": "jte",
+      "language": "Java",
+      "status": "included"
+    },
+    {
+      "id": "rocker",
+      "label": "Rocker",
+      "language": "Java",
+      "status": "included"
+    },
+    {
+      "id": "handlebars",
+      "label": "Handlebars",
+      "language": "JavaScript",
+      "status": "included"
+    },
+    {
+      "id": "go-html-template",
+      "label": "Go html/template",
+      "language": "Go",
+      "status": "included"
+    },
+    {
+      "id": "jinja2",
+      "label": "Jinja2",
+      "language": "Python",
+      "status": "included"
+    },
+    {
+      "id": "php",
+      "label": "PHP",
+      "language": "PHP",
+      "status": "included"
+    },
+    {
+      "id": "askama",
+      "label": "Askama",
+      "language": "Rust",
+      "status": "included"
+    },
+    {
+      "id": "sailfish",
+      "label": "Sailfish",
+      "language": "Rust",
+      "status": "included"
+    },
+    {
+      "id": "leptos",
+      "label": "Leptos",
+      "language": "Rust",
+      "status": "included"
+    },
+    {
+      "id": "dioxus",
+      "label": "Dioxus",
+      "language": "Rust",
+      "status": "included"
+    },
+    {
+      "id": "topcoat",
+      "label": "Topcoat",
+      "language": "Rust",
+      "status": "included"
+    }
+  ],
+  "parity": {
+    "proa": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25108,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 988509,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 284908,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      }
+    },
+    "marko": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 24038,
+        "payload_delta_bytes": -1070,
+        "byte_equal_to_proa": false
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 983187,
+        "payload_delta_bytes": -5322,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 282604,
+        "payload_delta_bytes": -2304,
+        "byte_equal_to_proa": false
+      }
+    },
+    "react": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25202,
+        "payload_delta_bytes": 94,
+        "byte_equal_to_proa": false
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 990695,
+        "payload_delta_bytes": 2186,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285868,
+        "payload_delta_bytes": 960,
+        "byte_equal_to_proa": false
+      }
+    },
+    "rails": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 35839,
+        "payload_delta_bytes": 10731,
+        "byte_equal_to_proa": false
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 1228793,
+        "payload_delta_bytes": 240284,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 296823,
+        "payload_delta_bytes": 11915,
+        "byte_equal_to_proa": false
+      }
+    },
+    "jte": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25109,
+        "payload_delta_bytes": 1,
+        "byte_equal_to_proa": false
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 988510,
+        "payload_delta_bytes": 1,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 284909,
+        "payload_delta_bytes": 1,
+        "byte_equal_to_proa": false
+      }
+    },
+    "rocker": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25109,
+        "payload_delta_bytes": 1,
+        "byte_equal_to_proa": false
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 990508,
+        "payload_delta_bytes": 1999,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285869,
+        "payload_delta_bytes": 961,
+        "byte_equal_to_proa": false
+      }
+    },
+    "handlebars": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25108,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 990694,
+        "payload_delta_bytes": 2185,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285868,
+        "payload_delta_bytes": 960,
+        "byte_equal_to_proa": false
+      }
+    },
+    "go-html-template": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25108,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 990509,
+        "payload_delta_bytes": 2000,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285676,
+        "payload_delta_bytes": 768,
+        "byte_equal_to_proa": false
+      }
+    },
+    "jinja2": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25108,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 990257,
+        "payload_delta_bytes": 1748,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285676,
+        "payload_delta_bytes": 768,
+        "byte_equal_to_proa": false
+      }
+    },
+    "php": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25108,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 990694,
+        "payload_delta_bytes": 2185,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285868,
+        "payload_delta_bytes": 960,
+        "byte_equal_to_proa": false
+      }
+    },
+    "askama": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 44849,
+        "payload_delta_bytes": 19741,
+        "byte_equal_to_proa": false
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 991007,
+        "payload_delta_bytes": 2498,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285676,
+        "payload_delta_bytes": 768,
+        "byte_equal_to_proa": false
+      }
+    },
+    "sailfish": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 44849,
+        "payload_delta_bytes": 19741,
+        "byte_equal_to_proa": false
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 990694,
+        "payload_delta_bytes": 2185,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285868,
+        "payload_delta_bytes": 960,
+        "byte_equal_to_proa": false
+      }
+    },
+    "leptos": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25219,
+        "payload_delta_bytes": 111,
+        "byte_equal_to_proa": false
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 991512,
+        "payload_delta_bytes": 3003,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 286063,
+        "payload_delta_bytes": 1155,
+        "byte_equal_to_proa": false
+      }
+    },
+    "dioxus": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25141,
+        "payload_delta_bytes": 33,
+        "byte_equal_to_proa": false
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 990695,
+        "payload_delta_bytes": 2186,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285868,
+        "payload_delta_bytes": 960,
+        "byte_equal_to_proa": false
+      }
+    },
+    "topcoat": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25108,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 988509,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 284908,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      }
+    }
+  },
+  "measurements": {
+    "proa": {
+      "cards": {
+        "p50_us": 2.041,
+        "p95_us": 2.1670000000000003,
+        "p99_us": 2.542,
+        "mean_us": 2.0462569999999873,
+        "process_p50_min_us": 2,
+        "process_p50_max_us": 2.0829999999999997,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25108,
+        "allocation_policy": "standard render_to_string; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "table": {
+        "p50_us": 385.6465,
+        "p95_us": 427.30865,
+        "p99_us": 469.0933299999998,
+        "mean_us": 389.4087549999999,
+        "process_p50_min_us": 381.0415,
+        "process_p50_max_us": 388.375,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 988509,
+        "allocation_policy": "standard render_to_string; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "products": {
+        "p50_us": 26.458,
+        "p95_us": 29.05239999999999,
+        "p99_us": 39.1850899999999,
+        "mean_us": 27.052651999999984,
+        "process_p50_min_us": 26.334,
+        "process_p50_max_us": 27,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 284908,
+        "allocation_policy": "standard render_to_string; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      }
+    },
+    "marko": {
+      "cards": {
+        "p50_us": 7.75,
+        "p95_us": 21.050299999999993,
+        "p99_us": 45.92283,
+        "mean_us": 14.743746999999995,
+        "process_p50_min_us": 7.333,
+        "process_p50_max_us": 9.292,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 24038,
+        "allocation_policy": "compiled Marko HTML render; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "table": {
+        "p50_us": 980.021,
+        "p95_us": 14167.847599999977,
+        "p99_us": 22756.40499999999,
+        "mean_us": 2184.99734,
+        "process_p50_min_us": 968.8955000000001,
+        "process_p50_max_us": 1018.9585,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 983187,
+        "allocation_policy": "compiled Marko HTML render; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "products": {
+        "p50_us": 86.8545,
+        "p95_us": 172.78959999999995,
+        "p99_us": 218.22925999999998,
+        "mean_us": 147.74117000000004,
+        "process_p50_min_us": 85.979,
+        "process_p50_max_us": 88.3125,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 282604,
+        "allocation_policy": "compiled Marko HTML render; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      }
+    },
+    "react": {
+      "cards": {
+        "p50_us": 74.292,
+        "p95_us": 108.41905,
+        "p99_us": 205.66893,
+        "mean_us": 81.60883199999999,
+        "process_p50_min_us": 73.625,
+        "process_p50_max_us": 74.917,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25202,
+        "allocation_policy": "React renderToString; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "table": {
+        "p50_us": 3849.917,
+        "p95_us": 7014.5854,
+        "p99_us": 7732.892409999996,
+        "mean_us": 4402.85085,
+        "process_p50_min_us": 3836.875,
+        "process_p50_max_us": 3916.083,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 990695,
+        "allocation_policy": "React renderToString; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "products": {
+        "p50_us": 419.54150000000004,
+        "p95_us": 905.1958499999997,
+        "p99_us": 1068.3670799999998,
+        "mean_us": 464.69514999999956,
+        "process_p50_min_us": 415.16650000000004,
+        "process_p50_max_us": 421.08349999999996,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285868,
+        "allocation_policy": "React renderToString; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      }
+    },
+    "rails": {
+      "cards": {
+        "p50_us": 61,
+        "p95_us": 86.04999999999995,
+        "p99_us": 402.01,
+        "mean_us": 73.579,
+        "process_p50_min_us": 61,
+        "process_p50_max_us": 62,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 35839,
+        "allocation_policy": "cached Rails template; fresh ActionView context and output buffer",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "table": {
+        "p50_us": 6383.5,
+        "p95_us": 6908.15,
+        "p99_us": 7119.009999999999,
+        "mean_us": 6335.445,
+        "process_p50_min_us": 6367,
+        "process_p50_max_us": 6440.5,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 1228793,
+        "allocation_policy": "cached Rails template; fresh ActionView context and output buffer",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "products": {
+        "p50_us": 419,
+        "p95_us": 815.05,
+        "p99_us": 2230.589999999999,
+        "mean_us": 479.992,
+        "process_p50_min_us": 416,
+        "process_p50_max_us": 424,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 296823,
+        "allocation_policy": "cached Rails template; fresh ActionView context and output buffer",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      }
+    },
+    "jte": {
+      "cards": {
+        "p50_us": 8.375,
+        "p95_us": 12.209,
+        "p99_us": 22.25083,
+        "mean_us": 9.085692,
+        "process_p50_min_us": 8.375,
+        "process_p50_max_us": 8.459,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25109,
+        "allocation_policy": "precompiled jte template; fresh Utf8ByteOutput response",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "table": {
+        "p50_us": 2118.3955,
+        "p95_us": 2584.50625,
+        "p99_us": 3211.66851,
+        "mean_us": 2082.988965,
+        "process_p50_min_us": 2083.3755,
+        "process_p50_max_us": 2140.6875,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 988510,
+        "allocation_policy": "precompiled jte template; fresh Utf8ByteOutput response",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "products": {
+        "p50_us": 232.6665,
+        "p95_us": 384.1899,
+        "p99_us": 446.45,
+        "mean_us": 253.376032,
+        "process_p50_min_us": 228.6245,
+        "process_p50_max_us": 235.708,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 284909,
+        "allocation_policy": "precompiled jte template; fresh Utf8ByteOutput response",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      }
+    },
+    "rocker": {
+      "cards": {
+        "p50_us": 15.791,
+        "p95_us": 22.71105,
+        "p99_us": 34.92783,
+        "mean_us": 16.790014,
+        "process_p50_min_us": 15.542,
+        "process_p50_max_us": 15.917,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25109,
+        "allocation_policy": "optimized Rocker template flattened to a fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "table": {
+        "p50_us": 2604.5415,
+        "p95_us": 3128.2774,
+        "p99_us": 3497.58375,
+        "mean_us": 2507.042135,
+        "process_p50_min_us": 2245.917,
+        "process_p50_max_us": 2647.1665,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 990508,
+        "allocation_policy": "optimized Rocker template flattened to a fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "products": {
+        "p50_us": 393.688,
+        "p95_us": 543.7955,
+        "p99_us": 629.18158,
+        "mean_us": 413.349314,
+        "process_p50_min_us": 364.3335,
+        "process_p50_max_us": 395.3335,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285869,
+        "allocation_policy": "optimized Rocker template flattened to a fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      }
+    },
+    "handlebars": {
+      "cards": {
+        "p50_us": 19.458,
+        "p95_us": 29.336049999999997,
+        "p99_us": 73.08301,
+        "mean_us": 22.101875000000007,
+        "process_p50_min_us": 18.917,
+        "process_p50_max_us": 19.542,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25108,
+        "allocation_policy": "compiled Handlebars template; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "table": {
+        "p50_us": 2374.3540000000003,
+        "p95_us": 3657.539899999999,
+        "p99_us": 4432.876079999999,
+        "mean_us": 2586.857445000001,
+        "process_p50_min_us": 2350.958,
+        "process_p50_max_us": 2420.9165000000003,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 990694,
+        "allocation_policy": "compiled Handlebars template; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "products": {
+        "p50_us": 208.64600000000002,
+        "p95_us": 316.2451999999999,
+        "p99_us": 415.6409999999999,
+        "mean_us": 225.76940400000004,
+        "process_p50_min_us": 207.292,
+        "process_p50_max_us": 211.875,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285868,
+        "allocation_policy": "compiled Handlebars template; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      }
+    },
+    "go-html-template": {
+      "cards": {
+        "p50_us": 87.709,
+        "p95_us": 161.79309999999998,
+        "p99_us": 255.83675,
+        "mean_us": 96.94206450000027,
+        "process_p50_min_us": 87.375,
+        "process_p50_max_us": 87.833,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25108,
+        "allocation_policy": "fresh bytes.Buffer and owned string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "table": {
+        "p50_us": 8758.75,
+        "p95_us": 9178.9545,
+        "p99_us": 9321.880589999999,
+        "mean_us": 8813.774989999998,
+        "process_p50_min_us": 8744.8755,
+        "process_p50_max_us": 8839.0625,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 990509,
+        "allocation_policy": "fresh bytes.Buffer and owned string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "products": {
+        "p50_us": 696.979,
+        "p95_us": 874.4377999999999,
+        "p99_us": 967.68242,
+        "mean_us": 733.5239359999999,
+        "process_p50_min_us": 689.729,
+        "process_p50_max_us": 713.9165,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285676,
+        "allocation_policy": "fresh bytes.Buffer and owned string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      }
+    },
+    "jinja2": {
+      "cards": {
+        "p50_us": 95.916,
+        "p95_us": 111.27499999999998,
+        "p99_us": 138.12875,
+        "mean_us": 98.0892705,
+        "process_p50_min_us": 94.75,
+        "process_p50_max_us": 97.416,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25108,
+        "allocation_policy": "compiled Jinja2 template; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "table": {
+        "p50_us": 15772.583,
+        "p95_us": 17068.75175,
+        "p99_us": 17370.45976,
+        "mean_us": 15966.35494,
+        "process_p50_min_us": 15766.271,
+        "process_p50_max_us": 15860.625,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 990257,
+        "allocation_policy": "compiled Jinja2 template; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "products": {
+        "p50_us": 1285.4375,
+        "p95_us": 1404.70415,
+        "p99_us": 1498.4575899999998,
+        "mean_us": 1297.504788,
+        "process_p50_min_us": 1272.3125,
+        "process_p50_max_us": 1297.8539999999998,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285676,
+        "allocation_policy": "compiled Jinja2 template; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      }
+    },
+    "php": {
+      "cards": {
+        "p50_us": 34.625,
+        "p95_us": 39.125,
+        "p99_us": 49.37584,
+        "mean_us": 35.32914350000003,
+        "process_p50_min_us": 34.5,
+        "process_p50_max_us": 35,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25108,
+        "allocation_policy": "fresh owned PHP string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "table": {
+        "p50_us": 1429.604,
+        "p95_us": 1532.5312499999998,
+        "p99_us": 1654.322169999996,
+        "mean_us": 1439.0812499999997,
+        "process_p50_min_us": 1406.4795,
+        "process_p50_max_us": 1444.3125,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 990694,
+        "allocation_policy": "fresh owned PHP string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "products": {
+        "p50_us": 86.1875,
+        "p95_us": 96.5042,
+        "p99_us": 114.00375,
+        "mean_us": 88.27523400000001,
+        "process_p50_min_us": 85,
+        "process_p50_max_us": 87.2705,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285868,
+        "allocation_policy": "fresh owned PHP string",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      }
+    },
+    "askama": {
+      "cards": {
+        "p50_us": 1.542,
+        "p95_us": 1.709,
+        "p99_us": 2,
+        "mean_us": 1.5949145000000162,
+        "process_p50_min_us": 1.542,
+        "process_p50_max_us": 1.583,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 44849,
+        "allocation_policy": "compiled Askama template; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "table": {
+        "p50_us": 604.9165,
+        "p95_us": 663.2576999999999,
+        "p99_us": 698.67533,
+        "mean_us": 614.8776599999999,
+        "process_p50_min_us": 600.021,
+        "process_p50_max_us": 632.0205,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 991007,
+        "allocation_policy": "compiled Askama template; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "products": {
+        "p50_us": 22.917,
+        "p95_us": 26.58815,
+        "p99_us": 37.21691,
+        "mean_us": 24.025835999999998,
+        "process_p50_min_us": 22.667,
+        "process_p50_max_us": 23.333,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285676,
+        "allocation_policy": "compiled Askama template; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      }
+    },
+    "sailfish": {
+      "cards": {
+        "p50_us": 2.334,
+        "p95_us": 2.459,
+        "p99_us": 2.9579999999999997,
+        "mean_us": 2.3801449999999917,
+        "process_p50_min_us": 2.209,
+        "process_p50_max_us": 2.416,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 44849,
+        "allocation_policy": "compiled Sailfish template; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "table": {
+        "p50_us": 553.5835,
+        "p95_us": 599.5898999999998,
+        "p99_us": 640.65292,
+        "mean_us": 559.8414900000001,
+        "process_p50_min_us": 547.104,
+        "process_p50_max_us": 568.3955000000001,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 990694,
+        "allocation_policy": "compiled Sailfish template; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "products": {
+        "p50_us": 24.084,
+        "p95_us": 26.833,
+        "p99_us": 32.55865999999999,
+        "mean_us": 24.636322000000014,
+        "process_p50_min_us": 23.791999999999998,
+        "process_p50_max_us": 24.666999999999998,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285868,
+        "allocation_policy": "compiled Sailfish template; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      }
+    },
+    "leptos": {
+      "cards": {
+        "p50_us": 21.5,
+        "p95_us": 24.75,
+        "p99_us": 29.20884,
+        "mean_us": 21.935023500000018,
+        "process_p50_min_us": 21.375,
+        "process_p50_max_us": 21.542,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25219,
+        "allocation_policy": "fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "table": {
+        "p50_us": 1904.5835,
+        "p95_us": 2037.1892499999997,
+        "p99_us": 2248.922079999999,
+        "mean_us": 1910.2729299999994,
+        "process_p50_min_us": 1876.1665,
+        "process_p50_max_us": 1937.3535,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 991512,
+        "allocation_policy": "fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "products": {
+        "p50_us": 217.35399999999998,
+        "p95_us": 253.04614999999998,
+        "p99_us": 283.46566,
+        "mean_us": 221.76640199999997,
+        "process_p50_min_us": 210.5625,
+        "process_p50_max_us": 234.8545,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 286063,
+        "allocation_policy": "fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      }
+    },
+    "dioxus": {
+      "cards": {
+        "p50_us": 106.667,
+        "p95_us": 124.29310000000001,
+        "p99_us": 153.26665999999997,
+        "mean_us": 109.52598300000012,
+        "process_p50_min_us": 106.209,
+        "process_p50_max_us": 108.75,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25141,
+        "allocation_policy": "standard empty String with no caller capacity hint; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "table": {
+        "p50_us": 2341.7709999999997,
+        "p95_us": 2475.29375,
+        "p99_us": 2634.7324999999996,
+        "mean_us": 2344.63735,
+        "process_p50_min_us": 2294.4584999999997,
+        "process_p50_max_us": 2373.7084999999997,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 990695,
+        "allocation_policy": "standard empty String with no caller capacity hint; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "products": {
+        "p50_us": 312.9585,
+        "p95_us": 351.2958,
+        "p99_us": 399.40407999999985,
+        "mean_us": 318.4699060000004,
+        "process_p50_min_us": 306.8745,
+        "process_p50_max_us": 314.6665,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285868,
+        "allocation_policy": "standard empty String with no caller capacity hint; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      }
+    },
+    "topcoat": {
+      "cards": {
+        "p50_us": 12.5,
+        "p95_us": 14.752099999999999,
+        "p99_us": 20.712169999999993,
+        "mean_us": 13.076159000000015,
+        "process_p50_min_us": 12.25,
+        "process_p50_max_us": 13,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25108,
+        "allocation_policy": "fresh View construction and serialization into a fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "table": {
+        "p50_us": 1093.0835,
+        "p95_us": 1154.65895,
+        "p99_us": 1231.9020899999978,
+        "mean_us": 1096.495655,
+        "process_p50_min_us": 1067,
+        "process_p50_max_us": 1096.5210000000002,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 988509,
+        "allocation_policy": "fresh View construction and serialization into a fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      },
+      "products": {
+        "p50_us": 157.125,
+        "p95_us": 175.85479999999998,
+        "p99_us": 198.2108299999997,
+        "mean_us": 160.70017000000004,
+        "process_p50_min_us": 156.271,
+        "process_p50_max_us": 158.91649999999998,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 284908,
+        "allocation_policy": "fresh View construction and serialization into a fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-09-02-902b7249b8c8"
+      }
+    }
+  },
+  "versions": {
+    "Proa": "0.3.0 @ 85d7a6b2550f288936c0a9c05fe1f2a967f6b013 / rustc 1.95.0 (59807616e 2026-04-14)",
+    "Marko": "6.0.150 / Node v24.20.0",
+    "React": "19.2.4 / Node v24.20.0",
+    "Rails": "Rails 8.1.3.1 / ruby 4.0.6 (2026-07-14 revision 03b6d3f889) +PRISM [arm64-darwin25]",
+    "jte": "3.2.4 / openjdk 25.0.1 2025-10-21",
+    "Rocker": "2.4.0 / openjdk 25.0.1 2025-10-21",
+    "Handlebars": "4.7.8 / Node v24.20.0",
+    "Go html/template": "go version go1.25.5 darwin/arm64",
+    "Jinja2": "3.1.6 / Python 3.14.2",
+    "PHP": "PHP 8.5.9 (cli) (built: Jul 28 2026 13:06:52) (NTS)",
+    "Askama": "0.15.6 / rustc 1.95.0 (59807616e 2026-04-14)",
+    "Sailfish": "0.10.2 / rustc 1.95.0 (59807616e 2026-04-14)",
+    "Leptos": "0.7.8 / rustc 1.95.0 (59807616e 2026-04-14)",
+    "Dioxus": "0.6.3 + dioxus-ssr 0.6.2 / rustc 1.95.0 (59807616e 2026-04-14)",
+    "Topcoat": "0.3.1 / rustc 1.95.0 (59807616e 2026-04-14)",
+    "Playwright": "1.61.1",
+    "Chromium": "149.0.7827.55"
+  },
+  "provenance": {
+    "harness_commit": "229f2eba014d856d8bfd7192204fef5b290e149b",
+    "dirty": true,
+    "source_sha256": "902b7249b8c8b1654468726727a7adc040034023c99e28f6e5636a2e054dbe5a"
+  },
+  "commands": [
+    "npm ci (React, Marko, and Handlebars adapter directories)",
+    "bundle check || bundle install (Rails adapter directory)",
+    "cargo build --locked --release -p proa_bench --features topcoat --bin representative_suite_bench",
+    "go build -trimpath -o rendering/external/go/build/canonical_suite rendering/external/go/suite_bench.go",
+    "python3 -m venv rendering/external/jinja/.venv && pip install -r rendering/external/jinja/requirements.txt",
+    "gradle --no-daemon --quiet installDist copyJteBinaryStaticContent (jte adapter directory)",
+    "gradle --no-daemon --quiet installDist (Rocker adapter directory)",
+    "./rendering/run-all"
+  ],
+  "limitations": [
+    "Renderer-only latency excludes routing, middleware, databases, HTTP transfer, hydration, and network latency.",
+    "Semantic DOM parity permits documented serializer metadata and whitespace differences; payload deltas remain visible.",
+    "This capture describes one machine and these three workloads; it is not a universal application ranking."
+  ],
+  "raw_artifacts": [
+    {
+      "label": "Per-process summaries",
+      "path": "raw/canonical-ssr-v1-2026-09-02-902b7249b8c8/process-summaries.json"
+    },
+    {
+      "label": "Result-table migration map",
+      "path": "../MIGRATION.md"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'gg.jte.gradle' version '3.2.4'
+}
+
+application {
+    mainClass = 'proa.bench.jte.Bench'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    implementation 'gg.jte:jte:3.2.4'
+}
+
+jte {
+    sourceDirectory = file('src/main/jte').toPath()
+    targetDirectory = file("${buildDir}/jte-classes").toPath()
+    contentType = gg.jte.ContentType.Html
+    binaryStaticContent = true
+    precompile()
+}
+
+tasks.register('copyJteBinaryStaticContent', Copy) {
+    dependsOn tasks.named('precompileJte')
+    from file("${buildDir}/generated-resources/jte")
+    into file("${buildDir}/jte-classes")
+    include '**/*.bin'
+}
+
+tasks.named('run') {
+    dependsOn tasks.named('copyJteBinaryStaticContent')
+}

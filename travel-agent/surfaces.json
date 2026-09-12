@@ -1,0 +1,74 @@
+{
+	"trip": {
+		"origin": "SFO",
+		"destination": "Wailea, Maui",
+		"airport": "OGG",
+		"checkin": "2026-10-12",
+		"checkout": "2026-10-19"
+	},
+	"surfaces": [
+		{
+			"id": "flight_compare",
+			"label": "Google Flights",
+			"category": "flight comparison",
+			"url": "https://www.google.com/travel/flights?tfs=CBwQARojEgoyMDI2LTEwLTEyagwIAhIIL20vMGQ2bHByBwgBEgNPR0caIxIKMjAyNi0xMC0xOWoHCAESA09HR3IMCAISCC9tLzBkNmxwQAFIAXABggELCP___________wGYAQE&tfu=KgIIAw&hl=en&curr=USD",
+			"minTextLength": 1000,
+			"readinessText": ["San Francisco", "Kahului"],
+			"completeHtmlComparable": true
+		},
+		{
+			"id": "united",
+			"label": "United Airlines",
+			"category": "airline direct",
+			"url": "https://www.united.com/en-us/flights-from-san-francisco-to-kahului",
+			"minTextLength": 500,
+			"readinessText": ["United"],
+			"completeHtmlComparable": false
+		},
+		{
+			"id": "airbnb",
+			"label": "Airbnb Wailea",
+			"category": "vacation rental",
+			"url": "https://www.airbnb.com/s/Wailea--Hawaii--United-States/homes?checkin=2026-10-12&checkout=2026-10-19",
+			"minTextLength": 2000,
+			"readinessText": ["Wailea", "Oct 12"],
+			"completeHtmlComparable": false
+		},
+		{
+			"id": "hotel_compare",
+			"label": "Google Hotels Wailea",
+			"category": "hotel comparison",
+			"url": "https://www.google.com/travel/hotels/Wailea%2C%20Hawaii?hl=en&checkin=2026-10-12&checkout=2026-10-19",
+			"minTextLength": 1000,
+			"readinessText": ["Wailea"],
+			"completeHtmlComparable": true
+		},
+		{
+			"id": "hilton",
+			"label": "Hilton Grand Wailea",
+			"category": "hotel direct",
+			"url": "https://www.hilton.com/en/hotels/jhmgwwa-grand-wailea/",
+			"minTextLength": 500,
+			"readinessText": ["Grand Wailea"],
+			"completeHtmlComparable": false
+		},
+		{
+			"id": "grand_wailea",
+			"label": "Grand Wailea property site",
+			"category": "hotel direct fallback",
+			"url": "https://www.grandwailea.com/",
+			"minTextLength": 500,
+			"readinessText": ["Grand Wailea"],
+			"completeHtmlComparable": true
+		},
+		{
+			"id": "rental_car",
+			"label": "Enterprise Kahului Airport",
+			"category": "rental car",
+			"url": "https://www.enterprise.com/en/car-rental-locations/us/hi/kahului-airport-36e4.html",
+			"minTextLength": 1000,
+			"readinessText": ["Kahului Airport", "OGG"],
+			"completeHtmlComparable": true
+		}
+	]
+}

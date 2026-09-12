@@ -1,0 +1,147 @@
+import {
+  CONDITION_CLASSES,
+  CONDITION_LABELS,
+  fmtCurrency,
+  fmtCount,
+  fmtFeedbackPct,
+  fmtDiscount,
+  fmtDateRange,
+  fmtTimeLeft,
+} from "./helpers_srp.mjs";
+
+<html lang="en">
+  <head>
+    <title>Search results | Northstar Market</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body class="bg-white text-gray-900">
+    <header class="border-b">
+      <div class="px-6 py-3 flex items-center gap-4">
+        <a href="/" class="text-2xl font-bold text-blue-700">Northstar Market</a>
+        <form class="flex-1 flex">
+          <input type="search" class="flex-1 px-3 py-2 border rounded-l" value=input.query>
+          <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-r">Search</button>
+        </form>
+      </div>
+      <nav class="px-6 py-2 text-sm text-gray-600 flex gap-2">
+        <a href="/">Home</a> <span>›</span>
+        <a href="/electronics">Electronics</a> <span>›</span>
+        <span>${input.query}</span>
+      </nav>
+    </header>
+    <div class="px-6 py-3 flex items-center justify-between border-b">
+      <p class="text-lg">
+        <strong>${fmtCount(input.totalResults)}</strong>
+        results for
+        <strong>"${input.query}"</strong>
+      </p>
+      <div class="flex items-center gap-3 text-sm">
+        <label>Sort:
+          <select class="border rounded px-2 py-1">
+            <option>Best Match</option>
+            <option>Price + Shipping: lowest first</option>
+            <option>Price + Shipping: highest first</option>
+            <option>Time: newly listed</option>
+            <option>Time: ending soonest</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <main class="flex gap-6 px-6 py-4">
+      <aside class="w-64 shrink-0">
+        <for|section| of=input.facets>
+          <div class="mb-5">
+            <h3 class="font-semibold text-sm mb-2 uppercase tracking-wide text-gray-700">${section.title}</h3>
+            <ul class="space-y-1">
+              <for|opt| of=section.options>
+                <li class=(opt.selected ? "flex justify-between items-center text-sm py-0.5 font-semibold text-blue-700" : "flex justify-between items-center text-sm py-0.5 text-gray-700 hover:text-blue-700")>
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" checked=opt.selected>
+                    <span>${opt.label}</span>
+                  </label>
+                  <span class="text-gray-500">(${fmtCount(opt.count)})</span>
+                </li>
+              </for>
+            </ul>
+          </div>
+        </for>
+      </aside>
+      <section class="flex-1">
+        <ul class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <for|l| of=input.listings>
+            <li class="border rounded-lg p-3 hover:shadow-md flex flex-col" data-item-id=l.itemId>
+              <a href=l.itemId class="block aspect-square bg-gray-100 mb-3 overflow-hidden rounded">
+                <img src=l.imageId srcset=l.imageId alt=l.title loading="lazy" class="w-full h-full object-cover">
+              </a>
+              <if=l.sponsored>
+                <span class="text-xs uppercase text-gray-400 tracking-wider mb-1">Sponsored</span>
+              </if>
+              <h3 class="text-sm font-medium leading-snug mb-1 line-clamp-2">
+                <a href=l.itemId class="hover:underline">${l.title}</a>
+              </h3>
+              <if=l.subtitle>
+                <p class="text-xs text-gray-500 mb-1">${l.subtitle}</p>
+              </if>
+              <div class="mb-2">
+                <span class=CONDITION_CLASSES[l.condition]>${CONDITION_LABELS[l.condition]}</span>
+              </div>
+              <div class="flex items-baseline gap-2 mb-1">
+                <span class="text-lg font-bold text-gray-900">${fmtCurrency(l.priceCents)}</span>
+                <if=(l.originalPriceCents != null)>
+                  <span class="text-sm line-through text-gray-400">${fmtCurrency(l.originalPriceCents)}</span>
+                  <span class="text-xs font-semibold text-red-600">${fmtDiscount(l.originalPriceCents, l.priceCents)}</span>
+                </if>
+              </div>
+              <p class="text-xs text-gray-600 mb-1">
+                <if=l.freeShipping>
+                  <span class="text-green-700 font-medium">Free shipping</span>
+                </if>
+                <else>
+                  + ${fmtCurrency(l.shippingCents)} shipping
+                </else>
+              </p>
+              <p class="text-xs text-gray-600 mb-1">
+                Get it by ${fmtDateRange(l.deliveryMinUnix, l.deliveryMaxUnix)}
+              </p>
+              <if=(l.bidCount > 0)>
+                <p class="text-xs text-orange-600 mb-1">
+                  ${l.bidCount} bids · ${fmtTimeLeft(l.endUnix, input.nowUnix)} left
+                </p>
+              </if>
+              <p class="text-xs text-gray-600 mb-1">
+                ${fmtCount(l.soldCount)}+ sold · ${fmtCount(l.watchingCount)} watching
+              </p>
+              <div class="mt-auto pt-2 border-t text-xs text-gray-600">
+                <p>
+                  <strong>${l.sellerName}</strong> · <span>${fmtFeedbackPct(l.sellerFeedbackPctX10)}</span>
+                  (${fmtCount(l.sellerFeedbackCount)})
+                </p>
+                <p class="text-gray-500">${l.location}</p>
+                <div class="flex gap-2 mt-1">
+                  <if=l.topRatedSeller>
+                    <span class="text-purple-700 font-semibold">Top Rated Plus</span>
+                  </if>
+                  <if=l.freeReturns>
+                    <span class="text-green-700">Free returns</span>
+                  </if>
+                </div>
+              </div>
+            </li>
+          </for>
+        </ul>
+        <nav class="mt-6 flex justify-center gap-2 text-sm">
+          <button class="px-3 py-1 border rounded">‹ Previous</button>
+          <button class="px-3 py-1 border rounded bg-blue-600 text-white">1</button>
+          <button class="px-3 py-1 border rounded">2</button>
+          <button class="px-3 py-1 border rounded">3</button>
+          <button class="px-3 py-1 border rounded">4</button>
+          <button class="px-3 py-1 border rounded">5</button>
+          <button class="px-3 py-1 border rounded">Next ›</button>
+        </nav>
+      </section>
+    </main>
+    <footer class="border-t mt-8 px-6 py-4 text-xs text-gray-500">
+      <p>© Demo Marketplace · This is a benchmark page only.</p>
+    </footer>
+  </body>
+</html>

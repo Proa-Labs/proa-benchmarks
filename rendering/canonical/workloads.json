@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "workloads": [
+    {
+      "id": "cards",
+      "label": "Component page",
+      "cardinality": 32,
+      "description": "4 sections, 32 cards, and 160 feature-list items",
+      "warmup": 200,
+      "iterations": 2000
+    },
+    {
+      "id": "table",
+      "label": "1,000-row table",
+      "cardinality": 1000,
+      "description": "1,000 rows and 12 columns with escaping, formatting, branches, and variable-length lists",
+      "warmup": 20,
+      "iterations": 200
+    },
+    {
+      "id": "products",
+      "label": "Product grid",
+      "cardinality": 96,
+      "description": "96 product cards and 480 SVG stars",
+      "warmup": 50,
+      "iterations": 500
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "nodeModulesDir": "auto",
+  "imports": {
+    "react": "npm:react@19",
+    "react-dom": "npm:react-dom@19"
+  }
+}

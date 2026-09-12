@@ -1,0 +1,18 @@
+[workspace]
+members = ["rendering"]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+rust-version = "1.95.0"
+license = "Apache-2.0"
+
+[workspace.dependencies]
+# Benchmark development intentionally follows Proa's current main branch. The
+# committed lockfile records the exact revision used for any given result, and
+# CI refreshes that revision before validating the suite.
+proa_core = { git = "https://github.com/Proa-Labs/proa", branch = "main" }
+proa_framework_axum = { git = "https://github.com/Proa-Labs/proa", branch = "main" }
+proa_macros = { git = "https://github.com/Proa-Labs/proa", branch = "main" }
+proa_showcase = { git = "https://github.com/Proa-Labs/proa", branch = "main", default-features = false, features = ["sentry-otel"] }
+proa_stream = { git = "https://github.com/Proa-Labs/proa", branch = "main" }

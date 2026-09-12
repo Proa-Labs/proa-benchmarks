@@ -1,0 +1,39 @@
+<html lang="en">
+  <head>
+    <title>SSR Benchmark Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="hero-section">
+      <h1 class="title">SSR Framework Benchmark</h1>
+      <p class="subtitle">Comparing Proa, Leptos, Dioxus, and Yew</p>
+    </header>
+    <main class="main-content">
+      <% @sections.each do |section| %>
+        <section class="card-section" data-section="<%= section[:data_section] %>">
+          <h2 class="section-title"><%= section[:title] %></h2>
+          <div class="card-grid">
+            <% section[:cards].each do |card| %>
+              <article class="card" data-card-id="<%= card[:data_card_id] %>">
+                <div class="card-header">
+                  <img src="/images/benchmark.png" alt="Benchmark chart" class="card-image">
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title"><%= card[:title] %></h3>
+                  <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <ul class="feature-list">
+                    <% card[:features].each do |feature| %>
+                      <li class="feature-item"><%= feature %></li>
+                    <% end %>
+                  </ul>
+                  <button class="btn-primary" type="button">View Details</button>
+                </div>
+              </article>
+            <% end %>
+          </div>
+        </section>
+      <% end %>
+    </main>
+    <footer class="footer"><p>Rendered by the SSR benchmark fixture</p></footer>
+  </body>
+</html>

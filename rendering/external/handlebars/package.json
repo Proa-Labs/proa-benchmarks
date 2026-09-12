@@ -1,0 +1,8 @@
+{
+  "name": "proa-bench-handlebars",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "handlebars": "^4.7"
+  }
+}

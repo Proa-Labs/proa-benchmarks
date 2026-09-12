@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <title>Large Page Benchmark</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <header class="hero-section">
+        <h1 class="title">Large Page Benchmark</h1>
+    </header>
+    <main class="main-content">
+        {% for section_idx in 0..num_sections %}
+        <section class="card-section" data-section="{% if section_idx % 2 == 0 %}even{% else %}odd{% endif %}">
+            <h2 class="section-title">Section {{ section_idx }}</h2>
+            <div class="card-grid">
+                {% for card_idx in 0..cards_per_section %}
+                <article class="card" data-card-id="{% if card_idx % 2 == 0 %}even{% else %}odd{% endif %}">
+                    <div class="card-header">
+                        <img src="/images/benchmark.png" alt="Benchmark chart" class="card-image">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">{% if card_idx % 4 == 0 %}Latency Analysis{% else if card_idx % 4 == 1 %}Throughput Metrics{% else if card_idx % 4 == 2 %}Memory Usage{% else %}CPU Utilization{% endif %}</h3>
+                        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <ul class="feature-list">
+                            {% for item_idx in 0..items_per_card %}
+                            <li class="feature-item">{% if item_idx == 0 %}Sub-millisecond response times{% else if item_idx == 1 %}Zero-copy rendering pipeline{% else if item_idx == 2 %}SIMD-accelerated escaping{% else if item_idx == 3 %}Pre-allocated buffers{% else %}Minimal heap allocations{% endif %}</li>
+                            {% endfor %}
+                        </ul>
+                        <button class="btn-primary" type="button">View Details</button>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+        {% endfor %}
+    </main>
+    <footer class="footer">
+        <p>Rendered with Askama SSR</p>
+    </footer>
+</body>
+</html>

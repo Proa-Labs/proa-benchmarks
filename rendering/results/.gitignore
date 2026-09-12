@@ -1,0 +1,11 @@
+# Results are machine-specific; regenerate the public artifact with ./rendering/run-all.
+*.json
+*.log
+memcpy-chart-*.png
+memcpy-results-*.html
+!latest.json
+!product-scaling.json
+!archive/
+!archive/*.json
+!raw/
+!raw/**/*.json

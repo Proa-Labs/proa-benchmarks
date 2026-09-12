@@ -1,0 +1,62 @@
+{
+  "capture": {
+    "browser": "Google Chrome for Testing 149.0.7827.55",
+    "browserUse": "0.13.8",
+    "capturedOn": "2026-08-28",
+    "host": "ubuntu-32gb-hil-1",
+    "interface": "any",
+    "packetDrops": 0,
+    "playwright": "1.58.0",
+    "python": "3.14.4",
+    "snaplenBytes": 128,
+    "tool": "tcpdump"
+  },
+  "bodyBoundaryEvidence": [
+    {
+      "bodyBytes": 907181,
+      "bodySha256": "9df6e6d7cdd7a7144034f6070480245474c2ccbd636311656776e3d5aefd058b",
+      "classification": "Between Airbnb's core-guest-spa boot/auth roots and listing-image preload links.",
+      "decodedOffset": 519637,
+      "insideScript": false,
+      "surface": "airbnb"
+    },
+    {
+      "bodyBytes": 2724632,
+      "bodySha256": "89844e9de3467e502abe1e7ffbd6ca2648ca314b025b608300a6b842c92ed5e0",
+      "classification": "Inside a streamed c-wiz start tag, between its jsrenderer and class attributes.",
+      "decodedOffset": 1452558,
+      "insideScript": false,
+      "surface": "hotels"
+    }
+  ],
+  "flows": [
+    {
+      "cdpGapMs": 299.5179994031787,
+      "decodedBytesBeforeGap": 519168,
+      "observation": "No inbound TCP payload arrived during the gap; the advertised receive window remained open, and delivery resumed without a new client packet.",
+      "packetSilenceMs": 304.42,
+      "protocol": "HTTP/2 over TCP",
+      "remoteAddress": "23.214.22.235",
+      "surface": "airbnb"
+    },
+    {
+      "cdpGapMs": 1187.4289996922016,
+      "decodedBytesBeforeGap": 1452742,
+      "observation": "No inbound or outbound QUIC packet appeared on the document connection during the gap; delivery resumed from the remote peer.",
+      "packetSilenceMs": 1191.127,
+      "protocol": "HTTP/3 over QUIC",
+      "remoteAddress": "2001:4860:4826:7700::",
+      "surface": "hotels"
+    }
+  ],
+  "rawPcapCommitted": false,
+  "rawPcapNote": "Packet captures contained encrypted traffic metadata and remained in temporary VPS storage; only the correlated flow evidence is retained.",
+  "throttleValidation": {
+    "configuredDownloadMbps": 1,
+    "documentTailMs": 910,
+    "encodedBodyBytes": 119519,
+    "largestDecodedDeliveryGapMs": 20,
+    "runs": 1,
+    "surface": "airbnb"
+  }
+}

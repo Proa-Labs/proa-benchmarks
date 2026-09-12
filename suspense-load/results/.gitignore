@@ -1,0 +1,5 @@
+# Smoke and local captures are machine-specific. Keep only an explicitly
+# reviewed publication artifact.
+*.json
+*.partial
+!latest.json

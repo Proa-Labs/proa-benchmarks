@@ -1,0 +1,1667 @@
+{
+  "conditions": [
+    {
+      "config": {
+        "documentOnly": true,
+        "downloadMbps": 100.0,
+        "latencyMs": 40.0,
+        "runs": 5,
+        "surfaces": [
+          "airbnb",
+          "hotels"
+        ]
+      },
+      "label": "40ms / 100Mbps",
+      "surfaces": [
+        {
+          "cacheControls": [
+            "no-store, max-age=0, private, must-revalidate"
+          ],
+          "cacheDisabledCount": 5,
+          "cdnCacheMissCount": 5,
+          "cdnCacheObservationCount": 5,
+          "decodedBytesP50": 907165.0,
+          "documentMsP50": 822.2110001370311,
+          "encodedBytesP50": 119426.0,
+          "largestGapMsP50": 292.41800028830767,
+          "linkTransferFloorMsP50": 9.554079999999999,
+          "n": 5,
+          "protocols": [
+            "h2"
+          ],
+          "samples": [
+            {
+              "condition": "40ms / 100Mbps",
+              "decodedBytes": 908792.0,
+              "documentMs": 778.4169996157289,
+              "encodedBytes": 119302.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 519160,
+                  "durationMs": 184.9849997088313,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 805873,
+                  "durationMs": 90.15100076794624,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 0,
+                  "durationMs": 61.06200069189072,
+                  "kind": "headers-to-first-chunk"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-store, max-age=0, private, must-revalidate",
+                "content-encoding": "gzip",
+                "content-type": "text/html;charset=utf-8",
+                "server": "nginx",
+                "server-timing": "ingress;dur=47, upstream;dur=47\ncdn-cache; desc=MISS, edge; dur=142, origin; dur=162"
+              },
+              "largestGapMs": 184.9849997088313,
+              "protocol": "h2",
+              "run": 1,
+              "serverTiming": {
+                "cdn-cache": {
+                  "description": "MISS"
+                },
+                "edge": {
+                  "durationMs": 142.0
+                },
+                "ingress": {
+                  "durationMs": 47.0
+                },
+                "origin": {
+                  "durationMs": 162.0
+                },
+                "upstream": {
+                  "durationMs": 47.0
+                }
+              },
+              "stableGap": {
+                "decodedBytesBefore": 519160,
+                "durationMs": 184.9849997088313,
+                "kind": "between-chunks"
+              },
+              "surface": "airbnb",
+              "tailMs": 432.9220000654459,
+              "ttfbMs": 345.49499955028296,
+              "url": "https://www.airbnb.com/s/Wailea--Hawaii--United-States/homes?checkin=2026-10-12&checkout=2026-10-19"
+            },
+            {
+              "condition": "40ms / 100Mbps",
+              "decodedBytes": 907165.0,
+              "documentMs": 754.6160006895661,
+              "encodedBytes": 119426.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 519389,
+                  "durationMs": 292.41800028830767,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 32777,
+                  "durationMs": 94.06099934130907,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 16,
+                  "durationMs": 52.357000298798084,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-store, max-age=0, private, must-revalidate",
+                "content-encoding": "gzip",
+                "content-type": "text/html;charset=utf-8",
+                "server": "nginx",
+                "server-timing": "ingress;dur=57, upstream;dur=57\ncdn-cache; desc=MISS, edge; dur=51, origin; dur=122"
+              },
+              "largestGapMs": 292.41800028830767,
+              "protocol": "h2",
+              "run": 2,
+              "serverTiming": {
+                "cdn-cache": {
+                  "description": "MISS"
+                },
+                "edge": {
+                  "durationMs": 51.0
+                },
+                "ingress": {
+                  "durationMs": 57.0
+                },
+                "origin": {
+                  "durationMs": 122.0
+                },
+                "upstream": {
+                  "durationMs": 57.0
+                }
+              },
+              "stableGap": {
+                "decodedBytesBefore": 519389,
+                "durationMs": 292.41800028830767,
+                "kind": "between-chunks"
+              },
+              "surface": "airbnb",
+              "tailMs": 555.9490006417036,
+              "ttfbMs": 198.66700004786253,
+              "url": "https://www.airbnb.com/s/Wailea--Hawaii--United-States/homes?checkin=2026-10-12&checkout=2026-10-19"
+            },
+            {
+              "condition": "40ms / 100Mbps",
+              "decodedBytes": 905969.0,
+              "documentMs": 870.9269994869828,
+              "encodedBytes": 119569.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 519639,
+                  "durationMs": 476.4400003477931,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 262112,
+                  "durationMs": 66.13899953663349,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-store, max-age=0, private, must-revalidate",
+                "content-encoding": "gzip",
+                "content-type": "text/html;charset=utf-8",
+                "server": "nginx",
+                "server-timing": "ingress;dur=53, upstream;dur=53\ncdn-cache; desc=MISS, edge; dur=39, origin; dur=141"
+              },
+              "largestGapMs": 476.4400003477931,
+              "protocol": "h2",
+              "run": 3,
+              "serverTiming": {
+                "cdn-cache": {
+                  "description": "MISS"
+                },
+                "edge": {
+                  "durationMs": 39.0
+                },
+                "ingress": {
+                  "durationMs": 53.0
+                },
+                "origin": {
+                  "durationMs": 141.0
+                },
+                "upstream": {
+                  "durationMs": 53.0
+                }
+              },
+              "stableGap": {
+                "decodedBytesBefore": 519639,
+                "durationMs": 476.4400003477931,
+                "kind": "between-chunks"
+              },
+              "surface": "airbnb",
+              "tailMs": 665.3769994154572,
+              "ttfbMs": 205.55000007152557,
+              "url": "https://www.airbnb.com/s/Wailea--Hawaii--United-States/homes?checkin=2026-10-12&checkout=2026-10-19"
+            },
+            {
+              "condition": "40ms / 100Mbps",
+              "decodedBytes": 892522.0,
+              "documentMs": 837.0619993656874,
+              "encodedBytes": 119002.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 519036,
+                  "durationMs": 254.3829996138811,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 32769,
+                  "durationMs": 111.93700041621923,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 789348,
+                  "durationMs": 79.80599999427795,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 16,
+                  "durationMs": 61.80599983781576,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 262153,
+                  "durationMs": 56.56900070607662,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-store, max-age=0, private, must-revalidate",
+                "content-encoding": "gzip",
+                "content-type": "text/html;charset=utf-8",
+                "server": "nginx",
+                "server-timing": "ingress;dur=65, upstream;dur=64\ncdn-cache; desc=MISS, edge; dur=79, origin; dur=134"
+              },
+              "largestGapMs": 254.3829996138811,
+              "protocol": "h2",
+              "run": 4,
+              "serverTiming": {
+                "cdn-cache": {
+                  "description": "MISS"
+                },
+                "edge": {
+                  "durationMs": 79.0
+                },
+                "ingress": {
+                  "durationMs": 65.0
+                },
+                "origin": {
+                  "durationMs": 134.0
+                },
+                "upstream": {
+                  "durationMs": 64.0
+                }
+              },
+              "stableGap": {
+                "decodedBytesBefore": 519036,
+                "durationMs": 254.3829996138811,
+                "kind": "between-chunks"
+              },
+              "surface": "airbnb",
+              "tailMs": 601.2949999421835,
+              "ttfbMs": 235.76699942350388,
+              "url": "https://www.airbnb.com/s/Wailea--Hawaii--United-States/homes?checkin=2026-10-12&checkout=2026-10-19"
+            },
+            {
+              "condition": "40ms / 100Mbps",
+              "decodedBytes": 908811.0,
+              "documentMs": 822.2110001370311,
+              "encodedBytes": 119585.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 519179,
+                  "durationMs": 307.4040003120899,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 32769,
+                  "durationMs": 84.44300014525652,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 16,
+                  "durationMs": 59.13700070232153,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-store, max-age=0, private, must-revalidate",
+                "content-encoding": "gzip",
+                "content-type": "text/html;charset=utf-8",
+                "server": "nginx",
+                "server-timing": "ingress;dur=53, upstream;dur=53\ncdn-cache; desc=MISS, edge; dur=69, origin; dur=138"
+              },
+              "largestGapMs": 307.4040003120899,
+              "protocol": "h2",
+              "run": 5,
+              "serverTiming": {
+                "cdn-cache": {
+                  "description": "MISS"
+                },
+                "edge": {
+                  "durationMs": 69.0
+                },
+                "ingress": {
+                  "durationMs": 53.0
+                },
+                "origin": {
+                  "durationMs": 138.0
+                },
+                "upstream": {
+                  "durationMs": 53.0
+                }
+              },
+              "stableGap": {
+                "decodedBytesBefore": 519179,
+                "durationMs": 307.4040003120899,
+                "kind": "between-chunks"
+              },
+              "surface": "airbnb",
+              "tailMs": 582.604999653995,
+              "ttfbMs": 239.60600048303604,
+              "url": "https://www.airbnb.com/s/Wailea--Hawaii--United-States/homes?checkin=2026-10-12&checkout=2026-10-19"
+            }
+          ],
+          "serverTimingDurationMsP50": {
+            "edge": 69.0,
+            "ingress": 53.0,
+            "origin": 138.0,
+            "upstream": 53.0
+          },
+          "stableGapCoverage": 5,
+          "stableGapMsP50": 292.41800028830767,
+          "stableGapOffsetP50": 519179.0,
+          "surface": "airbnb",
+          "tailMsP50": 582.604999653995,
+          "ttfbMsP50": 235.76699942350388
+        },
+        {
+          "cacheControls": [
+            "no-cache, no-store, max-age=0, must-revalidate"
+          ],
+          "cacheDisabledCount": 5,
+          "cdnCacheMissCount": 0,
+          "cdnCacheObservationCount": 0,
+          "decodedBytesP50": 2726082.0,
+          "documentMsP50": 1499.0880005061626,
+          "encodedBytesP50": 324815.0,
+          "largestGapMsP50": 1121.616999618709,
+          "linkTransferFloorMsP50": 25.9852,
+          "n": 5,
+          "protocols": [
+            "h3"
+          ],
+          "samples": [
+            {
+              "condition": "40ms / 100Mbps",
+              "decodedBytes": 2726086.0,
+              "documentMs": 1756.0620000585914,
+              "encodedBytes": 324445.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 1452544,
+                  "durationMs": 1407.743999734521,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+                "content-encoding": "br",
+                "content-type": "text/html; charset=utf-8",
+                "server": "ESF"
+              },
+              "largestGapMs": 1407.743999734521,
+              "protocol": "h3",
+              "run": 1,
+              "serverTiming": {},
+              "stableGap": {
+                "decodedBytesBefore": 1452544,
+                "durationMs": 1407.743999734521,
+                "kind": "between-chunks"
+              },
+              "surface": "hotels",
+              "tailMs": 1630.4150000214577,
+              "ttfbMs": 125.6470000371337,
+              "url": "https://www.google.com/travel/search?q=Wailea+hotels+Oct+12+2026+to+Oct+19+2026&qs=OAA&hl=en&curr=USD"
+            },
+            {
+              "condition": "40ms / 100Mbps",
+              "decodedBytes": 2725896.0,
+              "documentMs": 1642.8979998454452,
+              "encodedBytes": 324815.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 1452353,
+                  "durationMs": 1288.2909998297691,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+                "content-encoding": "br",
+                "content-type": "text/html; charset=utf-8",
+                "server": "ESF"
+              },
+              "largestGapMs": 1288.2909998297691,
+              "protocol": "h3",
+              "run": 2,
+              "serverTiming": {},
+              "stableGap": {
+                "decodedBytesBefore": 1452353,
+                "durationMs": 1288.2909998297691,
+                "kind": "between-chunks"
+              },
+              "surface": "hotels",
+              "tailMs": 1511.5559995174408,
+              "ttfbMs": 131.34200032800436,
+              "url": "https://www.google.com/travel/search?q=Wailea+hotels+Oct+12+2026+to+Oct+19+2026&qs=OAA&hl=en&curr=USD"
+            },
+            {
+              "condition": "40ms / 100Mbps",
+              "decodedBytes": 2726441.0,
+              "documentMs": 1398.4670005738735,
+              "encodedBytes": 325070.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 1452880,
+                  "durationMs": 1052.0139997825027,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+                "content-encoding": "br",
+                "content-type": "text/html; charset=utf-8",
+                "server": "ESF"
+              },
+              "largestGapMs": 1052.0139997825027,
+              "protocol": "h3",
+              "run": 3,
+              "serverTiming": {},
+              "stableGap": {
+                "decodedBytesBefore": 1452880,
+                "durationMs": 1052.0139997825027,
+                "kind": "between-chunks"
+              },
+              "surface": "hotels",
+              "tailMs": 1270.7940004765987,
+              "ttfbMs": 127.67300009727478,
+              "url": "https://www.google.com/travel/search?q=Wailea+hotels+Oct+12+2026+to+Oct+19+2026&qs=OAA&hl=en&curr=USD"
+            },
+            {
+              "condition": "40ms / 100Mbps",
+              "decodedBytes": 2725793.0,
+              "documentMs": 1447.0350006595254,
+              "encodedBytes": 324922.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 1452581,
+                  "durationMs": 1052.997000515461,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 0,
+                  "durationMs": 50.485000014305115,
+                  "kind": "headers-to-first-chunk"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+                "content-encoding": "br",
+                "content-type": "text/html; charset=utf-8",
+                "server": "ESF"
+              },
+              "largestGapMs": 1052.997000515461,
+              "protocol": "h3",
+              "run": 4,
+              "serverTiming": {},
+              "stableGap": {
+                "decodedBytesBefore": 1452581,
+                "durationMs": 1052.997000515461,
+                "kind": "between-chunks"
+              },
+              "surface": "hotels",
+              "tailMs": 1322.490000165999,
+              "ttfbMs": 124.54500049352646,
+              "url": "https://www.google.com/travel/search?q=Wailea+hotels+Oct+12+2026+to+Oct+19+2026&qs=OAA&hl=en&curr=USD"
+            },
+            {
+              "condition": "40ms / 100Mbps",
+              "decodedBytes": 2726082.0,
+              "documentMs": 1499.0880005061626,
+              "encodedBytes": 324807.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 1452364,
+                  "durationMs": 1121.616999618709,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+                "content-encoding": "br",
+                "content-type": "text/html; charset=utf-8",
+                "server": "ESF"
+              },
+              "largestGapMs": 1121.616999618709,
+              "protocol": "h3",
+              "run": 5,
+              "serverTiming": {},
+              "stableGap": {
+                "decodedBytesBefore": 1452364,
+                "durationMs": 1121.616999618709,
+                "kind": "between-chunks"
+              },
+              "surface": "hotels",
+              "tailMs": 1358.8890004903078,
+              "ttfbMs": 140.19900001585484,
+              "url": "https://www.google.com/travel/search?q=Wailea+hotels+Oct+12+2026+to+Oct+19+2026&qs=OAA&hl=en&curr=USD"
+            }
+          ],
+          "serverTimingDurationMsP50": {},
+          "stableGapCoverage": 5,
+          "stableGapMsP50": 1121.616999618709,
+          "stableGapOffsetP50": 1452544.0,
+          "surface": "hotels",
+          "tailMsP50": 1358.8890004903078,
+          "ttfbMsP50": 127.67300009727478
+        }
+      ]
+    },
+    {
+      "config": {
+        "documentOnly": true,
+        "downloadMbps": 100.0,
+        "latencyMs": 0.0,
+        "runs": 5,
+        "surfaces": [
+          "airbnb",
+          "hotels"
+        ]
+      },
+      "label": "0ms / 100Mbps",
+      "surfaces": [
+        {
+          "cacheControls": [
+            "no-store, max-age=0, private, must-revalidate"
+          ],
+          "cacheDisabledCount": 5,
+          "cdnCacheMissCount": 5,
+          "cdnCacheObservationCount": 5,
+          "decodedBytesP50": 908508.0,
+          "documentMsP50": 780.8109996840358,
+          "encodedBytesP50": 120067.0,
+          "largestGapMsP50": 189.881999976933,
+          "linkTransferFloorMsP50": 9.605360000000001,
+          "n": 5,
+          "protocols": [
+            "h2"
+          ],
+          "samples": [
+            {
+              "condition": "0ms / 100Mbps",
+              "decodedBytes": 908611.0,
+              "documentMs": 776.6169998794794,
+              "encodedBytes": 119941.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 519640,
+                  "durationMs": 187.02800013124943,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 262137,
+                  "durationMs": 178.26499976217747,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 16,
+                  "durationMs": 98.89000002294779,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-store, max-age=0, private, must-revalidate",
+                "content-encoding": "gzip",
+                "content-type": "text/html;charset=utf-8",
+                "server": "nginx",
+                "server-timing": "ingress;dur=49, upstream;dur=48\ncdn-cache; desc=MISS, edge; dur=79, origin; dur=147"
+              },
+              "largestGapMs": 187.02800013124943,
+              "protocol": "h2",
+              "run": 1,
+              "serverTiming": {
+                "cdn-cache": {
+                  "description": "MISS"
+                },
+                "edge": {
+                  "durationMs": 79.0
+                },
+                "ingress": {
+                  "durationMs": 49.0
+                },
+                "origin": {
+                  "durationMs": 147.0
+                },
+                "upstream": {
+                  "durationMs": 48.0
+                }
+              },
+              "stableGap": {
+                "decodedBytesBefore": 519640,
+                "durationMs": 187.02800013124943,
+                "kind": "between-chunks"
+              },
+              "surface": "airbnb",
+              "tailMs": 523.7079998478293,
+              "ttfbMs": 252.90900003165007,
+              "url": "https://www.airbnb.com/s/Wailea--Hawaii--United-States/homes?checkin=2026-10-12&checkout=2026-10-19"
+            },
+            {
+              "condition": "0ms / 100Mbps",
+              "decodedBytes": 909041.0,
+              "documentMs": 787.7670004963875,
+              "encodedBytes": 119439.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 449231,
+                  "durationMs": 189.881999976933,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 519409,
+                  "durationMs": 161.82699985802174,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-store, max-age=0, private, must-revalidate",
+                "content-encoding": "gzip",
+                "content-type": "text/html;charset=utf-8",
+                "server": "nginx",
+                "server-timing": "ingress;dur=48, upstream;dur=48\ncdn-cache; desc=MISS, edge; dur=126, origin; dur=162"
+              },
+              "largestGapMs": 189.881999976933,
+              "protocol": "h2",
+              "run": 2,
+              "serverTiming": {
+                "cdn-cache": {
+                  "description": "MISS"
+                },
+                "edge": {
+                  "durationMs": 126.0
+                },
+                "ingress": {
+                  "durationMs": 48.0
+                },
+                "origin": {
+                  "durationMs": 162.0
+                },
+                "upstream": {
+                  "durationMs": 48.0
+                }
+              },
+              "stableGap": {
+                "decodedBytesBefore": 519409,
+                "durationMs": 161.82699985802174,
+                "kind": "between-chunks"
+              },
+              "surface": "airbnb",
+              "tailMs": 473.9290000870824,
+              "ttfbMs": 313.8380004093051,
+              "url": "https://www.airbnb.com/s/Wailea--Hawaii--United-States/homes?checkin=2026-10-12&checkout=2026-10-19"
+            },
+            {
+              "condition": "0ms / 100Mbps",
+              "decodedBytes": 908508.0,
+              "documentMs": 703.8249997422099,
+              "encodedBytes": 120330.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 475127,
+                  "durationMs": 172.7400003001094,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 16,
+                  "durationMs": 96.55500017106533,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 519674,
+                  "durationMs": 85.26100032031536,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-store, max-age=0, private, must-revalidate",
+                "content-encoding": "gzip",
+                "content-type": "text/html;charset=utf-8",
+                "server": "nginx",
+                "server-timing": "ingress;dur=52, upstream;dur=52\ncdn-cache; desc=MISS, edge; dur=50, origin; dur=138"
+              },
+              "largestGapMs": 172.7400003001094,
+              "protocol": "h2",
+              "run": 3,
+              "serverTiming": {
+                "cdn-cache": {
+                  "description": "MISS"
+                },
+                "edge": {
+                  "durationMs": 50.0
+                },
+                "ingress": {
+                  "durationMs": 52.0
+                },
+                "origin": {
+                  "durationMs": 138.0
+                },
+                "upstream": {
+                  "durationMs": 52.0
+                }
+              },
+              "stableGap": {
+                "decodedBytesBefore": 519674,
+                "durationMs": 85.26100032031536,
+                "kind": "between-chunks"
+              },
+              "surface": "airbnb",
+              "tailMs": 487.8929993137717,
+              "ttfbMs": 215.9320004284382,
+              "url": "https://www.airbnb.com/s/Wailea--Hawaii--United-States/homes?checkin=2026-10-12&checkout=2026-10-19"
+            },
+            {
+              "condition": "0ms / 100Mbps",
+              "decodedBytes": 907520.0,
+              "documentMs": 780.8109996840358,
+              "encodedBytes": 120067.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 519407,
+                  "durationMs": 382.60599970817566,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 32777,
+                  "durationMs": 64.41000010818243,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 16,
+                  "durationMs": 57.29799997061491,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-store, max-age=0, private, must-revalidate",
+                "content-encoding": "gzip",
+                "content-type": "text/html;charset=utf-8",
+                "server": "nginx",
+                "server-timing": "ingress;dur=59, upstream;dur=58\ncdn-cache; desc=MISS, edge; dur=50, origin; dur=120"
+              },
+              "largestGapMs": 382.60599970817566,
+              "protocol": "h2",
+              "run": 4,
+              "serverTiming": {
+                "cdn-cache": {
+                  "description": "MISS"
+                },
+                "edge": {
+                  "durationMs": 50.0
+                },
+                "ingress": {
+                  "durationMs": 59.0
+                },
+                "origin": {
+                  "durationMs": 120.0
+                },
+                "upstream": {
+                  "durationMs": 58.0
+                }
+              },
+              "stableGap": {
+                "decodedBytesBefore": 519407,
+                "durationMs": 382.60599970817566,
+                "kind": "between-chunks"
+              },
+              "surface": "airbnb",
+              "tailMs": 586.8969997391105,
+              "ttfbMs": 193.9139999449253,
+              "url": "https://www.airbnb.com/s/Wailea--Hawaii--United-States/homes?checkin=2026-10-12&checkout=2026-10-19"
+            },
+            {
+              "condition": "0ms / 100Mbps",
+              "decodedBytes": 907741.0,
+              "documentMs": 1043.1790007278323,
+              "encodedBytes": 120336.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 519628,
+                  "durationMs": 543.9010001718998,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 16,
+                  "durationMs": 92.38100051879883,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 724389,
+                  "durationMs": 70.49799989908934,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-store, max-age=0, private, must-revalidate",
+                "content-encoding": "gzip",
+                "content-type": "text/html;charset=utf-8",
+                "server": "nginx",
+                "server-timing": "ingress;dur=80, upstream;dur=80\ncdn-cache; desc=MISS, edge; dur=69, origin; dur=155"
+              },
+              "largestGapMs": 543.9010001718998,
+              "protocol": "h2",
+              "run": 5,
+              "serverTiming": {
+                "cdn-cache": {
+                  "description": "MISS"
+                },
+                "edge": {
+                  "durationMs": 69.0
+                },
+                "ingress": {
+                  "durationMs": 80.0
+                },
+                "origin": {
+                  "durationMs": 155.0
+                },
+                "upstream": {
+                  "durationMs": 80.0
+                }
+              },
+              "stableGap": {
+                "decodedBytesBefore": 519628,
+                "durationMs": 543.9010001718998,
+                "kind": "between-chunks"
+              },
+              "surface": "airbnb",
+              "tailMs": 792.0780004933476,
+              "ttfbMs": 251.10100023448467,
+              "url": "https://www.airbnb.com/s/Wailea--Hawaii--United-States/homes?checkin=2026-10-12&checkout=2026-10-19"
+            }
+          ],
+          "serverTimingDurationMsP50": {
+            "edge": 69.0,
+            "ingress": 52.0,
+            "origin": 147.0,
+            "upstream": 52.0
+          },
+          "stableGapCoverage": 5,
+          "stableGapMsP50": 187.02800013124943,
+          "stableGapOffsetP50": 519628.0,
+          "surface": "airbnb",
+          "tailMsP50": 523.7079998478293,
+          "ttfbMsP50": 251.10100023448467
+        },
+        {
+          "cacheControls": [
+            "no-cache, no-store, max-age=0, must-revalidate"
+          ],
+          "cacheDisabledCount": 5,
+          "cdnCacheMissCount": 0,
+          "cdnCacheObservationCount": 0,
+          "decodedBytesP50": 2724408.0,
+          "documentMsP50": 1456.763000227511,
+          "encodedBytesP50": 324719.0,
+          "largestGapMsP50": 1078.0769996345043,
+          "linkTransferFloorMsP50": 25.977520000000002,
+          "n": 5,
+          "protocols": [
+            "h3"
+          ],
+          "samples": [
+            {
+              "condition": "0ms / 100Mbps",
+              "decodedBytes": 2724809.0,
+              "documentMs": 1396.5090001001954,
+              "encodedBytes": 324920.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 1452534,
+                  "durationMs": 1078.0769996345043,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+                "content-encoding": "br",
+                "content-type": "text/html; charset=utf-8",
+                "server": "ESF"
+              },
+              "largestGapMs": 1078.0769996345043,
+              "protocol": "h3",
+              "run": 1,
+              "serverTiming": {},
+              "stableGap": {
+                "decodedBytesBefore": 1452534,
+                "durationMs": 1078.0769996345043,
+                "kind": "between-chunks"
+              },
+              "surface": "hotels",
+              "tailMs": 1280.430999584496,
+              "ttfbMs": 116.07800051569939,
+              "url": "https://www.google.com/travel/search?q=Wailea+hotels+Oct+12+2026+to+Oct+19+2026&qs=OAA&hl=en&curr=USD"
+            },
+            {
+              "condition": "0ms / 100Mbps",
+              "decodedBytes": 2724699.0,
+              "documentMs": 1456.763000227511,
+              "encodedBytes": 324947.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 1452624,
+                  "durationMs": 1071.0190003737807,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+                "content-encoding": "br",
+                "content-type": "text/html; charset=utf-8",
+                "server": "ESF"
+              },
+              "largestGapMs": 1071.0190003737807,
+              "protocol": "h3",
+              "run": 2,
+              "serverTiming": {},
+              "stableGap": {
+                "decodedBytesBefore": 1452624,
+                "durationMs": 1071.0190003737807,
+                "kind": "between-chunks"
+              },
+              "surface": "hotels",
+              "tailMs": 1317.8090006113052,
+              "ttfbMs": 138.9539996162057,
+              "url": "https://www.google.com/travel/search?q=Wailea+hotels+Oct+12+2026+to+Oct+19+2026&qs=OAA&hl=en&curr=USD"
+            },
+            {
+              "condition": "0ms / 100Mbps",
+              "decodedBytes": 2724401.0,
+              "documentMs": 1537.7780003473163,
+              "encodedBytes": 324550.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 1452309,
+                  "durationMs": 1100.2749996259809,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+                "content-encoding": "br",
+                "content-type": "text/html; charset=utf-8",
+                "server": "ESF"
+              },
+              "largestGapMs": 1100.2749996259809,
+              "protocol": "h3",
+              "run": 3,
+              "serverTiming": {},
+              "stableGap": {
+                "decodedBytesBefore": 1452309,
+                "durationMs": 1100.2749996259809,
+                "kind": "between-chunks"
+              },
+              "surface": "hotels",
+              "tailMs": 1381.5890001133084,
+              "ttfbMs": 156.18900023400784,
+              "url": "https://www.google.com/travel/search?q=Wailea+hotels+Oct+12+2026+to+Oct+19+2026&qs=OAA&hl=en&curr=USD"
+            },
+            {
+              "condition": "0ms / 100Mbps",
+              "decodedBytes": 2724407.0,
+              "documentMs": 1634.1870008036494,
+              "encodedBytes": 324652.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 1452333,
+                  "durationMs": 1200.4929995164275,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 0,
+                  "durationMs": 50.121999345719814,
+                  "kind": "headers-to-first-chunk"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+                "content-encoding": "br",
+                "content-type": "text/html; charset=utf-8",
+                "server": "ESF"
+              },
+              "largestGapMs": 1200.4929995164275,
+              "protocol": "h3",
+              "run": 4,
+              "serverTiming": {},
+              "stableGap": {
+                "decodedBytesBefore": 1452333,
+                "durationMs": 1200.4929995164275,
+                "kind": "between-chunks"
+              },
+              "surface": "hotels",
+              "tailMs": 1454.5619999989867,
+              "ttfbMs": 179.6250008046627,
+              "url": "https://www.google.com/travel/search?q=Wailea+hotels+Oct+12+2026+to+Oct+19+2026&qs=OAA&hl=en&curr=USD"
+            },
+            {
+              "condition": "0ms / 100Mbps",
+              "decodedBytes": 2724408.0,
+              "documentMs": 1396.4900001883507,
+              "encodedBytes": 324719.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 1452334,
+                  "durationMs": 1046.411999501288,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+                "content-encoding": "br",
+                "content-type": "text/html; charset=utf-8",
+                "server": "ESF"
+              },
+              "largestGapMs": 1046.411999501288,
+              "protocol": "h3",
+              "run": 5,
+              "serverTiming": {},
+              "stableGap": {
+                "decodedBytesBefore": 1452334,
+                "durationMs": 1046.411999501288,
+                "kind": "between-chunks"
+              },
+              "surface": "hotels",
+              "tailMs": 1279.4939996674657,
+              "ttfbMs": 116.99600052088499,
+              "url": "https://www.google.com/travel/search?q=Wailea+hotels+Oct+12+2026+to+Oct+19+2026&qs=OAA&hl=en&curr=USD"
+            }
+          ],
+          "serverTimingDurationMsP50": {},
+          "stableGapCoverage": 5,
+          "stableGapMsP50": 1078.0769996345043,
+          "stableGapOffsetP50": 1452334.0,
+          "surface": "hotels",
+          "tailMsP50": 1317.8090006113052,
+          "ttfbMsP50": 138.9539996162057
+        }
+      ]
+    },
+    {
+      "config": {
+        "documentOnly": true,
+        "downloadMbps": 1000.0,
+        "latencyMs": 0.0,
+        "runs": 5,
+        "surfaces": [
+          "airbnb",
+          "hotels"
+        ]
+      },
+      "label": "0ms / 1Gbps",
+      "surfaces": [
+        {
+          "cacheControls": [
+            "no-store, max-age=0, private, must-revalidate"
+          ],
+          "cacheDisabledCount": 5,
+          "cdnCacheMissCount": 5,
+          "cdnCacheObservationCount": 5,
+          "decodedBytesP50": 907687.0,
+          "documentMsP50": 783.3259999752045,
+          "encodedBytesP50": 119481.0,
+          "largestGapMsP50": 289.4879998639226,
+          "linkTransferFloorMsP50": 0.955848,
+          "n": 5,
+          "protocols": [
+            "h2"
+          ],
+          "samples": [
+            {
+              "condition": "0ms / 1Gbps",
+              "decodedBytes": 909276.0,
+              "documentMs": 843.7270000576973,
+              "encodedBytes": 120338.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 519307,
+                  "durationMs": 357.4969992041588,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 73730,
+                  "durationMs": 67.10400059819221,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 814195,
+                  "durationMs": 52.14199982583523,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-store, max-age=0, private, must-revalidate",
+                "content-encoding": "gzip",
+                "content-type": "text/html;charset=utf-8",
+                "server": "nginx",
+                "server-timing": "ingress;dur=48, upstream;dur=48\ncdn-cache; desc=MISS, edge; dur=37, origin; dur=126"
+              },
+              "largestGapMs": 357.4969992041588,
+              "protocol": "h2",
+              "run": 1,
+              "serverTiming": {
+                "cdn-cache": {
+                  "description": "MISS"
+                },
+                "edge": {
+                  "durationMs": 37.0
+                },
+                "ingress": {
+                  "durationMs": 48.0
+                },
+                "origin": {
+                  "durationMs": 126.0
+                },
+                "upstream": {
+                  "durationMs": 48.0
+                }
+              },
+              "stableGap": {
+                "decodedBytesBefore": 519307,
+                "durationMs": 357.4969992041588,
+                "kind": "between-chunks"
+              },
+              "surface": "airbnb",
+              "tailMs": 612.7239996567369,
+              "ttfbMs": 231.00300040096045,
+              "url": "https://www.airbnb.com/s/Wailea--Hawaii--United-States/homes?checkin=2026-10-12&checkout=2026-10-19"
+            },
+            {
+              "condition": "0ms / 1Gbps",
+              "decodedBytes": 894423.0,
+              "documentMs": 733.08000061661,
+              "encodedBytes": 119298.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 520862,
+                  "durationMs": 264.87999968230724,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 16,
+                  "durationMs": 53.600999526679516,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 73730,
+                  "durationMs": 51.141999661922455,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-store, max-age=0, private, must-revalidate",
+                "content-encoding": "gzip",
+                "content-type": "text/html;charset=utf-8",
+                "server": "nginx",
+                "server-timing": "ingress;dur=50, upstream;dur=50\ncdn-cache; desc=MISS, edge; dur=103, origin; dur=150"
+              },
+              "largestGapMs": 264.87999968230724,
+              "protocol": "h2",
+              "run": 2,
+              "serverTiming": {
+                "cdn-cache": {
+                  "description": "MISS"
+                },
+                "edge": {
+                  "durationMs": 103.0
+                },
+                "ingress": {
+                  "durationMs": 50.0
+                },
+                "origin": {
+                  "durationMs": 150.0
+                },
+                "upstream": {
+                  "durationMs": 50.0
+                }
+              },
+              "stableGap": {
+                "decodedBytesBefore": 520862,
+                "durationMs": 264.87999968230724,
+                "kind": "between-chunks"
+              },
+              "surface": "airbnb",
+              "tailMs": 451.64200011640787,
+              "ttfbMs": 281.4380005002022,
+              "url": "https://www.airbnb.com/s/Wailea--Hawaii--United-States/homes?checkin=2026-10-12&checkout=2026-10-19"
+            },
+            {
+              "condition": "0ms / 1Gbps",
+              "decodedBytes": 904765.0,
+              "documentMs": 948.6250001937151,
+              "encodedBytes": 119481.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 519175,
+                  "durationMs": 317.80000030994415,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 822230,
+                  "durationMs": 72.86900002509356,
+                  "kind": "last-chunk-to-finish"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-store, max-age=0, private, must-revalidate",
+                "content-encoding": "gzip",
+                "content-type": "text/html;charset=utf-8",
+                "server": "nginx",
+                "server-timing": "ingress;dur=54, upstream;dur=54\ncdn-cache; desc=MISS, edge; dur=227, origin; dur=119"
+              },
+              "largestGapMs": 317.80000030994415,
+              "protocol": "h2",
+              "run": 3,
+              "serverTiming": {
+                "cdn-cache": {
+                  "description": "MISS"
+                },
+                "edge": {
+                  "durationMs": 227.0
+                },
+                "ingress": {
+                  "durationMs": 54.0
+                },
+                "origin": {
+                  "durationMs": 119.0
+                },
+                "upstream": {
+                  "durationMs": 54.0
+                }
+              },
+              "stableGap": {
+                "decodedBytesBefore": 519175,
+                "durationMs": 317.80000030994415,
+                "kind": "between-chunks"
+              },
+              "surface": "airbnb",
+              "tailMs": 524.4849994778633,
+              "ttfbMs": 424.1400007158518,
+              "url": "https://www.airbnb.com/s/Wailea--Hawaii--United-States/homes?checkin=2026-10-12&checkout=2026-10-19"
+            },
+            {
+              "condition": "0ms / 1Gbps",
+              "decodedBytes": 907687.0,
+              "documentMs": 783.3259999752045,
+              "encodedBytes": 119917.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 520978,
+                  "durationMs": 289.4879998639226,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 32777,
+                  "durationMs": 60.99100038409233,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 16,
+                  "durationMs": 60.541000217199326,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-store, max-age=0, private, must-revalidate",
+                "content-encoding": "gzip",
+                "content-type": "text/html;charset=utf-8",
+                "server": "nginx",
+                "server-timing": "ingress;dur=50, upstream;dur=50\ncdn-cache; desc=MISS, edge; dur=89, origin; dur=126"
+              },
+              "largestGapMs": 289.4879998639226,
+              "protocol": "h2",
+              "run": 4,
+              "serverTiming": {
+                "cdn-cache": {
+                  "description": "MISS"
+                },
+                "edge": {
+                  "durationMs": 89.0
+                },
+                "ingress": {
+                  "durationMs": 50.0
+                },
+                "origin": {
+                  "durationMs": 126.0
+                },
+                "upstream": {
+                  "durationMs": 50.0
+                }
+              },
+              "stableGap": {
+                "decodedBytesBefore": 520978,
+                "durationMs": 289.4879998639226,
+                "kind": "between-chunks"
+              },
+              "surface": "airbnb",
+              "tailMs": 541.9060001149774,
+              "ttfbMs": 241.4199998602271,
+              "url": "https://www.airbnb.com/s/Wailea--Hawaii--United-States/homes?checkin=2026-10-12&checkout=2026-10-19"
+            },
+            {
+              "condition": "0ms / 1Gbps",
+              "decodedBytes": 909691.0,
+              "documentMs": 727.6339996606112,
+              "encodedBytes": 119323.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 519174,
+                  "durationMs": 181.50299973785877,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 40970,
+                  "durationMs": 114.10700064152479,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 262119,
+                  "durationMs": 102.4520006030798,
+                  "kind": "between-chunks"
+                },
+                {
+                  "decodedBytesBefore": 16,
+                  "durationMs": 99.76300038397312,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-store, max-age=0, private, must-revalidate",
+                "content-encoding": "gzip",
+                "content-type": "text/html;charset=utf-8",
+                "server": "nginx",
+                "server-timing": "ingress;dur=51, upstream;dur=51\ncdn-cache; desc=MISS, edge; dur=48, origin; dur=120"
+              },
+              "largestGapMs": 181.50299973785877,
+              "protocol": "h2",
+              "run": 5,
+              "serverTiming": {
+                "cdn-cache": {
+                  "description": "MISS"
+                },
+                "edge": {
+                  "durationMs": 48.0
+                },
+                "ingress": {
+                  "durationMs": 51.0
+                },
+                "origin": {
+                  "durationMs": 120.0
+                },
+                "upstream": {
+                  "durationMs": 51.0
+                }
+              },
+              "stableGap": {
+                "decodedBytesBefore": 519174,
+                "durationMs": 181.50299973785877,
+                "kind": "between-chunks"
+              },
+              "surface": "airbnb",
+              "tailMs": 514.0039995312691,
+              "ttfbMs": 213.63000012934208,
+              "url": "https://www.airbnb.com/s/Wailea--Hawaii--United-States/homes?checkin=2026-10-12&checkout=2026-10-19"
+            }
+          ],
+          "serverTimingDurationMsP50": {
+            "edge": 89.0,
+            "ingress": 50.0,
+            "origin": 126.0,
+            "upstream": 50.0
+          },
+          "stableGapCoverage": 5,
+          "stableGapMsP50": 289.4879998639226,
+          "stableGapOffsetP50": 519307.0,
+          "surface": "airbnb",
+          "tailMsP50": 524.4849994778633,
+          "ttfbMsP50": 241.4199998602271
+        },
+        {
+          "cacheControls": [
+            "no-cache, no-store, max-age=0, must-revalidate"
+          ],
+          "cacheDisabledCount": 5,
+          "cdnCacheMissCount": 0,
+          "cdnCacheObservationCount": 0,
+          "decodedBytesP50": 2724643.0,
+          "documentMsP50": 1381.1470000073314,
+          "encodedBytesP50": 324918.0,
+          "largestGapMsP50": 1113.2300002500415,
+          "linkTransferFloorMsP50": 2.599344,
+          "n": 5,
+          "protocols": [
+            "h3"
+          ],
+          "samples": [
+            {
+              "condition": "0ms / 1Gbps",
+              "decodedBytes": 2725009.0,
+              "documentMs": 1817.9839998483658,
+              "encodedBytes": 325061.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 1452777,
+                  "durationMs": 1407.7920001000166,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+                "content-encoding": "br",
+                "content-type": "text/html; charset=utf-8",
+                "server": "ESF"
+              },
+              "largestGapMs": 1407.7920001000166,
+              "protocol": "h3",
+              "run": 1,
+              "serverTiming": {},
+              "stableGap": {
+                "decodedBytesBefore": 1452777,
+                "durationMs": 1407.7920001000166,
+                "kind": "between-chunks"
+              },
+              "surface": "hotels",
+              "tailMs": 1673.016999848187,
+              "ttfbMs": 144.9670000001788,
+              "url": "https://www.google.com/travel/search?q=Wailea+hotels+Oct+12+2026+to+Oct+19+2026&qs=OAA&hl=en&curr=USD"
+            },
+            {
+              "condition": "0ms / 1Gbps",
+              "decodedBytes": 2724515.0,
+              "documentMs": 1381.1470000073314,
+              "encodedBytes": 324794.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 1452425,
+                  "durationMs": 994.50199957937,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+                "content-encoding": "br",
+                "content-type": "text/html; charset=utf-8",
+                "server": "ESF"
+              },
+              "largestGapMs": 994.50199957937,
+              "protocol": "h3",
+              "run": 2,
+              "serverTiming": {},
+              "stableGap": {
+                "decodedBytesBefore": 1452425,
+                "durationMs": 994.50199957937,
+                "kind": "between-chunks"
+              },
+              "surface": "hotels",
+              "tailMs": 1235.5229994282126,
+              "ttfbMs": 145.62400057911873,
+              "url": "https://www.google.com/travel/search?q=Wailea+hotels+Oct+12+2026+to+Oct+19+2026&qs=OAA&hl=en&curr=USD"
+            },
+            {
+              "condition": "0ms / 1Gbps",
+              "decodedBytes": 2724652.0,
+              "documentMs": 1377.0090006291866,
+              "encodedBytes": 325066.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 1452713,
+                  "durationMs": 1113.2300002500415,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+                "content-encoding": "br",
+                "content-type": "text/html; charset=utf-8",
+                "server": "ESF"
+              },
+              "largestGapMs": 1113.2300002500415,
+              "protocol": "h3",
+              "run": 3,
+              "serverTiming": {},
+              "stableGap": {
+                "decodedBytesBefore": 1452713,
+                "durationMs": 1113.2300002500415,
+                "kind": "between-chunks"
+              },
+              "surface": "hotels",
+              "tailMs": 1280.189000070095,
+              "ttfbMs": 96.82000055909157,
+              "url": "https://www.google.com/travel/search?q=Wailea+hotels+Oct+12+2026+to+Oct+19+2026&qs=OAA&hl=en&curr=USD"
+            },
+            {
+              "condition": "0ms / 1Gbps",
+              "decodedBytes": 2724643.0,
+              "documentMs": 1379.3199993669987,
+              "encodedBytes": 324918.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 1452568,
+                  "durationMs": 1017.6210002973676,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+                "content-encoding": "br",
+                "content-type": "text/html; charset=utf-8",
+                "server": "ESF"
+              },
+              "largestGapMs": 1017.6210002973676,
+              "protocol": "h3",
+              "run": 4,
+              "serverTiming": {},
+              "stableGap": {
+                "decodedBytesBefore": 1452568,
+                "durationMs": 1017.6210002973676,
+                "kind": "between-chunks"
+              },
+              "surface": "hotels",
+              "tailMs": 1260.2619994431734,
+              "ttfbMs": 119.05799992382526,
+              "url": "https://www.google.com/travel/search?q=Wailea+hotels+Oct+12+2026+to+Oct+19+2026&qs=OAA&hl=en&curr=USD"
+            },
+            {
+              "condition": "0ms / 1Gbps",
+              "decodedBytes": 2724579.0,
+              "documentMs": 1620.8460005000234,
+              "encodedBytes": 324814.0,
+              "gaps": [
+                {
+                  "decodedBytesBefore": 1452522,
+                  "durationMs": 1150.8640004321933,
+                  "kind": "between-chunks"
+                }
+              ],
+              "headers": {
+                "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+                "content-encoding": "br",
+                "content-type": "text/html; charset=utf-8",
+                "server": "ESF"
+              },
+              "largestGapMs": 1150.8640004321933,
+              "protocol": "h3",
+              "run": 5,
+              "serverTiming": {},
+              "stableGap": {
+                "decodedBytesBefore": 1452522,
+                "durationMs": 1150.8640004321933,
+                "kind": "between-chunks"
+              },
+              "surface": "hotels",
+              "tailMs": 1474.8400002717972,
+              "ttfbMs": 146.00600022822618,
+              "url": "https://www.google.com/travel/search?q=Wailea+hotels+Oct+12+2026+to+Oct+19+2026&qs=OAA&hl=en&curr=USD"
+            }
+          ],
+          "serverTimingDurationMsP50": {},
+          "stableGapCoverage": 5,
+          "stableGapMsP50": 1113.2300002500415,
+          "stableGapOffsetP50": 1452568.0,
+          "surface": "hotels",
+          "tailMsP50": 1280.189000070095,
+          "ttfbMsP50": 144.9670000001788
+        }
+      ]
+    }
+  ],
+  "method": {
+    "freshBrowserPerDocument": true,
+    "gapClusterBytes": 8192,
+    "minimumGapMs": 50.0,
+    "subresourcesBlocked": true
+  },
+  "packetEvidence": {
+    "bodyBoundaryEvidence": [
+      {
+        "bodyBytes": 907181,
+        "bodySha256": "9df6e6d7cdd7a7144034f6070480245474c2ccbd636311656776e3d5aefd058b",
+        "classification": "Between Airbnb's core-guest-spa boot/auth roots and listing-image preload links.",
+        "decodedOffset": 519637,
+        "insideScript": false,
+        "surface": "airbnb"
+      },
+      {
+        "bodyBytes": 2724632,
+        "bodySha256": "89844e9de3467e502abe1e7ffbd6ca2648ca314b025b608300a6b842c92ed5e0",
+        "classification": "Inside a streamed c-wiz start tag, between its jsrenderer and class attributes.",
+        "decodedOffset": 1452558,
+        "insideScript": false,
+        "surface": "hotels"
+      }
+    ],
+    "capture": {
+      "browser": "Google Chrome for Testing 149.0.7827.55",
+      "browserUse": "0.13.8",
+      "capturedOn": "2026-08-28",
+      "host": "ubuntu-32gb-hil-1",
+      "interface": "any",
+      "packetDrops": 0,
+      "playwright": "1.58.0",
+      "python": "3.14.4",
+      "snaplenBytes": 128,
+      "tool": "tcpdump"
+    },
+    "flows": [
+      {
+        "cdpGapMs": 299.5179994031787,
+        "decodedBytesBeforeGap": 519168,
+        "observation": "No inbound TCP payload arrived during the gap; the advertised receive window remained open, and delivery resumed without a new client packet.",
+        "packetSilenceMs": 304.42,
+        "protocol": "HTTP/2 over TCP",
+        "remoteAddress": "23.214.22.235",
+        "surface": "airbnb"
+      },
+      {
+        "cdpGapMs": 1187.4289996922016,
+        "decodedBytesBeforeGap": 1452742,
+        "observation": "No inbound or outbound QUIC packet appeared on the document connection during the gap; delivery resumed from the remote peer.",
+        "packetSilenceMs": 1191.127,
+        "protocol": "HTTP/3 over QUIC",
+        "remoteAddress": "2001:4860:4826:7700::",
+        "surface": "hotels"
+      }
+    ],
+    "rawPcapCommitted": false,
+    "rawPcapNote": "Packet captures contained encrypted traffic metadata and remained in temporary VPS storage; only the correlated flow evidence is retained.",
+    "throttleValidation": {
+      "configuredDownloadMbps": 1,
+      "documentTailMs": 910,
+      "encodedBodyBytes": 119519,
+      "largestDecodedDeliveryGapMs": 20,
+      "runs": 1,
+      "surface": "airbnb"
+    }
+  },
+  "stableGapCenters": {
+    "airbnb": 516096,
+    "hotels": 1449984
+  }
+}

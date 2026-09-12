@@ -1,0 +1,8 @@
+[net]
+git-fetch-with-cli = true
+
+[registries.proa]
+index = "sparse+https://registry.proa.so/sparse/"
+
+[registry]
+global-credential-providers = ["cargo:token"]

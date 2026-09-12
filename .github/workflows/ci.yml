@@ -1,0 +1,231 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: benchmarks-ci-v2-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_INCREMENTAL: "0"
+  CARGO_PROFILE_DEV_DEBUG: "0"
+  CARGO_PROFILE_TEST_DEBUG: "0"
+  CARGO_TERM_COLOR: always
+  SCCACHE_IDLE_TIMEOUT: "0"
+
+jobs:
+  checks:
+    name: ${{ matrix.name }}
+    # Pull-request code can execute build scripts and browser tooling. Keep it
+    # on the untrusted PR pool; trusted events use the configured GCP runner.
+    runs-on: ${{ github.event_name == 'pull_request' && 'gcp-proa-benchmarks-pr-ci' || vars.CI_RUNNER }}
+    timeout-minutes: ${{ matrix.timeout }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - suite: quality
+            name: Code and repository quality
+            timeout: 15
+          - suite: rendering
+            name: Rendering builds and framework parity
+            timeout: 60
+    steps:
+      - name: Checkout tested benchmark revision
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Lint workflows and embedded shell
+        if: matrix.suite == 'quality'
+        uses: ./.github/actions/workflow-lint
+
+      - name: Set up pnpm
+        if: matrix.suite == 'quality' || matrix.suite == 'rendering'
+        uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+
+      - name: Set up Node.js
+        if: matrix.suite == 'quality' || matrix.suite == 'rendering'
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "24.20.0"
+          cache: pnpm
+
+      - name: Set up Python
+        if: matrix.suite == 'quality' || matrix.suite == 'rendering'
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.13"
+
+      - name: Set up Go
+        if: matrix.suite == 'rendering'
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6
+        with:
+          go-version: "1.25.5"
+          cache: false
+
+      - name: Set up Java
+        if: matrix.suite == 'rendering'
+        uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Gradle
+        if: matrix.suite == 'rendering'
+        uses: gradle/actions/setup-gradle@0723195856401067f7a2779048b490ace7a47d7c # v5
+        with:
+          gradle-version: "9.2.0"
+
+      - name: Set up PHP
+        if: matrix.suite == 'rendering'
+        uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # v2
+        with:
+          php-version: "8.5"
+
+      - name: Prepare Ruby tool cache
+        if: matrix.suite == 'rendering'
+        run: sudo install -d -o "$(id -u)" -g "$(id -g)" /opt/hostedtoolcache
+
+      - name: Set up Ruby
+        if: matrix.suite == 'rendering'
+        uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1
+        with:
+          ruby-version: "4.0.6"
+          bundler-cache: true
+          working-directory: rendering/external/rails
+
+      - name: Install Python test dependencies
+        if: matrix.suite == 'quality'
+        run: python -m pip install --disable-pip-version-check "playwright==1.58.0"
+
+      - name: Validate browser and research tooling
+        if: matrix.suite == 'quality'
+        run: |
+          set -euo pipefail
+          pnpm install --frozen-lockfile
+          pnpm test
+          bash -n scripts/refresh-proa.sh rendering/run_all.sh
+
+      - name: Check Rust formatting
+        if: matrix.suite == 'quality'
+        run: cargo fmt --all -- --check
+
+      - name: Configure read-only Proa access
+        if: matrix.suite == 'rendering'
+        env:
+          PROA_FRAMEWORK_TOKEN: ${{ secrets.PROA_FRAMEWORK_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [[ -z "${PROA_FRAMEWORK_TOKEN:-}" ]]; then
+            echo "PROA_FRAMEWORK_TOKEN must provide read-only access to Proa-Labs/proa" >&2
+            exit 1
+          fi
+          git config --global \
+            url."https://x-access-token:${PROA_FRAMEWORK_TOKEN}@github.com/Proa-Labs/proa".insteadOf \
+            "https://github.com/Proa-Labs/proa"
+
+      - name: Refresh Proa main dependencies
+        if: matrix.suite == 'rendering'
+        run: scripts/refresh-proa.sh
+
+      - name: Configure compiler cache
+        if: matrix.suite == 'rendering'
+        uses: ./.github/actions/rust-cache
+        with:
+          cache-backend: ${{ github.event_name == 'pull_request' && 'gha' || startsWith(vars.CI_RUNNER, 'gcp') && 'gcs' || 'gha' }}
+
+      - name: Install browser parity dependencies
+        if: matrix.suite == 'rendering'
+        run: |
+          set -euo pipefail
+          pnpm install --frozen-lockfile
+          npm --prefix rendering/external/react ci
+          npm --prefix rendering/external/marko ci
+          npm --prefix rendering/external/vue ci
+          npm --prefix rendering/external/svelte ci
+          pnpm exec playwright install --with-deps chromium
+
+      - name: Run Clippy correctness lints
+        if: matrix.suite == 'rendering'
+        run: |
+          set -euo pipefail
+          cargo clippy --workspace --all-targets --all-features --locked -- \
+            -A clippy::all -D clippy::correctness
+
+      - name: Test Rust comparison fixtures
+        if: matrix.suite == 'rendering'
+        run: cargo test --workspace --all-features --locked
+
+      - name: Link every Rust benchmark target
+        if: matrix.suite == 'rendering'
+        run: cargo bench --workspace --all-features --locked --no-run
+
+      - name: Check linked Airbnb fixture
+        if: matrix.suite == 'rendering'
+        run: |
+          set -euo pipefail
+          cargo check \
+            --manifest-path fixtures/airbnb-parity-dump/Cargo.toml \
+            --locked
+
+      - name: Compare normalized browser DOM
+        if: matrix.suite == 'rendering'
+        run: ./rendering/run_all.sh parity
+
+      - name: Validate canonical framework matrix
+        if: matrix.suite == 'rendering'
+        run: |
+          ./rendering/run-all --smoke
+          ./rendering/run-all --product-scaling --smoke --no-setup
+
+      - name: Validate Suspense streaming fixtures
+        if: matrix.suite == 'rendering'
+        run: pnpm run bench:suspense-load:smoke
+
+      - name: Validate canonical page servers
+        if: matrix.suite == 'rendering'
+        # The smoke proves every production server starts, passes parity and
+        # survives both phase kinds. It is not a measurement: the PR runner's
+        # two generator workers cannot out-generate Proa's component page, so
+        # a generator-limited phase is recorded rather than fatal here.
+        run: |
+          node page-load/run.mjs --duration 1 --repeats 1 --warmup-requests 4 --concurrency 8 \
+            --tolerate-generator-limits --out page-load/results/smoke.json
+          pnpm run bench:cold-start:smoke
+
+      - name: Show compiler cache stats
+        if: always() && matrix.suite == 'rendering'
+        run: sccache --show-stats
+
+  ci:
+    name: lint, clippy, build, test
+    # Do not create a final runner-dependent job after the workflow itself was
+    # canceled; otherwise an unavailable pool can retain the concurrency lock.
+    if: ${{ always() && !cancelled() }}
+    needs: [checks]
+    runs-on: ${{ github.event_name == 'pull_request' && 'gcp-proa-benchmarks-pr-ci' || vars.CI_RUNNER }}
+    timeout-minutes: 2
+    steps:
+      - name: Require every merge prerequisite
+        env:
+          CHECKS_RESULT: ${{ needs.checks.result }}
+        run: |
+          set -euo pipefail
+          case "$CHECKS_RESULT" in
+            success) ;;
+            *)
+              echo "required CI dependency finished with result: $CHECKS_RESULT" >&2
+              exit 1
+              ;;
+          esac

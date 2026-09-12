@@ -1,0 +1,253 @@
+{
+  "capturedAt": "2026-08-28T19:36:22.351495+00:00",
+  "config": {
+    "runs": 3,
+    "mode": "proa-proxy",
+    "latencyMs": 40,
+    "downloadMbps": 100,
+    "surfaces": [
+      "flights",
+      "airbnb",
+      "hotels",
+      "grand_wailea",
+      "enterprise"
+    ],
+    "llmCalls": 0,
+    "detailedTimings": false
+  },
+  "runs": [
+    {
+      "run": 1,
+      "mode": "proa-proxy",
+      "elapsedMs": 9849.85950961709,
+      "completedSurfaces": 5,
+      "actions": 24,
+      "surfaces": [
+        {
+          "surface": "flights",
+          "status": "completed",
+          "elapsedMs": 1441.246885806322,
+          "actions": 4,
+          "facts": {
+            "route": "SFO-OGG",
+            "lowestDisplayedPrice": "$369",
+            "priceSamples": [
+              "$369",
+              "$399"
+            ],
+            "nonstop": true
+          }
+        },
+        {
+          "surface": "airbnb",
+          "status": "completed",
+          "elapsedMs": 2263.97898606956,
+          "actions": 2,
+          "facts": {
+            "title": "South Maui cozy studio, split AC, steps to beach!",
+            "rating": "4.97",
+            "filteredCard": "Condo in Kihei\n\nSouth Maui cozy studio, split AC, steps to beach!\n\n1 bedroom \u00b7 1 king bed \u00b7 1 bath\n\n$1,310 for 7 nights\n\n4.97 out of 5 average rating, 108 reviews",
+            "url": "https://www.airbnb.com/rooms/47514058?check_in=2026-10-12&check_out=2026-10-19"
+          }
+        },
+        {
+          "surface": "hotels",
+          "status": "completed",
+          "elapsedMs": 2951.8087096512318,
+          "actions": 4,
+          "facts": {
+            "property": "Palms at Wailea Maui by Outrigger",
+            "price": "$231",
+            "poolFilter": true,
+            "resultCount": "Wailea \u00b7 64 results"
+          }
+        },
+        {
+          "surface": "grand_wailea",
+          "status": "completed",
+          "elapsedMs": 1567.8669344633818,
+          "actions": 4,
+          "facts": {
+            "name": "Deluxe Ocean View King",
+            "squareFeet": "640",
+            "sleeps": "4",
+            "url": "https://www.grandwailea.com/stay/deluxe-ocean-view-king"
+          }
+        },
+        {
+          "surface": "enterprise",
+          "status": "completed",
+          "elapsedMs": 1624.8050425201654,
+          "actions": 10,
+          "facts": {
+            "vehicle": "Compact SUV",
+            "example": "Hyundai Kona or similar",
+            "priceSample": "419.00",
+            "datesPresent": true,
+            "url": "https://www.enterprise.com/en/reserve.html#car_select"
+          }
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "mode": "proa-proxy",
+      "elapsedMs": 10323.777129873633,
+      "completedSurfaces": 5,
+      "actions": 24,
+      "surfaces": [
+        {
+          "surface": "flights",
+          "status": "completed",
+          "elapsedMs": 1455.4111305624247,
+          "actions": 4,
+          "facts": {
+            "route": "SFO-OGG",
+            "lowestDisplayedPrice": "$369",
+            "priceSamples": [
+              "$369",
+              "$399"
+            ],
+            "nonstop": true
+          }
+        },
+        {
+          "surface": "airbnb",
+          "status": "completed",
+          "elapsedMs": 2179.690486751497,
+          "actions": 2,
+          "facts": {
+            "title": "South Maui cozy studio, split AC, steps to beach!",
+            "rating": "4.97",
+            "filteredCard": "Condo in Kihei\n\nSouth Maui cozy studio, split AC, steps to beach!\n\n1 bedroom \u00b7 1 king bed \u00b7 1 bath\n\n$1,310 for 7 nights\n\n4.97 out of 5 average rating, 108 reviews",
+            "url": "https://www.airbnb.com/rooms/47514058?check_in=2026-10-12&check_out=2026-10-19"
+          }
+        },
+        {
+          "surface": "hotels",
+          "status": "completed",
+          "elapsedMs": 2800.2218594774604,
+          "actions": 4,
+          "facts": {
+            "property": "Palms at Wailea Maui by Outrigger",
+            "price": "$231",
+            "poolFilter": true,
+            "resultCount": "Wailea \u00b7 64 results"
+          }
+        },
+        {
+          "surface": "grand_wailea",
+          "status": "completed",
+          "elapsedMs": 1485.9252274036407,
+          "actions": 4,
+          "facts": {
+            "name": "Deluxe Ocean View King",
+            "squareFeet": "640",
+            "sleeps": "4",
+            "url": "https://www.grandwailea.com/stay/deluxe-ocean-view-king"
+          }
+        },
+        {
+          "surface": "enterprise",
+          "status": "completed",
+          "elapsedMs": 2402.3709492757916,
+          "actions": 10,
+          "facts": {
+            "vehicle": "Compact SUV",
+            "example": "Hyundai Kona or similar",
+            "priceSample": "419.00",
+            "datesPresent": true,
+            "url": "https://www.enterprise.com/en/reserve.html#car_select"
+          }
+        }
+      ]
+    },
+    {
+      "run": 3,
+      "mode": "proa-proxy",
+      "elapsedMs": 9078.421825543046,
+      "completedSurfaces": 5,
+      "actions": 24,
+      "surfaces": [
+        {
+          "surface": "flights",
+          "status": "completed",
+          "elapsedMs": 1426.669592037797,
+          "actions": 4,
+          "facts": {
+            "route": "SFO-OGG",
+            "lowestDisplayedPrice": "$369",
+            "priceSamples": [
+              "$369",
+              "$399"
+            ],
+            "nonstop": true
+          }
+        },
+        {
+          "surface": "airbnb",
+          "status": "completed",
+          "elapsedMs": 2085.063237696886,
+          "actions": 2,
+          "facts": {
+            "title": "South Maui cozy studio, split AC, steps to beach!",
+            "rating": "4.97",
+            "filteredCard": "Condo in Kihei\n\nSouth Maui cozy studio, split AC, steps to beach!\n\n1 bedroom \u00b7 1 king bed \u00b7 1 bath\n\n$1,310 for 7 nights\n\n4.97 out of 5 average rating, 108 reviews",
+            "url": "https://www.airbnb.com/rooms/47514058?check_in=2026-10-12&check_out=2026-10-19"
+          }
+        },
+        {
+          "surface": "hotels",
+          "status": "completed",
+          "elapsedMs": 2430.48039637506,
+          "actions": 4,
+          "facts": {
+            "property": "Palms at Wailea Maui by Outrigger",
+            "price": "$231",
+            "poolFilter": true,
+            "resultCount": "Wailea \u00b7 64 results"
+          }
+        },
+        {
+          "surface": "grand_wailea",
+          "status": "completed",
+          "elapsedMs": 1487.4855484813452,
+          "actions": 4,
+          "facts": {
+            "name": "Deluxe Ocean View King",
+            "squareFeet": "640",
+            "sleeps": "4",
+            "url": "https://www.grandwailea.com/stay/deluxe-ocean-view-king"
+          }
+        },
+        {
+          "surface": "enterprise",
+          "status": "completed",
+          "elapsedMs": 1648.5608089715242,
+          "actions": 10,
+          "facts": {
+            "vehicle": "Compact SUV",
+            "example": "Hyundai Kona or similar",
+            "priceSample": "419.00",
+            "datesPresent": true,
+            "url": "https://www.enterprise.com/en/reserve.html#car_select"
+          }
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "mode": "proa-proxy",
+    "runs": 3,
+    "successfulRuns": 3,
+    "workflowP50Ms": 9849.85950961709,
+    "actionsP50": 24.0,
+    "surfaceP50Ms": {
+      "flights": 1441.246885806322,
+      "airbnb": 2179.690486751497,
+      "hotels": 2800.2218594774604,
+      "grand_wailea": 1487.4855484813452,
+      "enterprise": 1648.5608089715242
+    }
+  }
+}

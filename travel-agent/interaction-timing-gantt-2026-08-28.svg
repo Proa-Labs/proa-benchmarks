@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 650" role="img" aria-labelledby="timing-title timing-desc">
+<title id="timing-title">Measured current-site browser workflow timeline</title>
+<desc id="timing-desc">Five sequential travel website surfaces take 62.75 seconds at p50. The largest waits are Grand Wailea initial navigation and Enterprise vehicle results. A complete-HTML proxy takes 10.35 seconds on the same scale.</desc>
+<style>
+:root{--bg:#fff;--fg:#24211d;--muted:#716a61;--grid:#ded8cf;--track:#eee9e1;--nav:#dd7627;--wait:#8759c7;--action:#25845f;--eval:#3675b7;--pause:#9a938a;--proxy:#d78a4a;--proxy-alt:#e8b17f}
+@media(prefers-color-scheme:dark){:root{--bg:#171513;--fg:#f2eee8;--muted:#b7afa5;--grid:#413c36;--track:#2b2723;--nav:#ef9149;--wait:#ad82e8;--action:#55b98c;--eval:#6da7e1;--pause:#9e978f;--proxy:#e79a59;--proxy-alt:#b97843}}
+.bg{fill:var(--bg)}.fg{fill:var(--fg)}.muted{fill:var(--muted)}.grid{stroke:var(--grid);stroke-width:1}.track{fill:var(--track)}.navigation{fill:var(--nav)}.wait{fill:var(--wait)}.action{fill:var(--action)}.evaluation{fill:var(--eval)}.pause{fill:var(--pause)}.proxy{fill:var(--proxy)}.proxy-alt{fill:var(--proxy-alt)}text{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px}.title{font-family:ui-sans-serif,system-ui,sans-serif;font-size:21px;font-weight:600}.subtitle{font-family:ui-sans-serif,system-ui,sans-serif;font-size:12px}.site{font-family:ui-sans-serif,system-ui,sans-serif;font-size:13px;font-weight:600}.inside{fill:#fff;font-size:10px;font-weight:600}.tiny{font-size:10px}
+</style>
+<rect class="bg" width="1280" height="650"/>
+<text id="chart-heading" class="title fg" x="18" y="32">Where the 62.75-second workflow went</text>
+<text class="subtitle muted" x="18" y="53">Current sites · p50 step offsets and durations · 3 traced trials · 100 Mbps + 40 ms/request</text>
+<rect class="navigation" x="174" y="69" width="11" height="11"/>
+<text class="muted tiny" x="190" y="79">navigation</text>
+<rect class="wait" x="292" y="69" width="11" height="11"/>
+<text class="muted tiny" x="308" y="79">readiness/data wait</text>
+<rect class="action" x="443" y="69" width="11" height="11"/>
+<text class="muted tiny" x="459" y="79">browser action</text>
+<rect class="evaluation" x="561" y="69" width="11" height="11"/>
+<text class="muted tiny" x="577" y="79">assert/extract</text>
+<rect class="pause" x="679" y="69" width="11" height="11"/>
+<text class="muted tiny" x="695" y="79">fixed settle</text>
+<line class="grid" x1="174.00" y1="101" x2="174.00" y2="514"/>
+<text class="muted tiny" text-anchor="middle" x="174.00" y="96">0s</text>
+<line class="grid" x1="256.92" y1="101" x2="256.92" y2="514"/>
+<text class="muted tiny" text-anchor="middle" x="256.92" y="96">5s</text>
+<line class="grid" x1="339.85" y1="101" x2="339.85" y2="514"/>
+<text class="muted tiny" text-anchor="middle" x="339.85" y="96">10s</text>
+<line class="grid" x1="422.77" y1="101" x2="422.77" y2="514"/>
+<text class="muted tiny" text-anchor="middle" x="422.77" y="96">15s</text>
+<line class="grid" x1="505.69" y1="101" x2="505.69" y2="514"/>
+<text class="muted tiny" text-anchor="middle" x="505.69" y="96">20s</text>
+<line class="grid" x1="588.62" y1="101" x2="588.62" y2="514"/>
+<text class="muted tiny" text-anchor="middle" x="588.62" y="96">25s</text>
+<line class="grid" x1="671.54" y1="101" x2="671.54" y2="514"/>
+<text class="muted tiny" text-anchor="middle" x="671.54" y="96">30s</text>
+<line class="grid" x1="754.46" y1="101" x2="754.46" y2="514"/>
+<text class="muted tiny" text-anchor="middle" x="754.46" y="96">35s</text>
+<line class="grid" x1="837.38" y1="101" x2="837.38" y2="514"/>
+<text class="muted tiny" text-anchor="middle" x="837.38" y="96">40s</text>
+<line class="grid" x1="920.31" y1="101" x2="920.31" y2="514"/>
+<text class="muted tiny" text-anchor="middle" x="920.31" y="96">45s</text>
+<line class="grid" x1="1003.23" y1="101" x2="1003.23" y2="514"/>
+<text class="muted tiny" text-anchor="middle" x="1003.23" y="96">50s</text>
+<line class="grid" x1="1086.15" y1="101" x2="1086.15" y2="514"/>
+<text class="muted tiny" text-anchor="middle" x="1086.15" y="96">55s</text>
+<line class="grid" x1="1169.08" y1="101" x2="1169.08" y2="514"/>
+<text class="muted tiny" text-anchor="middle" x="1169.08" y="96">60s</text>
+<line class="grid" x1="1252.00" y1="101" x2="1252.00" y2="514"/>
+<text class="muted tiny" text-anchor="middle" x="1252.00" y="96">65s</text>
+<text class="site fg" x="18" y="128">flights</text>
+<rect class="track" x="174.00" y="111" width="43.21" height="20"/>
+<rect class="navigation" x="174.02" y="111" width="20.82" height="20"><title>load Google Flights results: wall 1.26 s; JS CPU 0.26 s; network active 0.96 s</title></rect>
+<rect class="wait" x="194.94" y="111" width="1.00" height="20"><title>Google Flights results: wall 0.01 s; JS CPU 0.00 s; network active 0.01 s</title></rect>
+<rect class="action" x="195.11" y="111" width="5.05" height="20"><title>click "Stops": wall 0.30 s; JS CPU 0.02 s; network active 0.30 s</title></rect>
+<rect class="wait" x="200.71" y="111" width="2.79" height="20"><title>Flights stops filter: wall 0.17 s; JS CPU 0.12 s; network active 0.09 s</title></rect>
+<rect class="action" x="203.42" y="111" width="3.51" height="20"><title>click "Nonstop only": wall 0.21 s; JS CPU 0.11 s; network active 0.05 s</title></rect>
+<rect class="pause" x="206.89" y="111" width="3.33" height="20"><title>allow Flights nonstop filter to settle: wall 0.20 s; JS CPU 0.00 s; network active 0.00 s</title></rect>
+<rect class="action" x="210.27" y="111" width="1.28" height="20"><title>close Flights stops dialog: wall 0.08 s; JS CPU 0.01 s; network active 0.06 s</title></rect>
+<rect class="action" x="211.63" y="111" width="4.07" height="20"><title>click "Cheapest": wall 0.25 s; JS CPU 0.01 s; network active 0.09 s</title></rect>
+<rect class="wait" x="215.68" y="111" width="1.00" height="20"><title>filtered Flights fares: wall 0.01 s; JS CPU 0.00 s; network active 0.01 s</title></rect>
+<rect class="evaluation" x="216.00" y="111" width="1.71" height="20"><title>extract filtered flight facts: wall 0.10 s; JS CPU 0.10 s; network active 0.10 s</title></rect>
+<text class="muted tiny" x="174" y="150">HTML response 0.44 s  ·  script fetch 0.82 s active / 2.00 s span  ·  JS CPU 0.63 s</text>
+<text class="site fg" x="18" y="204">airbnb</text>
+<rect class="track" x="217.21" y="187" width="107.67" height="20"/>
+<rect class="navigation" x="217.29" y="187" width="42.66" height="20"><title>load Airbnb Wailea results: wall 2.57 s; JS CPU 0.72 s; network active 2.36 s</title></rect>
+<rect class="wait" x="260.02" y="187" width="1.00" height="20"><title>Airbnb search results: wall 0.02 s; JS CPU 0.00 s; network active 0.02 s</title></rect>
+<rect class="evaluation" x="261.74" y="187" width="1.05" height="20"><title>inspect and dismiss Airbnb consent modal: wall 0.06 s; JS CPU 0.04 s; network active 0.06 s</title></rect>
+<rect class="wait" x="263.05" y="187" width="12.27" height="20"><title>dismissed Airbnb modal: wall 0.74 s; JS CPU 0.21 s; network active 0.68 s</title></rect>
+<rect class="action" x="275.31" y="187" width="4.93" height="20"><title>enable Airbnb free cancellation: wall 0.30 s; JS CPU 0.11 s; network active 0.30 s</title></rect>
+<rect class="wait" x="280.95" y="187" width="1.00" height="20"><title>Airbnb cancellation filter: wall 0.01 s; JS CPU 0.00 s; network active 0.01 s</title></rect>
+<rect class="wait" x="281.47" y="187" width="9.85" height="20"><title>filtered Airbnb listing cards: wall 0.59 s; JS CPU 0.06 s; network active 0.59 s</title></rect>
+<rect class="evaluation" x="291.87" y="187" width="1.00" height="20"><title>inspect first filtered Airbnb listing: wall 0.03 s; JS CPU 0.02 s; network active 0.03 s</title></rect>
+<rect class="evaluation" x="292.38" y="187" width="4.36" height="20"><title>open Airbnb listing detail: wall 0.26 s; JS CPU 0.21 s; network active 0.26 s</title></rect>
+<rect class="wait" x="297.01" y="187" width="27.29" height="20"><title>Airbnb listing detail: wall 1.65 s; JS CPU 0.17 s; network active 1.63 s</title></rect>
+<rect class="evaluation" x="324.50" y="187" width="1.00" height="20"><title>extract Airbnb listing facts: wall 0.04 s; JS CPU 0.01 s; network active 0.04 s</title></rect>
+<text class="muted tiny" x="174" y="226">HTML response 0.86 s  ·  script fetch 2.48 s active / 6.06 s span  ·  JS CPU 1.58 s</text>
+<text class="site fg" x="18" y="280">hotels</text>
+<rect class="track" x="324.88" y="263" width="181.84" height="20"/>
+<rect class="navigation" x="324.95" y="263" width="89.43" height="20"><title>load Google Hotels Wailea results: wall 5.39 s; JS CPU 0.60 s; network active 3.84 s</title></rect>
+<text class="inside" x="328.95" y="277">initial navigation</text>
+<rect class="wait" x="414.47" y="263" width="1.00" height="20"><title>Google Hotels results: wall 0.00 s; JS CPU 0.00 s; network active 0.00 s</title></rect>
+<rect class="action" x="414.56" y="263" width="6.10" height="20"><title>click "4+ rating": wall 0.37 s; JS CPU 0.02 s; network active 0.37 s</title></rect>
+<rect class="pause" x="419.37" y="263" width="4.16" height="20"><title>allow Google Hotels rating filter to settle: wall 0.25 s; JS CPU 0.01 s; network active 0.25 s</title></rect>
+<rect class="action" x="423.59" y="263" width="4.82" height="20"><title>click "Pool": wall 0.29 s; JS CPU 0.01 s; network active 0.29 s</title></rect>
+<rect class="wait" x="426.95" y="263" width="1.00" height="20"><title>Google Hotels quick filters: wall 0.00 s; JS CPU 0.00 s; network active 0.00 s</title></rect>
+<rect class="action" x="427.03" y="263" width="4.54" height="20"><title>click "Sort by": wall 0.27 s; JS CPU 0.03 s; network active 0.27 s</title></rect>
+<rect class="wait" x="431.24" y="263" width="1.00" height="20"><title>Google Hotels sort choices: wall 0.06 s; JS CPU 0.00 s; network active 0.06 s</title></rect>
+<rect class="action" x="432.24" y="263" width="73.96" height="20"><title>click "Lowest price": wall 4.46 s; JS CPU 0.10 s; network active 1.92 s</title></rect>
+<text class="inside" x="436.24" y="277">sort refresh</text>
+<rect class="wait" x="506.25" y="263" width="1.00" height="20"><title>sorted Google Hotels results: wall 0.00 s; JS CPU 0.00 s; network active 0.00 s</title></rect>
+<rect class="evaluation" x="506.65" y="263" width="1.00" height="20"><title>extract filtered Google Hotels facts: wall 0.00 s; JS CPU 0.00 s; network active 0.00 s</title></rect>
+<text class="muted tiny" x="174" y="302">HTML response 1.52 s  ·  script fetch 1.78 s active / 8.04 s span  ·  JS CPU 0.79 s</text>
+<text class="site fg" x="18" y="356">grand wailea</text>
+<rect class="track" x="506.73" y="339" width="301.08" height="20"/>
+<rect class="navigation" x="506.74" y="339" width="147.12" height="20"><title>load Grand Wailea home page: wall 8.87 s; JS CPU 3.02 s; network active 8.76 s</title></rect>
+<text class="inside" x="510.74" y="353">initial navigation</text>
+<rect class="wait" x="657.82" y="339" width="1.00" height="20"><title>Grand Wailea home page: wall 0.01 s; JS CPU 0.00 s; network active 0.01 s</title></rect>
+<rect class="evaluation" x="659.68" y="339" width="1.00" height="20"><title>dismiss Grand Wailea cookie banner: wall 0.00 s; JS CPU 0.00 s; network active 0.00 s</title></rect>
+<rect class="evaluation" x="659.90" y="339" width="1.00" height="20"><title>open Grand Wailea room catalog: wall 0.04 s; JS CPU 0.03 s; network active 0.04 s</title></rect>
+<rect class="wait" x="660.77" y="339" width="25.77" height="20"><title>Grand Wailea room catalog: wall 1.55 s; JS CPU 0.46 s; network active 1.31 s</title></rect>
+<rect class="action" x="692.74" y="339" width="8.23" height="20"><title>select Grand Wailea room category: wall 0.50 s; JS CPU 0.40 s; network active 0.50 s</title></rect>
+<rect class="pause" x="703.80" y="339" width="3.33" height="20"><title>allow Grand Wailea category filter to settle: wall 0.20 s; JS CPU 0.06 s; network active 0.20 s</title></rect>
+<rect class="action" x="708.71" y="339" width="6.66" height="20"><title>select Grand Wailea ocean view: wall 0.40 s; JS CPU 0.07 s; network active 0.13 s</title></rect>
+<rect class="wait" x="722.60" y="339" width="1.00" height="20"><title>filtered Grand Wailea rooms: wall 0.03 s; JS CPU 0.02 s; network active 0.03 s</title></rect>
+<rect class="evaluation" x="729.54" y="339" width="1.00" height="20"><title>inspect filtered Grand Wailea room: wall 0.03 s; JS CPU 0.01 s; network active 0.03 s</title></rect>
+<rect class="evaluation" x="730.84" y="339" width="1.08" height="20"><title>open Grand Wailea room detail: wall 0.07 s; JS CPU 0.03 s; network active 0.07 s</title></rect>
+<rect class="wait" x="732.38" y="339" width="42.58" height="20"><title>Grand Wailea room detail: wall 2.57 s; JS CPU 0.89 s; network active 2.22 s</title></rect>
+<rect class="evaluation" x="789.70" y="339" width="18.09" height="20"><title>extract Grand Wailea room facts: wall 1.09 s; JS CPU 0.39 s; network active 0.52 s</title></rect>
+<text class="muted tiny" x="174" y="378">HTML response 0.06 s  ·  script fetch 11.25 s active / 17.36 s span  ·  JS CPU 5.53 s</text>
+<text class="site fg" x="18" y="432">enterprise</text>
+<rect class="track" x="807.81" y="415" width="408.06" height="20"/>
+<rect class="navigation" x="807.85" y="415" width="58.24" height="20"><title>load Enterprise Kahului reservation form: wall 3.51 s; JS CPU 0.82 s; network active 3.11 s</title></rect>
+<rect class="wait" x="866.79" y="415" width="2.84" height="20"><title>Enterprise reservation form: wall 0.17 s; JS CPU 0.04 s; network active 0.17 s</title></rect>
+<rect class="evaluation" x="901.79" y="415" width="1.16" height="20"><title>dismiss Enterprise consent and login overlays: wall 0.07 s; JS CPU 0.06 s; network active 0.07 s</title></rect>
+<rect class="pause" x="905.48" y="415" width="4.16" height="20"><title>allow Enterprise overlays to close: wall 0.25 s; JS CPU 0.00 s; network active 0.25 s</title></rect>
+<rect class="wait" x="909.78" y="415" width="62.00" height="20"><title>Enterprise form after consent dismissal: wall 3.74 s; JS CPU 1.45 s; network active 3.31 s</title></rect>
+<rect class="action" x="984.05" y="415" width="13.34" height="20"><title>open Enterprise pickup calendar: wall 0.80 s; JS CPU 0.31 s; network active 0.57 s</title></rect>
+<rect class="wait" x="999.12" y="415" width="1.00" height="20"><title>open Enterprise pickup calendar: wall 0.02 s; JS CPU 0.01 s; network active 0.02 s</title></rect>
+<rect class="evaluation" x="999.24" y="415" width="1.00" height="20"><title>check whether Enterprise October pickup date is visible: wall 0.01 s; JS CPU 0.00 s; network active 0.00 s</title></rect>
+<rect class="action" x="999.35" y="415" width="1.73" height="20"><title>advance Enterprise pickup calendar: wall 0.10 s; JS CPU 0.03 s; network active 0.08 s</title></rect>
+<rect class="wait" x="1001.12" y="415" width="1.00" height="20"><title>Enterprise October pickup date: wall 0.02 s; JS CPU 0.00 s; network active 0.02 s</title></rect>
+<rect class="action" x="1001.59" y="415" width="3.41" height="20"><title>select Enterprise pickup date: wall 0.21 s; JS CPU 0.10 s; network active 0.15 s</title></rect>
+<rect class="wait" x="1008.17" y="415" width="1.00" height="20"><title>Enterprise return date control: wall 0.01 s; JS CPU 0.00 s; network active 0.01 s</title></rect>
+<rect class="action" x="1008.42" y="415" width="2.23" height="20"><title>open Enterprise return calendar: wall 0.13 s; JS CPU 0.06 s; network active 0.08 s</title></rect>
+<rect class="wait" x="1011.11" y="415" width="1.00" height="20"><title>Enterprise October return date: wall 0.01 s; JS CPU 0.00 s; network active 0.01 s</title></rect>
+<rect class="action" x="1011.25" y="415" width="2.66" height="20"><title>select Enterprise return date: wall 0.16 s; JS CPU 0.09 s; network active 0.16 s</title></rect>
+<rect class="action" x="1015.91" y="415" width="1.00" height="20"><title>select Enterprise pickup time: wall 0.05 s; JS CPU 0.03 s; network active 0.05 s</title></rect>
+<rect class="action" x="1017.72" y="415" width="1.00" height="20"><title>select Enterprise return time: wall 0.06 s; JS CPU 0.03 s; network active 0.06 s</title></rect>
+<rect class="action" x="1019.22" y="415" width="3.82" height="20"><title>open Enterprise vehicle filters: wall 0.23 s; JS CPU 0.11 s; network active 0.17 s</title></rect>
+<rect class="wait" x="1026.76" y="415" width="1.00" height="20"><title>Enterprise vehicle filter: wall 0.00 s; JS CPU 0.00 s; network active 0.00 s</title></rect>
+<rect class="action" x="1026.87" y="415" width="2.80" height="20"><title>select Enterprise compact SUV: wall 0.17 s; JS CPU 0.10 s; network active 0.15 s</title></rect>
+<rect class="wait" x="1032.70" y="415" width="1.00" height="20"><title>Enterprise compact SUV selection: wall 0.00 s; JS CPU 0.00 s; network active 0.00 s</title></rect>
+<rect class="action" x="1032.80" y="415" width="3.08" height="20"><title>apply Enterprise vehicle filter: wall 0.19 s; JS CPU 0.09 s; network active 0.18 s</title></rect>
+<rect class="wait" x="1037.94" y="415" width="1.00" height="20"><title>applied Enterprise compact SUV filter: wall 0.00 s; JS CPU 0.00 s; network active 0.00 s</title></rect>
+<rect class="action" x="1038.40" y="415" width="4.12" height="20"><title>browse Enterprise vehicles: wall 0.25 s; JS CPU 0.12 s; network active 0.25 s</title></rect>
+<rect class="wait" x="1044.98" y="415" width="190.05" height="20"><title>Enterprise vehicle availability: wall 11.46 s; JS CPU 3.16 s; network active 7.50 s</title></rect>
+<text class="inside" x="1048.98" y="429">vehicle results wait</text>
+<rect class="evaluation" x="1213.06" y="415" width="2.02" height="20"><title>extract Enterprise vehicle facts: wall 0.12 s; JS CPU 0.03 s; network active 0.02 s</title></rect>
+<text class="muted tiny" x="174" y="454">HTML response 0.32 s  ·  script fetch 7.68 s active / 23.85 s span  ·  JS CPU 7.67 s</text>
+<text class="site fg" x="18" y="552">Proa proxy</text>
+<rect class="proxy" x="174.00" y="535" width="23.69" height="20"><title>flights: 1.43 s</title></rect>
+<rect class="proxy-alt" x="197.69" y="535" width="43.77" height="20"><title>airbnb: 2.64 s</title></rect>
+<rect class="proxy" x="241.46" y="535" width="47.13" height="20"><title>hotels: 2.84 s</title></rect>
+<rect class="proxy-alt" x="288.59" y="535" width="34.29" height="20"><title>grand_wailea: 2.07 s</title></rect>
+<rect class="proxy" x="322.88" y="535" width="24.07" height="20"><title>enterprise: 1.45 s</title></rect>
+<text class="fg tiny" x="353.95" y="549">10.35 s</text>
+<line class="grid" x1="174" y1="590" x2="1252" y2="590"/>
+<line class="grid" x1="174.00" y1="590" x2="174.00" y2="595"/>
+<text class="muted tiny" text-anchor="middle" x="174.00" y="610">0</text>
+<line class="grid" x1="256.92" y1="590" x2="256.92" y2="595"/>
+<text class="muted tiny" text-anchor="middle" x="256.92" y="610">5</text>
+<line class="grid" x1="339.85" y1="590" x2="339.85" y2="595"/>
+<text class="muted tiny" text-anchor="middle" x="339.85" y="610">10</text>
+<line class="grid" x1="422.77" y1="590" x2="422.77" y2="595"/>
+<text class="muted tiny" text-anchor="middle" x="422.77" y="610">15</text>
+<line class="grid" x1="505.69" y1="590" x2="505.69" y2="595"/>
+<text class="muted tiny" text-anchor="middle" x="505.69" y="610">20</text>
+<line class="grid" x1="588.62" y1="590" x2="588.62" y2="595"/>
+<text class="muted tiny" text-anchor="middle" x="588.62" y="610">25</text>
+<line class="grid" x1="671.54" y1="590" x2="671.54" y2="595"/>
+<text class="muted tiny" text-anchor="middle" x="671.54" y="610">30</text>
+<line class="grid" x1="754.46" y1="590" x2="754.46" y2="595"/>
+<text class="muted tiny" text-anchor="middle" x="754.46" y="610">35</text>
+<line class="grid" x1="837.38" y1="590" x2="837.38" y2="595"/>
+<text class="muted tiny" text-anchor="middle" x="837.38" y="610">40</text>
+<line class="grid" x1="920.31" y1="590" x2="920.31" y2="595"/>
+<text class="muted tiny" text-anchor="middle" x="920.31" y="610">45</text>
+<line class="grid" x1="1003.23" y1="590" x2="1003.23" y2="595"/>
+<text class="muted tiny" text-anchor="middle" x="1003.23" y="610">50</text>
+<line class="grid" x1="1086.15" y1="590" x2="1086.15" y2="595"/>
+<text class="muted tiny" text-anchor="middle" x="1086.15" y="610">55</text>
+<line class="grid" x1="1169.08" y1="590" x2="1169.08" y2="595"/>
+<text class="muted tiny" text-anchor="middle" x="1169.08" y="610">60</text>
+<line class="grid" x1="1252.00" y1="590" x2="1252.00" y2="595"/>
+<text class="muted tiny" text-anchor="middle" x="1252.00" y="610">65</text>
+<text class="muted" text-anchor="middle" x="713.00" y="630">elapsed workflow time (seconds)</text>
+<text class="muted tiny" x="18" y="638">Independent p50s; step bars are sequential workflow phases. Network and CPU measurements overlap these bars.</text>
+</svg>

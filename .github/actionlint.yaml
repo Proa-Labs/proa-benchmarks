@@ -1,0 +1,6 @@
+self-hosted-runner:
+  labels:
+    - gcp-proa-benchmarks-ci
+    - gcp-proa-benchmarks-pr-ci
+
+config-variables: null

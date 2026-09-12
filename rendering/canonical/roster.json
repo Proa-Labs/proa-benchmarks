@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "sort_rule": "fixed roster order",
+  "renderers": [
+    {
+      "id": "proa",
+      "label": "Proa",
+      "language": "Rust",
+      "adapter": "rust"
+    },
+    {
+      "id": "marko",
+      "label": "Marko",
+      "language": "JavaScript",
+      "adapter": "marko"
+    },
+    {
+      "id": "react",
+      "label": "React",
+      "language": "JavaScript",
+      "adapter": "react"
+    },
+    {
+      "id": "vue",
+      "label": "Vue",
+      "language": "JavaScript",
+      "adapter": "vue"
+    },
+    {
+      "id": "svelte",
+      "label": "Svelte",
+      "language": "JavaScript",
+      "adapter": "svelte"
+    },
+    {
+      "id": "rails",
+      "label": "Rails",
+      "language": "Ruby",
+      "adapter": "rails"
+    },
+    {
+      "id": "jte",
+      "label": "jte",
+      "language": "Java",
+      "adapter": "jte"
+    },
+    {
+      "id": "rocker",
+      "label": "Rocker",
+      "language": "Java",
+      "adapter": "rocker"
+    },
+    {
+      "id": "handlebars",
+      "label": "Handlebars",
+      "language": "JavaScript",
+      "adapter": "handlebars"
+    },
+    {
+      "id": "go-html-template",
+      "label": "Go html/template",
+      "language": "Go",
+      "adapter": "go"
+    },
+    {
+      "id": "jinja2",
+      "label": "Jinja2",
+      "language": "Python",
+      "adapter": "jinja2"
+    },
+    {
+      "id": "php",
+      "label": "PHP",
+      "language": "PHP",
+      "adapter": "php"
+    },
+    {
+      "id": "askama",
+      "label": "Askama",
+      "language": "Rust",
+      "adapter": "rust"
+    },
+    {
+      "id": "sailfish",
+      "label": "Sailfish",
+      "language": "Rust",
+      "adapter": "rust"
+    },
+    {
+      "id": "leptos",
+      "label": "Leptos",
+      "language": "Rust",
+      "adapter": "rust"
+    },
+    {
+      "id": "dioxus",
+      "label": "Dioxus",
+      "language": "Rust",
+      "adapter": "rust"
+    },
+    {
+      "id": "topcoat",
+      "label": "Topcoat",
+      "language": "Rust",
+      "adapter": "rust"
+    }
+  ]
+}
