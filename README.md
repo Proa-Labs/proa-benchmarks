@@ -2,7 +2,7 @@
 
 [Proa](https://github.com/Proa-Labs/proa) renders typed Rust components to HTML on the server, streams them, and hydrates fine-grained browser islands. This page shows what one core [serves over HTTP](#serving-three-pages-on-one-core), how fast [seventeen renderers](#rendering-the-same-pages-in-seventeen-renderers) render those pages, and [how to reproduce them](#reproducing-a-capture).
 
-**Who runs these benchmarks.** Proa Labs builds Proa and ran every capture here, which is a conflict of interest. The harness is therefore written to be checked rather than believed: every adapter, gate, and raw artifact is in this repo, the rules are fixed before anything is timed, and results that go against Proa stay on the page. If you find a way the comparison is unfair, open an issue — that is the most useful contribution this repo can get.
+If you see an issue with the benchmarks or would like to add any, please open an issue!
 
 <!-- Keep this HTML table free of blank lines so GitHub renders it as one block. -->
 <table>
