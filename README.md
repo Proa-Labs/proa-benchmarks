@@ -9,7 +9,7 @@ If you see an issue with the benchmarks or would like to add any, please open an
   <tr>
     <td valign="top" width="50%">
       <h3 id="serving-three-pages-on-one-core">Serving three pages on one core</h3>
-      <p>Three canonical pages, one core each: throughput at saturation, latency at a fixed request rate.</p>
+      <p>Three sample pages, one core each: throughput at saturation, latency at a fixed request rate.</p>
       <!-- charts:headline:start -->
       <a href="charts/svg/08-canonical-pages-http.svg">
         <img width="100%" alt="Sustained responses per second, CPU per response, and peak RSS for Proa, React, Marko, and Go html/template serving three canonical pages over HTTP on one core" src="charts/svg/08-canonical-pages-http.svg">
