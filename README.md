@@ -1,6 +1,6 @@
 # Proa benchmarks
 
-[Proa](https://github.com/Proa-Labs/proa) renders typed Rust components to HTML on the server, streams them, and hydrates fine-grained browser islands. This page shows what one core [serves over HTTP](#serving-three-pages-on-one-core), how fast [seventeen renderers](#rendering-the-same-pages-in-seventeen-renderers) render those pages, [why the numbers hold](#why-trust-these-numbers), and [how to reproduce them](#reproducing-a-capture).
+[Proa](https://github.com/Proa-Labs/proa) renders typed Rust components to HTML on the server, streams them, and hydrates fine-grained browser islands. This page shows what one core [serves over HTTP](#serving-three-pages-on-one-core), how fast [seventeen renderers](#rendering-the-same-pages-in-seventeen-renderers) render those pages, and [how to reproduce them](#reproducing-a-capture).
 
 **Who runs these benchmarks.** Proa Labs builds Proa and ran every capture here, which is a conflict of interest. The harness is therefore written to be checked rather than believed: every adapter, gate, and raw artifact is in this repo, the rules are fixed before anything is timed, and results that go against Proa stay on the page. If you find a way the comparison is unfair, open an issue — that is the most useful contribution this repo can get.
 
@@ -86,21 +86,6 @@
     <td valign="top" width="50%"></td>
   </tr>
 </table>
-
-The capacity of a core follows from the render itself, which the <a href="#rendering-the-same-pages-in-seventeen-renderers">scoreboard</a> isolates. Every cell in that figure passed the same gate, described in <a href="#why-trust-these-numbers">Why trust these numbers</a>.
-
-## Why trust these numbers?
-
-- **Parity comes first.** Chromium parses each renderer's untimed output, and the harness compares elements, attributes, classes, visible text, and body order against Proa's. A negative control mutates the output and asserts that the gate rejects it. If any cell fails, the harness times nothing.
-- **Every engine gets one core.** CPU per response counts every thread of the server process, including garbage-collector helpers. Where a framework still uses more than one core, the cores column says so.
-- **The load generator checks itself.** Several worker processes check every response: the page captures hash it against the parity-gated dump, and the streaming capture validates the shell, every panel, and every product card. The capture rejects a phase if any worker's event loop exceeds 80% busy or arrivals lag more than 25 ms at P95. A saturated client therefore cannot pose as a saturated server.
-- **Fresh processes, rotated order, medians.** Every value is the median of independent process runs. Renderer order rotates between runs, and the harness discards no sample once it knows the labels.
-- **Contrary results stay.** Askama and Sailfish beating Proa, Marko's smaller payloads, and the narrow streaming margin carry the same weight as the wins.
-- **Some costs sit outside every measurement.** Every capture excludes databases, routing, middleware, network latency, hydration, and compression. The scoreboard also excludes HTTP. The HTTP captures include parsing, serialization, allocation, and each server's write path.
-
-> **Good to know**: every rendering and HTTP capture on this page ran on one Apple M4 Max under macOS, building Proa from `main` at the revision the lockfile pins. The separate browser-agent control ran on a Linux VPS instead, and [`travel-agent/`](travel-agent/) records that host. Absolute numbers differ on Linux server hardware. The harness runs there unchanged, and each artifact records host, OS, commit, and a source fingerprint.
-
-Each capture is one command, described in [Reproducing a capture](#reproducing-a-capture).
 
 ## Reproducing a capture
 
