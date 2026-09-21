@@ -8,6 +8,16 @@ If you see an issue with the benchmarks or would like to add any, please open an
 <table>
   <tr>
     <td valign="top" width="50%">
+      <h3 id="rendering-the-same-pages-in-seventeen-renderers">Rendering the same pages in seventeen renderers</h3>
+      <p>Renderer-only benchmark across three canonical pages: component, table, and product grid.</p>
+      <!-- charts:scoreboard:start -->
+      <a href="charts/svg/01-canonical-scoreboard.svg">
+        <img width="100%" alt="Dot plot of seventeen renderers across three workloads, on a logarithmic axis of render time relative to Proa" src="charts/svg/01-canonical-scoreboard.svg">
+      </a>
+      <p><em>Seventeen renderers, one-core P50 multiples on log scale. <a href="scoreboard.md">Details</a> · <a href="charts/svg/01-canonical-scoreboard.svg">Full size</a> · <a href="charts/">how the figures are built</a></em></p>
+      <!-- charts:scoreboard:end -->
+    </td>
+    <td valign="top" width="50%">
       <h3 id="serving-three-pages-on-one-core">Serving three pages on one core</h3>
       <p>Three sample pages, one core each: throughput at saturation, latency at a fixed request rate.</p>
       <!-- charts:headline:start -->
@@ -17,6 +27,8 @@ If you see an issue with the benchmarks or would like to add any, please open an
       <p><em>Three parity-gated pages on loopback HTTP, one core per engine. <a href="http-capacity.md#canonical-pages-over-http-one-core-each">Details</a> · <a href="charts/svg/08-canonical-pages-http.svg">Full size</a> · <a href="charts/">how the figures are built</a></em></p>
       <!-- charts:headline:end -->
     </td>
+  </tr>
+  <tr>
     <td valign="top" width="50%">
       <h3 id="suspense-streaming-over-http-one-core-each">Streaming the product grid through Suspense</h3>
       <p>Single-core Suspense streaming with eight async boundaries per request.</p>
@@ -27,8 +39,6 @@ If you see an issue with the benchmarks or would like to add any, please open an
       <p><em>Throughput sweep with queueing markers (P50/P95/P99 + memory) at each rate. <a href="http-capacity.md#suspense-streaming-over-http-one-core-each">Details</a> · <a href="charts/svg/07-suspense-load.svg">Full size</a> · <a href="charts/">how the figures are built</a></em></p>
       <!-- charts:suspense:end -->
     </td>
-  </tr>
-  <tr>
     <td valign="top" width="50%">
       <h3 id="cold-start-to-first-response">Cold start to first response</h3>
       <p>Startup latency from process creation to first byte-identical response.</p>
@@ -38,16 +48,6 @@ If you see an issue with the benchmarks or would like to add any, please open an
       </a>
       <p><em>Median, P95, and worst-start across 15 fresh processes. <a href="http-capacity.md#cold-start-to-first-response">Details</a> · <a href="charts/svg/09-cold-start.svg">Full size</a> · <a href="charts/">how the figures are built</a></em></p>
       <!-- charts:coldstart:end -->
-    </td>
-    <td valign="top" width="50%">
-      <h3 id="rendering-the-same-pages-in-seventeen-renderers">Rendering the same pages in seventeen renderers</h3>
-      <p>Renderer-only benchmark across three canonical pages: component, table, and product grid.</p>
-      <!-- charts:scoreboard:start -->
-      <a href="charts/svg/01-canonical-scoreboard.svg">
-        <img width="100%" alt="Dot plot of seventeen renderers across three workloads, on a logarithmic axis of render time relative to Proa" src="charts/svg/01-canonical-scoreboard.svg">
-      </a>
-      <p><em>Seventeen renderers, one-core P50 multiples on log scale. <a href="scoreboard.md">Details</a> · <a href="charts/svg/01-canonical-scoreboard.svg">Full size</a> · <a href="charts/">how the figures are built</a></em></p>
-      <!-- charts:scoreboard:end -->
     </td>
   </tr>
   <tr>
