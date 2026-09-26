@@ -7,7 +7,7 @@ If you see an issue with the benchmarks or would like to add any, please open an
 <!-- Keep this HTML table free of blank lines so GitHub renders it as one block. -->
 <table>
   <tr>
-    <td valign="top" width="50%">
+    <td colspan="2" valign="top" width="100%">
       <h3 id="rendering-the-same-pages-in-seventeen-renderers">Rendering the same pages in seventeen renderers</h3>
       <p>Renderer-only benchmark across three canonical pages: component, table, and product grid.</p>
       <!-- charts:scoreboard:start -->
@@ -17,6 +17,8 @@ If you see an issue with the benchmarks or would like to add any, please open an
       <p><em>Seventeen renderers, one-core P50 multiples on log scale. <a href="scoreboard.md">Details</a> · <a href="charts/svg/01-canonical-scoreboard.svg">Full size</a> · <a href="charts/">how the figures are built</a></em></p>
       <!-- charts:scoreboard:end -->
     </td>
+  </tr>
+  <tr>
     <td valign="top" width="50%">
       <h3 id="serving-three-pages-on-one-core">Serving three pages on one core</h3>
       <p>Three sample pages, one core each: throughput at saturation, latency at a fixed request rate.</p>
@@ -26,40 +28,6 @@ If you see an issue with the benchmarks or would like to add any, please open an
       </a>
       <p><em>Three parity-gated pages on loopback HTTP, one core per engine. <a href="http-capacity.md#canonical-pages-over-http-one-core-each">Details</a> · <a href="charts/svg/08-canonical-pages-http.svg">Full size</a> · <a href="charts/">how the figures are built</a></em></p>
       <!-- charts:headline:end -->
-    </td>
-  </tr>
-  <tr>
-    <td valign="top" width="50%">
-      <h3 id="suspense-streaming-over-http-one-core-each">Streaming the product grid through Suspense</h3>
-      <p>Single-core Suspense streaming with eight async boundaries per request.</p>
-      <!-- charts:suspense:start -->
-      <a href="charts/svg/07-suspense-load.svg">
-        <img width="100%" alt="Responses completed per second, latency distribution and peak memory for Proa, Marko and React streaming the product grid through Suspense over HTTP on one core" src="charts/svg/07-suspense-load.svg">
-      </a>
-      <p><em>Throughput sweep with queueing markers (P50/P95/P99 + memory) at each rate. <a href="http-capacity.md#suspense-streaming-over-http-one-core-each">Details</a> · <a href="charts/svg/07-suspense-load.svg">Full size</a> · <a href="charts/">how the figures are built</a></em></p>
-      <!-- charts:suspense:end -->
-    </td>
-    <td valign="top" width="50%">
-      <h3 id="cold-start-to-first-response">Cold start to first response</h3>
-      <p>Startup latency from process creation to first byte-identical response.</p>
-      <!-- charts:coldstart:start -->
-      <a href="charts/svg/09-cold-start.svg">
-        <img width="100%" alt="Median, P95 and slowest time from process spawn to first complete product-grid response for Proa, React, Marko and Go html/template, with RSS after the first response" src="charts/svg/09-cold-start.svg">
-      </a>
-      <p><em>Median, P95, and worst-start across 15 fresh processes. <a href="http-capacity.md#cold-start-to-first-response">Details</a> · <a href="charts/svg/09-cold-start.svg">Full size</a> · <a href="charts/">how the figures are built</a></em></p>
-      <!-- charts:coldstart:end -->
-    </td>
-  </tr>
-  <tr>
-    <td valign="top" width="50%">
-      <h3 id="canonical-tails-on-one-core">Canonical latency tails on one core</h3>
-      <p>Single-core P50 and P95 for the same three canonical workloads.</p>
-      <!-- charts:canonical-tail-dispersion:start -->
-      <a href="charts/svg/02-canonical-tail-dispersion.svg">
-        <img width="100%" alt="P50 and P95 render-latency spread for seventeen renderers on three workloads, one core" src="charts/svg/02-canonical-tail-dispersion.svg">
-      </a>
-      <p><em>Tail spread with heavy-tail markers on three workloads. <a href="scoreboard.md#detailed-measurements">Details</a> · <a href="charts/svg/02-canonical-tail-dispersion.svg">Full size</a> · <a href="charts/">how the figures are built</a></em></p>
-      <!-- charts:canonical-tail-dispersion:end -->
     </td>
     <td valign="top" width="50%">
       <h3 id="render-time-vs-memcpy-on-one-core">Render time vs memcpy on one core</h3>
@@ -74,6 +42,28 @@ If you see an issue with the benchmarks or would like to add any, please open an
   </tr>
   <tr>
     <td valign="top" width="50%">
+      <h3 id="suspense-streaming-over-http-one-core-each">Streaming the product grid through Suspense</h3>
+      <p>Single-core Suspense streaming with eight async boundaries per request.</p>
+      <!-- charts:suspense:start -->
+      <a href="charts/svg/07-suspense-load.svg">
+        <img width="100%" alt="Responses completed per second, latency distribution and peak memory for Proa, Marko and React streaming the product grid through Suspense over HTTP on one core" src="charts/svg/07-suspense-load.svg">
+      </a>
+      <p><em>Throughput sweep with queueing markers (P50/P95/P99 + memory) at each rate. <a href="http-capacity.md#suspense-streaming-over-http-one-core-each">Details</a> · <a href="charts/svg/07-suspense-load.svg">Full size</a> · <a href="charts/">how the figures are built</a></em></p>
+      <!-- charts:suspense:end -->
+    </td>
+    <td valign="top" width="50%">
+      <h3 id="canonical-tails-on-one-core">Canonical latency tails on one core</h3>
+      <p>Single-core P50 and P95 for the same three canonical workloads.</p>
+      <!-- charts:canonical-tail-dispersion:start -->
+      <a href="charts/svg/02-canonical-tail-dispersion.svg">
+        <img width="100%" alt="P50 and P95 render-latency spread for seventeen renderers on three workloads, one core" src="charts/svg/02-canonical-tail-dispersion.svg">
+      </a>
+      <p><em>Tail spread with heavy-tail markers on three workloads. <a href="scoreboard.md#detailed-measurements">Details</a> · <a href="charts/svg/02-canonical-tail-dispersion.svg">Full size</a> · <a href="charts/">how the figures are built</a></em></p>
+      <!-- charts:canonical-tail-dispersion:end -->
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%">
       <h3 id="proa-linked-showcase-corpus">Proa linked showcase corpus</h3>
       <p>Proa-only linked pages: five runs each, with render range and size.</p>
       <!-- charts:showcase-corpus:start -->
@@ -83,7 +73,16 @@ If you see an issue with the benchmarks or would like to add any, please open an
       <p><em>Application-like page samples and stability notes. <a href="engineering.md#linked-proa_showcase-corpus">Details</a> · <a href="charts/svg/06-showcase-corpus.svg">Full size</a> · <a href="charts/">how the figures are built</a></em></p>
       <!-- charts:showcase-corpus:end -->
     </td>
-    <td valign="top" width="50%"></td>
+    <td valign="top" width="50%">
+      <h3 id="cold-start-to-first-response">Cold start to first response</h3>
+      <p>Startup latency from process creation to first byte-identical response.</p>
+      <!-- charts:coldstart:start -->
+      <a href="charts/svg/09-cold-start.svg">
+        <img width="100%" alt="Median, P95 and slowest time from process spawn to first complete product-grid response for Proa, React, Marko and Go html/template, with RSS after the first response" src="charts/svg/09-cold-start.svg">
+      </a>
+      <p><em>Median, P95, and worst-start across 15 fresh processes. <a href="http-capacity.md#cold-start-to-first-response">Details</a> · <a href="charts/svg/09-cold-start.svg">Full size</a> · <a href="charts/">how the figures are built</a></em></p>
+      <!-- charts:coldstart:end -->
+    </td>
   </tr>
 </table>
 
