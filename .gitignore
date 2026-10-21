@@ -1,8 +1,8 @@
-node_modules
+node_modules/
 .venv/
 __pycache__/
 *.py[cod]
-target
+target/
 rendering/external/go/build/
 rendering/external/marko/build/
 rendering/external/sveltekit/build/

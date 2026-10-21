@@ -163,20 +163,19 @@ export function suspenseLoad(tables, meta) {
   // Native SvelteKit sends promised data rather than resolved boundary HTML.
   // Keep the independently captured sweep in its own section and show errors
   // beside latency: successful-response percentiles are censored at overload.
-  const kitTable = pick(tables, ['Variant', 'Offered rps', 'Response ends/s', 'First byte P50'], {
+  const kitTable = pick(tables, ['Framework', 'Offered rps', 'Response ends/s', 'First byte P50'], {
     heading: 'HTTP streaming capacity and latency',
   });
   const kitRows = kitTable.objs.map((row) => ({
-    engine: row.Variant,
+    engine: row.Framework,
     rate: num(row['Offered rps']),
     throughput: num(row['Response ends/s']),
     p95Ms: toUs(row['Response end P95']) / 1000,
     errors: num(row.Errors),
   }));
   const kitColors = {
-    'Proa HTML stream': C.proa,
-    'SvelteKit data stream': C.peer,
-    'SvelteKit buffered HTML': C.alt,
+    Proa: C.proa,
+    SvelteKit: C.peer,
   };
   const kitTop = latTop + latH + 62;
   body += rule(PAD, kitTop - 24, WIDTH - PAD, kitTop - 24, C.rule);
