@@ -13,6 +13,7 @@ export const ENGINES = Object.freeze([
   Object.freeze({ id: "react", label: "React", language: "JavaScript", server: "node:http" }),
   Object.freeze({ id: "marko", label: "Marko", language: "JavaScript", server: "node:http" }),
   Object.freeze({ id: "go-html-template", label: "Go html/template", language: "Go", server: "net/http" }),
+  Object.freeze({ id: "sveltekit", label: "SvelteKit", language: "JavaScript", server: "adapter-node" }),
 ]);
 
 export const PUBLICATION = Object.freeze({

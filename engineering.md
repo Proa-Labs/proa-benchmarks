@@ -5,7 +5,7 @@ These captures answer narrower questions than the scoreboard, and each states it
 <!-- product-scaling:start -->
 ## Product-grid scaling capture
 
-This September 7, 2026 UTC engineering capture repeats the canonical product-grid
+This October 21, 2026 UTC engineering capture repeats the canonical product-grid
 contract at 12, 96, and 768 cards. Every value includes component/template
 execution and a fresh independently owned response; deterministic input
 construction remains outside timing. All 51 renderer/size cells passed the same
@@ -15,29 +15,29 @@ renders per process respectively.
 
 | Renderer | 12 cards P50 | 96 cards P50 | 768 cards P50 |
 | --- | ---: | ---: | ---: |
-| Proa | 2.834 µs | 23.333 µs | 196.271 µs |
-| Marko | 10.666 µs | 78.063 µs | 568.750 µs |
-| React | 46.334 µs | 380.312 µs | 3.112 ms |
-| Vue | 10.875 µs | 75.708 µs | 613.938 µs |
-| Svelte | 10.583 µs | 79.208 µs | 535.021 µs |
-| Rails | 60.000 µs | 387.000 µs | 3.014 ms |
-| jte | 29.000 µs | 208.563 µs | 1.758 ms |
-| Rocker | 39.916 µs | 323.334 µs | 2.737 ms |
-| Handlebars | 25.166 µs | 196.187 µs | 1.567 ms |
-| Go html/template | 70.792 µs | 606.833 µs | 5.008 ms |
-| Jinja2 | 150.291 µs | 1.188 ms | 9.842 ms |
-| PHP | 10.417 µs | 81.020 µs | 871.875 µs |
-| Askama | 3.125 µs | 21.250 µs | 285.875 µs |
-| Sailfish | 2.709 µs | 23.542 µs | 188.771 µs |
-| Leptos | 25.417 µs | 204.500 µs | 1.661 ms |
-| Dioxus | 39.875 µs | 290.625 µs | 2.257 ms |
-| Topcoat | 17.292 µs | 143.750 µs | 1.180 ms |
+| Proa | 3.208 µs | 26.417 µs | 214.854 µs |
+| Marko | 12.188 µs | 87.855 µs | 587.188 µs |
+| React | 47.291 µs | 403.083 µs | 3.391 ms |
+| Vue | 12.375 µs | 84.480 µs | 650.021 µs |
+| Svelte | 9.292 µs | 71.042 µs | 563.542 µs |
+| Rails | 65.000 µs | 407.000 µs | 3.136 ms |
+| jte | 29.959 µs | 227.604 µs | 1.866 ms |
+| Rocker | 44.416 µs | 362.167 µs | 3.222 ms |
+| Handlebars | 27.000 µs | 204.375 µs | 1.629 ms |
+| Go html/template | 80.792 µs | 668.688 µs | 5.507 ms |
+| Jinja2 | 162.291 µs | 1.259 ms | 10.380 ms |
+| PHP | 11.417 µs | 86.042 µs | 967.563 µs |
+| Askama | 3.417 µs | 22.563 µs | 330.125 µs |
+| Sailfish | 3.208 µs | 24.292 µs | 197.980 µs |
+| Leptos | 28.625 µs | 213.396 µs | 1.694 ms |
+| Dioxus | 44.791 µs | 305.083 µs | 2.405 ms |
+| Topcoat | 18.750 µs | 150.541 µs | 1.229 ms |
 
 The 96-card column is an independent engineering capture, not a replacement
 for the canonical result. Reproduce the matrix with
 `./rendering/run-all --product-scaling`; the retained summary and per-process
 measurements are in [`rendering/results/product-scaling.json`](rendering/results/product-scaling.json)
-and [its raw process artifact](rendering/results/raw/product-scaling-v1-2026-09-07-3e9dba799481/process-summaries.json).
+and [its raw process artifact](rendering/results/raw/product-scaling-v1-2026-10-21-77c5c5fce085/process-summaries.json).
 <!-- product-scaling:end -->
 
 [![Full fresh-response render scaling for seventeen frameworks across twelve, ninety-six and 768 product cards](charts/svg/05-product-card-scaling.svg)](charts/svg/05-product-card-scaling.svg)
@@ -92,7 +92,7 @@ See [reproduction instructions](showcase/README.md#memcpy-floor).
 
 | Buffer capture | Date (UTC) | Proa revision |
 | --- | --- | --- |
-| 14 workloads · five processes per cell | 2026-09-07 | `9f8a8fa9bde1` |
+| 14 workloads · five processes per cell | 2026-10-21 | `9f8a8fa9bde1` |
 
 Standard Proa uses its 4 KiB chained writer. The full-size variant allocates a
 fresh contiguous output buffer for every render, with capacity set to the final
@@ -102,20 +102,20 @@ Memcpy copies the same HTML into a warmed reusable buffer with allocation exclud
 
 | Buffer comparison workload | Output bytes | Default P50 µs [min–max] | Full-size P50 µs [min–max] | Copy P50 µs [min–max] | Default / copy | Full-size / copy | Speedup |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Cards | 25,108 | 1.917 [1.917–1.959] | 1.167 [1.167–1.208] | 0.209 [0.205–0.303] | 9.16× | 5.57× | 1.64× |
-| 96-product grid | 284,908 | 24.834 [24.708–25.084] | 15.625 [15.417–15.750] | 3.332 [3.331–3.333] | 7.45× | 4.69× | 1.59× |
-| 1,000-row table | 988,509 | 238.875 [237.250–240.959] | 263.958 [261.834–268.292] | 11.488 [11.485–11.488] | 20.79× | 22.98× | 0.90× |
-| Airbnb home | 162,800 | 13.083 [12.917–13.125] | 6.709 [6.667–6.833] | 1.919 [1.918–1.920] | 6.82× | 3.50× | 1.95× |
-| Airbnb search | 49,913 | 3.375 [3.334–3.416] | 1.792 [1.750–2.000] | 0.445 [0.409–0.483] | 7.58× | 4.03× | 1.88× |
-| Airbnb listing | 95,588 | 17.208 [17.084–17.292] | 13.875 [13.792–14.125] | 0.768 [0.766–0.771] | 22.40× | 18.06× | 1.24× |
-| Nike catalog | 128,211 | 19.584 [19.417–19.667] | 14.292 [14.167–14.542] | 1.026 [1.025–1.034] | 19.08× | 13.92× | 1.37× |
-| Nike product | 58,959 | 5.083 [5.000–5.083] | 2.958 [2.833–3.084] | 0.479 [0.477–0.686] | 10.62× | 6.18× | 1.72× |
-| eBay cards | 240,785 | 35.125 [34.959–35.167] | 31.875 [31.500–32.917] | 2.819 [2.818–2.824] | 12.46× | 11.31× | 1.10× |
-| eBay chrome | 522,876 | 47.791 [47.667–48.500] | 31.750 [31.667–32.792] | 6.093 [6.092–6.095] | 7.84× | 5.21× | 1.51× |
-| eBay real chrome | 794,776 | 60.584 [60.458–60.792] | 32.584 [32.417–33.292] | 9.242 [9.241–9.242] | 6.56× | 3.53× | 1.86× |
-| ESPN game page | 33,618 | 8.042 [7.917–8.167] | 8.292 [8.125–8.375] | 0.275 [0.275–0.276] | 29.20× | 30.11× | 0.97× |
-| Sentry OTel, 400 rows | 875,334 | 132.375 [131.584–136.625] | 148.750 [146.916–150.500] | 10.175 [10.175–10.175] | 13.01× | 14.62× | 0.89× |
-| Settings console | 7,860 | 2.917 [2.833–3.000] | 2.833 [2.708–2.833] | 0.074 [0.072–0.079] | 39.47× | 38.33× | 1.03× |
+| Cards | 25,108 | 1.958 [1.917–2.000] | 1.167 [1.166–1.208] | 0.211 [0.209–0.211] | 9.30× | 5.54× | 1.68× |
+| 96-product grid | 284,908 | 25.000 [24.917–25.750] | 15.458 [15.333–15.459] | 3.331 [3.331–3.331] | 7.51× | 4.64× | 1.62× |
+| 1,000-row table | 988,509 | 240.708 [237.834–241.167] | 270.250 [267.458–274.916] | 11.490 [11.490–11.490] | 20.95× | 23.52× | 0.89× |
+| Airbnb home | 162,800 | 13.041 [13.000–13.084] | 6.750 [6.708–6.833] | 1.919 [1.919–1.919] | 6.80× | 3.52× | 1.93× |
+| Airbnb search | 49,913 | 3.458 [3.458–3.500] | 1.875 [1.833–2.000] | 0.424 [0.408–0.438] | 8.16× | 4.42× | 1.84× |
+| Airbnb listing | 95,588 | 17.375 [17.208–17.417] | 13.958 [13.875–14.000] | 0.766 [0.763–0.771] | 22.69× | 18.23× | 1.24× |
+| Nike catalog | 128,211 | 19.375 [19.375–19.750] | 14.208 [14.084–14.458] | 1.030 [1.028–1.035] | 18.82× | 13.80× | 1.36× |
+| Nike product | 58,959 | 5.167 [5.083–5.209] | 2.916 [2.875–3.000] | 0.480 [0.479–0.504] | 10.76× | 6.07× | 1.77× |
+| eBay cards | 240,785 | 35.292 [34.959–35.333] | 31.917 [31.458–32.083] | 2.820 [2.819–2.837] | 12.52× | 11.32× | 1.11× |
+| eBay chrome | 522,876 | 48.083 [48.000–48.125] | 31.708 [31.542–32.542] | 6.095 [6.093–6.095] | 7.89× | 5.20× | 1.52× |
+| eBay real chrome | 794,776 | 61.041 [60.792–61.042] | 33.042 [32.792–33.458] | 9.242 [9.242–9.244] | 6.60× | 3.58× | 1.85× |
+| ESPN game page | 33,618 | 8.084 [7.833–8.250] | 8.250 [8.166–8.375] | 0.277 [0.274–0.277] | 29.22× | 29.82× | 0.98× |
+| Sentry OTel, 400 rows | 875,334 | 134.834 [132.458–136.292] | 149.667 [145.916–154.209] | 10.177 [10.177–10.185] | 13.25× | 14.71× | 0.90× |
+| Settings console | 7,860 | 2.917 [2.916–3.042] | 2.833 [2.750–2.875] | 0.077 [0.074–0.079] | 37.99× | 36.90× | 1.03× |
 
 Cells run in seeded randomized blocks, with five fresh processes per workload
 and mode. Values are medians of process P50s; ranges show their min–max.

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "benchmark_version": "proa-buffers-v1",
   "status": "pass",
-  "captured_at": "2026-09-07T07:03:56.741Z",
+  "captured_at": "2026-10-21T02:08:34.148Z",
   "configuration": {
     "repeats": 5,
     "seed": 8405027,
@@ -10,10 +10,10 @@
   },
   "provenance": {
     "proa_revision": "9f8a8fa9bde157ce66f20b9dc31cb7c35930a459",
-    "core_sources_sha256": "3e9dba7994812badfb1df28fa70624c954594adc926c8c494475a0b613eff4f5",
+    "core_sources_sha256": "77c5c5fce085f658cebcadc649c908b13243b0590cfe0ab214db365bcc70dd2d",
     "binary": {
       "path": "fixtures/proa-buffer-comparison/target/buffer-bench",
-      "sha256": "fc123a3297a4d26c9e4090a936ec613249385a6e375e9bf2eddf8bd706584bce"
+      "sha256": "d0a6b163e0663a03d3c0904cbea2c0b02a816a01f751fe4c506ead0b7433ed35"
     },
     "inputs": [
       {
@@ -72,299 +72,299 @@
       "label": "Cards",
       "output_bytes": 25108,
       "render": {
-        "p50_us": 1.917,
+        "p50_us": 1.958,
         "min_us": 1.917,
-        "max_us": 1.959
+        "max_us": 2
       },
       "preallocated": {
         "p50_us": 1.167,
-        "min_us": 1.167,
+        "min_us": 1.166,
         "max_us": 1.208
       },
       "memcpy": {
-        "p50_us": 0.2093303437967115,
-        "min_us": 0.2045336322869955,
-        "max_us": 0.3028774289985052
+        "p50_us": 0.21057548579970103,
+        "min_us": 0.20876831091180867,
+        "max_us": 0.21126008968609866
       },
-      "render_over_copy": 9.157774096342527,
-      "preallocated_over_copy": 5.574920381028549,
-      "speedup": 1.6426735218508997
+      "render_over_copy": 9.298328305235138,
+      "preallocated_over_copy": 5.541955634427684,
+      "speedup": 1.6778063410454156
     },
     {
       "page": "core-products",
       "label": "96-product grid",
       "output_bytes": 284908,
       "render": {
-        "p50_us": 24.834,
-        "min_us": 24.708,
-        "max_us": 25.084
+        "p50_us": 25,
+        "min_us": 24.917,
+        "max_us": 25.75
       },
       "preallocated": {
-        "p50_us": 15.625,
-        "min_us": 15.417,
-        "max_us": 15.75
+        "p50_us": 15.458,
+        "min_us": 15.333,
+        "max_us": 15.459
       },
       "memcpy": {
-        "p50_us": 3.331915254237288,
-        "min_us": 3.3312033898305082,
-        "max_us": 3.3333389830508473
+        "p50_us": 3.330508474576271,
+        "min_us": 3.330508474576271,
+        "max_us": 3.3312033898305082
       },
-      "render_over_copy": 7.45337084081533,
-      "preallocated_over_copy": 4.689495022458707,
-      "speedup": 1.589376
+      "render_over_copy": 7.506361323155216,
+      "preallocated_over_copy": 4.641333333333334,
+      "speedup": 1.6172855479363437
     },
     {
       "page": "core-table",
       "label": "1,000-row table",
       "output_bytes": 988509,
       "render": {
-        "p50_us": 238.875,
-        "min_us": 237.25,
-        "max_us": 240.959
+        "p50_us": 240.708,
+        "min_us": 237.834,
+        "max_us": 241.167
       },
       "preallocated": {
-        "p50_us": 263.958,
-        "min_us": 261.834,
-        "max_us": 268.292
+        "p50_us": 270.25,
+        "min_us": 267.458,
+        "max_us": 274.916
       },
       "memcpy": {
-        "p50_us": 11.487764705882354,
-        "min_us": 11.485294117647058,
-        "max_us": 11.487764705882354
+        "p50_us": 11.490176470588235,
+        "min_us": 11.490176470588235,
+        "max_us": 11.490235294117648
       },
-      "render_over_copy": 20.793862523810496,
-      "preallocated_over_copy": 22.977316019089365,
-      "speedup": 0.904973518514309
+      "render_over_copy": 20.949025510282443,
+      "preallocated_over_copy": 23.520091331213877,
+      "speedup": 0.890686401480111
     },
     {
       "page": "airbnb-home",
       "label": "Airbnb home",
       "output_bytes": 162800,
       "render": {
-        "p50_us": 13.083,
-        "min_us": 12.917,
-        "max_us": 13.125
+        "p50_us": 13.041,
+        "min_us": 13,
+        "max_us": 13.084
       },
       "preallocated": {
-        "p50_us": 6.709,
-        "min_us": 6.667,
+        "p50_us": 6.75,
+        "min_us": 6.708,
         "max_us": 6.833
       },
       "memcpy": {
         "p50_us": 1.9190673076923077,
-        "min_us": 1.9182692307692308,
-        "max_us": 1.9198653846153846
+        "min_us": 1.9186730769230769,
+        "max_us": 1.9194711538461537
       },
-      "render_over_copy": 6.817374225259666,
-      "preallocated_over_copy": 3.4959690955642513,
-      "speedup": 1.9500670740795947
+      "render_over_copy": 6.795488593717902,
+      "preallocated_over_copy": 3.517333640640736,
+      "speedup": 1.9320000000000002
     },
     {
       "page": "airbnb-search",
       "label": "Airbnb search",
       "output_bytes": 49913,
       "render": {
-        "p50_us": 3.375,
-        "min_us": 3.334,
-        "max_us": 3.416
+        "p50_us": 3.458,
+        "min_us": 3.458,
+        "max_us": 3.5
       },
       "preallocated": {
-        "p50_us": 1.792,
-        "min_us": 1.75,
+        "p50_us": 1.875,
+        "min_us": 1.833,
         "max_us": 2
       },
       "memcpy": {
-        "p50_us": 0.44510385756676557,
-        "min_us": 0.40863204747774484,
-        "max_us": 0.48293768545994065
+        "p50_us": 0.4238367952522255,
+        "min_us": 0.4082581602373887,
+        "max_us": 0.43805637982195844
       },
-      "render_over_copy": 7.5825000000000005,
-      "preallocated_over_copy": 4.026026666666667,
-      "speedup": 1.8833705357142856
+      "render_over_copy": 8.158800837341511,
+      "preallocated_over_copy": 4.423872634475226,
+      "speedup": 1.8442666666666667
     },
     {
       "page": "airbnb-listing",
       "label": "Airbnb listing",
       "output_bytes": 95588,
       "render": {
-        "p50_us": 17.208,
-        "min_us": 17.084,
-        "max_us": 17.292
+        "p50_us": 17.375,
+        "min_us": 17.208,
+        "max_us": 17.417
       },
       "preallocated": {
-        "p50_us": 13.875,
-        "min_us": 13.792,
-        "max_us": 14.125
+        "p50_us": 13.958,
+        "min_us": 13.875,
+        "max_us": 14
       },
       "memcpy": {
-        "p50_us": 0.7682272727272728,
-        "min_us": 0.7660965909090909,
-        "max_us": 0.7705965909090909
+        "p50_us": 0.7658579545454546,
+        "min_us": 0.7627840909090909,
+        "max_us": 0.7708352272727272
       },
-      "render_over_copy": 22.399621324181997,
-      "preallocated_over_copy": 18.061061475652327,
-      "speedup": 1.240216216216216
+      "render_over_copy": 22.686974649642778,
+      "preallocated_over_copy": 18.22531177897634,
+      "speedup": 1.2448058461097578
     },
     {
       "page": "nike-catalog",
       "label": "Nike catalog",
       "output_bytes": 128211,
       "render": {
-        "p50_us": 19.584,
-        "min_us": 19.417,
-        "max_us": 19.667
+        "p50_us": 19.375,
+        "min_us": 19.375,
+        "max_us": 19.75
       },
       "preallocated": {
-        "p50_us": 14.292,
-        "min_us": 14.167,
-        "max_us": 14.542
+        "p50_us": 14.208,
+        "min_us": 14.084,
+        "max_us": 14.458
       },
       "memcpy": {
-        "p50_us": 1.0264045801526718,
-        "min_us": 1.0248091603053435,
-        "max_us": 1.0337175572519084
+        "p50_us": 1.0295801526717556,
+        "min_us": 1.0276717557251909,
+        "max_us": 1.0346717557251908
       },
-      "render_over_copy": 19.0801954499141,
-      "preallocated_over_copy": 13.924333811793929,
-      "speedup": 1.3702770780856424
+      "render_over_copy": 18.81835032437442,
+      "preallocated_over_copy": 13.79979981464319,
+      "speedup": 1.3636683558558558
     },
     {
       "page": "nike-product",
       "label": "Nike product",
       "output_bytes": 58959,
       "render": {
-        "p50_us": 5.083,
-        "min_us": 5,
-        "max_us": 5.083
+        "p50_us": 5.167,
+        "min_us": 5.083,
+        "max_us": 5.209
       },
       "preallocated": {
-        "p50_us": 2.958,
-        "min_us": 2.833,
-        "max_us": 3.084
+        "p50_us": 2.916,
+        "min_us": 2.875,
+        "max_us": 3
       },
       "memcpy": {
-        "p50_us": 0.4786561403508772,
-        "min_us": 0.47675438596491226,
-        "max_us": 0.6858175438596491
+        "p50_us": 0.4804070175438596,
+        "min_us": 0.4789473684210526,
+        "max_us": 0.5040912280701755
       },
-      "render_over_copy": 10.619314308334005,
-      "preallocated_over_copy": 6.179801637625809,
-      "speedup": 1.718390804597701
+      "render_over_copy": 10.755463203716147,
+      "preallocated_over_copy": 6.069853048584534,
+      "speedup": 1.7719478737997256
     },
     {
       "page": "ebay-cards",
       "label": "eBay cards",
       "output_bytes": 240785,
       "render": {
-        "p50_us": 35.125,
+        "p50_us": 35.292,
         "min_us": 34.959,
-        "max_us": 35.167
+        "max_us": 35.333
       },
       "preallocated": {
-        "p50_us": 31.875,
-        "min_us": 31.5,
-        "max_us": 32.917
+        "p50_us": 31.917,
+        "min_us": 31.458,
+        "max_us": 32.083
       },
       "memcpy": {
-        "p50_us": 2.819057142857143,
-        "min_us": 2.818457142857143,
-        "max_us": 2.8238142857142856
+        "p50_us": 2.819642857142857,
+        "min_us": 2.819057142857143,
+        "max_us": 2.8375
       },
-      "render_over_copy": 12.459839662703843,
-      "preallocated_over_copy": 11.306971935905622,
-      "speedup": 1.1019607843137256
+      "render_over_copy": 12.516478784040533,
+      "preallocated_over_copy": 11.319518682710576,
+      "speedup": 1.1057430209606165
     },
     {
       "page": "ebay-chrome",
       "label": "eBay chrome",
       "output_bytes": 522876,
       "render": {
-        "p50_us": 47.791,
-        "min_us": 47.667,
-        "max_us": 48.5
+        "p50_us": 48.083,
+        "min_us": 48,
+        "max_us": 48.125
       },
       "preallocated": {
-        "p50_us": 31.75,
-        "min_us": 31.667,
-        "max_us": 32.792
+        "p50_us": 31.708,
+        "min_us": 31.542,
+        "max_us": 32.542
       },
       "memcpy": {
-        "p50_us": 6.093424242424242,
-        "min_us": 6.092181818181818,
+        "p50_us": 6.09469696969697,
+        "min_us": 6.093424242424242,
         "max_us": 6.09469696969697
       },
-      "render_over_copy": 7.843044911802589,
-      "preallocated_over_copy": 5.210534953228269,
-      "speedup": 1.505228346456693
+      "render_over_copy": 7.889317588564325,
+      "preallocated_over_copy": 5.20255562461156,
+      "speedup": 1.5164311845591019
     },
     {
       "page": "ebay-real-chrome",
       "label": "eBay real chrome",
       "output_bytes": 794776,
       "render": {
-        "p50_us": 60.584,
-        "min_us": 60.458,
-        "max_us": 60.792
+        "p50_us": 61.041,
+        "min_us": 60.792,
+        "max_us": 61.042
       },
       "preallocated": {
-        "p50_us": 32.584,
-        "min_us": 32.417,
-        "max_us": 33.292
+        "p50_us": 33.042,
+        "min_us": 32.792,
+        "max_us": 33.458
       },
       "memcpy": {
-        "p50_us": 9.24240909090909,
-        "min_us": 9.240545454545455,
-        "max_us": 9.242454545454546
+        "p50_us": 9.242454545454546,
+        "min_us": 9.24240909090909,
+        "max_us": 9.244318181818182
       },
-      "render_over_copy": 6.555000909837558,
-      "preallocated_over_copy": 3.5254877467012244,
-      "speedup": 1.859317456420329
+      "render_over_copy": 6.604414411756026,
+      "preallocated_over_copy": 3.575024344182478,
+      "speedup": 1.847376066824042
     },
     {
       "page": "espn",
       "label": "ESPN game page",
       "output_bytes": 33618,
       "render": {
-        "p50_us": 8.042,
-        "min_us": 7.917,
-        "max_us": 8.167
+        "p50_us": 8.084,
+        "min_us": 7.833,
+        "max_us": 8.25
       },
       "preallocated": {
-        "p50_us": 8.292,
-        "min_us": 8.125,
+        "p50_us": 8.25,
+        "min_us": 8.166,
         "max_us": 8.375
       },
       "memcpy": {
-        "p50_us": 0.275416,
-        "min_us": 0.275082,
-        "max_us": 0.27625
+        "p50_us": 0.276666,
+        "min_us": 0.274332,
+        "max_us": 0.277168
       },
-      "render_over_copy": 29.199465535771342,
-      "preallocated_over_copy": 30.107183315421036,
-      "speedup": 0.9698504582730343
+      "render_over_copy": 29.219347516500036,
+      "preallocated_over_copy": 29.819348962286654,
+      "speedup": 0.9798787878787878
     },
     {
       "page": "sentry-otel",
       "label": "Sentry OTel, 400 rows",
       "output_bytes": 875334,
       "render": {
-        "p50_us": 132.375,
-        "min_us": 131.584,
-        "max_us": 136.625
+        "p50_us": 134.834,
+        "min_us": 132.458,
+        "max_us": 136.292
       },
       "preallocated": {
-        "p50_us": 148.75,
-        "min_us": 146.916,
-        "max_us": 150.5
+        "p50_us": 149.667,
+        "min_us": 145.916,
+        "max_us": 154.209
       },
       "memcpy": {
-        "p50_us": 10.175,
-        "min_us": 10.175,
-        "max_us": 10.175
+        "p50_us": 10.1771,
+        "min_us": 10.17705,
+        "max_us": 10.1854
       },
-      "render_over_copy": 13.00982800982801,
-      "preallocated_over_copy": 14.619164619164618,
-      "speedup": 0.8899159663865546
+      "render_over_copy": 13.248764382780951,
+      "preallocated_over_copy": 14.706252272258306,
+      "speedup": 0.9008933164959544
     },
     {
       "page": "settings-console",
@@ -372,21 +372,21 @@
       "output_bytes": 7860,
       "render": {
         "p50_us": 2.917,
-        "min_us": 2.833,
-        "max_us": 3
+        "min_us": 2.916,
+        "max_us": 3.042
       },
       "preallocated": {
         "p50_us": 2.833,
-        "min_us": 2.708,
-        "max_us": 2.833
+        "min_us": 2.75,
+        "max_us": 2.875
       },
       "memcpy": {
-        "p50_us": 0.07390679156908665,
-        "min_us": 0.07213114754098361,
-        "max_us": 0.07886416861826698
+        "p50_us": 0.07677611241217798,
+        "min_us": 0.07408290398126464,
+        "max_us": 0.07933255269320844
       },
-      "render_over_copy": 39.46863255825744,
-      "preallocated_over_copy": 38.33206583391955,
+      "render_over_copy": 37.99358821842762,
+      "preallocated_over_copy": 36.89949791662854,
       "speedup": 1.029650547123191
     }
   ],
@@ -405,7 +405,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 24.833
+      "p50_us": 25.209
     },
     {
       "repeat": 1,
@@ -421,7 +421,7 @@
       "parity_pass": true,
       "initial_capacity": 284908,
       "final_capacity": 284908,
-      "p50_us": 15.75
+      "p50_us": 15.417
     },
     {
       "repeat": 1,
@@ -437,7 +437,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 6.092181818181818
+      "p50_us": 6.093454545454546
     },
     {
       "repeat": 1,
@@ -453,7 +453,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 60.542
+      "p50_us": 61.041
     },
     {
       "repeat": 1,
@@ -480,12 +480,12 @@
       "iterations": 2000,
       "operations_per_sample": 500,
       "output_bytes": 33618,
-      "output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
-      "canonical_output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
+      "output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
+      "canonical_output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.275082
+      "p50_us": 0.277168
     },
     {
       "repeat": 1,
@@ -501,7 +501,7 @@
       "parity_pass": true,
       "initial_capacity": 522876,
       "final_capacity": 522876,
-      "p50_us": 31.75
+      "p50_us": 32.542
     },
     {
       "repeat": 1,
@@ -528,12 +528,12 @@
       "iterations": 1000,
       "operations_per_sample": 1,
       "output_bytes": 875334,
-      "output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
-      "canonical_output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
+      "output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
+      "canonical_output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
       "parity_pass": true,
       "initial_capacity": 875334,
       "final_capacity": 875334,
-      "p50_us": 149.208
+      "p50_us": 149.583
     },
     {
       "repeat": 1,
@@ -544,12 +544,12 @@
       "iterations": 2000,
       "operations_per_sample": 176,
       "output_bytes": 95588,
-      "output_sha256": "7827dfa4224521b4abe07f35ea0a3db3644c6ed7673923e90c684c457d420b54",
-      "canonical_output_sha256": "146023c6010a782f92bd0ee90bbf11aaeeba8890eb6092e55373d8631f939a3f",
+      "output_sha256": "98794e3e8d19dc836d388e6e447ca7f5a7799c6c75a2c4c54b9c39b090f2c059",
+      "canonical_output_sha256": "5e19357afbd1bf3eb10e5012f2ecdd21bd0e8d4ece8a1700fdb4b663d10ae857",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.7660965909090909
+      "p50_us": 0.7632556818181818
     },
     {
       "repeat": 1,
@@ -565,7 +565,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.21076233183856502
+      "p50_us": 0.21119880418535128
     },
     {
       "repeat": 1,
@@ -581,7 +581,7 @@
       "parity_pass": true,
       "initial_capacity": 794776,
       "final_capacity": 794776,
-      "p50_us": 32.417
+      "p50_us": 32.792
     },
     {
       "repeat": 1,
@@ -597,7 +597,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 3.3312033898305082
+      "p50_us": 3.330508474576271
     },
     {
       "repeat": 1,
@@ -613,7 +613,7 @@
       "parity_pass": true,
       "initial_capacity": 128211,
       "final_capacity": 128211,
-      "p50_us": 14.167
+      "p50_us": 14.458
     },
     {
       "repeat": 1,
@@ -624,12 +624,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 33618,
-      "output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
-      "canonical_output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
+      "output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
+      "canonical_output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 8.041
+      "p50_us": 8.084
     },
     {
       "repeat": 1,
@@ -645,7 +645,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 5.042
+      "p50_us": 5.208
     },
     {
       "repeat": 1,
@@ -661,7 +661,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 11.487764705882354
+      "p50_us": 11.490176470588235
     },
     {
       "repeat": 1,
@@ -677,7 +677,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 3.375
+      "p50_us": 3.458
     },
     {
       "repeat": 1,
@@ -688,12 +688,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 7860,
-      "output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
-      "canonical_output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
+      "output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
+      "canonical_output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 3
+      "p50_us": 2.916
     },
     {
       "repeat": 1,
@@ -704,12 +704,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 95588,
-      "output_sha256": "d05550e3ac5e5d0cdb2820e6d4ce5b61a69c8198556318c4b41f8b88593d067f",
-      "canonical_output_sha256": "146023c6010a782f92bd0ee90bbf11aaeeba8890eb6092e55373d8631f939a3f",
+      "output_sha256": "83b98dea8057a9e4a4d50f9f12834191bd713e499b507ecb5bf08daafd1180d7",
+      "canonical_output_sha256": "5e19357afbd1bf3eb10e5012f2ecdd21bd0e8d4ece8a1700fdb4b663d10ae857",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 17.292
+      "p50_us": 17.417
     },
     {
       "repeat": 1,
@@ -720,12 +720,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 33618,
-      "output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
-      "canonical_output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
+      "output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
+      "canonical_output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
       "parity_pass": true,
       "initial_capacity": 33618,
       "final_capacity": 33618,
-      "p50_us": 8.125
+      "p50_us": 8.166
     },
     {
       "repeat": 1,
@@ -741,7 +741,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 237.917
+      "p50_us": 240.708
     },
     {
       "repeat": 1,
@@ -757,7 +757,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 12.917
+      "p50_us": 13.041
     },
     {
       "repeat": 1,
@@ -773,7 +773,7 @@
       "parity_pass": true,
       "initial_capacity": 162800,
       "final_capacity": 162800,
-      "p50_us": 6.667
+      "p50_us": 6.708
     },
     {
       "repeat": 1,
@@ -789,7 +789,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 1.0248091603053435
+      "p50_us": 1.0276717557251909
     },
     {
       "repeat": 1,
@@ -805,7 +805,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 2.819042857142857
+      "p50_us": 2.819642857142857
     },
     {
       "repeat": 1,
@@ -821,7 +821,7 @@
       "parity_pass": true,
       "initial_capacity": 58959,
       "final_capacity": 58959,
-      "p50_us": 2.958
+      "p50_us": 2.875
     },
     {
       "repeat": 1,
@@ -837,7 +837,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 1.917
+      "p50_us": 1.958
     },
     {
       "repeat": 1,
@@ -848,12 +848,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 95588,
-      "output_sha256": "a1ffa2ec16a5b205c1d602756b2b1124e753cdbea8cd2f0719922c1cdef39a44",
-      "canonical_output_sha256": "146023c6010a782f92bd0ee90bbf11aaeeba8890eb6092e55373d8631f939a3f",
+      "output_sha256": "8aa5f2b30ed9a21ae3a20117e906cabfa16e780f5a6e1cd05d0b4816d95169e1",
+      "canonical_output_sha256": "5e19357afbd1bf3eb10e5012f2ecdd21bd0e8d4ece8a1700fdb4b663d10ae857",
       "parity_pass": true,
       "initial_capacity": 95588,
       "final_capacity": 95588,
-      "p50_us": 13.792
+      "p50_us": 13.875
     },
     {
       "repeat": 1,
@@ -869,7 +869,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 19.417
+      "p50_us": 19.375
     },
     {
       "repeat": 1,
@@ -880,12 +880,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 7860,
-      "output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
-      "canonical_output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
+      "output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
+      "canonical_output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
       "parity_pass": true,
       "initial_capacity": 7860,
       "final_capacity": 7860,
-      "p50_us": 2.708
+      "p50_us": 2.75
     },
     {
       "repeat": 1,
@@ -896,12 +896,12 @@
       "iterations": 2000,
       "operations_per_sample": 2135,
       "output_bytes": 7860,
-      "output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
-      "canonical_output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
+      "output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
+      "canonical_output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.07886416861826698
+      "p50_us": 0.07470725995316159
     },
     {
       "repeat": 1,
@@ -917,7 +917,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 47.791
+      "p50_us": 48.083
     },
     {
       "repeat": 1,
@@ -933,7 +933,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.40863204747774484
+      "p50_us": 0.4202522255192878
     },
     {
       "repeat": 1,
@@ -944,12 +944,12 @@
       "iterations": 2000,
       "operations_per_sample": 20,
       "output_bytes": 875334,
-      "output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
-      "canonical_output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
+      "output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
+      "canonical_output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 10.175
+      "p50_us": 10.1771
     },
     {
       "repeat": 1,
@@ -960,12 +960,12 @@
       "iterations": 1000,
       "operations_per_sample": 1,
       "output_bytes": 875334,
-      "output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
-      "canonical_output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
+      "output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
+      "canonical_output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 132.375
+      "p50_us": 132.458
     },
     {
       "repeat": 1,
@@ -981,7 +981,7 @@
       "parity_pass": true,
       "initial_capacity": 240785,
       "final_capacity": 240785,
-      "p50_us": 31.875
+      "p50_us": 31.917
     },
     {
       "repeat": 1,
@@ -997,7 +997,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 35.084
+      "p50_us": 35.292
     },
     {
       "repeat": 1,
@@ -1013,7 +1013,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.47675438596491226
+      "p50_us": 0.4850877192982456
     },
     {
       "repeat": 1,
@@ -1029,7 +1029,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 1.9182692307692308
+      "p50_us": 1.9190769230769231
     },
     {
       "repeat": 1,
@@ -1045,7 +1045,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 9.242454545454546
+      "p50_us": 9.244318181818182
     },
     {
       "repeat": 1,
@@ -1061,7 +1061,7 @@
       "parity_pass": true,
       "initial_capacity": 988509,
       "final_capacity": 988509,
-      "p50_us": 262.625
+      "p50_us": 274.916
     },
     {
       "repeat": 2,
@@ -1077,7 +1077,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.4786561403508772
+      "p50_us": 0.4789473684210526
     },
     {
       "repeat": 2,
@@ -1093,7 +1093,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 5.083
+      "p50_us": 5.209
     },
     {
       "repeat": 2,
@@ -1104,12 +1104,12 @@
       "iterations": 2000,
       "operations_per_sample": 2135,
       "output_bytes": 7860,
-      "output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
-      "canonical_output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
+      "output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
+      "canonical_output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.07213114754098361
+      "p50_us": 0.07677611241217798
     },
     {
       "repeat": 2,
@@ -1125,7 +1125,7 @@
       "parity_pass": true,
       "initial_capacity": 522876,
       "final_capacity": 522876,
-      "p50_us": 31.75
+      "p50_us": 31.542
     },
     {
       "repeat": 2,
@@ -1141,7 +1141,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.48293768545994065
+      "p50_us": 0.4238367952522255
     },
     {
       "repeat": 2,
@@ -1157,7 +1157,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 35.166
+      "p50_us": 35.333
     },
     {
       "repeat": 2,
@@ -1173,7 +1173,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 1.9198653846153846
+      "p50_us": 1.9186730769230769
     },
     {
       "repeat": 2,
@@ -1189,7 +1189,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 48.5
+      "p50_us": 48.125
     },
     {
       "repeat": 2,
@@ -1200,12 +1200,12 @@
       "iterations": 2000,
       "operations_per_sample": 500,
       "output_bytes": 33618,
-      "output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
-      "canonical_output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
+      "output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
+      "canonical_output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.27525
+      "p50_us": 0.274332
     },
     {
       "repeat": 2,
@@ -1221,7 +1221,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 240.959
+      "p50_us": 237.834
     },
     {
       "repeat": 2,
@@ -1237,7 +1237,7 @@
       "parity_pass": true,
       "initial_capacity": 49913,
       "final_capacity": 49913,
-      "p50_us": 1.917
+      "p50_us": 1.833
     },
     {
       "repeat": 2,
@@ -1253,7 +1253,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 19.458
+      "p50_us": 19.75
     },
     {
       "repeat": 2,
@@ -1269,7 +1269,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 13.042
+      "p50_us": 13.084
     },
     {
       "repeat": 2,
@@ -1280,12 +1280,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 33618,
-      "output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
-      "canonical_output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
+      "output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
+      "canonical_output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 8.167
+      "p50_us": 8.125
     },
     {
       "repeat": 2,
@@ -1296,12 +1296,12 @@
       "iterations": 1000,
       "operations_per_sample": 1,
       "output_bytes": 875334,
-      "output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
-      "canonical_output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
+      "output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
+      "canonical_output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 131.584
+      "p50_us": 135.625
     },
     {
       "repeat": 2,
@@ -1317,7 +1317,7 @@
       "parity_pass": true,
       "initial_capacity": 284908,
       "final_capacity": 284908,
-      "p50_us": 15.417
+      "p50_us": 15.459
     },
     {
       "repeat": 2,
@@ -1328,12 +1328,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 95588,
-      "output_sha256": "9779f541729793fc33e2c7c95e5f85b60a3ac6559191fb9ce0473980014c6e49",
-      "canonical_output_sha256": "146023c6010a782f92bd0ee90bbf11aaeeba8890eb6092e55373d8631f939a3f",
+      "output_sha256": "0d10e6365068c9c0dd5b91208783f9e4a1056b86ac0fbdaf8caecc61811493e5",
+      "canonical_output_sha256": "5e19357afbd1bf3eb10e5012f2ecdd21bd0e8d4ece8a1700fdb4b663d10ae857",
       "parity_pass": true,
       "initial_capacity": 95588,
       "final_capacity": 95588,
-      "p50_us": 13.875
+      "p50_us": 13.958
     },
     {
       "repeat": 2,
@@ -1349,7 +1349,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 1.0248091603053435
+      "p50_us": 1.0346717557251908
     },
     {
       "repeat": 2,
@@ -1360,12 +1360,12 @@
       "iterations": 2000,
       "operations_per_sample": 176,
       "output_bytes": 95588,
-      "output_sha256": "2c24a36b32b584bc4d4a414d4e33cfe905c3f9435a5b0974400077c540533bb6",
-      "canonical_output_sha256": "146023c6010a782f92bd0ee90bbf11aaeeba8890eb6092e55373d8631f939a3f",
+      "output_sha256": "33f6667013289e4c310062c8fdfde3eff20df871b6deaf4a5a554837df818acd",
+      "canonical_output_sha256": "5e19357afbd1bf3eb10e5012f2ecdd21bd0e8d4ece8a1700fdb4b663d10ae857",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.7677556818181818
+      "p50_us": 0.7708352272727272
     },
     {
       "repeat": 2,
@@ -1381,7 +1381,7 @@
       "parity_pass": true,
       "initial_capacity": 240785,
       "final_capacity": 240785,
-      "p50_us": 31.875
+      "p50_us": 31.958
     },
     {
       "repeat": 2,
@@ -1397,7 +1397,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.3028774289985052
+      "p50_us": 0.20876831091180867
     },
     {
       "repeat": 2,
@@ -1413,7 +1413,7 @@
       "parity_pass": true,
       "initial_capacity": 128211,
       "final_capacity": 128211,
-      "p50_us": 14.292
+      "p50_us": 14.208
     },
     {
       "repeat": 2,
@@ -1429,7 +1429,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 6.093424242424242
+      "p50_us": 6.09469696969697
     },
     {
       "repeat": 2,
@@ -1445,7 +1445,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 1.958
+      "p50_us": 1.917
     },
     {
       "repeat": 2,
@@ -1461,7 +1461,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 3.375
+      "p50_us": 3.458
     },
     {
       "repeat": 2,
@@ -1472,12 +1472,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 7860,
-      "output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
-      "canonical_output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
+      "output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
+      "canonical_output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 2.958
+      "p50_us": 3
     },
     {
       "repeat": 2,
@@ -1493,7 +1493,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 24.958
+      "p50_us": 25
     },
     {
       "repeat": 2,
@@ -1509,7 +1509,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 60.792
+      "p50_us": 61.042
     },
     {
       "repeat": 2,
@@ -1520,12 +1520,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 95588,
-      "output_sha256": "c658ba21c96a1d1046f6b5194bc2514a2f3b7a865ff7b686d30f6035198bb87f",
-      "canonical_output_sha256": "146023c6010a782f92bd0ee90bbf11aaeeba8890eb6092e55373d8631f939a3f",
+      "output_sha256": "93bac38c59aac017ea3c3a79b9dfd9d88300c5f0d2900353ef8e84059640758f",
+      "canonical_output_sha256": "5e19357afbd1bf3eb10e5012f2ecdd21bd0e8d4ece8a1700fdb4b663d10ae857",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 17.166
+      "p50_us": 17.208
     },
     {
       "repeat": 2,
@@ -1541,7 +1541,7 @@
       "parity_pass": true,
       "initial_capacity": 162800,
       "final_capacity": 162800,
-      "p50_us": 6.667
+      "p50_us": 6.708
     },
     {
       "repeat": 2,
@@ -1552,12 +1552,12 @@
       "iterations": 1000,
       "operations_per_sample": 1,
       "output_bytes": 875334,
-      "output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
-      "canonical_output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
+      "output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
+      "canonical_output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
       "parity_pass": true,
       "initial_capacity": 875334,
       "final_capacity": 875334,
-      "p50_us": 150.5
+      "p50_us": 145.916
     },
     {
       "repeat": 2,
@@ -1568,12 +1568,12 @@
       "iterations": 2000,
       "operations_per_sample": 20,
       "output_bytes": 875334,
-      "output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
-      "canonical_output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
+      "output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
+      "canonical_output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 10.175
+      "p50_us": 10.17705
     },
     {
       "repeat": 2,
@@ -1584,12 +1584,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 33618,
-      "output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
-      "canonical_output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
+      "output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
+      "canonical_output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
       "parity_pass": true,
       "initial_capacity": 33618,
       "final_capacity": 33618,
-      "p50_us": 8.291
+      "p50_us": 8.25
     },
     {
       "repeat": 2,
@@ -1605,7 +1605,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 2.819057142857143
+      "p50_us": 2.819642857142857
     },
     {
       "repeat": 2,
@@ -1616,12 +1616,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 7860,
-      "output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
-      "canonical_output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
+      "output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
+      "canonical_output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
       "parity_pass": true,
       "initial_capacity": 7860,
       "final_capacity": 7860,
-      "p50_us": 2.833
+      "p50_us": 2.875
     },
     {
       "repeat": 2,
@@ -1637,7 +1637,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 11.485294117647058
+      "p50_us": 11.490176470588235
     },
     {
       "repeat": 2,
@@ -1653,7 +1653,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 3.332627118644068
+      "p50_us": 3.330508474576271
     },
     {
       "repeat": 2,
@@ -1669,7 +1669,7 @@
       "parity_pass": true,
       "initial_capacity": 25108,
       "final_capacity": 25108,
-      "p50_us": 1.167
+      "p50_us": 1.208
     },
     {
       "repeat": 2,
@@ -1685,7 +1685,7 @@
       "parity_pass": true,
       "initial_capacity": 988509,
       "final_capacity": 988509,
-      "p50_us": 265.75
+      "p50_us": 269.917
     },
     {
       "repeat": 2,
@@ -1701,7 +1701,7 @@
       "parity_pass": true,
       "initial_capacity": 58959,
       "final_capacity": 58959,
-      "p50_us": 3.084
+      "p50_us": 2.916
     },
     {
       "repeat": 2,
@@ -1733,7 +1733,7 @@
       "parity_pass": true,
       "initial_capacity": 794776,
       "final_capacity": 794776,
-      "p50_us": 33.292
+      "p50_us": 33.042
     },
     {
       "repeat": 3,
@@ -1749,7 +1749,7 @@
       "parity_pass": true,
       "initial_capacity": 25108,
       "final_capacity": 25108,
-      "p50_us": 1.208
+      "p50_us": 1.167
     },
     {
       "repeat": 3,
@@ -1765,7 +1765,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 47.667
+      "p50_us": 48
     },
     {
       "repeat": 3,
@@ -1781,7 +1781,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 5
+      "p50_us": 5.083
     },
     {
       "repeat": 3,
@@ -1797,7 +1797,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 3.416
+      "p50_us": 3.458
     },
     {
       "repeat": 3,
@@ -1813,7 +1813,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 1.917
+      "p50_us": 1.958
     },
     {
       "repeat": 3,
@@ -1829,7 +1829,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 19.625
+      "p50_us": 19.375
     },
     {
       "repeat": 3,
@@ -1845,7 +1845,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 11.487705882352941
+      "p50_us": 11.490176470588235
     },
     {
       "repeat": 3,
@@ -1861,7 +1861,7 @@
       "parity_pass": true,
       "initial_capacity": 240785,
       "final_capacity": 240785,
-      "p50_us": 32.292
+      "p50_us": 32.083
     },
     {
       "repeat": 3,
@@ -1877,7 +1877,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.6858175438596491
+      "p50_us": 0.4804070175438596
     },
     {
       "repeat": 3,
@@ -1893,7 +1893,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 237.25
+      "p50_us": 240.709
     },
     {
       "repeat": 3,
@@ -1909,7 +1909,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 25.084
+      "p50_us": 24.958
     },
     {
       "repeat": 3,
@@ -1925,7 +1925,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 3.331220338983051
+      "p50_us": 3.330508474576271
     },
     {
       "repeat": 3,
@@ -1941,7 +1941,7 @@
       "parity_pass": true,
       "initial_capacity": 988509,
       "final_capacity": 988509,
-      "p50_us": 261.834
+      "p50_us": 270.792
     },
     {
       "repeat": 3,
@@ -1957,7 +1957,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.20820926756352764
+      "p50_us": 0.2101390134529148
     },
     {
       "repeat": 3,
@@ -1973,7 +1973,7 @@
       "parity_pass": true,
       "initial_capacity": 58959,
       "final_capacity": 58959,
-      "p50_us": 2.833
+      "p50_us": 2.875
     },
     {
       "repeat": 3,
@@ -1984,12 +1984,12 @@
       "iterations": 2000,
       "operations_per_sample": 20,
       "output_bytes": 875334,
-      "output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
-      "canonical_output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
+      "output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
+      "canonical_output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 10.175
+      "p50_us": 10.1854
     },
     {
       "repeat": 3,
@@ -2037,7 +2037,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 35.125
+      "p50_us": 35.084
     },
     {
       "repeat": 3,
@@ -2048,12 +2048,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 95588,
-      "output_sha256": "6a4c6d0a21b87e6ed4b32ae62cf98dd9f323474e97a08867a37845db6adb8bd1",
-      "canonical_output_sha256": "146023c6010a782f92bd0ee90bbf11aaeeba8890eb6092e55373d8631f939a3f",
+      "output_sha256": "18edd28b8aaed5a8624b2d4e913dc91b8d0f87ad3d9d35241f62a3b9ee217292",
+      "canonical_output_sha256": "5e19357afbd1bf3eb10e5012f2ecdd21bd0e8d4ece8a1700fdb4b663d10ae857",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 17.084
+      "p50_us": 17.292
     },
     {
       "repeat": 3,
@@ -2064,12 +2064,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 33618,
-      "output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
-      "canonical_output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
+      "output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
+      "canonical_output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 8.042
+      "p50_us": 8.083
     },
     {
       "repeat": 3,
@@ -2085,7 +2085,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 2.818457142857143
+      "p50_us": 2.819057142857143
     },
     {
       "repeat": 3,
@@ -2101,7 +2101,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 6.093424242424242
+      "p50_us": 6.09469696969697
     },
     {
       "repeat": 3,
@@ -2117,7 +2117,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 1.9190673076923077
+      "p50_us": 1.9194711538461537
     },
     {
       "repeat": 3,
@@ -2128,12 +2128,12 @@
       "iterations": 2000,
       "operations_per_sample": 2135,
       "output_bytes": 7860,
-      "output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
-      "canonical_output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
+      "output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
+      "canonical_output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.07804449648711943
+      "p50_us": 0.07408290398126464
     },
     {
       "repeat": 3,
@@ -2144,12 +2144,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 7860,
-      "output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
-      "canonical_output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
+      "output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
+      "canonical_output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
       "parity_pass": true,
       "initial_capacity": 7860,
       "final_capacity": 7860,
-      "p50_us": 2.75
+      "p50_us": 2.833
     },
     {
       "repeat": 3,
@@ -2165,7 +2165,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 1.0264045801526718
+      "p50_us": 1.0295801526717556
     },
     {
       "repeat": 3,
@@ -2181,7 +2181,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 9.240545454545455
+      "p50_us": 9.244318181818182
     },
     {
       "repeat": 3,
@@ -2197,7 +2197,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.4792284866468843
+      "p50_us": 0.43805637982195844
     },
     {
       "repeat": 3,
@@ -2208,12 +2208,12 @@
       "iterations": 1000,
       "operations_per_sample": 1,
       "output_bytes": 875334,
-      "output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
-      "canonical_output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
+      "output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
+      "canonical_output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
       "parity_pass": true,
       "initial_capacity": 875334,
       "final_capacity": 875334,
-      "p50_us": 148.75
+      "p50_us": 151.041
     },
     {
       "repeat": 3,
@@ -2224,12 +2224,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 7860,
-      "output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
-      "canonical_output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
+      "output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
+      "canonical_output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 2.875
+      "p50_us": 2.917
     },
     {
       "repeat": 3,
@@ -2245,7 +2245,7 @@
       "parity_pass": true,
       "initial_capacity": 128211,
       "final_capacity": 128211,
-      "p50_us": 14.542
+      "p50_us": 14.084
     },
     {
       "repeat": 3,
@@ -2261,7 +2261,7 @@
       "parity_pass": true,
       "initial_capacity": 522876,
       "final_capacity": 522876,
-      "p50_us": 31.667
+      "p50_us": 31.542
     },
     {
       "repeat": 3,
@@ -2272,12 +2272,12 @@
       "iterations": 1000,
       "operations_per_sample": 1,
       "output_bytes": 875334,
-      "output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
-      "canonical_output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
+      "output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
+      "canonical_output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 132.25
+      "p50_us": 136.292
     },
     {
       "repeat": 3,
@@ -2293,7 +2293,7 @@
       "parity_pass": true,
       "initial_capacity": 284908,
       "final_capacity": 284908,
-      "p50_us": 15.417
+      "p50_us": 15.333
     },
     {
       "repeat": 3,
@@ -2304,8 +2304,8 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 33618,
-      "output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
-      "canonical_output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
+      "output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
+      "canonical_output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
       "parity_pass": true,
       "initial_capacity": 33618,
       "final_capacity": 33618,
@@ -2320,12 +2320,12 @@
       "iterations": 2000,
       "operations_per_sample": 500,
       "output_bytes": 33618,
-      "output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
-      "canonical_output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
+      "output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
+      "canonical_output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.27625
+      "p50_us": 0.276666
     },
     {
       "repeat": 3,
@@ -2341,7 +2341,7 @@
       "parity_pass": true,
       "initial_capacity": 794776,
       "final_capacity": 794776,
-      "p50_us": 32.875
+      "p50_us": 33
     },
     {
       "repeat": 3,
@@ -2357,7 +2357,7 @@
       "parity_pass": true,
       "initial_capacity": 49913,
       "final_capacity": 49913,
-      "p50_us": 1.792
+      "p50_us": 1.875
     },
     {
       "repeat": 3,
@@ -2368,12 +2368,12 @@
       "iterations": 2000,
       "operations_per_sample": 176,
       "output_bytes": 95588,
-      "output_sha256": "3b2b04502c966ef02b48182019d9d4f46f3547085017dede261104779553f0bc",
-      "canonical_output_sha256": "146023c6010a782f92bd0ee90bbf11aaeeba8890eb6092e55373d8631f939a3f",
+      "output_sha256": "c1662450ee606a4b98f8bc53ca08cfe9168906016233df1db3ff78659bc30a91",
+      "canonical_output_sha256": "5e19357afbd1bf3eb10e5012f2ecdd21bd0e8d4ece8a1700fdb4b663d10ae857",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.7682272727272728
+      "p50_us": 0.7691761363636364
     },
     {
       "repeat": 3,
@@ -2389,7 +2389,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 60.458
+      "p50_us": 60.792
     },
     {
       "repeat": 3,
@@ -2400,12 +2400,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 95588,
-      "output_sha256": "f945f5089d8d1d338d53d3d91b1e2221a4cc6425c55d6f838dc17941cc6aad77",
-      "canonical_output_sha256": "146023c6010a782f92bd0ee90bbf11aaeeba8890eb6092e55373d8631f939a3f",
+      "output_sha256": "a458d8d79aeb27c57624d4d95d599eac941b97e2ab1749fb2294a007d410d749",
+      "canonical_output_sha256": "5e19357afbd1bf3eb10e5012f2ecdd21bd0e8d4ece8a1700fdb4b663d10ae857",
       "parity_pass": true,
       "initial_capacity": 95588,
       "final_capacity": 95588,
-      "p50_us": 13.792
+      "p50_us": 13.917
     },
     {
       "repeat": 4,
@@ -2416,12 +2416,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 7860,
-      "output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
-      "canonical_output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
+      "output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
+      "canonical_output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 2.833
+      "p50_us": 3.042
     },
     {
       "repeat": 4,
@@ -2437,7 +2437,7 @@
       "parity_pass": true,
       "initial_capacity": 162800,
       "final_capacity": 162800,
-      "p50_us": 6.709
+      "p50_us": 6.75
     },
     {
       "repeat": 4,
@@ -2453,7 +2453,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.4287833827893175
+      "p50_us": 0.4358308605341246
     },
     {
       "repeat": 4,
@@ -2469,7 +2469,7 @@
       "parity_pass": true,
       "initial_capacity": 240785,
       "final_capacity": 240785,
-      "p50_us": 31.5
+      "p50_us": 31.583
     },
     {
       "repeat": 4,
@@ -2485,7 +2485,7 @@
       "parity_pass": true,
       "initial_capacity": 284908,
       "final_capacity": 284908,
-      "p50_us": 15.75
+      "p50_us": 15.458
     },
     {
       "repeat": 4,
@@ -2501,7 +2501,7 @@
       "parity_pass": true,
       "initial_capacity": 988509,
       "final_capacity": 988509,
-      "p50_us": 268.292
+      "p50_us": 267.458
     },
     {
       "repeat": 4,
@@ -2517,7 +2517,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 19.667
+      "p50_us": 19.542
     },
     {
       "repeat": 4,
@@ -2533,7 +2533,7 @@
       "parity_pass": true,
       "initial_capacity": 49913,
       "final_capacity": 49913,
-      "p50_us": 1.75
+      "p50_us": 2
     },
     {
       "repeat": 4,
@@ -2549,7 +2549,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 238.875
+      "p50_us": 241.167
     },
     {
       "repeat": 4,
@@ -2560,12 +2560,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 95588,
-      "output_sha256": "bedbad65e15e94f1799eac3444a2d31f07f6ab1fa1b25394fa0e708937ee3d45",
-      "canonical_output_sha256": "146023c6010a782f92bd0ee90bbf11aaeeba8890eb6092e55373d8631f939a3f",
+      "output_sha256": "92e58969a0f40d06b3809a7d91533a68b142e8e55cc19067680d94a14950aa03",
+      "canonical_output_sha256": "5e19357afbd1bf3eb10e5012f2ecdd21bd0e8d4ece8a1700fdb4b663d10ae857",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 17.209
+      "p50_us": 17.375
     },
     {
       "repeat": 4,
@@ -2581,7 +2581,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 5.083
+      "p50_us": 5.125
     },
     {
       "repeat": 4,
@@ -2592,12 +2592,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 33618,
-      "output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
-      "canonical_output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
+      "output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
+      "canonical_output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
       "parity_pass": true,
       "initial_capacity": 33618,
       "final_capacity": 33618,
-      "p50_us": 8.375
+      "p50_us": 8.25
     },
     {
       "repeat": 4,
@@ -2608,12 +2608,12 @@
       "iterations": 2000,
       "operations_per_sample": 20,
       "output_bytes": 875334,
-      "output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
-      "canonical_output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
+      "output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
+      "canonical_output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 10.175
+      "p50_us": 10.1771
     },
     {
       "repeat": 4,
@@ -2624,8 +2624,8 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 7860,
-      "output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
-      "canonical_output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
+      "output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
+      "canonical_output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
       "parity_pass": true,
       "initial_capacity": 7860,
       "final_capacity": 7860,
@@ -2640,12 +2640,12 @@
       "iterations": 2000,
       "operations_per_sample": 176,
       "output_bytes": 95588,
-      "output_sha256": "1d84156a1d7199716a44af9bb2517ae2953c153930cee18f00430a9a8de333ea",
-      "canonical_output_sha256": "146023c6010a782f92bd0ee90bbf11aaeeba8890eb6092e55373d8631f939a3f",
+      "output_sha256": "4ff9aeba046b21bcc6eddf5d4cedaeb7253df9653614fd0b35f5942575e9fac7",
+      "canonical_output_sha256": "5e19357afbd1bf3eb10e5012f2ecdd21bd0e8d4ece8a1700fdb4b663d10ae857",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.7705965909090909
+      "p50_us": 0.7658579545454546
     },
     {
       "repeat": 4,
@@ -2656,8 +2656,8 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 95588,
-      "output_sha256": "f78a57ccaa6c40d4ad447662ad7724934509cf0d2230b13a8467afd0bbf1c9e7",
-      "canonical_output_sha256": "146023c6010a782f92bd0ee90bbf11aaeeba8890eb6092e55373d8631f939a3f",
+      "output_sha256": "fe982b4d093121247baebd9f6e762f2724fde634d45803072388ca81b9abdac0",
+      "canonical_output_sha256": "5e19357afbd1bf3eb10e5012f2ecdd21bd0e8d4ece8a1700fdb4b663d10ae857",
       "parity_pass": true,
       "initial_capacity": 95588,
       "final_capacity": 95588,
@@ -2677,7 +2677,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 60.584
+      "p50_us": 60.916
     },
     {
       "repeat": 4,
@@ -2693,7 +2693,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 9.242454545454546
+      "p50_us": 9.24240909090909
     },
     {
       "repeat": 4,
@@ -2709,7 +2709,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 2.8238142857142856
+      "p50_us": 2.819642857142857
     },
     {
       "repeat": 4,
@@ -2725,7 +2725,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 24.834
+      "p50_us": 24.917
     },
     {
       "repeat": 4,
@@ -2741,7 +2741,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 3.334
+      "p50_us": 3.458
     },
     {
       "repeat": 4,
@@ -2757,7 +2757,7 @@
       "parity_pass": true,
       "initial_capacity": 794776,
       "final_capacity": 794776,
-      "p50_us": 32.5
+      "p50_us": 33.084
     },
     {
       "repeat": 4,
@@ -2773,7 +2773,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 3.3333389830508473
+      "p50_us": 3.3312033898305082
     },
     {
       "repeat": 4,
@@ -2784,12 +2784,12 @@
       "iterations": 1000,
       "operations_per_sample": 1,
       "output_bytes": 875334,
-      "output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
-      "canonical_output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
+      "output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
+      "canonical_output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 132.375
+      "p50_us": 134.834
     },
     {
       "repeat": 4,
@@ -2800,12 +2800,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 33618,
-      "output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
-      "canonical_output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
+      "output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
+      "canonical_output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 7.917
+      "p50_us": 7.833
     },
     {
       "repeat": 4,
@@ -2821,7 +2821,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 1.0337175572519084
+      "p50_us": 1.0292595419847328
     },
     {
       "repeat": 4,
@@ -2837,7 +2837,7 @@
       "parity_pass": true,
       "initial_capacity": 25108,
       "final_capacity": 25108,
-      "p50_us": 1.167
+      "p50_us": 1.166
     },
     {
       "repeat": 4,
@@ -2853,7 +2853,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.4776315789473684
+      "p50_us": 0.5040912280701755
     },
     {
       "repeat": 4,
@@ -2869,7 +2869,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 6.093424242424242
+      "p50_us": 6.09469696969697
     },
     {
       "repeat": 4,
@@ -2885,7 +2885,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 47.917
+      "p50_us": 48.125
     },
     {
       "repeat": 4,
@@ -2901,7 +2901,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 11.487764705882354
+      "p50_us": 11.490235294117648
     },
     {
       "repeat": 4,
@@ -2912,12 +2912,12 @@
       "iterations": 2000,
       "operations_per_sample": 2135,
       "output_bytes": 7860,
-      "output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
-      "canonical_output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
+      "output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
+      "canonical_output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.07343887587822014
+      "p50_us": 0.07933255269320844
     },
     {
       "repeat": 4,
@@ -2933,7 +2933,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 13.125
+      "p50_us": 13
     },
     {
       "repeat": 4,
@@ -2992,12 +2992,12 @@
       "iterations": 1000,
       "operations_per_sample": 1,
       "output_bytes": 875334,
-      "output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
-      "canonical_output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
+      "output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
+      "canonical_output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
       "parity_pass": true,
       "initial_capacity": 875334,
       "final_capacity": 875334,
-      "p50_us": 146.916
+      "p50_us": 154.209
     },
     {
       "repeat": 4,
@@ -3013,7 +3013,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 1.917
+      "p50_us": 2
     },
     {
       "repeat": 4,
@@ -3029,7 +3029,7 @@
       "parity_pass": true,
       "initial_capacity": 522876,
       "final_capacity": 522876,
-      "p50_us": 31.917
+      "p50_us": 32
     },
     {
       "repeat": 4,
@@ -3045,7 +3045,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.2093303437967115
+      "p50_us": 0.21057548579970103
     },
     {
       "repeat": 4,
@@ -3056,12 +3056,12 @@
       "iterations": 2000,
       "operations_per_sample": 500,
       "output_bytes": 33618,
-      "output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
-      "canonical_output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
+      "output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
+      "canonical_output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.27625
+      "p50_us": 0.27525
     },
     {
       "repeat": 4,
@@ -3077,7 +3077,7 @@
       "parity_pass": true,
       "initial_capacity": 128211,
       "final_capacity": 128211,
-      "p50_us": 14.292
+      "p50_us": 14.458
     },
     {
       "repeat": 5,
@@ -3093,7 +3093,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 47.667
+      "p50_us": 48.042
     },
     {
       "repeat": 5,
@@ -3109,7 +3109,7 @@
       "parity_pass": true,
       "initial_capacity": 988509,
       "final_capacity": 988509,
-      "p50_us": 263.958
+      "p50_us": 270.25
     },
     {
       "repeat": 5,
@@ -3125,7 +3125,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 9.240545454545455
+      "p50_us": 9.242454545454546
     },
     {
       "repeat": 5,
@@ -3136,12 +3136,12 @@
       "iterations": 1000,
       "operations_per_sample": 1,
       "output_bytes": 875334,
-      "output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
-      "canonical_output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
+      "output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
+      "canonical_output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
       "parity_pass": true,
       "initial_capacity": 875334,
       "final_capacity": 875334,
-      "p50_us": 147.333
+      "p50_us": 149.667
     },
     {
       "repeat": 5,
@@ -3152,8 +3152,8 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 7860,
-      "output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
-      "canonical_output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
+      "output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
+      "canonical_output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
@@ -3168,12 +3168,12 @@
       "iterations": 2000,
       "operations_per_sample": 2135,
       "output_bytes": 7860,
-      "output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
-      "canonical_output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
+      "output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
+      "canonical_output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.07390679156908665
+      "p50_us": 0.07788805620608899
     },
     {
       "repeat": 5,
@@ -3189,7 +3189,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 1.959
+      "p50_us": 1.958
     },
     {
       "repeat": 5,
@@ -3205,7 +3205,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 1.0311679389312978
+      "p50_us": 1.0327557251908397
     },
     {
       "repeat": 5,
@@ -3221,7 +3221,7 @@
       "parity_pass": true,
       "initial_capacity": 522876,
       "final_capacity": 522876,
-      "p50_us": 32.792
+      "p50_us": 31.708
     },
     {
       "repeat": 5,
@@ -3253,7 +3253,7 @@
       "parity_pass": true,
       "initial_capacity": 284908,
       "final_capacity": 284908,
-      "p50_us": 15.625
+      "p50_us": 15.459
     },
     {
       "repeat": 5,
@@ -3269,7 +3269,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 240.25
+      "p50_us": 240.416
     },
     {
       "repeat": 5,
@@ -3296,12 +3296,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 33618,
-      "output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
-      "canonical_output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
+      "output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
+      "canonical_output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 8.042
+      "p50_us": 8.25
     },
     {
       "repeat": 5,
@@ -3312,12 +3312,12 @@
       "iterations": 2000,
       "operations_per_sample": 176,
       "output_bytes": 95588,
-      "output_sha256": "636de39c553eceb2e78084fbc0e0637dbe4aa809d053242d2538fb1dbf33e1b6",
-      "canonical_output_sha256": "146023c6010a782f92bd0ee90bbf11aaeeba8890eb6092e55373d8631f939a3f",
+      "output_sha256": "3eaf55e11ecfcf40e78e0a2ca259a0512e2855c3b92d1ddae7817ca2e3136ae9",
+      "canonical_output_sha256": "5e19357afbd1bf3eb10e5012f2ecdd21bd0e8d4ece8a1700fdb4b663d10ae857",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.7687045454545455
+      "p50_us": 0.7627840909090909
     },
     {
       "repeat": 5,
@@ -3333,7 +3333,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 24.708
+      "p50_us": 25.75
     },
     {
       "repeat": 5,
@@ -3349,7 +3349,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 2.819057142857143
+      "p50_us": 2.8375
     },
     {
       "repeat": 5,
@@ -3365,7 +3365,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 35.167
+      "p50_us": 35.292
     },
     {
       "repeat": 5,
@@ -3381,7 +3381,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.4812877192982456
+      "p50_us": 0.4799719298245614
     },
     {
       "repeat": 5,
@@ -3397,7 +3397,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 13.083
+      "p50_us": 13.041
     },
     {
       "repeat": 5,
@@ -3408,12 +3408,12 @@
       "iterations": 2000,
       "operations_per_sample": 500,
       "output_bytes": 33618,
-      "output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
-      "canonical_output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
+      "output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
+      "canonical_output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.275416
+      "p50_us": 0.276916
     },
     {
       "repeat": 5,
@@ -3429,7 +3429,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 19.584
+      "p50_us": 19.375
     },
     {
       "repeat": 5,
@@ -3445,7 +3445,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 11.487764705882354
+      "p50_us": 11.490176470588235
     },
     {
       "repeat": 5,
@@ -3461,7 +3461,7 @@
       "parity_pass": true,
       "initial_capacity": 240785,
       "final_capacity": 240785,
-      "p50_us": 32.917
+      "p50_us": 31.458
     },
     {
       "repeat": 5,
@@ -3477,7 +3477,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 60.584
+      "p50_us": 61.041
     },
     {
       "repeat": 5,
@@ -3488,12 +3488,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 95588,
-      "output_sha256": "369b17a5119d832143f63d07559e189cc79af4c067252789b88aa926f145e416",
-      "canonical_output_sha256": "146023c6010a782f92bd0ee90bbf11aaeeba8890eb6092e55373d8631f939a3f",
+      "output_sha256": "f2317b14dcce309c1db4ca1acecec22c01ae20dd8494c6c4475fbcac9d4b8ea8",
+      "canonical_output_sha256": "5e19357afbd1bf3eb10e5012f2ecdd21bd0e8d4ece8a1700fdb4b663d10ae857",
       "parity_pass": true,
       "initial_capacity": 95588,
       "final_capacity": 95588,
-      "p50_us": 14.125
+      "p50_us": 14
     },
     {
       "repeat": 5,
@@ -3509,7 +3509,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 6.09469696969697
+      "p50_us": 6.093424242424242
     },
     {
       "repeat": 5,
@@ -3541,7 +3541,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.44510385756676557
+      "p50_us": 0.4082581602373887
     },
     {
       "repeat": 5,
@@ -3557,7 +3557,7 @@
       "parity_pass": true,
       "initial_capacity": 794776,
       "final_capacity": 794776,
-      "p50_us": 32.584
+      "p50_us": 33.458
     },
     {
       "repeat": 5,
@@ -3584,12 +3584,12 @@
       "iterations": 2000,
       "operations_per_sample": 20,
       "output_bytes": 875334,
-      "output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
-      "canonical_output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
+      "output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
+      "canonical_output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 10.175
+      "p50_us": 10.1771
     },
     {
       "repeat": 5,
@@ -3605,7 +3605,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 0.2045336322869955
+      "p50_us": 0.21126008968609866
     },
     {
       "repeat": 5,
@@ -3621,7 +3621,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 3.331915254237288
+      "p50_us": 3.330508474576271
     },
     {
       "repeat": 5,
@@ -3632,12 +3632,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 95588,
-      "output_sha256": "f8b43d2ce73ed46710ccc1f073265e69a2729e1bc8ee090fdc14614ad323f921",
-      "canonical_output_sha256": "146023c6010a782f92bd0ee90bbf11aaeeba8890eb6092e55373d8631f939a3f",
+      "output_sha256": "3d2b021b353f42b7009c7c84d3250bb06194a186750544f22d52f7640c22fbf1",
+      "canonical_output_sha256": "5e19357afbd1bf3eb10e5012f2ecdd21bd0e8d4ece8a1700fdb4b663d10ae857",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 17.208
+      "p50_us": 17.375
     },
     {
       "repeat": 5,
@@ -3653,7 +3653,7 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 5.083
+      "p50_us": 5.167
     },
     {
       "repeat": 5,
@@ -3664,8 +3664,8 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 33618,
-      "output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
-      "canonical_output_sha256": "07b46c065aa511580171a659ef3eed87e9caf884abb199b9db304db5771a20fd",
+      "output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
+      "canonical_output_sha256": "d4ff9174998f0a0ae88911e4d7fbcda39ab035545724a8c65c6faed188acb27b",
       "parity_pass": true,
       "initial_capacity": 33618,
       "final_capacity": 33618,
@@ -3680,12 +3680,12 @@
       "iterations": 1000,
       "operations_per_sample": 1,
       "output_bytes": 875334,
-      "output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
-      "canonical_output_sha256": "25e257372420ce388510491e6da50218b79b3b2be80196d364554845cd548856",
+      "output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
+      "canonical_output_sha256": "18220666e2932a74e46c22bd635379ae95b850881354e33a8eaddbb1820dec8e",
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 136.625
+      "p50_us": 133
     },
     {
       "repeat": 5,
@@ -3701,7 +3701,7 @@
       "parity_pass": true,
       "initial_capacity": 128211,
       "final_capacity": 128211,
-      "p50_us": 14.292
+      "p50_us": 14.167
     },
     {
       "repeat": 5,
@@ -3712,12 +3712,12 @@
       "iterations": 10000,
       "operations_per_sample": 1,
       "output_bytes": 7860,
-      "output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
-      "canonical_output_sha256": "6e7e0a47b8cd559d8801cc0c5dba784a000b6c0621f5ec358855f2e8a316ab1c",
+      "output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
+      "canonical_output_sha256": "020f1bec5f792cc5fac048c188e37e8322308bee1f0a2367ea91f213c75d1d77",
       "parity_pass": true,
       "initial_capacity": 7860,
       "final_capacity": 7860,
-      "p50_us": 2.833
+      "p50_us": 2.792
     },
     {
       "repeat": 5,
@@ -3733,7 +3733,7 @@
       "parity_pass": true,
       "initial_capacity": 49913,
       "final_capacity": 49913,
-      "p50_us": 1.791
+      "p50_us": 1.833
     },
     {
       "repeat": 5,
@@ -3749,11 +3749,11 @@
       "parity_pass": true,
       "initial_capacity": null,
       "final_capacity": null,
-      "p50_us": 3.375
+      "p50_us": 3.5
     }
   ],
   "raw_artifact": {
     "path": "showcase/results/buffer-comparison-raw.json",
-    "sha256": "f7154023823d0c9bbeb8e5393d7b4d253a3b822f934719c0f64a6c41094ede44"
+    "sha256": "bb5d830a55b01487d14c65cbd320d38a76ba067622a93f7716783439238af920"
   }
 }

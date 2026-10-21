@@ -2,6 +2,8 @@
 
 [Proa](https://github.com/Proa-Labs/proa) renders typed Rust components to HTML on the server, streams them, and hydrates fine-grained browser islands. This page shows what one core [serves over HTTP](#serving-three-pages-on-one-core), how fast [seventeen renderers](#rendering-the-same-pages-in-seventeen-renderers) render those pages, and [how to reproduce them](#reproducing-a-capture).
 
+The [SvelteKit comparison](sveltekit.md) adds production HTTP, cold-start, product-scaling, and browser-complete streaming measurements. Native SvelteKit promise streaming sends data for the browser to render; its response end is a different boundary from Proa’s resolved-HTML stream.
+
 If you see an issue with the benchmarks or would like to add any, please open an issue!
 
 <!-- Keep this HTML table free of blank lines so GitHub renders it as one block. -->
@@ -24,7 +26,7 @@ If you see an issue with the benchmarks or would like to add any, please open an
       <p>Three sample pages, one core each: throughput at saturation, latency at a fixed request rate.</p>
       <!-- charts:headline:start -->
       <a href="charts/svg/08-canonical-pages-http.svg">
-        <img width="100%" alt="Sustained responses per second, CPU per response, and peak RSS for Proa, React, Marko, and Go html/template serving three canonical pages over HTTP on one core" src="charts/svg/08-canonical-pages-http.svg">
+        <img width="100%" alt="Sustained responses per second, CPU per response, and peak RSS for Proa, React, Marko, Go html/template, and SvelteKit serving three canonical pages over HTTP on one core" src="charts/svg/08-canonical-pages-http.svg">
       </a>
       <p><em>Three parity-gated pages on loopback HTTP, one core per engine. <a href="http-capacity.md#canonical-pages-over-http-one-core-each">Details</a> · <a href="charts/svg/08-canonical-pages-http.svg">Full size</a> · <a href="charts/">how the figures are built</a></em></p>
       <!-- charts:headline:end -->
@@ -78,7 +80,7 @@ If you see an issue with the benchmarks or would like to add any, please open an
       <p>Startup latency from process creation to first byte-identical response.</p>
       <!-- charts:coldstart:start -->
       <a href="charts/svg/09-cold-start.svg">
-        <img width="100%" alt="Median, P95 and slowest time from process spawn to first complete product-grid response for Proa, React, Marko and Go html/template, with RSS after the first response" src="charts/svg/09-cold-start.svg">
+        <img width="100%" alt="Median, P95 and slowest time from process spawn to first complete product-grid response for Proa, React, Marko, Go html/template and SvelteKit, with RSS after the first response" src="charts/svg/09-cold-start.svg">
       </a>
       <p><em>Median, P95, and worst-start across 15 fresh processes. <a href="http-capacity.md#cold-start-to-first-response">Details</a> · <a href="charts/svg/09-cold-start.svg">Full size</a> · <a href="charts/">how the figures are built</a></em></p>
       <!-- charts:coldstart:end -->
@@ -96,15 +98,19 @@ pnpm exec playwright install chromium
 npm ci --prefix rendering/external/react
 npm ci --prefix rendering/external/marko
 npm ci --prefix rendering/external/handlebars
+npm ci --prefix rendering/external/svelte
+npm ci --prefix rendering/external/sveltekit
 ```
 
-Then run a suite. Each command builds its servers, gates every page for parity, and rewrites its evidence page. It refuses to publish a phase whose load generator was the bottleneck.
+Run timed suites sequentially. The runners build their servers, gate parity before timing, and reject a phase whose load generator was the bottleneck. The report commands regenerate the evidence pages and figures.
 
 ```sh filename="Terminal"
 ./rendering/run-all            # scoreboard: build, parity-gate, time, regenerate scoreboard.md
 pnpm run bench:page-load       # canonical pages over HTTP, one core each
 pnpm run bench:cold-start      # cold start to first response
 pnpm run bench:suspense-load   # Suspense streaming over HTTP
+node sveltekit/run.mjs         # Proa vs SvelteKit HTTP streaming + browser completion
+node sveltekit/report.mjs      # regenerate SvelteKit comparison
 pnpm run refresh               # regenerate every evidence page and figure from the captures
 ```
 
@@ -112,8 +118,10 @@ pnpm run refresh               # regenerate every evidence page and figure from 
 
 ## Next steps
 
+- [Proa versus SvelteKit](sveltekit.md)
+  - Static SSR, scaling, HTTP, cold starts, and async streaming, with native data streaming and buffered HTML reported separately.
 - [HTTP capacity, cold start and streaming](http-capacity.md)
-  - Sustained responses per second, CPU per response, latency at equal load, and cold start for four production servers.
+  - Sustained responses per second, CPU per response, latency at equal load, and cold start for five production servers.
 - [Canonical scoreboard evidence](scoreboard.md)
   - The seventeen-renderer table, parity coverage, every retained percentile, and the adapters side by side.
 - [Engineering, application and agent captures](engineering.md)
@@ -122,10 +130,10 @@ pnpm run refresh               # regenerate every evidence page and figure from 
   - How every SVG is drawn from the evidence pages' own tables and checked against them.
 - [Canonical benchmark protocol](rendering/protocol.md)
   - The fairness rules, workload shapes, and parity gate in full.
-- Suite READMEs: [`rendering/`](rendering/), [`page-load/`](page-load/), [`suspense-load/`](suspense-load/), [`load/`](load/), [`showcase/`](showcase/), [`agent-chain/`](agent-chain/), and the separate [`travel-agent/`](travel-agent/) control.
+- Suite READMEs: [`rendering/`](rendering/), [`page-load/`](page-load/), [`suspense-load/`](suspense-load/), [`sveltekit/`](sveltekit/), [`load/`](load/), [`showcase/`](showcase/), [`agent-chain/`](agent-chain/), and the separate [`travel-agent/`](travel-agent/) control.
 
 ## License and attribution
 
 This repository is Apache-2.0; see [`LICENSE`](LICENSE). Benchmark adapters incorporate upstream work under its own terms, recorded in [`rendering/UPSTREAM_LICENSES.md`](rendering/UPSTREAM_LICENSES.md).
 
-React, Marko, Vue, Svelte, Rails, jte, Rocker, Handlebars, Go, Jinja2, PHP, Askama, Sailfish, Leptos, Dioxus, and Topcoat belong to their respective owners. They appear here as the subjects of a benchmark; their inclusion implies no endorsement.
+React, Marko, Vue, Svelte, SvelteKit, Rails, jte, Rocker, Handlebars, Go, Jinja2, PHP, Askama, Sailfish, Leptos, Dioxus, and Topcoat belong to their respective owners. They appear here as the subjects of a benchmark; their inclusion implies no endorsement.

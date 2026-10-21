@@ -96,3 +96,5 @@ of [`lib/theme.mjs`](lib/theme.mjs).
 Figures are written as XML, not HTML: GitHub serves `.svg` as `image/svg+xml` and
 parses it strictly, so `build.mjs` validates each document before writing it. A
 figure that a browser would tolerate but an XML parser would reject fails the build.
+
+The additional [SvelteKit browser-completion figure](../sveltekit/browser.svg) is generated and checked by `node sveltekit/report.mjs [--check]` from its retained browser samples. It is separate from the nine-figure roster because native data streaming and resolved-HTML streaming use different HTTP completion boundaries.

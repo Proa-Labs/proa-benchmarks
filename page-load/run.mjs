@@ -39,6 +39,7 @@ import {
   waitForHealth,
 } from "../load/driver.mjs";
 import { ENGINES, PUBLICATION, SCENARIO_ID, WORKLOADS, scenarioContract } from "./scenario.mjs";
+import { sourceFiles as sveltekitSourceFiles, build as buildSvelteKit, directory as sveltekitDirectory, serverSpec as sveltekitServerSpec, validateDump as validateSvelteKitDump } from "../rendering/external/sveltekit/benchmark.mjs";
 
 const execFile = promisify(execFileCallback);
 const here = dirname(fileURLToPath(import.meta.url));
@@ -47,11 +48,12 @@ const external = join(root, "rendering", "external");
 const defaultOutput = join(here, "results", "latest.json");
 const engineIds = ENGINES.map(({ id }) => id);
 const workloadIds = WORKLOADS.map(({ id }) => id);
-const basePorts = { proa: 15720, react: 15721, marko: 15722, "go-html-template": 15723 };
+const basePorts = { proa: 15720, react: 15721, marko: 15722, "go-html-template": 15723, sveltekit: 15724 };
 
 // Keep this list synchronized with report.mjs. The report gate must reject a
 // retained capture after any measured implementation changes.
 export const benchmarkSourceFiles = [
+  ...sveltekitSourceFiles,
   ".nvmrc",
   "Cargo.lock",
   "Cargo.toml",
@@ -153,6 +155,7 @@ async function run(command, args, options = {}) {
 
 async function build() {
   if (config.skipBuild) return;
+  if (config.engines.includes("sveltekit")) await buildSvelteKit();
   if (config.engines.includes("proa")) {
     console.log("Building the Proa release server and canonical adapter...");
     await run("cargo", [
@@ -181,6 +184,7 @@ async function build() {
 
 function adapterInvocation(engine, workload, dumpPath) {
   const extra = ["--workload", workload, "--dump", dumpPath, "--dump-only"];
+  if (engine === "sveltekit") return { command: process.execPath, args: ["dump.mjs", ...extra], options: { cwd: sveltekitDirectory, env: { ...process.env, NODE_ENV: "production" } } };
   if (engine === "proa") {
     return { command: rustBinary("representative_suite_bench"), args: ["--framework", "proa", ...extra], options: { cwd: root } };
   }
@@ -205,6 +209,7 @@ async function canonicalDumps() {
         const invocation = adapterInvocation(engine, workload, dumpPath);
         await run(invocation.command, invocation.args, invocation.options);
         const html = readFileSync(dumpPath);
+        if (engine === "sveltekit") await validateSvelteKitDump(html, workload, directory);
         dumps[engine][workload] = {
           bytes: html.length,
           sha256: createHash("sha256").update(html).digest("hex"),
@@ -218,6 +223,7 @@ async function canonicalDumps() {
 }
 
 function serverSpec(engine, port) {
+  if (engine === "sveltekit") return sveltekitServerSpec(port);
   if (engine === "proa") {
     return { spec: { label: "proa", command: rustBinary("proa_page_server"), args: [], cwd: root }, env: { PORT: String(port), PROA_WORKER_THREADS: "1" } };
   }
@@ -243,7 +249,7 @@ function validateHealth(engine, health) {
     }
   }
   if (engine === "proa" && health.workerThreads !== 1) mismatches.push(`workerThreads=${health.workerThreads}`);
-  if ((engine === "react" || engine === "marko") && health.nodeEnv !== "production") mismatches.push(`nodeEnv=${health.nodeEnv}`);
+  if (["react", "marko", "sveltekit"].includes(engine) && health.nodeEnv !== "production") mismatches.push(`nodeEnv=${health.nodeEnv}`);
   if (engine === "react" && health.reactDomBuild !== "production") mismatches.push(`reactDomBuild=${health.reactDomBuild}`);
   if (engine === "go-html-template" && health.gomaxprocs !== 1) mismatches.push(`gomaxprocs=${health.gomaxprocs}`);
   if (mismatches.length) throw new Error(`${engine} health contract mismatch: ${mismatches.join(", ")}`);

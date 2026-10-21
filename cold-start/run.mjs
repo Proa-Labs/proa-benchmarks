@@ -17,6 +17,7 @@ import { fileURLToPath } from "node:url";
 
 import { delay, gitMetadata, hostMetadata, processSample, acquireRunLock } from "../load/driver.mjs";
 import { summarize } from "../suspense-load/stats.mjs";
+import { sourceFiles as sveltekitSourceFiles, build as buildSvelteKit, directory as sveltekitDirectory, serverSpec as sveltekitServerSpec, validateDump as validateSvelteKitDump } from "../rendering/external/sveltekit/benchmark.mjs";
 
 const execFile = promisify(execFileCallback);
 const here = dirname(fileURLToPath(import.meta.url));
@@ -28,11 +29,13 @@ const ENGINES = [
   { id: "react", label: "React", language: "JavaScript" },
   { id: "marko", label: "Marko", language: "JavaScript" },
   { id: "go-html-template", label: "Go html/template", language: "Go" },
+  { id: "sveltekit", label: "SvelteKit", language: "JavaScript" },
 ];
 const WORKLOAD = { id: "products", path: "/products", label: "Product grid" };
 export const PUBLICATION = Object.freeze({ starts: 15, warmupStarts: 2 });
 
 export const benchmarkSourceFiles = [
+  ...sveltekitSourceFiles,
   ".nvmrc",
   "Cargo.lock",
   "Cargo.toml",
@@ -99,6 +102,7 @@ async function run(command, args, options = {}) {
 
 async function build() {
   if (config.skipBuild) return;
+  if (config.engines.includes("sveltekit")) await buildSvelteKit();
   if (config.engines.includes("proa")) {
     await run("cargo", ["build", "--release", "--locked", "-p", "proa_bench", "--features", "http-load,topcoat", "--bin", "proa_page_server", "--bin", "representative_suite_bench"], { cwd: root });
   }
@@ -112,6 +116,7 @@ async function build() {
 
 function adapterInvocation(engine, dumpPath) {
   const extra = ["--workload", WORKLOAD.id, "--dump", dumpPath, "--dump-only"];
+  if (engine === "sveltekit") return { command: process.execPath, args: ["dump.mjs", ...extra], options: { cwd: sveltekitDirectory, env: { ...process.env, NODE_ENV: "production" } } };
   if (engine === "proa") return { command: rustBinary("representative_suite_bench"), args: ["--framework", "proa", ...extra], options: { cwd: root } };
   if (engine === "react") return { command: process.execPath, args: ["suite_bench.mjs", ...extra], options: { cwd: join(external, "react"), env: { ...process.env, NODE_ENV: "production" } } };
   if (engine === "marko") return { command: process.execPath, args: ["suite_bench.mjs", ...extra], options: { cwd: join(external, "marko") } };
@@ -127,6 +132,7 @@ async function canonicalDumps() {
       const invocation = adapterInvocation(engine, dumpPath);
       await run(invocation.command, invocation.args, invocation.options);
       const html = readFileSync(dumpPath);
+      if (engine === "sveltekit") await validateSvelteKitDump(html, WORKLOAD.id, directory);
       dumps[engine] = { bytes: html.length, sha256: createHash("sha256").update(html).digest("hex") };
     }
   } finally {
@@ -136,6 +142,10 @@ async function canonicalDumps() {
 }
 
 function serverSpec(engine, port) {
+  if (engine === "sveltekit") {
+    const { spec, env } = sveltekitServerSpec(port);
+    return { ...spec, env, artifact: null };
+  }
   if (engine === "proa") return { command: rustBinary("proa_page_server"), args: [], cwd: root, env: { PORT: String(port), PROA_WORKER_THREADS: "1" }, artifact: rustBinary("proa_page_server") };
   if (engine === "react") return { command: process.execPath, args: [join(root, "page-load", "react_server.mjs")], cwd: root, env: { PORT: String(port) }, artifact: null };
   if (engine === "marko") return { command: process.execPath, args: [join(external, "marko", "page_server.mjs")], cwd: join(external, "marko"), env: { PORT: String(port) }, artifact: null };
@@ -188,7 +198,7 @@ async function coldStart(engine, port, expected) {
     const health = await attempt(port, "/health", agent);
     if (!health.ok) throw new Error(`${engine} health check failed`);
     const declared = JSON.parse(health.body.toString("utf8"));
-    if ((engine === "react" || engine === "marko") && declared.nodeEnv !== "production") {
+    if (["react", "marko", "sveltekit"].includes(engine) && declared.nodeEnv !== "production") {
       throw new Error(`${engine} is not running with NODE_ENV=production (${declared.nodeEnv})`);
     }
     if (engine === "react" && declared.reactDomBuild !== "production") {

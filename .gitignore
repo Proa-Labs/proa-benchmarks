@@ -1,10 +1,13 @@
-node_modules/
+node_modules
 .venv/
 __pycache__/
 *.py[cod]
-target/
+target
 rendering/external/go/build/
 rendering/external/marko/build/
+rendering/external/sveltekit/build/
+rendering/external/sveltekit/.svelte-kit/
+rendering/external/svelte/*.compiled.mjs
 .DS_Store
 *.log
 _tmp_*
@@ -17,6 +20,9 @@ page-load/results/*.partial
 cold-start/results/*.json
 cold-start/results/*.partial
 !cold-start/results/latest.json
+sveltekit/results/*.json
+sveltekit/results/*.partial
+!sveltekit/results/latest.json
 travel-agent/dist/
 travel-agent/results/*.json
 travel-agent/results/*.in-progress

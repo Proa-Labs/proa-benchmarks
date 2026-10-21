@@ -115,6 +115,9 @@ jobs:
           set -euo pipefail
           pnpm install --frozen-lockfile
           pnpm test
+          npm --prefix rendering/external/sveltekit ci
+          node --test rendering/external/sveltekit/stream-validator.test.mjs sveltekit/report.test.mjs
+          node sveltekit/report.mjs --check
           bash -n scripts/refresh-proa.sh rendering/run_all.sh
 
       - name: Check Rust formatting
@@ -154,6 +157,7 @@ jobs:
           npm --prefix rendering/external/marko ci
           npm --prefix rendering/external/vue ci
           npm --prefix rendering/external/svelte ci
+          npm --prefix rendering/external/sveltekit ci
           pnpm exec playwright install --with-deps chromium
 
       - name: Run Clippy correctness lints
@@ -191,7 +195,9 @@ jobs:
 
       - name: Validate Suspense streaming fixtures
         if: matrix.suite == 'rendering'
-        run: pnpm run bench:suspense-load:smoke
+        run: |
+          pnpm run bench:suspense-load:smoke
+          node sveltekit/run.mjs --smoke
 
       - name: Validate canonical page servers
         if: matrix.suite == 'rendering'
