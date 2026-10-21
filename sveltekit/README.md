@@ -22,7 +22,7 @@ node sveltekit/run.mjs --smoke
 node sveltekit/run.mjs
 node sveltekit/report.mjs
 node sveltekit/report.mjs --check
-node --test rendering/external/sveltekit/stream-validator.test.mjs sveltekit/report.test.mjs
+node --test rendering/external/sveltekit/stream-validator.test.mjs sveltekit/report.test.mjs sveltekit/run.test.mjs
 ```
 
 Full defaults: eight rates (250–6,000 rps), three process repeats, one-second
@@ -36,7 +36,7 @@ sequentially, with other heavy host activity stopped.
 
 `run.mjs` records source hashes and rejects edits made during the capture.
 `report.mjs` checks complete protocol coverage, generator health, production
-mode, raw browser metrics against their summaries, identical DOM hashes,
+mode, HTTP throughput against retained completion counts, raw browser metrics against their summaries, identical DOM hashes,
 JavaScript-disabled controls, and source hashes for all five underlying suites.
 It also verifies the generated SVG. Raw samples and phase summaries are kept in
 `results/latest.json`; no selected “best run” is substituted for the protocol.

@@ -26,7 +26,7 @@ const config = {
 for (const n of [...config.rates,config.repeats,config.durationSeconds,config.workers,config.browserRuns]) if (!Number.isInteger(n)||n<1) throw new Error('Numeric controls must be positive integers');
 if(config.profileIds.some(p=>!['desktop','mobile4x'].includes(p))) throw new Error('Unknown browser profile');
 const output = resolve(root,option('--out',smoke ? 'sveltekit/results/smoke.json' : 'sveltekit/results/latest.json'));
-if(output===join(root,'sveltekit/results/latest.json')&&(smoke||config.rates.join(',')!=='250,500,1000,2000,3000,4000,5000,6000'||config.repeats!==3||config.durationSeconds!==5||config.browserRuns!==30||config.profileIds.join(',')!=='desktop,mobile4x')) throw new Error('Custom runs require --out');
+if(output===join(root,'sveltekit/results/latest.json')&&(smoke||config.rates.join(',')!=='250,500,1000,2000,3000,4000,5000,6000'||config.repeats!==3||config.durationSeconds!==5||config.workers!==12||config.browserRuns!==30||config.profileIds.join(',')!=='desktop,mobile4x')) throw new Error('Custom runs require --out');
 const variants = [
   { id:'proa', label:'Proa HTML streaming', engine:'proa', path:'/', completion:'body end containing every resolved HTML panel' },
   { id:'sveltekit-data', label:'SvelteKit promised-data streaming', engine:'sveltekit', path:'/stream', completion:'body end containing every resolved data value; browser still renders panels' },

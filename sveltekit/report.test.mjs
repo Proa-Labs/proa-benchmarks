@@ -7,6 +7,19 @@ const capture = JSON.parse(readFileSync(new URL('./results/latest.json', import.
 test('accepts the complete retained production streaming/browser capture', () => {
   assert.doesNotThrow(() => validateStreaming(capture));
 });
+test('rejects HTTP throughput unsupported by retained completion counts', () => {
+  for (const corrupt of [
+    x => { x.http[0].completionThroughputRps += 1; },
+    x => { x.http[0].steadyStateCompletedResponses += 1; },
+    x => { delete x.http[0].steadyStateCompletedResponses; },
+    x => { x.http[0].steadyStateCompletedResponses = -1; },
+    x => { x.http[0].steadyStateCompletedResponses += 0.5; },
+  ]) {
+    const changed = structuredClone(capture);
+    corrupt(changed);
+    assert.throws(() => validateStreaming(changed), /HTTP (throughput differs from retained completion count|completion count|invalid)/);
+  }
+});
 test('rejects incomplete, smoke, generator-limited and inconsistent browser evidence', () => {
   for (const corrupt of [
     x => { x.captureKind = 'smoke'; },

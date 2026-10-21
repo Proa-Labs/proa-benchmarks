@@ -37,6 +37,8 @@ export function validateStreaming(result) {
     if (!phase.loadGeneratorValid || phase.generator?.busiestWorkerUtilization > 0.8 || phase.latencyMs?.schedulerLag?.p95 > 25) fail(`generator bottleneck ${key}`);
     if (phase.mode !== 'open' || phase.durationSeconds !== 5 || phase.preRollSeconds !== 1 || phase.generator?.workerCount !== 12) fail(`HTTP protocol ${key}`);
     for (const value of [phase.completionThroughputRps, phase.latencyMs?.scheduledFirstByte?.p50, phase.latencyMs?.scheduledComplete?.p50, phase.latencyMs?.scheduledComplete?.p95, phase.cpu?.cpuMsPerSuccessfulRequest, phase.memory?.peakSampledRssBytes, phase.responseBytes]) if (!Number.isFinite(value) || value < 0) fail(`missing HTTP metrics ${key}`);
+    if (!Number.isSafeInteger(phase.steadyStateCompletedResponses) || phase.steadyStateCompletedResponses < 0) fail(`invalid HTTP completion count ${key}`);
+    if (Math.abs(phase.completionThroughputRps - phase.steadyStateCompletedResponses / phase.durationSeconds) > 1e-9) fail(`HTTP throughput differs from retained completion count ${key}`);
     const contract = phase.engine === 'proa' ? phase.health : phase.health?.streaming;
     if (contract?.boundaries !== 8 || contract?.productCards !== 96 || JSON.stringify(contract.delayTiersMs) !== '[5,8,12,18,27,40,60,90]') fail(`fixture mismatch ${key}`);
     if (phase.engine === 'proa' ? phase.health?.workerThreads !== 1 : phase.health?.nodeEnv !== 'production') fail(`production/concurrency mismatch ${key}`);
@@ -102,6 +104,7 @@ export function render(result, canonical, scaling, pages, cold) {
     const errors = [...new Set(result.http.filter(p=>p.engine===id).flatMap(p=>p.errorSamples).map(message=>message.replace(/127\.0\.0\.1:\d+/g,'127.0.0.1:<port>')))];
     return errors.length ? `${names[id]}: ${errors.map(message=>'`'+message+'`').join(', ')}` : null;
   }).filter(Boolean).join('; ') || 'none';
+  const throughputRepeats = id => result.http.filter(p=>p.engine===id && p.offeredRps===5000).sort((a,b)=>a.repeat-b.repeat).map(p=>n(p.completionThroughputRps)).join(' / ');
   const rendererRows = ['cards','products','table'].map(id=>`| ${id} | ${f(canonical.measurements.proa[id].p50_us,3)} µs | ${f(canonical.measurements.svelte[id].p50_us,3)} µs | ${f(canonical.measurements.svelte[id].p50_us/canonical.measurements.proa[id].p50_us,2)}× |`).join('\n');
   const scalingRows = [12,96,768].map(count=>`| ${count} | ${f(scaling.measurements.proa[count].p50_us,3)} µs | ${f(scaling.measurements.svelte[count].p50_us,3)} µs |`).join('\n');
   const pageRows = rowsFor(pages).filter(r=>['proa','sveltekit'].includes(r.engineId)).map(r=>`| ${r.workload} | ${r.engine} | ${n(r.sustainedRps)} | ${f(r.cpuMsPerResponse,3)} ms | ${mib(r.peakRssAtCapacity)} | ${n(r.fixedRateRps)} | ${ms(r.fixedRateP50)} | ${ms(r.fixedRateP99)} |`).join('\n');
@@ -155,6 +158,8 @@ ${httpRows(result)}
 
 Recorded failure messages across the full phases: ${failureTypes}. Overload includes the production server’s accept queue and HTTP adapter; connection retries/timeouts and server queueing are part of these scheduled-arrival results. This sweep is not a renderer-only microbenchmark.
 
+Individual repeats can vary substantially near saturation. At 5,000 offered requests/s, the three response-end throughput measurements were **${throughputRepeats('proa')}** for Proa, **${throughputRepeats('sveltekit-data')}** for SvelteKit data streaming, and **${throughputRepeats('sveltekit-buffered')}** for buffered SvelteKit (responses/s, repeat order). Every repeat, including slow ones, is retained; the table above uses their medians. This shared-host capture does not establish the cause of that variation.
+
 ## Static pages over HTTP
 
 These are complete server-rendered pages on both sides. SvelteKit uses the production [Node adapter](https://svelte.dev/docs/kit/adapter-node), ordinary filesystem routing, and \`csr=false\`, avoiding an unnecessary hydration payload for the static-page workload. Every served response must hash to its engine's production dump; SvelteKit's full document also passes the canonical Svelte DOM gate and a changed-text negative control. Capacity uses 64 closed-loop connections, five-second windows, three fresh-process repeats. Equal-load latency uses the existing fixed rates below each engine's capacity, with three repeats. The [full five-engine capture](http-capacity.md#canonical-pages-over-http-one-core-each) also refreshes React, Marko, and Go.
@@ -203,7 +208,7 @@ node sveltekit/report.mjs --check
 
 Implementation: [production SvelteKit app](rendering/external/sveltekit/), [load runner](sveltekit/run.mjs), [browser observer](sveltekit/browser.mjs), and [promise-value validator](rendering/external/sveltekit/stream-validator.mjs).
 
-Raw evidence: [streaming + browser samples](sveltekit/results/latest.json), [HTTP](page-load/results/latest.json), [cold starts](cold-start/results/latest.json), [renderer-only](rendering/results/latest.json), [scaling](rendering/results/product-scaling.json). Each capture retains timestamps, framework/host metadata and a measured-source SHA-256. The comparison generator refuses incomplete, smoke, stale-source, missing-phase, browser-parity, and inconsistent-summary captures.
+Raw evidence: [streaming + browser samples](sveltekit/results/latest.json), [HTTP](page-load/results/latest.json), [cold starts](cold-start/results/latest.json), [renderer-only](rendering/results/latest.json), [scaling](rendering/results/product-scaling.json). Each capture retains timestamps, framework/host metadata and a measured-source SHA-256. The comparison generator refuses incomplete, smoke, stale-source, missing-phase, unsupported-throughput, browser-parity, and inconsistent-summary captures.
 
 The Proa-only writer/memcpy and allocation microbenchmarks, linked showcase corpus, agent chain, and travel-agent studies do not contain equivalent SvelteKit applications. They remain explicitly separate; this change adds no invented SvelteKit rows to those studies. The development host is shared and uses no CPU affinity or exclusive-host isolation. Other desktop work can affect CPU clocks, medians, and tails; engine order rotates and every repeat remains available in the raw captures. These one-host results describe these fixtures and pinned versions, not a universal framework ranking.
 `;
