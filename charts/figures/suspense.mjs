@@ -6,24 +6,16 @@ import {
 } from '../lib/svg.mjs';
 
 const COL = WIDTH - PAD * 2;
-const COLORS = { Proa: C.proa, Marko: C.peer, React: C.alt };
+const COLORS = { Proa: C.proa, Marko: C.peer, React: C.alt, SvelteKit: C.kit };
 
-function panel({ x, y, w, h, title, sub, rows, value, format, log = false, ideal = false, reference = null }) {
+function panel({ x, y, w, h, title, sub, rows, value, format, ideal = false }) {
   const rates = [...new Set(rows.map((row) => row.rate))].sort((a, b) => a - b);
   const values = rows.map(value);
   const x0 = x + 58, x1 = x + w - 18, y0 = y + (sub ? 40 : 25), y1 = y + h - 42;
   const xs = linear(0, Math.max(...rates), x0, x1);
-  let ys, ticks;
-  if (log) {
-    const lo = Math.max(1, Math.min(...values) * 0.75);
-    const hi = Math.max(...values) * 1.25;
-    ys = log10(lo, hi, y1, y0);
-    ticks = thin(logTicks(lo, hi).map((tick) => tick.v), ys, 34);
-  } else {
-    const scale = linTicks(Math.max(...values, ...(ideal ? rates : []), reference ? reference.value : 0) * 1.08, 4);
-    ys = linear(0, scale.max, y1, y0);
-    ticks = scale.ticks;
-  }
+  const scale = linTicks(Math.max(...values, ...(ideal ? rates : [])) * 1.08, 4);
+  const ys = linear(0, scale.max, y1, y0);
+  const ticks = scale.ticks;
 
   let body = eyebrow(x, y, title);
   if (sub) body += txt(x, y + 15, sub, 'note');
@@ -43,11 +35,7 @@ function panel({ x, y, w, h, title, sub, rows, value, format, log = false, ideal
     const maximum = Math.max(...rates);
     body += line([[xs(0), ys(0)], [xs(maximum), ys(maximum)]], C.axis, 1.2, ' stroke-dasharray="4 4"');
   }
-  if (reference) {
-    body += rule(x0, ys(reference.value), x1, ys(reference.value), C.critical, 1.2);
-    body += txt(x0 + 6, ys(reference.value) - 5, reference.label, 'note');
-  }
-  for (const engine of ['Proa', 'Marko', 'React']) {
+  for (const engine of Object.keys(COLORS)) {
     const series = rows.filter((row) => row.engine === engine).sort((a, b) => a.rate - b.rate);
     const points = series.map((row) => [xs(row.rate), ys(value(row))]);
     body += line(points, COLORS[engine], engine === 'Proa' ? 2.6 : 2.1);
@@ -56,34 +44,41 @@ function panel({ x, y, w, h, title, sub, rows, value, format, log = false, ideal
   return body;
 }
 
-export function suspenseLoad(tables) {
+export function suspenseLoad(tables, meta) {
+  // Use the fresh paired Proa/SvelteKit capture and retained Marko/React rows.
   const table = pick(tables, ['Engine', 'Request rate (rps)', 'Steady completion rps', 'Shell P50', 'Complete P50'], {
     heading: 'Suspense streaming over HTTP',
   });
-  const rows = table.objs.map((row) => ({
+  const rows = table.objs.filter(row => row.Engine !== 'Proa').map((row) => ({
     engine: row.Engine,
     rate: num(row['Request rate (rps)']),
     throughput: num(row['Steady completion rps']),
-    shellP50Ms: toUs(row['Shell P50']) / 1000,
     p50Ms: toUs(row['Complete P50']) / 1000,
     p95Ms: toUs(row['Complete P95']) / 1000,
     p99Ms: toUs(row['Complete P99']) / 1000,
-    cpuMs: toUs(row['CPU/request']) / 1000,
-    cores: num(row.Cores),
-    inFlight: num(row['Max in-flight']),
     rssMiB: num(row['Peak RSS']),
+    errors: num(row.Errors),
   }));
+  const comparison = pick(tables, ['Framework', 'Offered rps', 'Response ends/s', 'First byte P50'], {
+    heading: 'HTTP streaming capacity and latency',
+  });
+  rows.push(...comparison.objs.map(row => ({
+    engine: row.Framework,
+    rate: num(row['Offered rps']),
+    throughput: num(row['Response ends/s']),
+    p50Ms: toUs(row['Response end P50']) / 1000,
+    p95Ms: toUs(row['Response end P95']) / 1000,
+    p99Ms: toUs(row['Response end P99']) / 1000,
+    rssMiB: num(row['Peak RSS']),
+    errors: num(row.Errors),
+  })));
   // Latency labels switch to seconds once queueing takes over.
   const latency = (ms) => ms >= 1000 ? `${sig(ms / 1000)} s` : `${sig(ms)} ms`;
 
   const hdr = header(PAD, 44, 'Suspense streaming under load',
-    'One core per engine · 96 cards · 8 boundaries · medians of 3 server processes', COL);
+    '96 cards · 8 boundaries · one worker/process per engine · medians of 3 processes', COL);
   let body = hdr.svg;
-  body += legend(PAD, 44 + hdr.h + 27, [
-    { shape: 'line', color: C.proa, label: 'Proa' },
-    { shape: 'line', color: C.peer, label: 'Marko' },
-    { shape: 'line', color: C.alt, label: 'React' },
-  ]);
+  body += legend(PAD, 44 + hdr.h + 27, Object.entries(COLORS).map(([label, color]) => ({ shape: 'line', color, label })));
 
   const top = 44 + hdr.h + 66;
   const gapX = 58, gapY = 42;
@@ -91,7 +86,7 @@ export function suspenseLoad(tables) {
   const panelH = 246;
   body += panel({
     x: PAD, y: top, w: panelW, h: panelH,
-    title: 'Responses completed/s', sub: 'Higher is better · dashed: request-rate target', rows,
+    title: 'Response ends/s', sub: 'Higher is better · dashed: request-rate target', rows,
     value: (row) => row.throughput, format: (value) => value >= 1000 ? `${value / 1000}k` : String(value), ideal: true,
   });
   body += panel({
@@ -103,22 +98,23 @@ export function suspenseLoad(tables) {
   // Latency distribution: one small panel per engine on identical log axes, so
   // the vertical spread between P50 and P99 reads as the shape of the tail.
   const latTop = top + panelH + gapY;
-  const latGap = 30;
-  const latW = (COL - latGap * 2) / 3;
-  const latH = 262;
+  const latGap = 24;
+  const latW = (COL - latGap * 3) / 4;
+  const latH = 280;
   const allLatency = rows.flatMap((row) => [row.p50Ms, row.p95Ms, row.p99Ms]).filter((v) => v > 0);
   // headroom above the highest point so its leader label clears the panel title
   const latLo = Math.min(...allLatency) * 0.6, latHi = Math.max(...allLatency) * 2.6;
-  body += eyebrow(PAD, latTop, 'Response latency · shared log scale');
-  ['Proa', 'Marko', 'React'].forEach((engine, index) => {
+  body += eyebrow(PAD, latTop, 'Response-end latency · shared log scale');
+  Object.keys(COLORS).forEach((engine, index) => {
     const x = PAD + index * (latW + latGap);
-    const x0 = x + 52, x1 = x + latW - 12, y0 = latTop + 38, y1 = latTop + latH - 42;
+    const x0 = x + 52, x1 = x + latW - 12, y0 = latTop + 54, y1 = latTop + latH - 42;
     const series = rows.filter((row) => row.engine === engine).sort((a, b) => a.rate - b.rate);
     const rates = series.map((row) => row.rate);
     const xs = linear(0, Math.max(...rates), x0, x1);
     const ys = log10(latLo, latHi, y1, y0);
     const color = COLORS[engine];
     body += txt(x0, latTop + 26, engine, engine === 'Proa' ? 'catb' : 'cat');
+    body += txt(x0, latTop + 41, `${series.reduce((sum, row) => sum + row.errors, 0).toLocaleString('en-US')} failures in sweep`, 'note');
     for (const tick of thin(logTicks(latLo, latHi).map((t) => t.v), ys, 30)) {
       body += rule(x0, ys(tick), x1, ys(tick), C.grid);
       body += txt(x0 - 8, ys(tick) + 3.5, dur(tick * 1000), 'tick end');
@@ -130,7 +126,7 @@ export function suspenseLoad(tables) {
     }
     body += rule(x0, y1, x1, y1, C.axis);
     body += txt((x0 + x1) / 2, y1 + 34, 'Request rate (rps)', 'note mid');
-    // P50-to-P99 band, then the three percentile lines and the shell line
+    // P50-to-P99 band, then the three percentile lines
     const upper = series.map((row) => `${f(xs(row.rate))} ${f(ys(row.p99Ms))}`);
     const lower = [...series].reverse().map((row) => `${f(xs(row.rate))} ${f(ys(row.p50Ms))}`);
     body += `<path d="M${[...upper, ...lower].join('L')}Z" fill="${color}" opacity=".13"/>`;
@@ -159,14 +155,17 @@ export function suspenseLoad(tables) {
   }
 
   const notesY = latTop + latH + 26;
-  const notes = footnotes(PAD, notesY,
-    'Latency starts at scheduled arrival and includes queueing.', COL);
+  const notes = footnotes(PAD, notesY, [
+    `Proa/SvelteKit: ${meta.sveltekitDate} UTC. Marko/React: ${meta.suspenseDate}. Same host, fixture and offered rates.`,
+    'SvelteKit response end delivers data; the others deliver resolved HTML. Browser completion: sveltekit/browser.svg.',
+    'Successful-response latency includes scheduled queueing. Failures by rate remain in the source tables.',
+  ], COL);
 
   return doc({
     w: WIDTH,
     h: notesY + notes.h + 12,
-    title: 'Proa, Marko and React streaming the product grid through Suspense over HTTP',
-    desc: 'Every engine runs one worker thread or process. ' + rows.map((row) => `${row.engine} at ${row.rate} req/s target: ${row.throughput} steady-state completions per second, complete-response P50 ${row.p50Ms}, P95 ${row.p95Ms} and P99 ${row.p99Ms} milliseconds, ${row.rssMiB} MiB peak RSS`).join('. ') + '.',
+    title: 'Proa, Marko, React and SvelteKit streaming the product grid under HTTP load',
+    desc: `Proa and SvelteKit captured ${meta.sveltekitDate} UTC; Marko and React captured ${meta.suspenseDate}. One worker thread or process per engine. SvelteKit response end delivers promised data and excludes browser rendering; the other streams deliver resolved HTML. ` + rows.map((row) => `${row.engine} at ${row.rate} req/s target: ${row.throughput} response ends per second, response-end P50 ${row.p50Ms}, P95 ${row.p95Ms} and P99 ${row.p99Ms} milliseconds, ${row.rssMiB} MiB peak RSS, ${row.errors} failures across three repeats`).join('. ') + '.',
     body: body + notes.svg,
   });
 }

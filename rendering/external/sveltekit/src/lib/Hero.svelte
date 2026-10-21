@@ -1,0 +1,1 @@
+<section class="hero-shell"><p class="eyebrow">Suspense-heavy marketplace</p><h1>Canon FD 50mm f/1.4 S.S.C. Vintage Prime Lens</h1><p class="price">Bid US $129.50</p><p class="meta">Condition: Used · Watchers: 214 · 12 bids</p></section>

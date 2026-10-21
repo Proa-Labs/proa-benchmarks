@@ -1,0 +1,6 @@
+<script>
+  import { STAR_PATH, formatPrice, formatRating } from '#fixtures';
+  let { product } = $props();
+  const stars = [0, 1, 2, 3, 4];
+</script>
+<a href={"/products/" + product.id} class="group flex flex-col rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:shadow-md"><div class="mb-4 flex h-32 items-center justify-center rounded-lg bg-slate-100 text-3xl font-bold text-slate-300">{product.category}</div><p class="text-xs font-medium uppercase tracking-wide text-slate-400">{product.category}</p><h3 class="mt-1 text-sm font-semibold text-slate-900 group-hover:text-indigo-600">{product.name}</h3><div class="mt-2 flex items-center gap-1"><div class="flex">{#each stars as index}<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class={index < Math.floor((product.ratingTenths + 5) / 10) ? "h-4 w-4 text-amber-400" : "h-4 w-4 text-slate-200"}><path d={STAR_PATH}></path></svg>{/each}</div><span class="text-xs text-slate-500">{formatRating(product.ratingTenths)} ({product.reviewCount})</span></div><p class="mt-3 text-lg font-bold">{formatPrice(product.priceCents)}</p></a>

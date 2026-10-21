@@ -5,6 +5,7 @@ import { createHash } from "node:crypto";
 import { readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { sourceFiles as sveltekitSourceFiles } from "../rendering/external/sveltekit/benchmark.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -13,11 +14,12 @@ const readmePath = join(root, "http-capacity.md");
 export const startMarker = "<!-- cold-start:start -->";
 export const endMarker = "<!-- cold-start:end -->";
 const check = process.argv.includes("--check");
-const EXPECTED_ENGINES = ["proa", "react", "marko", "go-html-template"];
+const EXPECTED_ENGINES = ["proa", "react", "marko", "go-html-template", "sveltekit"];
 const EXPECTED_STARTS = 15;
 const EXPECTED_WARMUP_STARTS = 2;
 // Keep this list synchronized with run.mjs.
-const benchmarkSourceFiles = [
+export const benchmarkSourceFiles = [
+  ...sveltekitSourceFiles,
   ".nvmrc",
   "Cargo.lock",
   "Cargo.toml",

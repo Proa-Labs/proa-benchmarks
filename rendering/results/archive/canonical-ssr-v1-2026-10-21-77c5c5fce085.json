@@ -1,0 +1,1392 @@
+{
+  "schema_version": 2,
+  "benchmark_version": "canonical-ssr-v1",
+  "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085",
+  "capture_kind": "canonical",
+  "status": "pass",
+  "captured_at": "2026-10-21T01:22:11.093Z",
+  "completed_at": "2026-10-21T01:23:59.776Z",
+  "host": {
+    "cpu_model": "Apple M4 Max",
+    "logical_cpus": 16,
+    "memory_bytes": 137438953472,
+    "architecture": "arm64",
+    "os_name": "macOS (Darwin)",
+    "os_release": "25.5.0"
+  },
+  "workloads": [
+    {
+      "id": "cards",
+      "label": "Component page",
+      "cardinality": 32,
+      "description": "4 sections, 32 cards, and 160 feature-list items",
+      "warmup": 200,
+      "iterations": 2000
+    },
+    {
+      "id": "table",
+      "label": "1,000-row table",
+      "cardinality": 1000,
+      "description": "1,000 rows and 12 columns with escaping, formatting, branches, and variable-length lists",
+      "warmup": 20,
+      "iterations": 200
+    },
+    {
+      "id": "products",
+      "label": "Product grid",
+      "cardinality": 96,
+      "description": "96 product cards and 480 SVG stars",
+      "warmup": 50,
+      "iterations": 500
+    }
+  ],
+  "renderers": [
+    {
+      "id": "proa",
+      "label": "Proa",
+      "language": "Rust",
+      "status": "included"
+    },
+    {
+      "id": "marko",
+      "label": "Marko",
+      "language": "JavaScript",
+      "status": "included"
+    },
+    {
+      "id": "react",
+      "label": "React",
+      "language": "JavaScript",
+      "status": "included"
+    },
+    {
+      "id": "vue",
+      "label": "Vue",
+      "language": "JavaScript",
+      "status": "included"
+    },
+    {
+      "id": "svelte",
+      "label": "Svelte",
+      "language": "JavaScript",
+      "status": "included"
+    },
+    {
+      "id": "rails",
+      "label": "Rails",
+      "language": "Ruby",
+      "status": "included"
+    },
+    {
+      "id": "jte",
+      "label": "jte",
+      "language": "Java",
+      "status": "included"
+    },
+    {
+      "id": "rocker",
+      "label": "Rocker",
+      "language": "Java",
+      "status": "included"
+    },
+    {
+      "id": "handlebars",
+      "label": "Handlebars",
+      "language": "JavaScript",
+      "status": "included"
+    },
+    {
+      "id": "go-html-template",
+      "label": "Go html/template",
+      "language": "Go",
+      "status": "included"
+    },
+    {
+      "id": "jinja2",
+      "label": "Jinja2",
+      "language": "Python",
+      "status": "included"
+    },
+    {
+      "id": "php",
+      "label": "PHP",
+      "language": "PHP",
+      "status": "included"
+    },
+    {
+      "id": "askama",
+      "label": "Askama",
+      "language": "Rust",
+      "status": "included"
+    },
+    {
+      "id": "sailfish",
+      "label": "Sailfish",
+      "language": "Rust",
+      "status": "included"
+    },
+    {
+      "id": "leptos",
+      "label": "Leptos",
+      "language": "Rust",
+      "status": "included"
+    },
+    {
+      "id": "dioxus",
+      "label": "Dioxus",
+      "language": "Rust",
+      "status": "included"
+    },
+    {
+      "id": "topcoat",
+      "label": "Topcoat",
+      "language": "Rust",
+      "status": "included"
+    }
+  ],
+  "parity": {
+    "proa": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25108,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 988509,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 284908,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      }
+    },
+    "marko": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 24038,
+        "payload_delta_bytes": -1070,
+        "byte_equal_to_proa": false
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 983187,
+        "payload_delta_bytes": -5322,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 282604,
+        "payload_delta_bytes": -2304,
+        "byte_equal_to_proa": false
+      }
+    },
+    "react": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25202,
+        "payload_delta_bytes": 94,
+        "byte_equal_to_proa": false
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 990695,
+        "payload_delta_bytes": 2186,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285868,
+        "payload_delta_bytes": 960,
+        "byte_equal_to_proa": false
+      }
+    },
+    "vue": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25700,
+        "payload_delta_bytes": 592,
+        "byte_equal_to_proa": false
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 1006523,
+        "payload_delta_bytes": 18014,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 287420,
+        "payload_delta_bytes": 2512,
+        "byte_equal_to_proa": false
+      }
+    },
+    "svelte": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25748,
+        "payload_delta_bytes": 640,
+        "byte_equal_to_proa": false
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 1003227,
+        "payload_delta_bytes": 14718,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 286476,
+        "payload_delta_bytes": 1568,
+        "byte_equal_to_proa": false
+      }
+    },
+    "rails": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 35839,
+        "payload_delta_bytes": 10731,
+        "byte_equal_to_proa": false
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 1228793,
+        "payload_delta_bytes": 240284,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 296823,
+        "payload_delta_bytes": 11915,
+        "byte_equal_to_proa": false
+      }
+    },
+    "jte": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25109,
+        "payload_delta_bytes": 1,
+        "byte_equal_to_proa": false
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 988510,
+        "payload_delta_bytes": 1,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 284909,
+        "payload_delta_bytes": 1,
+        "byte_equal_to_proa": false
+      }
+    },
+    "rocker": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25109,
+        "payload_delta_bytes": 1,
+        "byte_equal_to_proa": false
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 990508,
+        "payload_delta_bytes": 1999,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285869,
+        "payload_delta_bytes": 961,
+        "byte_equal_to_proa": false
+      }
+    },
+    "handlebars": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25108,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 990694,
+        "payload_delta_bytes": 2185,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285868,
+        "payload_delta_bytes": 960,
+        "byte_equal_to_proa": false
+      }
+    },
+    "go-html-template": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25108,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 990509,
+        "payload_delta_bytes": 2000,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285676,
+        "payload_delta_bytes": 768,
+        "byte_equal_to_proa": false
+      }
+    },
+    "jinja2": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25108,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 990257,
+        "payload_delta_bytes": 1748,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285676,
+        "payload_delta_bytes": 768,
+        "byte_equal_to_proa": false
+      }
+    },
+    "php": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25108,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 990694,
+        "payload_delta_bytes": 2185,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285868,
+        "payload_delta_bytes": 960,
+        "byte_equal_to_proa": false
+      }
+    },
+    "askama": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 44849,
+        "payload_delta_bytes": 19741,
+        "byte_equal_to_proa": false
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 991007,
+        "payload_delta_bytes": 2498,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285676,
+        "payload_delta_bytes": 768,
+        "byte_equal_to_proa": false
+      }
+    },
+    "sailfish": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 44849,
+        "payload_delta_bytes": 19741,
+        "byte_equal_to_proa": false
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 990694,
+        "payload_delta_bytes": 2185,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285868,
+        "payload_delta_bytes": 960,
+        "byte_equal_to_proa": false
+      }
+    },
+    "leptos": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25219,
+        "payload_delta_bytes": 111,
+        "byte_equal_to_proa": false
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 991512,
+        "payload_delta_bytes": 3003,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 286063,
+        "payload_delta_bytes": 1155,
+        "byte_equal_to_proa": false
+      }
+    },
+    "dioxus": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25141,
+        "payload_delta_bytes": 33,
+        "byte_equal_to_proa": false
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 990695,
+        "payload_delta_bytes": 2186,
+        "byte_equal_to_proa": false
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 285868,
+        "payload_delta_bytes": 960,
+        "byte_equal_to_proa": false
+      }
+    },
+    "topcoat": {
+      "cards": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "43c50a97024231d49639400a5bfb18df7dbe5e94068cd42a732cea26ed0188b4",
+        "output_bytes": 25108,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      },
+      "table": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "ba9bb6481cefab9898ff8c7d6c31405f3379c3ddaede2690e5c70ef46473356b",
+        "output_bytes": 988509,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      },
+      "products": {
+        "status": "pass",
+        "mode": "semantic DOM",
+        "canonical_sha256": "5c89ccf8708043183838767b4bf61a68d9afc8bbf78830dc8886a851be162cfe",
+        "output_bytes": 284908,
+        "payload_delta_bytes": 0,
+        "byte_equal_to_proa": true
+      }
+    }
+  },
+  "measurements": {
+    "proa": {
+      "cards": {
+        "p50_us": 2,
+        "p95_us": 2.125,
+        "p99_us": 2.5424099999999994,
+        "mean_us": 2.0458149999999997,
+        "process_p50_min_us": 2,
+        "process_p50_max_us": 2.0829999999999997,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25108,
+        "allocation_policy": "standard render_to_string; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "table": {
+        "p50_us": 254.66699999999997,
+        "p95_us": 266.71635,
+        "p99_us": 275.84967,
+        "mean_us": 256.48252000000014,
+        "process_p50_min_us": 253.041,
+        "process_p50_max_us": 258.125,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 988509,
+        "allocation_policy": "standard render_to_string; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "products": {
+        "p50_us": 26.291999999999998,
+        "p95_us": 28.168149999999997,
+        "p99_us": 32.754999999999995,
+        "mean_us": 26.618581999999975,
+        "process_p50_min_us": 26.125,
+        "process_p50_max_us": 26.916,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 284908,
+        "allocation_policy": "standard render_to_string; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      }
+    },
+    "marko": {
+      "cards": {
+        "p50_us": 7.667,
+        "p95_us": 19.558649999999986,
+        "p99_us": 42.21800999999999,
+        "mean_us": 14.328120499999999,
+        "process_p50_min_us": 7.583,
+        "process_p50_max_us": 8.625,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 24038,
+        "allocation_policy": "compiled Marko HTML render; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "table": {
+        "p50_us": 950.4995,
+        "p95_us": 13575.752399999994,
+        "p99_us": 21167.74591999999,
+        "mean_us": 2080.6204449999996,
+        "process_p50_min_us": 931.8544999999999,
+        "process_p50_max_us": 977.8335,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 983187,
+        "allocation_policy": "compiled Marko HTML render; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "products": {
+        "p50_us": 87.9795,
+        "p95_us": 163.50209999999998,
+        "p99_us": 217.3150799999999,
+        "mean_us": 148.302518,
+        "process_p50_min_us": 87.5005,
+        "process_p50_max_us": 94.6665,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 282604,
+        "allocation_policy": "compiled Marko HTML render; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      }
+    },
+    "react": {
+      "cards": {
+        "p50_us": 72.666,
+        "p95_us": 101.75829999999999,
+        "p99_us": 176.33691,
+        "mean_us": 78.18943349999998,
+        "process_p50_min_us": 72.5,
+        "process_p50_max_us": 73.916,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25202,
+        "allocation_policy": "React renderToString; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "table": {
+        "p50_us": 3639.5,
+        "p95_us": 6418.5646,
+        "p99_us": 7082.847259999997,
+        "mean_us": 4144.717525000001,
+        "process_p50_min_us": 3561.0625,
+        "process_p50_max_us": 3711.4584999999997,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 990695,
+        "allocation_policy": "React renderToString; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "products": {
+        "p50_us": 404.25,
+        "p95_us": 841.9312499999997,
+        "p99_us": 952.25125,
+        "mean_us": 445.656904,
+        "process_p50_min_us": 398.35400000000004,
+        "process_p50_max_us": 412.3125,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285868,
+        "allocation_policy": "React renderToString; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      }
+    },
+    "vue": {
+      "cards": {
+        "p50_us": 7.083,
+        "p95_us": 11.961049999999998,
+        "p99_us": 25.630409999999994,
+        "mean_us": 10.167181000000003,
+        "process_p50_min_us": 7.0205,
+        "process_p50_max_us": 7.875,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25700,
+        "allocation_policy": "SSR-compiled Vue template rendered with renderToString on a fresh app; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "table": {
+        "p50_us": 1148.6045,
+        "p95_us": 2257.0687499999995,
+        "p99_us": 2563.128829999994,
+        "mean_us": 1281.545235,
+        "process_p50_min_us": 1138.875,
+        "process_p50_max_us": 1152.104,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 1006523,
+        "allocation_policy": "SSR-compiled Vue template rendered with renderToString on a fresh app; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "products": {
+        "p50_us": 83.313,
+        "p95_us": 113.71074999999985,
+        "p99_us": 267.35842,
+        "mean_us": 93.57142799999994,
+        "process_p50_min_us": 83.1455,
+        "process_p50_max_us": 84.8545,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 287420,
+        "allocation_policy": "SSR-compiled Vue template rendered with renderToString on a fresh app; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      }
+    },
+    "svelte": {
+      "cards": {
+        "p50_us": 8.209,
+        "p95_us": 13.333,
+        "p99_us": 18.41601,
+        "mean_us": 9.349764500000015,
+        "process_p50_min_us": 8.208,
+        "process_p50_max_us": 8.292,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25748,
+        "allocation_policy": "server-compiled Svelte 5 component rendered with svelte/server render() inside a static document shell; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "table": {
+        "p50_us": 945.3335,
+        "p95_us": 1662.3351,
+        "p99_us": 1887.77334,
+        "mean_us": 1045.6764699999994,
+        "process_p50_min_us": 941.2705000000001,
+        "process_p50_max_us": 969.1875,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 1003227,
+        "allocation_policy": "server-compiled Svelte 5 component rendered with svelte/server render() inside a static document shell; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "products": {
+        "p50_us": 70.4375,
+        "p95_us": 87.94164999999994,
+        "p99_us": 247.24091999999996,
+        "mean_us": 77.279538,
+        "process_p50_min_us": 70.2085,
+        "process_p50_max_us": 71.625,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 286476,
+        "allocation_policy": "server-compiled Svelte 5 component rendered with svelte/server render() inside a static document shell; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      }
+    },
+    "rails": {
+      "cards": {
+        "p50_us": 59,
+        "p95_us": 71,
+        "p99_us": 389.1299999999999,
+        "mean_us": 69.0455,
+        "process_p50_min_us": 59,
+        "process_p50_max_us": 61,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 35839,
+        "allocation_policy": "cached Rails template; fresh ActionView context and output buffer",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "table": {
+        "p50_us": 6088.5,
+        "p95_us": 6441.45,
+        "p99_us": 6714.1,
+        "mean_us": 6008.925,
+        "process_p50_min_us": 6042.5,
+        "process_p50_max_us": 6217,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 1228793,
+        "allocation_policy": "cached Rails template; fresh ActionView context and output buffer",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "products": {
+        "p50_us": 406,
+        "p95_us": 672.05,
+        "p99_us": 2012.9399999999964,
+        "mean_us": 463.546,
+        "process_p50_min_us": 403,
+        "process_p50_max_us": 408,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 296823,
+        "allocation_policy": "cached Rails template; fresh ActionView context and output buffer",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      }
+    },
+    "jte": {
+      "cards": {
+        "p50_us": 8.458,
+        "p95_us": 12.209,
+        "p99_us": 20.75333,
+        "mean_us": 9.125998,
+        "process_p50_min_us": 8.375,
+        "process_p50_max_us": 8.625,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25109,
+        "allocation_policy": "precompiled jte template; fresh Utf8ByteOutput response",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "table": {
+        "p50_us": 1976.313,
+        "p95_us": 2282.30805,
+        "p99_us": 2709.22366,
+        "mean_us": 1869.010625,
+        "process_p50_min_us": 1926.8125,
+        "process_p50_max_us": 2116.896,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 988510,
+        "allocation_policy": "precompiled jte template; fresh Utf8ByteOutput response",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "products": {
+        "p50_us": 229.625,
+        "p95_us": 378.00835,
+        "p99_us": 426.21725,
+        "mean_us": 246.099066,
+        "process_p50_min_us": 228.3125,
+        "process_p50_max_us": 233.354,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 284909,
+        "allocation_policy": "precompiled jte template; fresh Utf8ByteOutput response",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      }
+    },
+    "rocker": {
+      "cards": {
+        "p50_us": 15.958,
+        "p95_us": 21.96105,
+        "p99_us": 30.46008,
+        "mean_us": 16.587334,
+        "process_p50_min_us": 15.834,
+        "process_p50_max_us": 16.459,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25109,
+        "allocation_policy": "optimized Rocker template flattened to a fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "table": {
+        "p50_us": 2590.5625,
+        "p95_us": 3044.5476,
+        "p99_us": 3487.85949,
+        "mean_us": 2402.338525,
+        "process_p50_min_us": 2430.5,
+        "process_p50_max_us": 2655.229,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 990508,
+        "allocation_policy": "optimized Rocker template flattened to a fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "products": {
+        "p50_us": 363.1455,
+        "p95_us": 513.9369,
+        "p99_us": 568.69482,
+        "mean_us": 374.4678,
+        "process_p50_min_us": 360.5835,
+        "process_p50_max_us": 366.021,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285869,
+        "allocation_policy": "optimized Rocker template flattened to a fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      }
+    },
+    "handlebars": {
+      "cards": {
+        "p50_us": 19.333,
+        "p95_us": 29.214299999999994,
+        "p99_us": 66.30433999999998,
+        "mean_us": 21.355947,
+        "process_p50_min_us": 19.042,
+        "process_p50_max_us": 19.792,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25108,
+        "allocation_policy": "compiled Handlebars template; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "table": {
+        "p50_us": 2312.562,
+        "p95_us": 3284.8797999999992,
+        "p99_us": 3821.74059,
+        "mean_us": 2486.792694999999,
+        "process_p50_min_us": 2296.125,
+        "process_p50_max_us": 2329.9165000000003,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 990694,
+        "allocation_policy": "compiled Handlebars template; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "products": {
+        "p50_us": 203.75,
+        "p95_us": 294.53954999999996,
+        "p99_us": 329.97967,
+        "mean_us": 215.49767799999998,
+        "process_p50_min_us": 201.35399999999998,
+        "process_p50_max_us": 208.9375,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285868,
+        "allocation_policy": "compiled Handlebars template; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      }
+    },
+    "go-html-template": {
+      "cards": {
+        "p50_us": 86.292,
+        "p95_us": 147.29614999999998,
+        "p99_us": 219.66992,
+        "mean_us": 93.76852649999994,
+        "process_p50_min_us": 85.584,
+        "process_p50_max_us": 86.708,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25108,
+        "allocation_policy": "fresh bytes.Buffer and owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "table": {
+        "p50_us": 8607.896,
+        "p95_us": 8828.2601,
+        "p99_us": 8999.20983,
+        "mean_us": 8621.782360000005,
+        "process_p50_min_us": 8545.8125,
+        "process_p50_max_us": 8660.9585,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 990509,
+        "allocation_policy": "fresh bytes.Buffer and owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "products": {
+        "p50_us": 666.75,
+        "p95_us": 809.31875,
+        "p99_us": 841.5275,
+        "mean_us": 704.3274560000002,
+        "process_p50_min_us": 663.479,
+        "process_p50_max_us": 676.2295,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285676,
+        "allocation_policy": "fresh bytes.Buffer and owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      }
+    },
+    "jinja2": {
+      "cards": {
+        "p50_us": 94.791,
+        "p95_us": 101.54405,
+        "p99_us": 116.84467,
+        "mean_us": 96.12116099999999,
+        "process_p50_min_us": 94.333,
+        "process_p50_max_us": 95.083,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25108,
+        "allocation_policy": "compiled Jinja2 template; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "table": {
+        "p50_us": 15168.104,
+        "p95_us": 16328.62085,
+        "p99_us": 16499.432589999997,
+        "mean_us": 15390.81333,
+        "process_p50_min_us": 15130.521,
+        "process_p50_max_us": 15250.7085,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 990257,
+        "allocation_policy": "compiled Jinja2 template; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "products": {
+        "p50_us": 1304.417,
+        "p95_us": 1349.8694,
+        "p99_us": 1389.36759,
+        "mean_us": 1310.4498899999999,
+        "process_p50_min_us": 1291.167,
+        "process_p50_max_us": 1321.104,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285676,
+        "allocation_policy": "compiled Jinja2 template; fresh owned string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      }
+    },
+    "php": {
+      "cards": {
+        "p50_us": 34,
+        "p95_us": 36.79405,
+        "p99_us": 43.12958,
+        "mean_us": 34.46618099999994,
+        "process_p50_min_us": 33.625,
+        "process_p50_max_us": 35.125,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25108,
+        "allocation_policy": "fresh owned PHP string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "table": {
+        "p50_us": 1394.2085,
+        "p95_us": 1433.2774,
+        "p99_us": 1459.59334,
+        "mean_us": 1397.3406299999995,
+        "process_p50_min_us": 1382.7915,
+        "process_p50_max_us": 1412.958,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 990694,
+        "allocation_policy": "fresh owned PHP string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "products": {
+        "p50_us": 84.5415,
+        "p95_us": 89.71634999999999,
+        "p99_us": 98.60633999999997,
+        "mean_us": 85.40440400000003,
+        "process_p50_min_us": 84.208,
+        "process_p50_max_us": 88.083,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285868,
+        "allocation_policy": "fresh owned PHP string",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      }
+    },
+    "askama": {
+      "cards": {
+        "p50_us": 1.542,
+        "p95_us": 1.625,
+        "p99_us": 1.917,
+        "mean_us": 1.5651309999999858,
+        "process_p50_min_us": 1.541,
+        "process_p50_max_us": 1.583,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 44849,
+        "allocation_policy": "compiled Askama template; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "table": {
+        "p50_us": 596.167,
+        "p95_us": 626.8597500000001,
+        "p99_us": 651.72908,
+        "mean_us": 601.460195,
+        "process_p50_min_us": 592.7919999999999,
+        "process_p50_max_us": 605.625,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 991007,
+        "allocation_policy": "compiled Askama template; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "products": {
+        "p50_us": 22.458000000000002,
+        "p95_us": 24.54405,
+        "p99_us": 26.918919999999996,
+        "mean_us": 22.889223999999988,
+        "process_p50_min_us": 22.208000000000002,
+        "process_p50_max_us": 22.541,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285676,
+        "allocation_policy": "compiled Askama template; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      }
+    },
+    "sailfish": {
+      "cards": {
+        "p50_us": 2.334,
+        "p95_us": 2.458,
+        "p99_us": 2.959,
+        "mean_us": 2.3782755000000226,
+        "process_p50_min_us": 2.3329999999999997,
+        "process_p50_max_us": 2.417,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 44849,
+        "allocation_policy": "compiled Sailfish template; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "table": {
+        "p50_us": 538.875,
+        "p95_us": 561.60655,
+        "p99_us": 580.8888399999997,
+        "mean_us": 541.15082,
+        "process_p50_min_us": 534.229,
+        "process_p50_max_us": 546.729,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 990694,
+        "allocation_policy": "compiled Sailfish template; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "products": {
+        "p50_us": 24.666999999999998,
+        "p95_us": 26.7521,
+        "p99_us": 29.345659999999988,
+        "mean_us": 25.044510000000006,
+        "process_p50_min_us": 24.042,
+        "process_p50_max_us": 24.9375,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285868,
+        "allocation_policy": "compiled Sailfish template; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      }
+    },
+    "leptos": {
+      "cards": {
+        "p50_us": 21.542,
+        "p95_us": 22.33305,
+        "p99_us": 26.00042,
+        "mean_us": 21.521293000000007,
+        "process_p50_min_us": 20.75,
+        "process_p50_max_us": 22.083,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25219,
+        "allocation_policy": "fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "table": {
+        "p50_us": 1844.0625,
+        "p95_us": 1920.51105,
+        "p99_us": 1954.4288399999996,
+        "mean_us": 1856.0596050000001,
+        "process_p50_min_us": 1821.3125,
+        "process_p50_max_us": 1857.563,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 991512,
+        "allocation_policy": "fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "products": {
+        "p50_us": 215.833,
+        "p95_us": 235.1059,
+        "p99_us": 242.68491999999998,
+        "mean_us": 217.32874200000003,
+        "process_p50_min_us": 212.458,
+        "process_p50_max_us": 218.583,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 286063,
+        "allocation_policy": "fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      }
+    },
+    "dioxus": {
+      "cards": {
+        "p50_us": 105.166,
+        "p95_us": 113.66699999999999,
+        "p99_us": 123.71358,
+        "mean_us": 106.92828399999989,
+        "process_p50_min_us": 104.917,
+        "process_p50_max_us": 106.208,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25141,
+        "allocation_policy": "standard empty String with no caller capacity hint; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "table": {
+        "p50_us": 2268.5420000000004,
+        "p95_us": 2323.6119000000003,
+        "p99_us": 2362.3635799999997,
+        "mean_us": 2273.29649,
+        "process_p50_min_us": 2255.4584999999997,
+        "process_p50_max_us": 2315.2084999999997,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 990695,
+        "allocation_policy": "standard empty String with no caller capacity hint; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "products": {
+        "p50_us": 306.39549999999997,
+        "p95_us": 324.26664999999997,
+        "p99_us": 337.42325,
+        "mean_us": 310.55623600000024,
+        "process_p50_min_us": 304.229,
+        "process_p50_max_us": 312,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 285868,
+        "allocation_policy": "standard empty String with no caller capacity hint; fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      }
+    },
+    "topcoat": {
+      "cards": {
+        "p50_us": 12.125,
+        "p95_us": 13,
+        "p99_us": 15.292419999999998,
+        "mean_us": 12.303117500000035,
+        "process_p50_min_us": 11.958,
+        "process_p50_max_us": 12.25,
+        "independent_processes": 5,
+        "samples_per_process": 2000,
+        "warmups_per_process": 200,
+        "output_bytes": 25108,
+        "allocation_policy": "fresh View construction and serialization into a fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "table": {
+        "p50_us": 1055.7085,
+        "p95_us": 1090.19585,
+        "p99_us": 1117.7378299999998,
+        "mean_us": 1059.4994099999997,
+        "process_p50_min_us": 1046.3125,
+        "process_p50_max_us": 1065.8539999999998,
+        "independent_processes": 5,
+        "samples_per_process": 200,
+        "warmups_per_process": 20,
+        "output_bytes": 988509,
+        "allocation_policy": "fresh View construction and serialization into a fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      },
+      "products": {
+        "p50_us": 150.875,
+        "p95_us": 159.46634999999998,
+        "p99_us": 171.88,
+        "mean_us": 152.57408399999994,
+        "process_p50_min_us": 149.292,
+        "process_p50_max_us": 153.542,
+        "independent_processes": 5,
+        "samples_per_process": 500,
+        "warmups_per_process": 50,
+        "output_bytes": 284908,
+        "allocation_policy": "fresh View construction and serialization into a fresh owned String",
+        "capture_id": "canonical-ssr-v1-2026-10-21-77c5c5fce085"
+      }
+    }
+  },
+  "versions": {
+    "Proa": "0.3.0 @ 7ffb8a19ecfa601fb496d825e0677dce29ea3af4 / rustc 1.95.0 (59807616e 2026-04-14)",
+    "Marko": "6.0.150 / Node v24.20.0",
+    "React": "19.2.4 / Node v24.20.0",
+    "Vue": "3.5.42 / Node v24.20.0",
+    "Svelte": "5.57.2 / Node v24.20.0",
+    "Rails": "Rails 8.1.3.1 / ruby 4.0.6 (2026-07-14 revision 03b6d3f889) +PRISM [arm64-darwin25]",
+    "jte": "3.2.4 / openjdk 25.0.1 2025-10-21",
+    "Rocker": "2.4.0 / openjdk 25.0.1 2025-10-21",
+    "Handlebars": "4.7.8 / Node v24.20.0",
+    "Go html/template": "go version go1.25.5 darwin/arm64",
+    "Jinja2": "3.1.6 / Python 3.14.2",
+    "PHP": "PHP 8.5.9 (cli) (built: Jul 28 2026 13:06:52) (NTS)",
+    "Askama": "0.15.6 / rustc 1.95.0 (59807616e 2026-04-14)",
+    "Sailfish": "0.10.2 / rustc 1.95.0 (59807616e 2026-04-14)",
+    "Leptos": "0.7.8 / rustc 1.95.0 (59807616e 2026-04-14)",
+    "Dioxus": "0.6.3 + dioxus-ssr 0.6.2 / rustc 1.95.0 (59807616e 2026-04-14)",
+    "Topcoat": "0.3.1 / rustc 1.95.0 (59807616e 2026-04-14)",
+    "Playwright": "1.61.1",
+    "Chromium": "149.0.7827.55"
+  },
+  "provenance": {
+    "harness_commit": "82f32206ec5c87449e1dfb8ceff9a0e977d883d8",
+    "dirty": true,
+    "source_sha256": "77c5c5fce085f658cebcadc649c908b13243b0590cfe0ab214db365bcc70dd2d"
+  },
+  "commands": [
+    "npm ci (React, Marko, and Handlebars adapter directories)",
+    "bundle check || bundle install (Rails adapter directory)",
+    "cargo build --locked --release -p proa_bench --features topcoat --bin representative_suite_bench",
+    "go build -trimpath -o rendering/external/go/build/canonical_suite rendering/external/go/suite_bench.go",
+    "python3 -m venv rendering/external/jinja/.venv && pip install -r rendering/external/jinja/requirements.txt",
+    "gradle --no-daemon --quiet installDist copyJteBinaryStaticContent (jte adapter directory)",
+    "gradle --no-daemon --quiet installDist (Rocker adapter directory)",
+    "./rendering/run-all"
+  ],
+  "limitations": [
+    "Renderer-only latency excludes routing, middleware, databases, HTTP transfer, hydration, and network latency.",
+    "Semantic DOM parity permits documented serializer metadata and whitespace differences; payload deltas remain visible.",
+    "This capture describes one machine and these three workloads; it is not a universal application ranking."
+  ],
+  "raw_artifacts": [
+    {
+      "label": "Per-process summaries",
+      "path": "raw/canonical-ssr-v1-2026-10-21-77c5c5fce085/process-summaries.json"
+    },
+    {
+      "label": "Result-table migration map",
+      "path": "../MIGRATION.md"
+    }
+  ]
+}

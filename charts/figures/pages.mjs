@@ -81,7 +81,7 @@ export function pageLoad(tables) {
   return doc({
     w: WIDTH,
     h: y,
-    title: 'Proa, React, Marko and Go html/template serving the canonical pages over HTTP on one core',
+    title: 'Proa, React, Marko, Go html/template and SvelteKit serving the canonical pages over HTTP on one core',
     desc: 'One core per engine, uncompressed loopback HTTP/1.1. Medians of three fresh processes; CPU counts all server threads. ' + t.objs.map((o) => `${clean(o.Engine)} on the ${clean(o.Workload)}: ${o['Sustained responses/s']} responses per second, ${o['CPU per response']} CPU per response, ${o['Peak RSS']} peak RSS`).join('. ') + '.',
     body,
   });
@@ -136,7 +136,7 @@ export function coldStart(tables) {
   return doc({
     w: WIDTH,
     h: top + rows.length * rowH + 30,
-    title: 'Cold start to first product-grid response for Proa, React, Marko and Go html/template',
+    title: 'Cold start to first product-grid response for Proa, React, Marko, Go html/template and SvelteKit',
     desc: 'Wall time includes process creation, runtime and module loading, fixture construction and the first render. Fifteen fresh processes per engine on one host. ' + rows.map((r) => `${r.name}: ${sig(r.p50)} ms median, ${sig(r.p95)} ms P95, ${sig(r.max)} ms slowest, ${sig(r.rssMiB)} MiB after the first response`).join('. ') + '.',
     body,
   });

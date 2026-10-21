@@ -322,19 +322,19 @@ console.log('\nSource fidelity');
     : bad('React hydration payload fidelity', mismatches.join('; '));
 }
 
-// 7 · figure 20 is exactly reproducible from the generated suspense table.
+// 7 · figure 07 is exactly reproducible from both generated streaming tables.
 //     This makes a stale or missing committed capacity chart a verification
 //     failure rather than relying on developers to remember to rebuild it.
 {
-  const expected = suspenseLoad(tables);
+  const expected = suspenseLoad(tables, readMeta(md));
   const path = join(SVG, '07-suspense-load.svg');
   let actual = null;
   try {
     actual = readFileSync(path, 'utf8');
   } catch {}
   actual === expected
-    ? ok('Suspense load chart reproduces exactly from its README table')
-    : bad('Suspense load chart fidelity', actual === null ? 'chart 20 is missing' : 'committed SVG is stale');
+    ? ok('Suspense load chart reproduces exactly from both streaming evidence tables')
+    : bad('Suspense load chart fidelity', actual === null ? 'chart 07 is missing' : 'committed SVG is stale');
 }
 
 // 7b · figure 21 is exactly reproducible from the generated page-load table,

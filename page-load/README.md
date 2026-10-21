@@ -11,6 +11,7 @@ it serves the same three parity-gated pages over real HTTP?
 | Proa | `RouteResponse::ssr` on an Axum router (`rendering/src/bin/proa_page_server.rs`) | `PROA_WORKER_THREADS=1` |
 | React | `renderToString` into `response.end` on `node:http` (`react_server.mjs`) | one Node process |
 | Marko | compiled template `render().pipe(response)` on `node:http` (`rendering/external/marko/page_server.mjs`) | one Node process |
+| SvelteKit | production `adapter-node`, static pages with `csr=false` (`rendering/external/sveltekit/`) | one Node process |
 | Go html/template | `Execute` into the `net/http` `ResponseWriter` (`rendering/external/go/suite_bench.go --serve`) | `GOMAXPROCS=1` |
 
 Fixture data is built before each listener opens. Each request renders a fresh,
@@ -22,6 +23,7 @@ independently owned response; nothing is cached across requests.
   produces through its scoreboard adapter, which is the dump that passed the
   browser-DOM parity gate. The runner renders those dumps at start and every
   worker hashes every measured response against them.
+- SvelteKit uses a dump from its actual production server renderer; the entire document must match the canonical Svelte DOM, including a negative control. Every measured response must hash to that dump.
 - Two phase kinds per engine and workload, each in a fresh server process:
   - **closed loop**, 64 connections issuing requests back to back for a
     1-second pre-roll plus a 5-second observation window: sustained responses
@@ -39,6 +41,8 @@ independently owned response; nothing is cached across requests.
 pnpm install --frozen-lockfile
 npm ci --prefix rendering/external/react
 npm ci --prefix rendering/external/marko
+npm ci --prefix rendering/external/sveltekit
+npm ci --prefix rendering/external/svelte
 
 pnpm run bench:page-load          # full publication capture (~10 minutes)
 pnpm run bench:page-load:smoke    # wiring check, writes results/smoke.json

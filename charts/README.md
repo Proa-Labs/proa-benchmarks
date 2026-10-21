@@ -1,6 +1,6 @@
 # Figures
 
-Nine figures covering the benchmark report: the [front page](../README.md) and its three evidence pages, [`scoreboard.md`](../scoreboard.md), [`http-capacity.md`](../http-capacity.md), and [`engineering.md`](../engineering.md).
+Nine figures covering the benchmark report: the [front page](../README.md) and its evidence pages, [`scoreboard.md`](../scoreboard.md), [`http-capacity.md`](../http-capacity.md), [`engineering.md`](../engineering.md), and [`sveltekit.md`](../sveltekit.md).
 
 Each one is **generated from the evidence pages' own tables** — no measurement is
 retyped here. Re-run the capture, let it regenerate its page, then run the build and
@@ -43,13 +43,13 @@ node charts/verify.mjs    # check them against the source, and against each othe
 | | Figure | Source |
 | ---: | --- | --- |
 | 06 | [The linked showcase corpus](svg/06-showcase-corpus.svg) | [Linked proa_showcase corpus](../engineering.md#linked-proa_showcase-corpus) |
-| 07 | [Suspense-heavy HTTP capacity, latency, CPU, and RSS](svg/07-suspense-load.svg) | [Suspense streaming over HTTP](../http-capacity.md#suspense-streaming-over-http-one-core-each) |
+| 07 | [Four-engine Suspense HTTP throughput, latency, RSS, and failures](svg/07-suspense-load.svg) | [Retained Marko/React capture](../http-capacity.md#suspense-streaming-over-http-one-core-each) overlaid with [fresh Proa/SvelteKit measurements](../sveltekit.md#http-streaming-capacity-and-latency) |
 | 08 | [Canonical pages over real HTTP on one core](svg/08-canonical-pages-http.svg) | [Canonical pages over HTTP](../http-capacity.md#canonical-pages-over-http-one-core-each) |
 | 09 | [Cold start to first response](svg/09-cold-start.svg) | [Cold start to first response](../http-capacity.md#cold-start-to-first-response) |
 
 ## How they are built
 
-`build.mjs` reads the front page and the three evidence pages, parses every Markdown
+`build.mjs` reads the front page and the evidence pages, parses every Markdown
 table in them, and hands the
 parsed rows to one function per figure. A figure asks for its table by the exact
 signature of its header row and fails the build if that signature matches anything
@@ -77,9 +77,9 @@ figure on its evidence page is the table view.
   legends for units, scales, and marks. Keep at most one short footer for context
   needed to interpret a comparison. Methodology and commentary belong on the
   evidence page; the SVG's accessible description retains the measured values.
-- **Proa is the accent; every other engine is neutral grey.** A figure with no
-  Proa row would accent nothing, because highlighting a row there would imply a
-  comparison the data cannot support.
+- **Proa is the primary accent.** Multi-engine load curves use distinct colors
+  so overlapping series remain readable; other comparisons use neutral peers.
+  A figure with no Proa row accents nothing.
 - **Logarithmic axes are labelled as such**, and are used wherever a panel spans
   more than about one order of magnitude.
 - **Two measures never share one axis.** Where a figure shows both time and
@@ -96,3 +96,5 @@ of [`lib/theme.mjs`](lib/theme.mjs).
 Figures are written as XML, not HTML: GitHub serves `.svg` as `image/svg+xml` and
 parses it strictly, so `build.mjs` validates each document before writing it. A
 figure that a browser would tolerate but an XML parser would reject fails the build.
+
+Chart 07 overlays all four engines on shared throughput and memory plots, with four latency panels on the same log scale. It uses the fresh Proa/SvelteKit capture and retained Marko/React capture, with dates labeled. SvelteKit response end excludes hydration and browser rendering. Failure totals appear beside each latency panel; failures by rate remain in the source tables. The additional [browser-completion figure](../sveltekit/browser.svg), generated and checked by `node sveltekit/report.mjs [--check]`, measures first-panel and complete-DOM timing from retained browser samples.

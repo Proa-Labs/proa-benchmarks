@@ -11,6 +11,7 @@ import { fileURLToPath } from "node:url";
 import { summarize } from "../suspense-load/stats.mjs";
 import { numbersApproximatelyEqual } from "../suspense-load/validation.mjs";
 import { ENGINES, PUBLICATION, SCENARIO_ID, WORKLOADS } from "./scenario.mjs";
+import { sourceFiles as sveltekitSourceFiles } from "../rendering/external/sveltekit/benchmark.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -20,7 +21,8 @@ export const startMarker = "<!-- page-load:start -->";
 export const endMarker = "<!-- page-load:end -->";
 const check = process.argv.includes("--check");
 // Keep this list synchronized with run.mjs.
-const benchmarkSourceFiles = [
+export const benchmarkSourceFiles = [
+  ...sveltekitSourceFiles,
   ".nvmrc",
   "Cargo.lock",
   "Cargo.toml",
@@ -102,7 +104,7 @@ export function validateResult(result) {
     if (typeof engine.framework !== "string" || !engine.framework) fail(`${engine.id} framework version is missing`);
     if (engine.id === "proa" && engine.health?.workerThreads !== 1) fail("Proa did not run one worker thread");
     if (engine.id === "go-html-template" && engine.health?.gomaxprocs !== 1) fail("Go did not run GOMAXPROCS=1");
-    if ((engine.id === "react" || engine.id === "marko") && engine.health?.nodeEnv !== "production") fail(`${engine.id} did not confirm NODE_ENV=production`);
+    if (["react", "marko", "sveltekit"].includes(engine.id) && engine.health?.nodeEnv !== "production") fail(`${engine.id} did not confirm NODE_ENV=production`);
     if (engine.id === "react" && engine.health?.reactDomBuild !== "production") fail("React did not confirm the production react-dom build");
     for (const workload of WORKLOADS) {
       const cell = engine.workloads?.[workload.id];
@@ -235,7 +237,7 @@ export function render(result) {
 
 **${date} · ${host} · ${result.engines.length} production servers · every response byte-identical to its parity-gated dump**
 
-This is the capacity question behind the scoreboard: the same three parity-gated pages, served over real loopback HTTP/1.1 by each framework's ordinary production server, with every engine limited to one core of work. Proa runs one Tokio worker thread on Axum, React and Marko run one Node process, and Go runs \`GOMAXPROCS=1\` on \`net/http\`. On the product grid, one Proa core sustained ${integer(proaProducts.sustainedRps)} complete responses per second against ${integer(reactProducts.sustainedRps)} for React, and spent ${fixed(proaProducts.cpuMsPerResponse, 3)} ms of CPU per response against React's ${fixed(reactProducts.cpuMsPerResponse, 3)} ms.
+This is the capacity question behind the scoreboard: the same three parity-gated pages, served over real loopback HTTP/1.1 by each framework's ordinary production server, with every engine limited to one core of work. Proa runs one Tokio worker thread on Axum, React, Marko, and SvelteKit run one Node process, and Go runs \`GOMAXPROCS=1\` on \`net/http\`. On the product grid, one Proa core sustained ${integer(proaProducts.sustainedRps)} complete responses per second against ${integer(reactProducts.sustainedRps)} for React, and spent ${fixed(proaProducts.cpuMsPerResponse, 3)} ms of CPU per response against React's ${fixed(reactProducts.cpuMsPerResponse, 3)} ms.
 
 Each value is the median of ${m.repeats} fresh server processes. **Capacity** rows use ${m.closedLoopConcurrency} closed-loop connections issuing requests back to back; throughput counts complete responses inside a fixed ${m.durationSeconds}-second window after a ${m.preRollSeconds}-second pre-roll. **CPU per response** is the server process's exact CPU-time delta across all of its threads, including garbage-collector helpers, divided by successful responses. The load generator is ${m.generatorWorkers} separate worker processes that hash every response; a phase is rejected if any worker's event loop exceeds ${Math.round(m.generatorCpuLimit * 100)}% busy.
 
@@ -262,9 +264,9 @@ Every measured response was compared byte for byte against the dump the same eng
 ${parityRows}
 
 - Capture: [page-load/results/latest.json](page-load/results/latest.json); reproduce with \`pnpm run bench:page-load\`.
-- Proa serves through \`RouteResponse::ssr\` on an Axum router; React through \`renderToString\` into \`response.end\`; Marko through its compiled template's \`render().pipe(response)\`; Go through \`html/template\` \`Execute\` into the \`ResponseWriter\`.
+- Proa serves through \`RouteResponse::ssr\` on an Axum router; React through \`renderToString\` into \`response.end\`; Marko through its compiled template's \`render().pipe(response)\`; Go through \`html/template\` \`Execute\` into the \`ResponseWriter\`; SvelteKit through its production Node adapter with server-side rendering and \`csr=false\`.
 - Node engines run with \`NODE_ENV=production\`: the driver sets it, each server's health endpoint reports it back, and React reports that it loaded the production \`react-dom/server\` build. The runner refuses to measure otherwise.
-- Compression is disabled for every engine so CPU is not dominated by a shared compression setting. Routing, databases, and network latency are outside this measurement; HTTP parsing, response serialization, allocation, and each server's write path are inside it.
+- Compression is disabled for every engine so CPU is not dominated by a shared compression setting. Databases and external network latency are outside this measurement; framework routing (including SvelteKit’s production router), HTTP parsing, response serialization, allocation, and each server's write path are inside it.
 - This is a one-host, one-core capacity measurement. Multi-core deployments scale each engine by its own process or thread model; the per-response CPU cost is the portable number.
 ${endMarker}`;
 }
