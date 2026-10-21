@@ -9,6 +9,8 @@ import { summarize } from '../suspense-load/stats.mjs';
 import { rowsFor, benchmarkSourceFiles as pageSources, validateResult as validatePages } from '../page-load/report.mjs';
 import { benchmarkSourceFiles as coldSources, validateResult as validateCold } from '../cold-start/report.mjs';
 import { renderingSourceFingerprint } from '../rendering/canonical/source_fingerprint.mjs';
+// Share series colors with chart 07 so each framework keeps one color across figures.
+import { C } from '../charts/lib/theme.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const rates = [250, 500, 1000, 2000, 3000, 4000, 5000, 6000];
@@ -98,7 +100,7 @@ function figure(result) {
     for(let j=0;j<cells.length;j++) {
       const rowY = y+21+j*29;
       const s = cells[j];
-      body += `<text x="30" y="${rowY+12}" class="label">${names[s.engine]}</text><rect x="250" y="${rowY}" width="${x(s.allPanelsMs.p50)-250}" height="18" rx="3" fill="${j===0?'#287653':'#5277a8'}"/><path d="M${x(s.allPanelsMs.p95)} ${rowY-3}v24" stroke="#29332d" stroke-width="2"/><circle cx="${x(s.firstPanelMs.p50)}" cy="${rowY+9}" r="3.5" fill="#faf9f6" stroke="#29332d" stroke-width="1.5"/><text x="${x(s.allPanelsMs.p95)+9}" y="${rowY+13}" class="value">${f(s.allPanelsMs.p50)} / ${f(s.allPanelsMs.p95)} ms</text>`;
+      body += `<text x="30" y="${rowY+12}" class="label">${names[s.engine]}</text><rect x="250" y="${rowY}" width="${x(s.allPanelsMs.p50)-250}" height="18" rx="3" fill="${j===0?C.proa:C.kit}"/><path d="M${x(s.allPanelsMs.p95)} ${rowY-3}v24" stroke="#29332d" stroke-width="2"/><circle cx="${x(s.firstPanelMs.p50)}" cy="${rowY+9}" r="3.5" fill="#faf9f6" stroke="#29332d" stroke-width="1.5"/><text x="${x(s.allPanelsMs.p95)+9}" y="${rowY+13}" class="value">${f(s.allPanelsMs.p50)} / ${f(s.allPanelsMs.p95)} ms</text>`;
     }
   }
   return body+`<text x="30" y="329" class="muted">Eight delayed panels (5–90 ms), 12 cards each. HTTP response end excludes SvelteKit browser rendering; see methodology.</text></svg>\n`;

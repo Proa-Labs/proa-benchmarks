@@ -26,6 +26,7 @@ export const C = {
   alt:      '#eb6834',  // the one genuine second series
   altWash:  '#fbdccd',
   floor:    '#4a3aa7',  // non-renderer controls (memcpy floor)
+  kit:      '#287653',  // SvelteKit, wherever it is drawn beside Proa
 
   seq:      ['#86b6ef', '#3987e5', '#1c5cab'], // ordinal ramp (3 workloads)
 

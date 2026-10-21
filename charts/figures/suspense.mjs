@@ -6,7 +6,7 @@ import {
 } from '../lib/svg.mjs';
 
 const COL = WIDTH - PAD * 2;
-const COLORS = { Proa: C.proa, Marko: C.peer, React: C.alt, SvelteKit: '#287653' };
+const COLORS = { Proa: C.proa, Marko: C.peer, React: C.alt, SvelteKit: C.kit };
 
 function panel({ x, y, w, h, title, sub, rows, value, format, ideal = false }) {
   const rates = [...new Set(rows.map((row) => row.rate))].sort((a, b) => a - b);
