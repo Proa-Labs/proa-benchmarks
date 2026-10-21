@@ -48,9 +48,9 @@ If you see an issue with the benchmarks or would like to add any, please open an
       <p>Single-core Suspense streaming with eight async boundaries per request.</p>
       <!-- charts:suspense:start -->
       <a href="charts/svg/07-suspense-load.svg">
-        <img width="100%" alt="Responses completed per second, latency distribution and peak memory for Proa, Marko and React streaming the product grid through Suspense over HTTP on one core" src="charts/svg/07-suspense-load.svg">
+        <img width="100%" alt="Separate HTTP load captures: Proa, Marko and React resolved-HTML streaming, plus Proa versus SvelteKit native data streaming and buffered HTML with throughput, P95 and failures" src="charts/svg/07-suspense-load.svg">
       </a>
-      <p><em>Throughput sweep with queueing markers (P50/P95/P99 + memory) at each rate. <a href="http-capacity.md#suspense-streaming-over-http-one-core-each">Details</a> · <a href="charts/svg/07-suspense-load.svg">Full size</a> · <a href="charts/">how the figures are built</a></em></p>
+      <p><em>HTML-stream <a href="http-capacity.md#suspense-streaming-over-http-one-core-each">capture</a> and separate <a href="sveltekit.md#http-streaming-capacity-and-latency">SvelteKit load sweep</a>. Data response end excludes browser rendering; see <a href="sveltekit/browser.svg">first-panel and complete-DOM timings</a>. <a href="charts/svg/07-suspense-load.svg">Full size</a> · <a href="charts/">how the figures are built</a></em></p>
       <!-- charts:suspense:end -->
     </td>
     <td valign="top" width="50%">

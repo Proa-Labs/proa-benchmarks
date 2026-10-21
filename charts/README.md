@@ -1,6 +1,6 @@
 # Figures
 
-Nine figures covering the benchmark report: the [front page](../README.md) and its three evidence pages, [`scoreboard.md`](../scoreboard.md), [`http-capacity.md`](../http-capacity.md), and [`engineering.md`](../engineering.md).
+Nine figures covering the benchmark report: the [front page](../README.md) and its evidence pages, [`scoreboard.md`](../scoreboard.md), [`http-capacity.md`](../http-capacity.md), [`engineering.md`](../engineering.md), and [`sveltekit.md`](../sveltekit.md).
 
 Each one is **generated from the evidence pages' own tables** — no measurement is
 retyped here. Re-run the capture, let it regenerate its page, then run the build and
@@ -43,13 +43,13 @@ node charts/verify.mjs    # check them against the source, and against each othe
 | | Figure | Source |
 | ---: | --- | --- |
 | 06 | [The linked showcase corpus](svg/06-showcase-corpus.svg) | [Linked proa_showcase corpus](../engineering.md#linked-proa_showcase-corpus) |
-| 07 | [Suspense-heavy HTTP capacity, latency, CPU, and RSS](svg/07-suspense-load.svg) | [Suspense streaming over HTTP](../http-capacity.md#suspense-streaming-over-http-one-core-each) |
+| 07 | [Suspense HTTP throughput, latency, RSS, and SvelteKit overload failures](svg/07-suspense-load.svg) | Separate captures: [resolved-HTML streaming](../http-capacity.md#suspense-streaming-over-http-one-core-each) and [native SvelteKit comparison](../sveltekit.md#http-streaming-capacity-and-latency) |
 | 08 | [Canonical pages over real HTTP on one core](svg/08-canonical-pages-http.svg) | [Canonical pages over HTTP](../http-capacity.md#canonical-pages-over-http-one-core-each) |
 | 09 | [Cold start to first response](svg/09-cold-start.svg) | [Cold start to first response](../http-capacity.md#cold-start-to-first-response) |
 
 ## How they are built
 
-`build.mjs` reads the front page and the three evidence pages, parses every Markdown
+`build.mjs` reads the front page and the evidence pages, parses every Markdown
 table in them, and hands the
 parsed rows to one function per figure. A figure asks for its table by the exact
 signature of its header row and fails the build if that signature matches anything
@@ -97,4 +97,4 @@ Figures are written as XML, not HTML: GitHub serves `.svg` as `image/svg+xml` an
 parses it strictly, so `build.mjs` validates each document before writing it. A
 figure that a browser would tolerate but an XML parser would reject fails the build.
 
-The additional [SvelteKit browser-completion figure](../sveltekit/browser.svg) is generated and checked by `node sveltekit/report.mjs [--check]` from its retained browser samples. It is separate from the nine-figure roster because native data streaming and resolved-HTML streaming use different HTTP completion boundaries.
+Chart 07 labels the resolved-HTML and native SvelteKit load sweeps as separate, dated captures. It shows response ends, successful-response P95, and failures for the SvelteKit comparison; data response end excludes hydration and browser rendering. The additional [SvelteKit browser-completion figure](../sveltekit/browser.svg), generated and checked by `node sveltekit/report.mjs [--check]`, measures first-panel and complete-DOM timing from retained browser samples.

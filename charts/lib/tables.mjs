@@ -5,10 +5,10 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-// The front page and the three evidence pages, in reading order. Tables are
+// The front page and the evidence pages, in reading order. Tables are
 // picked by header signature (and heading) across all of them, so a table may
 // live on whichever page explains it.
-export const EVIDENCE_PAGES = ['README.md', 'scoreboard.md', 'http-capacity.md', 'engineering.md'];
+export const EVIDENCE_PAGES = ['README.md', 'scoreboard.md', 'http-capacity.md', 'engineering.md', 'sveltekit.md'];
 
 export function readReadme(path) {
   return readFileSync(path, 'utf8');
@@ -34,9 +34,13 @@ export function readMeta(md) {
     if (!m) throw new Error(`evidence pages: could not read ${what} inside the ${section} section`);
     return m[1];
   };
+  const kitDate = /Generated from fresh captures on \*\*[^\n]+?\*\*, (\d{4}-\d{2}-\d{2}) UTC\./.exec(md)?.[1];
+  if (!kitDate) throw new Error('evidence pages: could not read the SvelteKit capture date');
   return {
     date: within('canonical-scoreboard', /\*\*(\w+ \d+, \d{4}) · /, 'the canonical capture date'),
     scalingDate: within('product-scaling', /This (\w+ \d+, \d{4}) UTC engineering capture/, 'the product-scaling capture date'),
+    suspenseDate: within('suspense-load', /\*\*(\w+ \d+, \d{4}) · /, 'the resolved-HTML streaming capture date'),
+    sveltekitDate: kitDate,
     host: (/- Host: (.+)/.exec(md) || [, ''])[1],
     capture: (/- Capture: `(.+?)`/.exec(md) || [, ''])[1],
   };

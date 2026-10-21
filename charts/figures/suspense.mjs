@@ -8,7 +8,7 @@ import {
 const COL = WIDTH - PAD * 2;
 const COLORS = { Proa: C.proa, Marko: C.peer, React: C.alt };
 
-function panel({ x, y, w, h, title, sub, rows, value, format, log = false, ideal = false, reference = null }) {
+function panel({ x, y, w, h, title, sub, rows, value, format, log = false, ideal = false, reference = null, colors = COLORS }) {
   const rates = [...new Set(rows.map((row) => row.rate))].sort((a, b) => a - b);
   const values = rows.map(value);
   const x0 = x + 58, x1 = x + w - 18, y0 = y + (sub ? 40 : 25), y1 = y + h - 42;
@@ -47,16 +47,16 @@ function panel({ x, y, w, h, title, sub, rows, value, format, log = false, ideal
     body += rule(x0, ys(reference.value), x1, ys(reference.value), C.critical, 1.2);
     body += txt(x0 + 6, ys(reference.value) - 5, reference.label, 'note');
   }
-  for (const engine of ['Proa', 'Marko', 'React']) {
+  for (const engine of Object.keys(colors)) {
     const series = rows.filter((row) => row.engine === engine).sort((a, b) => a.rate - b.rate);
     const points = series.map((row) => [xs(row.rate), ys(value(row))]);
-    body += line(points, COLORS[engine], engine === 'Proa' ? 2.6 : 2.1);
-    for (const point of points) body += dot(point[0], point[1], COLORS[engine], 4.1);
+    body += line(points, colors[engine], engine.startsWith('Proa') ? 2.6 : 2.1);
+    for (const point of points) body += dot(point[0], point[1], colors[engine], 4.1);
   }
   return body;
 }
 
-export function suspenseLoad(tables) {
+export function suspenseLoad(tables, meta) {
   const table = pick(tables, ['Engine', 'Request rate (rps)', 'Steady completion rps', 'Shell P50', 'Complete P50'], {
     heading: 'Suspense streaming over HTTP',
   });
@@ -77,15 +77,17 @@ export function suspenseLoad(tables) {
   const latency = (ms) => ms >= 1000 ? `${sig(ms / 1000)} s` : `${sig(ms)} ms`;
 
   const hdr = header(PAD, 44, 'Suspense streaming under load',
-    'One core per engine · 96 cards · 8 boundaries · medians of 3 server processes', COL);
+    '96 cards · 8 boundaries · one worker/process per engine · two separate captures', COL);
   let body = hdr.svg;
-  body += legend(PAD, 44 + hdr.h + 27, [
+  body += eyebrow(PAD, 44 + hdr.h + 30, 'Resolved-HTML streams');
+  body += txt(WIDTH - PAD, 44 + hdr.h + 30, meta.suspenseDate, 'note end');
+  body += legend(PAD, 44 + hdr.h + 54, [
     { shape: 'line', color: C.proa, label: 'Proa' },
     { shape: 'line', color: C.peer, label: 'Marko' },
     { shape: 'line', color: C.alt, label: 'React' },
   ]);
 
-  const top = 44 + hdr.h + 66;
+  const top = 44 + hdr.h + 88;
   const gapX = 58, gapY = 42;
   const panelW = (COL - gapX) / 2;
   const panelH = 246;
@@ -158,15 +160,61 @@ export function suspenseLoad(tables) {
     body += txt(lx, ly, 'shaded: P50 to P99', 'lg');
   }
 
-  const notesY = latTop + latH + 26;
-  const notes = footnotes(PAD, notesY,
-    'Latency starts at scheduled arrival and includes queueing.', COL);
+  // Native SvelteKit sends promised data rather than resolved boundary HTML.
+  // Keep the independently captured sweep in its own section and show errors
+  // beside latency: successful-response percentiles are censored at overload.
+  const kitTable = pick(tables, ['Variant', 'Offered rps', 'Response ends/s', 'First byte P50'], {
+    heading: 'HTTP streaming capacity and latency',
+  });
+  const kitRows = kitTable.objs.map((row) => ({
+    engine: row.Variant,
+    rate: num(row['Offered rps']),
+    throughput: num(row['Response ends/s']),
+    p95Ms: toUs(row['Response end P95']) / 1000,
+    errors: num(row.Errors),
+  }));
+  const kitColors = {
+    'Proa HTML stream': C.proa,
+    'SvelteKit data stream': C.peer,
+    'SvelteKit buffered HTML': C.alt,
+  };
+  const kitTop = latTop + latH + 62;
+  body += rule(PAD, kitTop - 24, WIDTH - PAD, kitTop - 24, C.rule);
+  body += eyebrow(PAD, kitTop, 'SvelteKit native streaming');
+  body += txt(WIDTH - PAD, kitTop, meta.sveltekitDate + ' UTC', 'note end');
+  body += txt(PAD, kitTop + 19, 'HTTP response end: resolved HTML for Proa; promised data for SvelteKit streaming.', 'note');
+  body += legend(PAD, kitTop + 43, Object.entries(kitColors).map(([label, color]) => ({ shape: 'line', color, label })));
+  const kitPanelTop = kitTop + 77;
+  const kitW = (COL - 30 * 2) / 3;
+  const kitH = 246;
+  const kitPanel = { y: kitPanelTop, w: kitW, h: kitH, rows: kitRows, colors: kitColors };
+  body += panel({
+    ...kitPanel, x: PAD,
+    title: 'Response ends/s', sub: 'Median · dashed: offered rate',
+    value: (row) => row.throughput, format: (value) => value >= 1000 ? `${value / 1000}k` : String(value), ideal: true,
+  });
+  body += panel({
+    ...kitPanel, x: PAD + kitW + 30,
+    title: 'Response-end P95', sub: 'Successful responses · log scale',
+    value: (row) => row.p95Ms, format: latency, log: true,
+  });
+  body += panel({
+    ...kitPanel, x: PAD + (kitW + 30) * 2,
+    title: 'Failed requests', sub: 'Sum of 3 full phases, including drain',
+    value: (row) => row.errors, format: (value) => value >= 1000 ? `${value / 1000}k` : String(value),
+  });
+
+  const notesY = kitPanelTop + kitH + 12;
+  const notes = footnotes(PAD, notesY, [
+    'Latency includes scheduled-arrival queueing. More failures can reduce the successful-response P95.',
+    'Data response end excludes browser rendering. Complete-DOM timings: sveltekit/browser.svg.',
+  ], COL);
 
   return doc({
     w: WIDTH,
     h: notesY + notes.h + 12,
-    title: 'Proa, Marko and React streaming the product grid through Suspense over HTTP',
-    desc: 'Every engine runs one worker thread or process. ' + rows.map((row) => `${row.engine} at ${row.rate} req/s target: ${row.throughput} steady-state completions per second, complete-response P50 ${row.p50Ms}, P95 ${row.p95Ms} and P99 ${row.p99Ms} milliseconds, ${row.rssMiB} MiB peak RSS`).join('. ') + '.',
+    title: 'Proa, Marko, React and SvelteKit streaming the product grid under HTTP load',
+    desc: 'Every engine runs one worker thread or process. Separate captures, not a combined ranking. Resolved-HTML capture: ' + meta.suspenseDate + '. ' + rows.map((row) => `${row.engine} at ${row.rate} req/s target: ${row.throughput} steady-state completions per second, complete-response P50 ${row.p50Ms}, P95 ${row.p95Ms} and P99 ${row.p99Ms} milliseconds, ${row.rssMiB} MiB peak RSS`).join('. ') + '. Native SvelteKit comparison: ' + meta.sveltekitDate + '. Data response end excludes hydration and browser rendering. ' + kitRows.map((row) => `${row.engine} at ${row.rate} req/s target: ${row.throughput} response ends per second, successful response-end P95 ${row.p95Ms} milliseconds, ${row.errors} failed requests across three full phases`).join('. ') + '.',
     body: body + notes.svg,
   });
 }

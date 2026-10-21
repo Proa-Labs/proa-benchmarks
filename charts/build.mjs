@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Regenerates every figure in this directory from the evidence pages' own tables
-// (README.md, scoreboard.md, http-capacity.md, engineering.md).
+// (README.md, scoreboard.md, http-capacity.md, engineering.md, sveltekit.md).
 //   node charts/build.mjs
 // Re-run it after any capture that rewrites one of those pages.
 
