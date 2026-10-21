@@ -28,6 +28,20 @@ test('rejects missing phases and inconsistent browser evidence', () => {
   }
 });
 
+test('rejects missing generator evidence and invalid published HTTP metrics', () => {
+  for (const [corrupt, message] of [
+    [p => { delete p.generator.busiestWorkerUtilization; }, /generator evidence/],
+    [p => { p.latencyMs.schedulerLag.p95 = null; }, /generator evidence/],
+    [p => { p.errorCount = -1; }, /HTTP failure count/],
+    [p => { delete p.cpu.averageCpuCores; }, /missing HTTP metrics/],
+    [p => { p.latencyMs.scheduledComplete.p95 = 1; }, /percentiles out of order/],
+  ]) {
+    const changed = structuredClone(capture);
+    corrupt(changed.http[0]);
+    assert.throws(() => validateStreaming(changed), message);
+  }
+});
+
 test('custom worker counts cannot overwrite the publication capture', async () => {
   await assert.rejects(promisify(execFile)(process.execPath, [
     fileURLToPath(new URL('./run.mjs', import.meta.url)), '--workers', '1',

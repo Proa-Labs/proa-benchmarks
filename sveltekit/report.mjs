@@ -36,11 +36,16 @@ export function validateStreaming(result) {
     const key = `${phase.engine}/${phase.offeredRps}/${phase.repeat}`;
     if (seen.has(key) || !ids.includes(phase.engine) || !rates.includes(phase.offeredRps) || ![1,2,3].includes(phase.repeat)) fail(`duplicate/foreign HTTP phase ${key}`);
     seen.add(key);
-    if (!phase.loadGeneratorValid || phase.generator?.busiestWorkerUtilization > 0.8 || phase.latencyMs?.schedulerLag?.p95 > 25) fail(`generator bottleneck ${key}`);
+    const utilization = phase.generator?.busiestWorkerUtilization;
+    const lag = phase.latencyMs?.schedulerLag?.p95;
+    if (phase.loadGeneratorValid !== true || !Number.isFinite(utilization) || utilization < 0 || utilization > 0.8 || !Number.isFinite(lag) || lag < 0 || lag > 25) fail(`missing or bottlenecked generator evidence ${key}`);
     if (phase.mode !== 'open' || phase.durationSeconds !== 5 || phase.preRollSeconds !== 1 || phase.generator?.workerCount !== 12) fail(`HTTP protocol ${key}`);
-    for (const value of [phase.completionThroughputRps, phase.latencyMs?.scheduledFirstByte?.p50, phase.latencyMs?.scheduledComplete?.p50, phase.latencyMs?.scheduledComplete?.p95, phase.latencyMs?.scheduledComplete?.p99, phase.cpu?.cpuMsPerSuccessfulRequest, phase.memory?.peakSampledRssBytes, phase.responseBytes]) if (!Number.isFinite(value) || value < 0) fail(`missing HTTP metrics ${key}`);
+    for (const value of [phase.completionThroughputRps, phase.latencyMs?.scheduledFirstByte?.p50, phase.latencyMs?.scheduledComplete?.p50, phase.latencyMs?.scheduledComplete?.p95, phase.latencyMs?.scheduledComplete?.p99, phase.cpu?.cpuMsPerSuccessfulRequest, phase.cpu?.averageCpuCores, phase.memory?.peakSampledRssBytes, phase.responseBytes]) if (!Number.isFinite(value) || value < 0) fail(`missing HTTP metrics ${key}`);
     if (!Number.isSafeInteger(phase.steadyStateCompletedResponses) || phase.steadyStateCompletedResponses < 0) fail(`invalid HTTP completion count ${key}`);
     if (Math.abs(phase.completionThroughputRps - phase.steadyStateCompletedResponses / phase.durationSeconds) > 1e-9) fail(`HTTP throughput differs from retained completion count ${key}`);
+    if (!Number.isSafeInteger(phase.errorCount) || phase.errorCount < 0) fail(`invalid HTTP failure count ${key}`);
+    const { p50, p95, p99 } = phase.latencyMs.scheduledComplete;
+    if (p50 > p95 || p95 > p99) fail(`HTTP latency percentiles out of order ${key}`);
     const contract = phase.engine === 'proa' ? phase.health : phase.health?.streaming;
     if (contract?.boundaries !== 8 || contract?.productCards !== 96 || JSON.stringify(contract.delayTiersMs) !== '[5,8,12,18,27,40,60,90]') fail(`fixture mismatch ${key}`);
     if (phase.engine === 'proa' ? phase.health?.workerThreads !== 1 : phase.health?.nodeEnv !== 'production') fail(`production/concurrency mismatch ${key}`);
