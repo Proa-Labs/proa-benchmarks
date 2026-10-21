@@ -17,7 +17,7 @@ The comparison uses each framework's native streaming route:
 
 Every request uses the same eight delayed panels (5, 8, 12, 18, 27, 40, 60, and 90 ms), 12 cards per panel, five SVG stars per card, and prepared typed input values. SvelteKit's data serialization is part of its native path and is included. There is no external data service. The resolved panel DOM, including text, attributes, classes, element order, and all 480 stars, must match across all browser samples. The fixture preserves the existing benchmark's BackCompat document mode and utility-class markup; it is a rendering workload rather than a styled application. No CSS, product images, or fonts are fetched.
 
-**HTTP response end is a different completion boundary for the data stream.** Its capacity numbers below describe delivering data, not delivering server-rendered product HTML. The browser table compares the same completed UI. This comparison has its own report rather than mixing the data-only response into the existing [HTML-streaming curve](http-capacity.md#suspense-streaming-over-http-one-core-each).
+**HTTP response end is a different completion boundary for SvelteKit.** Its capacity numbers below describe delivering data, not delivering server-rendered product HTML. The browser table compares the same completed UI. The [combined load figure](charts/svg/07-suspense-load.svg) overlays these Proa/SvelteKit measurements with the retained [Marko/React capture](http-capacity.md#suspense-streaming-over-http-one-core-each), labeling the capture dates and completion boundaries.
 
 ## Browser completion
 
@@ -40,24 +40,24 @@ JavaScript-disabled controls passed in both profiles: both frameworks leave the 
 
 Three fresh processes per framework/rate, order rotated, one Proa Tokio worker or one Node process. Exact server CPU charges every process thread, including GC helpers. Twelve separate generator processes, 24 untimed warmup requests, one-second pre-roll, five-second observation window. Each generator uses a keep-alive agent capped at 256 sockets (3,072 total); any agent queueing is included in scheduled-arrival latency. The shared driver uses a 15-second socket timeout alongside platform TCP connection timeouts. Throughput counts successful responses ending inside that window; scheduled-arrival latencies include queueing and generator lag. Latency percentiles cover successful responses only; failures are reported separately and must be considered alongside them. At overload, failures censor the latency distribution, so a lower successful-response percentile can accompany more failed requests. Rows show medians of the three phase metrics, and errors are summed. High-load overload/errors are retained rather than treated as completed work. Every response is validated: Proa's complete HTML boundary payload or all SvelteKit promised values and product fields. The generator must stay below 80% worker utilization and 25 ms P95 scheduling lag; otherwise the capture aborts.
 
-| Framework | Offered rps | Response ends/s | First byte P50 | Response end P50 | Response end P95 | Server CPU/response | Cores | Peak RSS | Document body | Errors |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Proa | 250 | 250 | 0.23 ms | 90.8 ms | 91.0 ms | 0.320 ms | 0.08 | 7.7 MiB | 378.4 KiB | 0 |
-| SvelteKit | 250 | 250 | 0.42 ms | 90.8 ms | 91.0 ms | 0.803 ms | 0.20 | 200.0 MiB | 17.8 KiB | 0 |
-| Proa | 500 | 500 | 0.19 ms | 91.4 ms | 91.6 ms | 0.267 ms | 0.13 | 8.7 MiB | 378.4 KiB | 0 |
-| SvelteKit | 500 | 500 | 0.29 ms | 90.2 ms | 90.5 ms | 0.567 ms | 0.28 | 233.1 MiB | 17.8 KiB | 0 |
-| Proa | 1,000 | 1,000 | 0.23 ms | 91.3 ms | 91.4 ms | 0.242 ms | 0.24 | 11.5 MiB | 378.4 KiB | 0 |
-| SvelteKit | 1,000 | 1,000 | 0.34 ms | 90.4 ms | 90.7 ms | 0.568 ms | 0.56 | 261.0 MiB | 17.8 KiB | 0 |
-| Proa | 2,000 | 2,000 | 0.17 ms | 91.2 ms | 91.3 ms | 0.223 ms | 0.44 | 17.4 MiB | 378.4 KiB | 0 |
-| SvelteKit | 2,000 | 2,000 | 0.48 ms | 90.3 ms | 91.9 ms | 0.463 ms | 0.91 | 310.7 MiB | 17.8 KiB | 0 |
-| Proa | 3,000 | 3,000 | 0.16 ms | 90.9 ms | 91.8 ms | 0.207 ms | 0.61 | 24.4 MiB | 378.4 KiB | 0 |
-| SvelteKit | 3,000 | 3,003 | 0.98 ms | 91.6 ms | 95.5 ms | 0.413 ms | 1.22 | 359.3 MiB | 17.8 KiB | 0 |
-| Proa | 4,000 | 4,000 | 0.28 ms | 91.0 ms | 92.2 ms | 0.205 ms | 0.81 | 30.3 MiB | 378.4 KiB | 0 |
-| SvelteKit | 4,000 | 2,935 | 601.0 ms | 720.2 ms | 5942.0 ms | 0.416 ms | 1.02 | 527.3 MiB | 17.8 KiB | 1,186 |
-| Proa | 5,000 | 4,994 | 5.61 ms | 102.5 ms | 135.6 ms | 0.194 ms | 0.95 | 46.1 MiB | 378.4 KiB | 0 |
-| SvelteKit | 5,000 | 2,923 | 1738.0 ms | 1868.6 ms | 3474.8 ms | 0.405 ms | 1.10 | 555.3 MiB | 17.8 KiB | 1,072 |
-| Proa | 6,000 | 4,600 | 621.9 ms | 1081.0 ms | 1817.1 ms | 0.186 ms | 0.88 | 222.6 MiB | 378.4 KiB | 0 |
-| SvelteKit | 6,000 | 2,986 | 2443.2 ms | 2559.7 ms | 5937.2 ms | 0.394 ms | 1.06 | 537.2 MiB | 17.8 KiB | 0 |
+| Framework | Offered rps | Response ends/s | First byte P50 | Response end P50 | Response end P95 | Response end P99 | Server CPU/response | Cores | Peak RSS | Document body | Errors |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Proa | 250 | 250 | 0.23 ms | 90.8 ms | 91.0 ms | 91.9 ms | 0.320 ms | 0.08 | 7.7 MiB | 378.4 KiB | 0 |
+| SvelteKit | 250 | 250 | 0.42 ms | 90.8 ms | 91.0 ms | 91.2 ms | 0.803 ms | 0.20 | 200.0 MiB | 17.8 KiB | 0 |
+| Proa | 500 | 500 | 0.19 ms | 91.4 ms | 91.6 ms | 91.9 ms | 0.267 ms | 0.13 | 8.7 MiB | 378.4 KiB | 0 |
+| SvelteKit | 500 | 500 | 0.29 ms | 90.2 ms | 90.5 ms | 90.7 ms | 0.567 ms | 0.28 | 233.1 MiB | 17.8 KiB | 0 |
+| Proa | 1,000 | 1,000 | 0.23 ms | 91.3 ms | 91.4 ms | 92.0 ms | 0.242 ms | 0.24 | 11.5 MiB | 378.4 KiB | 0 |
+| SvelteKit | 1,000 | 1,000 | 0.34 ms | 90.4 ms | 90.7 ms | 91.1 ms | 0.568 ms | 0.56 | 261.0 MiB | 17.8 KiB | 0 |
+| Proa | 2,000 | 2,000 | 0.17 ms | 91.2 ms | 91.3 ms | 91.7 ms | 0.223 ms | 0.44 | 17.4 MiB | 378.4 KiB | 0 |
+| SvelteKit | 2,000 | 2,000 | 0.48 ms | 90.3 ms | 91.9 ms | 92.9 ms | 0.463 ms | 0.91 | 310.7 MiB | 17.8 KiB | 0 |
+| Proa | 3,000 | 3,000 | 0.16 ms | 90.9 ms | 91.8 ms | 94.6 ms | 0.207 ms | 0.61 | 24.4 MiB | 378.4 KiB | 0 |
+| SvelteKit | 3,000 | 3,003 | 0.98 ms | 91.6 ms | 95.5 ms | 98.1 ms | 0.413 ms | 1.22 | 359.3 MiB | 17.8 KiB | 0 |
+| Proa | 4,000 | 4,000 | 0.28 ms | 91.0 ms | 92.2 ms | 94.5 ms | 0.205 ms | 0.81 | 30.3 MiB | 378.4 KiB | 0 |
+| SvelteKit | 4,000 | 2,935 | 601.0 ms | 720.2 ms | 5942.0 ms | 5976.9 ms | 0.416 ms | 1.02 | 527.3 MiB | 17.8 KiB | 1,186 |
+| Proa | 5,000 | 4,994 | 5.61 ms | 102.5 ms | 135.6 ms | 152.0 ms | 0.194 ms | 0.95 | 46.1 MiB | 378.4 KiB | 0 |
+| SvelteKit | 5,000 | 2,923 | 1738.0 ms | 1868.6 ms | 3474.8 ms | 4335.1 ms | 0.405 ms | 1.10 | 555.3 MiB | 17.8 KiB | 1,072 |
+| Proa | 6,000 | 4,600 | 621.9 ms | 1081.0 ms | 1817.1 ms | 1965.6 ms | 0.186 ms | 0.88 | 222.6 MiB | 378.4 KiB | 0 |
+| SvelteKit | 6,000 | 2,986 | 2443.2 ms | 2559.7 ms | 5937.2 ms | 8527.3 ms | 0.394 ms | 1.06 | 537.2 MiB | 17.8 KiB | 0 |
 
 Recorded failure messages across the full phases: SvelteKit: `connect ETIMEDOUT 127.0.0.1:<port>`. Overload includes the production server’s accept queue and HTTP adapter; connection retries/timeouts and server queueing are part of these scheduled-arrival results. This sweep is not a renderer-only microbenchmark.
 

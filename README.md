@@ -48,9 +48,9 @@ If you see an issue with the benchmarks or would like to add any, please open an
       <p>Single-core Suspense streaming with eight async boundaries per request.</p>
       <!-- charts:suspense:start -->
       <a href="charts/svg/07-suspense-load.svg">
-        <img width="100%" alt="Separate HTTP load captures: Proa, Marko and React resolved-HTML streaming, plus Proa versus SvelteKit native streaming with throughput, P95 and failures" src="charts/svg/07-suspense-load.svg">
+        <img width="100%" alt="Overlaid HTTP streaming throughput and memory for Proa, Marko, React and SvelteKit, with four latency panels on a shared scale" src="charts/svg/07-suspense-load.svg">
       </a>
-      <p><em>HTML-stream <a href="http-capacity.md#suspense-streaming-over-http-one-core-each">capture</a> and separate <a href="sveltekit.md#http-streaming-capacity-and-latency">SvelteKit load sweep</a>. Data response end excludes browser rendering; see <a href="sveltekit/browser.svg">first-panel and complete-DOM timings</a>. <a href="charts/svg/07-suspense-load.svg">Full size</a> · <a href="charts/">how the figures are built</a></em></p>
+      <p><em>Four engines on shared throughput, memory, and latency scales. <a href="http-capacity.md#suspense-streaming-over-http-one-core-each">Marko/React source</a> · <a href="sveltekit.md#http-streaming-capacity-and-latency">Proa/SvelteKit source</a>. SvelteKit response end excludes browser rendering; see <a href="sveltekit/browser.svg">complete-DOM timings</a>. <a href="charts/svg/07-suspense-load.svg">Full size</a> · <a href="charts/">how the figures are built</a></em></p>
       <!-- charts:suspense:end -->
     </td>
     <td valign="top" width="50%">

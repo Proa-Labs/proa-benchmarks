@@ -38,7 +38,7 @@ export function validateStreaming(result) {
     seen.add(key);
     if (!phase.loadGeneratorValid || phase.generator?.busiestWorkerUtilization > 0.8 || phase.latencyMs?.schedulerLag?.p95 > 25) fail(`generator bottleneck ${key}`);
     if (phase.mode !== 'open' || phase.durationSeconds !== 5 || phase.preRollSeconds !== 1 || phase.generator?.workerCount !== 12) fail(`HTTP protocol ${key}`);
-    for (const value of [phase.completionThroughputRps, phase.latencyMs?.scheduledFirstByte?.p50, phase.latencyMs?.scheduledComplete?.p50, phase.latencyMs?.scheduledComplete?.p95, phase.cpu?.cpuMsPerSuccessfulRequest, phase.memory?.peakSampledRssBytes, phase.responseBytes]) if (!Number.isFinite(value) || value < 0) fail(`missing HTTP metrics ${key}`);
+    for (const value of [phase.completionThroughputRps, phase.latencyMs?.scheduledFirstByte?.p50, phase.latencyMs?.scheduledComplete?.p50, phase.latencyMs?.scheduledComplete?.p95, phase.latencyMs?.scheduledComplete?.p99, phase.cpu?.cpuMsPerSuccessfulRequest, phase.memory?.peakSampledRssBytes, phase.responseBytes]) if (!Number.isFinite(value) || value < 0) fail(`missing HTTP metrics ${key}`);
     if (!Number.isSafeInteger(phase.steadyStateCompletedResponses) || phase.steadyStateCompletedResponses < 0) fail(`invalid HTTP completion count ${key}`);
     if (Math.abs(phase.completionThroughputRps - phase.steadyStateCompletedResponses / phase.durationSeconds) > 1e-9) fail(`HTTP throughput differs from retained completion count ${key}`);
     const contract = phase.engine === 'proa' ? phase.health : phase.health?.streaming;
@@ -77,7 +77,7 @@ function httpRows(result) {
   return rates.flatMap(rate=>comparisonIds.map(engine=>{
     const cell = result.http.filter(p=>p.engine===engine && p.offeredRps===rate);
     const pick = fn=>median(cell.map(fn));
-    return `| ${names[engine]} | ${n(rate)} | ${n(pick(p=>p.completionThroughputRps))} | ${ms(pick(p=>p.latencyMs.scheduledFirstByte.p50))} | ${ms(pick(p=>p.latencyMs.scheduledComplete.p50))} | ${ms(pick(p=>p.latencyMs.scheduledComplete.p95))} | ${f(pick(p=>p.cpu.cpuMsPerSuccessfulRequest),3)} ms | ${f(pick(p=>p.cpu.averageCpuCores),2)} | ${mib(pick(p=>p.memory.peakSampledRssBytes))} | ${kib(pick(p=>p.responseBytes))} | ${n(cell.reduce((sum,p)=>sum+p.errorCount,0))} |`;
+    return `| ${names[engine]} | ${n(rate)} | ${n(pick(p=>p.completionThroughputRps))} | ${ms(pick(p=>p.latencyMs.scheduledFirstByte.p50))} | ${ms(pick(p=>p.latencyMs.scheduledComplete.p50))} | ${ms(pick(p=>p.latencyMs.scheduledComplete.p95))} | ${ms(pick(p=>p.latencyMs.scheduledComplete.p99))} | ${f(pick(p=>p.cpu.cpuMsPerSuccessfulRequest),3)} ms | ${f(pick(p=>p.cpu.averageCpuCores),2)} | ${mib(pick(p=>p.memory.peakSampledRssBytes))} | ${kib(pick(p=>p.responseBytes))} | ${n(cell.reduce((sum,p)=>sum+p.errorCount,0))} |`;
   })).join('\n');
 }
 
@@ -132,7 +132,7 @@ The comparison uses each framework's native streaming route:
 
 Every request uses the same eight delayed panels (5, 8, 12, 18, 27, 40, 60, and 90 ms), 12 cards per panel, five SVG stars per card, and prepared typed input values. SvelteKit's data serialization is part of its native path and is included. There is no external data service. The resolved panel DOM, including text, attributes, classes, element order, and all 480 stars, must match across all browser samples. The fixture preserves the existing benchmark's BackCompat document mode and utility-class markup; it is a rendering workload rather than a styled application. No CSS, product images, or fonts are fetched.
 
-**HTTP response end is a different completion boundary for the data stream.** Its capacity numbers below describe delivering data, not delivering server-rendered product HTML. The browser table compares the same completed UI. This comparison has its own report rather than mixing the data-only response into the existing [HTML-streaming curve](http-capacity.md#suspense-streaming-over-http-one-core-each).
+**HTTP response end is a different completion boundary for SvelteKit.** Its capacity numbers below describe delivering data, not delivering server-rendered product HTML. The browser table compares the same completed UI. The [combined load figure](charts/svg/07-suspense-load.svg) overlays these Proa/SvelteKit measurements with the retained [Marko/React capture](http-capacity.md#suspense-streaming-over-http-one-core-each), labeling the capture dates and completion boundaries.
 
 ## Browser completion
 
@@ -152,8 +152,8 @@ JavaScript-disabled controls passed in both profiles: both frameworks leave the 
 
 Three fresh processes per framework/rate, order rotated, one Proa Tokio worker or one Node process. Exact server CPU charges every process thread, including GC helpers. Twelve separate generator processes, 24 untimed warmup requests, one-second pre-roll, five-second observation window. Each generator uses a keep-alive agent capped at 256 sockets (3,072 total); any agent queueing is included in scheduled-arrival latency. The shared driver uses a 15-second socket timeout alongside platform TCP connection timeouts. Throughput counts successful responses ending inside that window; scheduled-arrival latencies include queueing and generator lag. Latency percentiles cover successful responses only; failures are reported separately and must be considered alongside them. At overload, failures censor the latency distribution, so a lower successful-response percentile can accompany more failed requests. Rows show medians of the three phase metrics, and errors are summed. High-load overload/errors are retained rather than treated as completed work. Every response is validated: Proa's complete HTML boundary payload or all SvelteKit promised values and product fields. The generator must stay below 80% worker utilization and 25 ms P95 scheduling lag; otherwise the capture aborts.
 
-| Framework | Offered rps | Response ends/s | First byte P50 | Response end P50 | Response end P95 | Server CPU/response | Cores | Peak RSS | Document body | Errors |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Framework | Offered rps | Response ends/s | First byte P50 | Response end P50 | Response end P95 | Response end P99 | Server CPU/response | Cores | Peak RSS | Document body | Errors |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 ${httpRows(result)}
 
 Recorded failure messages across the full phases: ${failureTypes}. Overload includes the production server’s accept queue and HTTP adapter; connection retries/timeouts and server queueing are part of these scheduled-arrival results. This sweep is not a renderer-only microbenchmark.
