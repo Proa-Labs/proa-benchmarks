@@ -7,6 +7,8 @@ Two HTTP suites wrap the same pages in each framework's production server and fo
 - [`page-load/`](page-load/) serves the three canonical pages on one core per engine and reports sustained throughput, CPU per response, and memory; and
 - [`suspense-load/`](suspense-load/) streams a Suspense-heavy page through Proa, Marko, and React.
 
+[`fleet-size/`](fleet-size/) translates a publication page-load capture's CPU per response into cores needed at a chosen request rate. It does not join that translation back into the renderer scoreboard.
+
 The repository's other suites answer different questions and retain their methods beside their evidence:
 
 - [`showcase/`](showcase/) covers application-shaped SSR and verified browser JavaScript;
