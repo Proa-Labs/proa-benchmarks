@@ -52,3 +52,14 @@ pnpm run charts && pnpm run check:charts
 
 `results/latest.json` is the public capture. The report generator refuses to
 render a capture whose measured sources have changed since it was taken.
+
+To size a fleet from the same CPU-per-response column, without rerunning the
+servers:
+
+```sh
+node fleet-size/run.mjs --capture page-load/results/latest.json
+node fleet-size/run.mjs --target-rps 1000,10000,50000 --headroom 0.3 --max-cores 16
+```
+
+The formula is the one behind the published 10,000 responses/s table: cores =
+(CPU ms/response) × (target rps) / 1000. See [`../fleet-size/`](../fleet-size/).

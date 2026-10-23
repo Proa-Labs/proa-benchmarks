@@ -130,6 +130,8 @@ pnpm run refresh               # regenerate every evidence page and figure from 
   - How every SVG is drawn from the evidence pages' own tables and checked against them.
 - [Canonical benchmark protocol](rendering/protocol.md)
   - The fairness rules, workload shapes, and parity gate in full.
+- [Fleet size from CPU per response](fleet-size/)
+  - Translate a page-load capture into cores needed at a chosen request rate.
 - Suite READMEs: [`rendering/`](rendering/), [`page-load/`](page-load/), [`suspense-load/`](suspense-load/), [`sveltekit/`](sveltekit/), [`load/`](load/), [`showcase/`](showcase/), [`agent-chain/`](agent-chain/), and the separate [`travel-agent/`](travel-agent/) control.
 
 ## License and attribution
