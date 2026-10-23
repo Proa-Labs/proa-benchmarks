@@ -116,7 +116,7 @@ jobs:
           pnpm install --frozen-lockfile
           pnpm test
           npm --prefix rendering/external/sveltekit ci
-          node --test rendering/external/sveltekit/stream-validator.test.mjs sveltekit/benchmark.test.mjs
+          node --test rendering/external/sveltekit/stream-validator.test.mjs sveltekit/benchmark.test.mjs compare/compare.test.mjs
           node sveltekit/report.mjs --check
           bash -n scripts/refresh-proa.sh rendering/run_all.sh
 

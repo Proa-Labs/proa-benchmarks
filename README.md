@@ -130,6 +130,8 @@ pnpm run refresh               # regenerate every evidence page and figure from 
   - How every SVG is drawn from the evidence pages' own tables and checked against them.
 - [Canonical benchmark protocol](rendering/protocol.md)
   - The fairness rules, workload shapes, and parity gate in full.
+- [Capture comparison](compare/)
+  - Diff two retained JSON captures of the same suite without mixing suites.
 - Suite READMEs: [`rendering/`](rendering/), [`page-load/`](page-load/), [`suspense-load/`](suspense-load/), [`sveltekit/`](sveltekit/), [`load/`](load/), [`showcase/`](showcase/), [`agent-chain/`](agent-chain/), and the separate [`travel-agent/`](travel-agent/) control.
 
 ## License and attribution
